@@ -8,7 +8,7 @@
         <language>zh-cn</language>
         <copyright>郭小胖</copyright>
         <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://guokun603-cel.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>归档 | Archives</title>
+        <title>归档 </title>
         <link>https://guokun603-cel.github.io/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
@@ -16,28 +16,28 @@
         <description></description>
         </item>
         <item>
-        <title>分类&amp;标签 | Cats&amp;Tags</title>
-        <link>https://guokun603-cel.github.io/%E5%88%86%E7%B1%BB%E6%A0%87%E7%AD%BE-catstags/</link>
+        <title>分类</title>
+        <link>https://guokun603-cel.github.io/%E5%88%86%E7%B1%BB/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://guokun603-cel.github.io/%E5%88%86%E7%B1%BB%E6%A0%87%E7%AD%BE-catstags/</guid>
+        <guid>https://guokun603-cel.github.io/%E5%88%86%E7%B1%BB/</guid>
         <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
 </description>
         </item>
         <item>
-        <title>技术链接 | Links</title>
-        <link>https://guokun603-cel.github.io/%E6%8A%80%E6%9C%AF%E9%93%BE%E6%8E%A5-links/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://guokun603-cel.github.io/%E6%8A%80%E6%9C%AF%E9%93%BE%E6%8E%A5-links/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>搜索 | Search</title>
+        <title>搜索 </title>
         <link>https://guokun603-cel.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://guokun603-cel.github.io/search/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>友链</title>
+        <link>https://guokun603-cel.github.io/%E5%8F%8B%E9%93%BE/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://guokun603-cel.github.io/%E5%8F%8B%E9%93%BE/</guid>
         <description></description>
         </item>
         
