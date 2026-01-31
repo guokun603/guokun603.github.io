@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="学习Hugo博客的搭建 本教程将介绍如何使用 Hugo 和 GitHub Pages 搭建一个静态博客。Hugo 是一款功能强大的静态站点生成器，可以帮助您轻松创建美观、响应式的">
+<title>A</title>
+
+<link rel='canonical' href='http://localhost:1313/p/a/'>
+
+<link rel="stylesheet" href="/scss/style.min.40346b5bb5fc16e0cdf966d29d15ae86af17eec1f0f8957fba0da7a9ec656679.css"><meta property='og:title' content="A">
+<meta property='og:description' content="学习Hugo博客的搭建 本教程将介绍如何使用 Hugo 和 GitHub Pages 搭建一个静态博客。Hugo 是一款功能强大的静态站点生成器，可以帮助您轻松创建美观、响应式的">
+<meta property='og:url' content='http://localhost:1313/p/a/'>
+<meta property='og:site_name' content='郭小胖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-31T17:39:27&#43;08:00'/><meta property='article:modified_time' content='2026-01-31T20:20:01&#43;08:00'/>
+<meta name="twitter:title" content="A">
+<meta name="twitter:description" content="学习Hugo博客的搭建 本教程将介绍如何使用 Hugo 和 GitHub Pages 搭建一个静态博客。Hugo 是一款功能强大的静态站点生成器，可以帮助您轻松创建美观、响应式的">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hue6550b27d333e6d3ea4ba819e5c99674_47742_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">郭小胖</a></h1>
+            <h2 class="site-description">欢迎来到我的网站</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com/'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/guokun603-cel'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%88%86%E7%B1%BB/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#学习hugo博客的搭建">学习Hugo博客的搭建</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#环境准备">环境准备</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#1-创建hugo新站点">1. 创建Hugo新站点</a></li>
+    <li><a href="#2选择主题hugo-module">2.选择主题（Hugo module)</a>
+      <ol>
+        <li><a href="#21浏览和选择主题">2.1浏览和选择主题</a></li>
+        <li><a href="#2-2下载及应用主题官方推荐hugo-module">2. 2下载及应用主题(官方推荐，Hugo module)</a></li>
+        <li><a href="#23-预览主题">2.3 预览主题</a></li>
+      </ol>
+    </li>
+    <li><a href="#3选择主题git配置">3.选择主题（Git配置）</a>
+      <ol>
+        <li><a href="#1-下载合适的安装包">1. 下载合适的安装包</a></li>
+        <li><a href="#2-应用主题">2. 应用主题</a></li>
+        <li><a href="#3设置配置文件">3.设置配置文件</a></li>
+      </ol>
+    </li>
+    <li><a href="#第三部分部署到-github-pages">第三部分：部署到 GitHub Pages</a>
+      <ol>
+        <li><a href="#1-部署准备">1. 部署准备</a></li>
+        <li><a href="#2-常规部署">2. 常规部署</a></li>
+        <li><a href="#3-自动部署">3. 自动部署</a></li>
+      </ol>
+    </li>
+    <li><a href="#第四部分stack进阶">第四部分：stack进阶</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/a/">A</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+       <div class="article-lastmod">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+            <time>
+                
+                2026-01-31 20:20
+            </time>
+        </div>
+
+        
+        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--reading">
+                
+                <span id="busuanzi_value_page_pv">loading...</span> 次
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="学习hugo博客的搭建">学习Hugo博客的搭建
+</h2><p>本教程将介绍如何使用 Hugo 和 GitHub Pages 搭建一个静态博客。Hugo 是一款功能强大的静态站点生成器，可以帮助您轻松创建美观、响应式的博客页面。GitHub Pages 则是 GitHub 提供的免费托管服务，可用于托管您的 Hugo 博客。</p>
+<hr>
+<h1 id="第一部分入门与环境搭建">第一部分：入门与环境搭建
+</h1><h2 id="环境准备">环境准备
+</h2><p>首先下载所需的工具：</p>
+<p>[Hugo](<a class="link" href="https://gohugo.io/"  target="_blank" rel="noopener"
+    >The world&rsquo;s fastest framework for building websites</a>)</p>
+<p>[Git](<a class="link" href="https://git-scm.cn/install/"  target="_blank" rel="noopener"
+    >Git - 安装 - Git 版本控制系统</a>)</p>
+<p>[Go](<a class="link" href="https://go.dev/doc/install"  target="_blank" rel="noopener"
+    >Download and install - The Go Programming Language</a>)</p>
+<p>将<code>Hugo</code>和<code>Git</code>的指令添加环境变量</p>
+<h1 id="第二部分创建博客">第二部分：创建博客
+</h1><h2 id="1-创建hugo新站点">1. 创建Hugo新站点
+</h2><p>使用 Hugo 创建新站点非常简单，在想要创建的目录下，命令行中输入以下命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new site blog
+</span></span></code></pre></div><p>其中blog 是博客名称，可以根据需要修改。</p>
+<p>执行该命令后，会自动生成 Hugo 博客的标准目录结构，生成的目录如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>blog/
+</span></span><span style="display:flex;"><span>├── archetypes/       <span style="color:#75715e"># 内容模板（新建文章时的默认格式）</span>
+</span></span><span style="display:flex;"><span>├── assets/           <span style="color:#75715e"># 未编译的静态资源（如 SCSS、JS）</span>
+</span></span><span style="display:flex;"><span>├── hugo.toml         <span style="color:#75715e"># 核心配置文件（Toml 格式，也可改用 Yaml/Json）</span>
+</span></span><span style="display:flex;"><span>├── content/          <span style="color:#75715e"># 博客文章内容（核心目录，放 Markdown 文章）</span>
+</span></span><span style="display:flex;"><span>├── data/             <span style="color:#75715e"># 自定义数据文件（如 JSON/Yaml，可在模板中调用）</span>
+</span></span><span style="display:flex;"><span>├── layouts/          <span style="color:#75715e"># 自定义模板（覆盖主题模板）</span>
+</span></span><span style="display:flex;"><span>├── public/           <span style="color:#75715e"># 编译后生成的静态网站文件（部署用）</span>
+</span></span><span style="display:flex;"><span>├── static/           <span style="color:#75715e"># 静态资源（如图片、CSS、JS，会直接复制到 public）</span>
+</span></span><span style="display:flex;"><span>└── themes/           <span style="color:#75715e"># 主题文件夹（存放下载的 Hugo 主题）    </span>
+</span></span></code></pre></div><p>这将创建必要的配置文件和文件夹，并提示接下来如何创建一个博客。</p>
+<p><img src="/assets/image-20260131091447380-1769834111686-3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260131091447380"
+	
+	
+></p>
+<p>进入新创建的站点目录，并运行以下命令进行初始化：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd blog
+</span></span></code></pre></div><h2 id="2选择主题hugo-module">2.选择主题（Hugo module)
+</h2><h3 id="21浏览和选择主题">2.1浏览和选择主题
+</h3><p>Hugo 提供了丰富的主题模板，您可以根据自己的喜好选择合适的主题。</p>
+<p><a class="link" href="https://themes.gohugo.io/"  target="_blank" rel="noopener"
+    >官方主题仓库</a>
+<a class="link" href="https://github.com/topics/hugo-theme"  target="_blank" rel="noopener"
+    >第三方主题仓库</a></p>
+<h3 id="2-2下载及应用主题官方推荐hugo-module">2. 2下载及应用主题(官方推荐，Hugo module)
+</h3><p>用这种方法，目录下不会有文件。要修改主题，你需要把想修改的文件复制到目录下的同一个目录。<code>themes``layouts</code></p>
+<p>不是很推荐，想要自己配置的可以使用，如果想要快速使用的话，查看<strong>3.Git配置</strong></p>
+<p>这里演示<strong>stack</strong>主题，通过[官方文档下载](<a class="link" href="https://stack.jimmycai.com/guide/getting-started"  target="_blank" rel="noopener"
+    >Getting Started | Stack</a>)</p>
+<p>最低要求的 Hugo 版本可以在<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/blob/master/theme.toml#L23"  target="_blank" rel="noopener"
+    >主题的 <code>theme.toml</code> 文件</a>中看到</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>git init
+</span></span></code></pre></div><p>首先，把你的网站变成Hugo模块（如果你还没做过）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo mod init github.com/me/my-new-blog
+</span></span></code></pre></div><p><code>github.com/你的用户名/你的博客名</code>，随便填也可以</p>
+<p>执行成功后，项目根目录会生成一个 <code>go.mod</code> 文件，这是 Hugo Module 的核心配置文件，不用手动修改。</p>
+<p>在项目根目录的 <code>hugo.toml</code> 文件中，添加</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[[</span>module.imports<span style="color:#f92672">]]</span>
+</span></span><span style="display:flex;"><span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;github.com/CaiJimmy/hugo-theme-stack/v3&#34;</span>
+</span></span></code></pre></div><p>这使得 Hugo 使用了主题的最新稳定版本（发布页面可获得，可能不会与分支中最新的提交时间重合）</p>
+<p>要将主题更新到最新版本，请执行以下命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v3
+</span></span><span style="display:flex;"><span>hugo mod tidy
+</span></span></code></pre></div><p>由于版本问题，在项目根目录执行命令，指定降级到稳定兼容版（v3.28.0 经测试适配 Hugo 0.15x 系列）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo mod get github.com/CaiJimmy/hugo-theme-stack/v3@v3.28.0
+</span></span><span style="display:flex;"><span>hugo mod tidy
+</span></span></code></pre></div><h3 id="23-预览主题">2.3 预览主题
+</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div><p><img src="/assets/image-20260131104232402-1769834111686-4.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260131104232402"
+	
+	
+></p>
+<p>成功是上面那样，这将在您的浏览器中打开一个本地服务器，您可以访问 http://localhost:1313 来查看您的博客页面。</p>
+<p>效果如下：</p>
+<p><img src="/assets/image-20260131104441721-1769834111686-5.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260131104441721"
+	
+	
+></p>
+<p>这样的话一切内容就需要自己配置，非常麻烦。</p>
+<h2 id="3选择主题git配置">3.选择主题（Git配置）
+</h2><h3 id="1-下载合适的安装包">1. 下载合适的安装包
+</h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
+</span></span><span style="display:flex;"><span>cd themes/hugo-theme-stack
+</span></span><span style="display:flex;"><span>git checkout tags/v3.28.0
+</span></span></code></pre></div><p>这种方法，就是将主题放到了<code>themes</code>中</p>
+<h3 id="2-应用主题">2. 应用主题
+</h3><p>进入到<code>\themes\hugo-theme-stack\exampleSite</code>中，这里面是官方给的stack案例</p>
+<p>将其中的<code>content</code>文件和<code>hugo.yaml</code>文件一起复制到博客的根目录</p>
+<p>由于<code>hugo.toml</code>和<code>hugo.yaml</code>性质一样，删除原先的<code>hugo.toml</code></p>
+<p>就可以快速配置好一个默认的页面</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div><p>可以访问 http://localhost:1313 来查看您的博客页面。</p>
+<p><img src="/assets/image-20260131112409477-1769834111686-8.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260131112409477"
+	
+	
+></p>
+<h3 id="3设置配置文件">3.设置配置文件
+</h3><p>Hugo 的配置文件<code>hugo.yaml</code>用于配置站点信息、主题、菜单等。</p>
+<p>修改里面的内容，就可以将这个页面换为自己的内容</p>
+<p>具体怎么配置可以查看<code>bilibili</code>博主<a class="link" href="https://www.bilibili.com/blackboard/help.html/?spm_id_from=333.1387.0.0#/?qid=59e2cffdaa69465486497bb35a5ac295"  target="_blank" rel="noopener"
+    >Letere-莱特雷</a><a class="link" href="https://www.bilibili.com/video/BV1bovfeaEtQ/?p=2&amp;spm_id_from=333.40164.top_right_bar_window_history.content.click&amp;vd_source=ab7429f845be434d5f70be9d57e50b66"  target="_blank" rel="noopener"
+    >stack主题配置_哔哩哔哩_bilibili</a></p>
+<h2 id="第三部分部署到-github-pages">第三部分：部署到 GitHub Pages
+</h2><h3 id="1-部署准备">1. 部署准备
+</h3><p>首先,前往【<a class="link" href="https://github.com/"  target="_blank" rel="noopener"
+    >Github官网</a>】，创建仓库 <strong>{github用户名}.github.io</strong>这将是你博客的主域名。 在将您的 Hugo 博客部署到 GitHub Pages 之前，请确保您已经：</p>
+<ul>
+<li>创建了一个 GitHub 账户。</li>
+<li>创建一个新的 GitHub 仓库。</li>
+</ul>
+<h3 id="2-常规部署">2. 常规部署
+</h3><p>首先，修改我们的<code>hugo.yaml</code>中baseurl中的地址，修改为我们创建的仓库的地址，格式如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>baseurl: https://你的仓库/
+</span></span></code></pre></div><p>然后把<strong>public</strong> 静态资源文件夹删除</p>
+<p>重新生成静态站点，会自动生成新的<strong>public</strong> 静态资源文件夹</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo -D
+</span></span></code></pre></div><p>现在,我们进入<strong>public</strong> ，就可以将Hugo生成的静态网站文件推送到GitHub仓库:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd public
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git remote add origin git@github.com:your-github-username/your-github-project-name.git
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git branch -M main
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;First commit&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><p>前往<code>Setting -&gt; Pages -&gt; Branch</code>选择main分支，然后保存，会自动开启 <strong>https://{github用户名}.github.io</strong> 的地址，这地址也是以后访问博客的地址</p>
+<p><img src="/assets/image-20260131121547206-1769834111686-6.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260131121547206"
+	
+	
+></p>
+<p>上传成功后访问 <strong>https://{github用户名}.github.io</strong>，成功搭建属于自己的Hugo博客</p>
+<hr>
+<h3 id="3-自动部署">3. 自动部署
+</h3><ul>
+<li>（1）Github创建一个新的仓库，用于存放Hugo的主文件</li>
+<li>（2）前往<code>Setttings -&gt; Developer Settings -&gt; Personal access tokens</code>，创建一个token(classic)</li>
+<li>主页的setting</li>
+</ul>
+<p><img src="/assets/image-20260131122332449-1769834111686-7.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260131122332449"
+	
+	
+></p>
+<ul>
+<li>（3）token选择永不过期，并勾选 <strong>repo</strong> 和 <strong>workflow</strong> 选项，记得复制一下</li>
+</ul>
+<p>为保证安全，将生成的token，保存的仓库的变量中，前往<code>Settings -&gt; Secrets and variables -&gt; Actions</code>中设置</p>
+<p><img src="/assets/image-20260131123417464-1769834111686-9.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260131123417464"
+	
+	
+></p>
+<p>在hugo主文件创建一个<code>.github/workflows/xxxx.yaml</code>文件，将以下内容复制进去，想具体了解更多，可查看【<a class="link" href="https://docs.github.com/zh/actions"  target="_blank" rel="noopener"
+    >Github Action文档</a>】</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>name: deploy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 代码提交到main分支时触发github action</span>
+</span></span><span style="display:flex;"><span>on:
+</span></span><span style="display:flex;"><span>  push:
+</span></span><span style="display:flex;"><span>    branches:
+</span></span><span style="display:flex;"><span>      - main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>jobs:
+</span></span><span style="display:flex;"><span>  deploy:
+</span></span><span style="display:flex;"><span>    runs-on: ubuntu-latest
+</span></span><span style="display:flex;"><span>    steps:
+</span></span><span style="display:flex;"><span>        - name: Checkout
+</span></span><span style="display:flex;"><span>          uses: actions/checkout@v4
+</span></span><span style="display:flex;"><span>          with:
+</span></span><span style="display:flex;"><span>              fetch-depth: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        - name: Setup Hugo
+</span></span><span style="display:flex;"><span>          uses: peaceiris/actions-hugo@v3
+</span></span><span style="display:flex;"><span>          with:
+</span></span><span style="display:flex;"><span>              hugo-version: <span style="color:#e6db74">&#34;latest&#34;</span>
+</span></span><span style="display:flex;"><span>              extended: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        - name: Build Web
+</span></span><span style="display:flex;"><span>          run: hugo -D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        - name: Deploy Web
+</span></span><span style="display:flex;"><span>          uses: peaceiris/actions-gh-pages@v4
+</span></span><span style="display:flex;"><span>          with:
+</span></span><span style="display:flex;"><span>              PERSONAL_TOKEN: <span style="color:#e6db74">${</span>{ secrets.你的token变量名 <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>              EXTERNAL_REPOSITORY: 你的github名/你的仓库名
+</span></span><span style="display:flex;"><span>              PUBLISH_BRANCH: main
+</span></span><span style="display:flex;"><span>              PUBLISH_DIR: ./public
+</span></span><span style="display:flex;"><span>              commit_message: auto deploy
+</span></span></code></pre></div><ul>
+<li>（6）在hugo主文件创建<code>.gitignore</code>文件，来避免提交不必要的文件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 自动生成的文件</span>
+</span></span><span style="display:flex;"><span>public
+</span></span><span style="display:flex;"><span>resources
+</span></span><span style="display:flex;"><span>.hugo_build.lock
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># hugo命令</span>
+</span></span><span style="display:flex;"><span>hugo.exe
+</span></span></code></pre></div><ul>
+<li>（7）将hugo的主文件上传到仓库，上传成功后会触发Github Action，来自动部署你的静态页面</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;first commit&#34;</span>
+</span></span><span style="display:flex;"><span>git branch -M main
+</span></span><span style="display:flex;"><span>git remote add origin <span style="color:#f92672">{</span>你的github仓库地址<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>git push -u origin main
+</span></span></code></pre></div><h2 id="第四部分stack进阶">第四部分：stack进阶
+</h2><p>浏览器搜索<code>Stack主题美化</code>,查看大佬的配置</p>
+<p><a class="link" href="https://blog.meimolihan.eu.org/p/51052943/#-%e5%af%bc%e8%88%aa%e7%9b%ae%e5%bd%95"  target="_blank" rel="noopener"
+    >Hugo + Stack 主题美化指南 🎨</a></p>
+<p><a class="link" href="https://ranch007.github.io/p/%e5%8d%9a%e5%ae%a2%e8%a3%85%e4%bf%ae%e6%97%a5%e8%ae%b0hugo-stack-giscus%e9%ad%94%e6%94%b9%e7%be%8e%e5%8c%96-%e7%bb%86%e8%8a%82%e6%bb%a1%e6%bb%a1/#%e5%af%bc%e5%85%a5%e4%b8%bb%e9%a2%98"  target="_blank" rel="noopener"
+    >【博客装修日记】Hugo➕ Stack ➕ Giscus魔改美化 细节满满</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-01-31 20:20
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 郭小胖
+    </section>
+    
+    </footer>
+
+
+<div id="toast-stack"></div>
+
+<script>
+ 
+(() => {
+  const toastStack = document.getElementById('toast-stack');
+  let toastCount = 0;
+  const MAX_TOAST = 5;
+  const DURATION  = 2500;
+
+   
+  let lastText = '';
+  let lastTime = 0;
+
+  window.pushToast = function (msg = '✅ 哎嘿！复制成功 🍬') {
+    const now = Date.now();
+    if (msg === lastText && now - lastTime < 500) return; 
+    lastText = msg;
+    lastTime = now;
+
+     
+    if (toastCount >= MAX_TOAST) toastStack.firstElementChild?.closeToast();
+
+    const item = document.createElement('div');
+    item.className = 'snack-left-top';
+    item.textContent = msg;
+
+    let closeTimer = null;
+    function closeToast() {
+      if (item.isClosing) return;
+      item.isClosing = true;
+      item.classList.remove('show');
+      item.addEventListener('transitionend', () => {
+        item.remove();
+        toastCount--;
+      }, { once: true });
+      clearTimeout(closeTimer);
+    }
+    item.closeToast = closeToast;
+
+    toastStack.appendChild(item);
+    toastCount++;
+    void item.offsetWidth;
+    item.classList.add('show');
+    closeTimer = setTimeout(closeToast, DURATION);
+  };
+
+   
+  document.addEventListener('copy', e => {
+    const text = window.getSelection().toString().trim();
+    if (!text) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(text)
+      .then(() => pushToast())
+      .catch(console.warn);
+  });
+
+   
+  const container = document.querySelector('.article-content');
+  if (container) {
+    container.addEventListener('click', e => {
+      if (!e.target.matches('.copyCodeButton')) return;
+      const wrap = e.target.closest('pre, .highlight');
+      const codeTd = wrap?.querySelector('td:nth-child(2)') || wrap;
+      const txt = codeTd ? codeTd.textContent.trim() : '';
+      navigator.clipboard.writeText(txt)
+        .then(() => pushToast())
+        .catch(err => alert('复制失败：' + err));
+    });
+  }
+})();
+</script>
+
+<style>
+ 
+.copyCodeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #3d3c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.copyCodeButton:hover {
+  background: var(--hover-text-color);
+  color: #fff;
+}
+
+ 
+.snack-left-top {
+  position: fixed;
+  left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  transform: translateX(calc(-100% - 20px));
+  width: 300px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  background: var(--hover-text-color);
+  color: #fff;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .35);
+  z-index: 9999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+ 
+.snack-left-top.show {
+  transform: translateX(0);
+}
+ 
+#toast-stack {
+  position: fixed;
+  left: 0;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+ 
+#toast-stack .snack-left-top {
+  position: relative;    
+  margin-bottom: 12px;   
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+              opacity   .35s cubic-bezier(.4, 0, .2, 1);
+  opacity: 0;
+  transform: translateX(calc(-100% - 20px));
+}
+
+#toast-stack .snack-left-top.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    document.querySelectorAll(".highlight").forEach(codeBlock => {
+      
+      if (codeBlock.querySelector('.code-more-box')) return;
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) return;
+
+      const codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+
+      const codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+      });
+
+      const img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "http://localhost:1313/icons/codeMore.png";
+
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox);
+    });
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+<div class="js-Pjax">
+    <script>
+      (function () {
+        let comment = document.querySelector(".comment");
+        if (!comment) {
+          return
+        }
+        let script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-repo',"meimolihan/meimolihan.github.io");
+        script.setAttribute('data-repo-id',"R_kgDONpRkKg");
+        script.setAttribute('data-category',"Announcements");
+        script.setAttribute('data-category-id',"DIC_kwDONpRkKs4CmwSa");
+        script.setAttribute('data-mapping',"pathname");
+        script.setAttribute('data-strict', 0 );
+        script.setAttribute('data-reactions-enabled', 1 );
+        script.setAttribute('data-emit-metadata', 0 );
+        script.setAttribute('data-input-position',"top");
+        script.setAttribute('data-theme',"light");
+        script.setAttribute('data-lang',"zh-CN");
+        script.setAttribute('data-loading', 'lazy')
+        script.async = true;
+        document.querySelector('.site-footer').before(script)
+      })(document);
+    </script>
+    <div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<div id="particles-js"></div>
+
+<script src=http://localhost:1313/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', "http://localhost:1313/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.meimolihan.eu.org/hugo/fish/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+<style>
+  @font-face {
+    font-family: 'WenYuanSerifSCVF';
+    src: url(http://localhost:1313/font/WenYuanSerifSCVF.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'WenYuanSerifSCVF';
+    --code-font-family: 'WenYuanSerifSCVF';
+  }
+</style>
+
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+
+<script>
+    function showHideView() {
+        
+        let viewCounts = document.querySelectorAll("#viewCount");
+        if (viewCounts) {
+            
+            let article =  document.querySelector(".article-page");
+            if (!article) {
+                viewCounts.forEach(ele => {
+                    ele.style.display = 'none';
+                });
+            }
+        }
+    }
+    
+    showHideView();
+</script>
+
+
+    </body>
+</html>

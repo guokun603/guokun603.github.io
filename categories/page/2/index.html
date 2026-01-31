@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="演示说明">
 <title>Categories</title>
 
-<link rel='canonical' href='https://guokun603-cel.github.io/categories/'>
+<link rel='canonical' href='http://localhost:1313/categories/'>
 
-<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="Categories">
+<link rel="stylesheet" href="/scss/style.min.40346b5bb5fc16e0cdf966d29d15ae86af17eec1f0f8957fba0da7a9ec656679.css"><meta property='og:title' content="Categories">
 <meta property='og:description' content="演示说明">
-<meta property='og:url' content='https://guokun603-cel.github.io/categories/'>
+<meta property='og:url' content='http://localhost:1313/categories/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-01-30T14:00:17&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-01-31T17:39:27&#43;08:00 '/>
 <meta name="twitter:title" content="Categories">
-<meta name="twitter:description" content="演示说明"><link rel="alternate" type="application/rss&#43;xml" href="https://guokun603-cel.github.io/categories/index.xml">
+<meta name="twitter:description" content="演示说明"><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/categories/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -134,7 +134,7 @@
         
         
         <li >
-            <a href='/%E5%85%B3%E4%BA%8E/' >
+            <a href='/%E5%88%86%E7%B1%BB/' >
                 
                 
                 
@@ -147,7 +147,7 @@
 
 
                 
-                <span>关于</span>
+                <span>分类</span>
             </a>
         </li>
         
@@ -167,7 +167,7 @@
 
 
                 
-                <span>归档</span>
+                <span>归档 </span>
             </a>
         </li>
         
@@ -186,13 +186,13 @@
 
 
                 
-                <span>搜索</span>
+                <span>搜索 </span>
             </a>
         </li>
         
         
         <li >
-            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
                 
                 
                 
@@ -205,7 +205,7 @@
 
 
                 
-                <span>友情链接</span>
+                <span>友链</span>
             </a>
         </li>
         
@@ -280,14 +280,6 @@
         
         <div class="widget-archive--list">
             <div class="archives-year">
-                    <a href="/archives/#2026">
-                        
-                            <span class="year">2026</span>
-                            <span class="count">1</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
                     <a href="/archives/#2020">
                         
                             <span class="year">2020</span>
@@ -354,6 +346,8 @@
     </aside>
 
 
+
+
             <main class="main full-width">
     <header>
         <h3 class="section-title">
@@ -374,17 +368,6 @@
     <section class="article-list--compact">
         
             <article>
-    <a href="/categories/themes/">
-        <div class="article-details">
-            <h2 class="article-title">Themes</h2>
-            <footer class="article-time">
-                <time datetime='2019-03-11T00:00:00Z'>2019-03-11</time>
-            </footer>
-        </div>
-    </a>
-</article>
-        
-            <article>
     <a href="/categories/test-with-whitespaces/">
         <div class="article-details">
             <h2 class="article-title">Test With Whitespaces</h2>
@@ -392,6 +375,26 @@
                 <time datetime='2019-03-09T00:00:00Z'>2019-03-09</time>
             </footer>
         </div>
+    </a>
+</article>
+        
+            <article>
+    <a href="/categories/test/">
+        <div class="article-details">
+            <h2 class="article-title">Test</h2>
+            <footer class="article-time">
+                <time datetime='0001-01-01T00:00:00Z'>0001-01-01</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash_hu8102ac0a5989befdf52fa5096a373f78_52927_120x120_fill_q75_box_smart1.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="Test"
+                        loading="lazy">
+                
+            </div>
+        
     </a>
 </article>
         
@@ -418,13 +421,159 @@
         2026 郭小胖
     </section>
     
-    <section class="powerby">
-        
-            郭小胖 © 2026 所有文章均为原创，转载请注明出处 <br/>
-        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
-    </section>
-</footer>
+    </footer>
+
+
+<div id="toast-stack"></div>
+
+<script>
+ 
+(() => {
+  const toastStack = document.getElementById('toast-stack');
+  let toastCount = 0;
+  const MAX_TOAST = 5;
+  const DURATION  = 2500;
+
+   
+  let lastText = '';
+  let lastTime = 0;
+
+  window.pushToast = function (msg = '✅ 哎嘿！复制成功 🍬') {
+    const now = Date.now();
+    if (msg === lastText && now - lastTime < 500) return; 
+    lastText = msg;
+    lastTime = now;
+
+     
+    if (toastCount >= MAX_TOAST) toastStack.firstElementChild?.closeToast();
+
+    const item = document.createElement('div');
+    item.className = 'snack-left-top';
+    item.textContent = msg;
+
+    let closeTimer = null;
+    function closeToast() {
+      if (item.isClosing) return;
+      item.isClosing = true;
+      item.classList.remove('show');
+      item.addEventListener('transitionend', () => {
+        item.remove();
+        toastCount--;
+      }, { once: true });
+      clearTimeout(closeTimer);
+    }
+    item.closeToast = closeToast;
+
+    toastStack.appendChild(item);
+    toastCount++;
+    void item.offsetWidth;
+    item.classList.add('show');
+    closeTimer = setTimeout(closeToast, DURATION);
+  };
+
+   
+  document.addEventListener('copy', e => {
+    const text = window.getSelection().toString().trim();
+    if (!text) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(text)
+      .then(() => pushToast())
+      .catch(console.warn);
+  });
+
+   
+  const container = document.querySelector('.article-content');
+  if (container) {
+    container.addEventListener('click', e => {
+      if (!e.target.matches('.copyCodeButton')) return;
+      const wrap = e.target.closest('pre, .highlight');
+      const codeTd = wrap?.querySelector('td:nth-child(2)') || wrap;
+      const txt = codeTd ? codeTd.textContent.trim() : '';
+      navigator.clipboard.writeText(txt)
+        .then(() => pushToast())
+        .catch(err => alert('复制失败：' + err));
+    });
+  }
+})();
+</script>
+
+<style>
+ 
+.copyCodeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #3d3c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.copyCodeButton:hover {
+  background: var(--hover-text-color);
+  color: #fff;
+}
+
+ 
+.snack-left-top {
+  position: fixed;
+  left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  transform: translateX(calc(-100% - 20px));
+  width: 300px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  background: var(--hover-text-color);
+  color: #fff;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .35);
+  z-index: 9999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+ 
+.snack-left-top.show {
+  transform: translateX(0);
+}
+ 
+#toast-stack {
+  position: fixed;
+  left: 0;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+ 
+#toast-stack .snack-left-top {
+  position: relative;    
+  margin-bottom: 12px;   
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+              opacity   .35s cubic-bezier(.4, 0, .2, 1);
+  opacity: 0;
+  transform: translateX(calc(-100% - 20px));
+}
+
+#toast-stack .snack-left-top.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+
+
 
 
             </main>
@@ -445,6 +594,273 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    document.querySelectorAll(".highlight").forEach(codeBlock => {
+      
+      if (codeBlock.querySelector('.code-more-box')) return;
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) return;
+
+      const codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+
+      const codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+      });
+
+      const img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "http://localhost:1313/icons/codeMore.png";
+
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox);
+    });
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+<div class="js-Pjax">
+    <script>
+      (function () {
+        let comment = document.querySelector(".comment");
+        if (!comment) {
+          return
+        }
+        let script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-repo',"meimolihan/meimolihan.github.io");
+        script.setAttribute('data-repo-id',"R_kgDONpRkKg");
+        script.setAttribute('data-category',"Announcements");
+        script.setAttribute('data-category-id',"DIC_kwDONpRkKs4CmwSa");
+        script.setAttribute('data-mapping',"pathname");
+        script.setAttribute('data-strict', 0 );
+        script.setAttribute('data-reactions-enabled', 1 );
+        script.setAttribute('data-emit-metadata', 0 );
+        script.setAttribute('data-input-position',"top");
+        script.setAttribute('data-theme',"light");
+        script.setAttribute('data-lang',"zh-CN");
+        script.setAttribute('data-loading', 'lazy')
+        script.async = true;
+        document.querySelector('.site-footer').before(script)
+      })(document);
+    </script>
+    <div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<div id="particles-js"></div>
+
+<script src=http://localhost:1313/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', "http://localhost:1313/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.meimolihan.eu.org/hugo/fish/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+<style>
+  @font-face {
+    font-family: 'WenYuanSerifSCVF';
+    src: url(http://localhost:1313/font/WenYuanSerifSCVF.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'WenYuanSerifSCVF';
+    --code-font-family: 'WenYuanSerifSCVF';
+  }
+</style>
+
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+
+<script>
+    function showHideView() {
+        
+        let viewCounts = document.querySelectorAll("#viewCount");
+        if (viewCounts) {
+            
+            let article =  document.querySelector(".article-page");
+            if (!article) {
+                viewCounts.forEach(ele => {
+                    ele.style.display = 'none';
+                });
+            }
+        }
+    }
+    
+    showHideView();
+</script>
+
 
     </body>
 </html>
