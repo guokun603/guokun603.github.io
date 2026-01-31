@@ -2,20 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://guokun603.github.io/p/a/</loc>
-    <lastmod>2026-01-31T21:47:06+08:00</lastmod>
+    <loc>https://guokun603.github.io/categories/</loc>
+    <lastmod>2026-02-01T00:41:05+08:00</lastmod>
+  </url><url>
+    <loc>https://guokun603.github.io/categories/hugo/</loc>
+    <lastmod>2026-02-01T00:41:05+08:00</lastmod>
+  </url><url>
+    <loc>https://guokun603.github.io/p/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2026-02-01T00:41:05+08:00</lastmod>
   </url><url>
     <loc>https://guokun603.github.io/post/</loc>
-    <lastmod>2026-01-31T21:47:06+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/categories/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/p/test-chinese/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
+    <lastmod>2026-02-01T00:41:05+08:00</lastmod>
   </url><url>
     <loc>https://guokun603.github.io/page/</loc>
     <lastmod>2026-01-31T21:47:06+08:00</lastmod>
@@ -23,53 +20,10 @@
     <loc>https://guokun603.github.io/archives/</loc>
     <lastmod>2026-01-31T17:13:57+08:00</lastmod>
   </url><url>
-    <loc>https://guokun603.github.io/tags/css/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/tags/html/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/tags/markdown/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/p/markdown-syntax-guide/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/categories/syntax/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/tags/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/tags/themes/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/categories/themes/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/p/placeholder-text/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/tags/tag-with-whitespaces/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/categories/test-with-whitespaces/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/tags/text/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/p/math-typesetting/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/tags/emoji/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
-    <loc>https://guokun603.github.io/p/emoji-support/</loc>
-    <lastmod>2026-01-31T16:59:52+08:00</lastmod>
-  </url><url>
     <loc>https://guokun603.github.io/</loc>
     <lastmod>2026-01-31T17:13:57+08:00</lastmod>
+  </url><url>
+    <loc>https://guokun603.github.io/tags/</loc>
   </url><url>
     <loc>https://guokun603.github.io/categories/test/</loc>
     <lastmod>2026-01-30T19:07:58+08:00</lastmod>
