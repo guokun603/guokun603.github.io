@@ -12,14 +12,11 @@
         <pubDate>Sun, 01 Feb 2026 00:34:38 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;hr&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;学习hugo博客的搭建&#34;&gt;学习Hugo博客的搭建
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;本教程将介绍如何使用 Hugo 和 GitHub Pages 搭建一个静态博客。Hugo 是一款功能强大的静态站点生成器，可以帮助您轻松创建美观、响应式的博客页面。GitHub Pages 则是 GitHub 提供的免费托管服务，可用于托管您的 Hugo 博客。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&#34;第一部分入门与环境搭建&#34;&gt;第一部分：入门与环境搭建
-&lt;/h1&gt;&lt;h2 id=&#34;环境准备&#34;&gt;环境准备
-&lt;/h2&gt;&lt;p&gt;首先下载所需的工具：&lt;/p&gt;
+&lt;h2 id=&#34;环境搭建&#34;&gt;环境搭建
+&lt;/h2&gt;&lt;p&gt;首先s下载所需的工具：&lt;/p&gt;
 &lt;p&gt;[Hugo](&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;The world&amp;rsquo;s fastest framework for building websites&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;[Git](&lt;a class=&#34;link&#34; href=&#34;https://git-scm.cn/install/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -27,23 +24,46 @@
 &lt;p&gt;[Go](&lt;a class=&#34;link&#34; href=&#34;https://go.dev/doc/install&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Download and install - The Go Programming Language&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;将&lt;code&gt;Hugo&lt;/code&gt;和&lt;code&gt;Git&lt;/code&gt;的指令添加环境变量&lt;/p&gt;
-&lt;h1 id=&#34;第二部分创建博客&#34;&gt;第二部分：创建博客
-&lt;/h1&gt;&lt;h2 id=&#34;1创建hugo新站点&#34;&gt;1.创建Hugo新站点
-&lt;/h2&gt;&lt;p&gt;使用 Hugo 创建新站点非常简单，在想要创建的目录下，命令行中输入以下命令：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site blog
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中blog 是博客名称，可以根据需要修改。&lt;/p&gt;
+&lt;h2 id=&#34;创建博客&#34;&gt;创建博客
+&lt;/h2&gt;&lt;h3 id=&#34;创建hugo新站点&#34;&gt;创建Hugo新站点
+&lt;/h3&gt;&lt;p&gt;使用 Hugo 创建新站点非常简单，在想要创建的目录下，命令行中输入以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new site blog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中blog 是博客名称，可以根据需要修改。&lt;/p&gt;
 &lt;p&gt;执行该命令后，会自动生成 Hugo 博客的标准目录结构，生成的目录如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;blog/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── archetypes/       &lt;span style=&#34;color:#75715e&#34;&gt;# 内容模板（新建文章时的默认格式）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── assets/           &lt;span style=&#34;color:#75715e&#34;&gt;# 未编译的静态资源（如 SCSS、JS）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── hugo.toml         &lt;span style=&#34;color:#75715e&#34;&gt;# 核心配置文件（Toml 格式，也可改用 Yaml/Json）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── content/          &lt;span style=&#34;color:#75715e&#34;&gt;# 博客文章内容（核心目录，放 Markdown 文章）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── data/             &lt;span style=&#34;color:#75715e&#34;&gt;# 自定义数据文件（如 JSON/Yaml，可在模板中调用）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── layouts/          &lt;span style=&#34;color:#75715e&#34;&gt;# 自定义模板（覆盖主题模板）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── public/           &lt;span style=&#34;color:#75715e&#34;&gt;# 编译后生成的静态网站文件（部署用）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── static/           &lt;span style=&#34;color:#75715e&#34;&gt;# 静态资源（如图片、CSS、JS，会直接复制到 public）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── themes/           &lt;span style=&#34;color:#75715e&#34;&gt;# 主题文件夹（存放下载的 Hugo 主题）    &lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这将创建必要的配置文件和文件夹，并提示接下来如何创建一个博客。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;blog/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── archetypes/       &lt;span class=&#34;c1&#34;&gt;# 内容模板（新建文章时的默认格式）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── assets/           &lt;span class=&#34;c1&#34;&gt;# 未编译的静态资源（如 SCSS、JS）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── hugo.toml         &lt;span class=&#34;c1&#34;&gt;# 核心配置文件（Toml 格式，也可改用 Yaml/Json）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── content/          &lt;span class=&#34;c1&#34;&gt;# 博客文章内容（核心目录，放 Markdown 文章）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── data/             &lt;span class=&#34;c1&#34;&gt;# 自定义数据文件（如 JSON/Yaml，可在模板中调用）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── layouts/          &lt;span class=&#34;c1&#34;&gt;# 自定义模板（覆盖主题模板）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── public/           &lt;span class=&#34;c1&#34;&gt;# 编译后生成的静态网站文件（部署用）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── static/           &lt;span class=&#34;c1&#34;&gt;# 静态资源（如图片、CSS、JS，会直接复制到 public）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── themes/           &lt;span class=&#34;c1&#34;&gt;# 主题文件夹（存放下载的 Hugo 主题）    &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这将创建必要的配置文件和文件夹，并提示接下来如何创建一个博客。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131091447380-1769834111686-3.png&#34;
 	
 	
@@ -55,39 +75,91 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;进入新创建的站点目录，并运行以下命令进行初始化：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd blog
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2选择主题hugo-module&#34;&gt;2.选择主题（Hugo module)
-&lt;/h2&gt;&lt;h3 id=&#34;21-浏览和选择主题&#34;&gt;2.1 浏览和选择主题
-&lt;/h3&gt;&lt;p&gt;Hugo 提供了丰富的主题模板，您可以根据自己的喜好选择合适的主题。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; blog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;选择主题hugo-module&#34;&gt;选择主题（Hugo module)
+&lt;/h3&gt;&lt;h4 id=&#34;浏览和选择主题&#34;&gt;浏览和选择主题
+&lt;/h4&gt;&lt;p&gt;Hugo 提供了丰富的主题模板，您可以根据自己的喜好选择合适的主题。&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://themes.gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;官方主题仓库&lt;/a&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://github.com/topics/hugo-theme&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;第三方主题仓库&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;2-2-下载及应用主题官方推荐hugo-module&#34;&gt;2. 2 下载及应用主题(官方推荐，Hugo module)
-&lt;/h3&gt;&lt;p&gt;用这种方法，目录下不会有文件。要修改主题，你需要把想修改的文件复制到目录下的同一个目录。&lt;code&gt;themes``layouts&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;下载及应用主题官方推荐hugo-module&#34;&gt;下载及应用主题(官方推荐，Hugo module)
+&lt;/h4&gt;&lt;p&gt;用这种方法，目录下不会有文件。要修改主题，你需要把想修改的文件复制到目录下的同一个目录。&lt;code&gt;themes``layouts&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;不是很推荐，想要自己配置的可以使用，如果想要快速使用的话，查看&lt;strong&gt;3.Git配置&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;这里演示&lt;strong&gt;stack&lt;/strong&gt;主题，通过[官方文档下载](&lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/guide/getting-started&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Getting Started | Stack&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;最低要求的 Hugo 版本可以在&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/blob/master/theme.toml#L23&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;主题的 &lt;code&gt;theme.toml&lt;/code&gt; 文件&lt;/a&gt;中看到&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git init
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;首先，把你的网站变成Hugo模块（如果你还没做过）：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo mod init github.com/me/my-new-blog
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;github.com/你的用户名/你的博客名&lt;/code&gt;，随便填也可以&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;init&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;首先，把你的网站变成Hugo模块（如果你还没做过）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod init github.com/me/my-new-blog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;github.com/你的用户名/你的博客名&lt;/code&gt;，随便填也可以&lt;/p&gt;
 &lt;p&gt;执行成功后，项目根目录会生成一个 &lt;code&gt;go.mod&lt;/code&gt; 文件，这是 Hugo Module 的核心配置文件，不用手动修改。&lt;/p&gt;
 &lt;p&gt;在项目根目录的 &lt;code&gt;hugo.toml&lt;/code&gt; 文件中，添加&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt;module.imports&lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/CaiJimmy/hugo-theme-stack/v3&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这使得 Hugo 使用了主题的最新稳定版本（发布页面可获得，可能不会与分支中最新的提交时间重合）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt;module.imports&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;github.com/CaiJimmy/hugo-theme-stack/v3&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这使得 Hugo 使用了主题的最新稳定版本（发布页面可获得，可能不会与分支中最新的提交时间重合）&lt;/p&gt;
 &lt;p&gt;要将主题更新到最新版本，请执行以下命令：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v3
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo mod tidy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由于版本问题，在项目根目录执行命令，指定降级到稳定兼容版（v3.28.0 经测试适配 Hugo 0.15x 系列）：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo mod get github.com/CaiJimmy/hugo-theme-stack/v3@v3.28.0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo mod tidy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;23-预览主题&#34;&gt;2.3 预览主题
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -D
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131104232402-1769834111686-4.png&#34;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod tidy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;由于版本问题，在项目根目录执行命令，指定降级到稳定兼容版（v3.28.0 经测试适配 Hugo 0.15x 系列）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod get github.com/CaiJimmy/hugo-theme-stack/v3@v3.28.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod tidy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;预览主题&#34;&gt;预览主题
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131104232402-1769834111686-4.png&#34;
 	
 	
 	
@@ -110,19 +182,35 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;这样的话一切内容就需要自己配置，非常麻烦。&lt;/p&gt;
-&lt;h2 id=&#34;3选择主题git配置&#34;&gt;3.选择主题（Git配置）
-&lt;/h2&gt;&lt;h3 id=&#34;31-下载合适的安装包&#34;&gt;3.1 下载合适的安装包
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd themes/hugo-theme-stack
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout tags/v3.28.0
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种方法，就是将主题放到了&lt;code&gt;themes&lt;/code&gt;中&lt;/p&gt;
-&lt;h3 id=&#34;32-应用主题&#34;&gt;3.2 应用主题
-&lt;/h3&gt;&lt;p&gt;进入到&lt;code&gt;\themes\hugo-theme-stack\exampleSite&lt;/code&gt;中，这里面是官方给的stack案例&lt;/p&gt;
+&lt;h3 id=&#34;选择主题git配置&#34;&gt;选择主题（Git配置）
+&lt;/h3&gt;&lt;h4 id=&#34;下载合适的安装包&#34;&gt;下载合适的安装包
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; themes/hugo-theme-stack
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout tags/v3.28.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这种方法，就是将主题放到了&lt;code&gt;themes&lt;/code&gt;中&lt;/p&gt;
+&lt;h4 id=&#34;应用主题&#34;&gt;应用主题
+&lt;/h4&gt;&lt;p&gt;进入到&lt;code&gt;\themes\hugo-theme-stack\exampleSite&lt;/code&gt;中，这里面是官方给的stack案例&lt;/p&gt;
 &lt;p&gt;将其中的&lt;code&gt;content&lt;/code&gt;文件和&lt;code&gt;hugo.yaml&lt;/code&gt;文件一起复制到博客的根目录&lt;/p&gt;
 &lt;p&gt;由于&lt;code&gt;hugo.toml&lt;/code&gt;和&lt;code&gt;hugo.yaml&lt;/code&gt;性质一样，删除原先的&lt;code&gt;hugo.toml&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;就可以快速配置好一个默认的页面&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -D
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以访问 http://localhost:1313 来查看您的博客页面。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;可以访问 http://localhost:1313 来查看您的博客页面。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131112409477-1769834111686-8.png&#34;
 	
 	
@@ -133,35 +221,62 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;33-设置配置文件&#34;&gt;3.3 设置配置文件
-&lt;/h3&gt;&lt;p&gt;Hugo 的配置文件&lt;code&gt;hugo.yaml&lt;/code&gt;用于配置站点信息、主题、菜单等。&lt;/p&gt;
+&lt;h4 id=&#34;设置配置文件&#34;&gt;设置配置文件
+&lt;/h4&gt;&lt;p&gt;Hugo 的配置文件&lt;code&gt;hugo.yaml&lt;/code&gt;用于配置站点信息、主题、菜单等。&lt;/p&gt;
 &lt;p&gt;修改里面的内容，就可以将这个页面换为自己的内容&lt;/p&gt;
 &lt;p&gt;具体怎么配置可以查看&lt;code&gt;bilibili&lt;/code&gt;博主&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/blackboard/help.html/?spm_id_from=333.1387.0.0#/?qid=59e2cffdaa69465486497bb35a5ac295&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Letere-莱特雷&lt;/a&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1bovfeaEtQ/?p=2&amp;amp;spm_id_from=333.40164.top_right_bar_window_history.content.click&amp;amp;vd_source=ab7429f845be434d5f70be9d57e50b66&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;stack主题配置_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;第三部分部署到-github-pages&#34;&gt;第三部分：部署到 GitHub Pages
-&lt;/h1&gt;&lt;h2 id=&#34;1-部署准备&#34;&gt;1. 部署准备
-&lt;/h2&gt;&lt;p&gt;首先,前往【&lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h2 id=&#34;部署到-github-pages&#34;&gt;部署到 GitHub Pages
+&lt;/h2&gt;&lt;h3 id=&#34;部署准备&#34;&gt;部署准备
+&lt;/h3&gt;&lt;p&gt;首先,前往【&lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Github官网&lt;/a&gt;】，创建仓库 &lt;strong&gt;{github用户名}.github.io&lt;/strong&gt;这将是你博客的主域名。 在将您的 Hugo 博客部署到 GitHub Pages 之前，请确保您已经：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;创建了一个 GitHub 账户。&lt;/li&gt;
 &lt;li&gt;创建一个新的 GitHub 仓库。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;2-常规部署&#34;&gt;2. 常规部署
-&lt;/h2&gt;&lt;p&gt;首先，修改我们的&lt;code&gt;hugo.yaml&lt;/code&gt;中baseurl中的地址，修改为我们创建的仓库的地址，格式如下&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;baseurl: https://你的仓库/
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后把&lt;strong&gt;public&lt;/strong&gt; 静态资源文件夹删除&lt;/p&gt;
+&lt;h3 id=&#34;常规部署&#34;&gt;常规部署
+&lt;/h3&gt;&lt;p&gt;首先，修改我们的&lt;code&gt;hugo.yaml&lt;/code&gt;中baseurl中的地址，修改为我们创建的仓库的地址，格式如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;baseurl: https://你的仓库/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后把&lt;strong&gt;public&lt;/strong&gt; 静态资源文件夹删除&lt;/p&gt;
 &lt;p&gt;重新生成静态站点，会自动生成新的&lt;strong&gt;public&lt;/strong&gt; 静态资源文件夹&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo -D
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;现在,我们进入&lt;strong&gt;public&lt;/strong&gt; ，就可以将Hugo生成的静态网站文件推送到GitHub仓库:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd public
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git init
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add origin git@github.com:your-github-username/your-github-project-name.git
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add .
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git branch -M main
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;First commit&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin main
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;前往&lt;code&gt;Setting -&amp;gt; Pages -&amp;gt; Branch&lt;/code&gt;选择main分支，然后保存，会自动开启 &lt;strong&gt;https://{github用户名}.github.io&lt;/strong&gt; 的地址，这地址也是以后访问博客的地址&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo -D
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;现在,我们进入&lt;strong&gt;public&lt;/strong&gt; ，就可以将Hugo生成的静态网站文件推送到GitHub仓库:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; public
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin git@github.com:your-github-username/your-github-project-name.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -M main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;First commit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;前往&lt;code&gt;Setting -&amp;gt; Pages -&amp;gt; Branch&lt;/code&gt;选择main分支，然后保存，会自动开启 &lt;strong&gt;https://{github用户名}.github.io&lt;/strong&gt; 的地址，这地址也是以后访问博客的地址&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131121547206-1769834111686-6.png&#34;
 	
 	
@@ -173,8 +288,8 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;上传成功后访问 &lt;strong&gt;https://{github用户名}.github.io&lt;/strong&gt;，成功搭建属于自己的Hugo博客&lt;/p&gt;
-&lt;h2 id=&#34;3-自动部署&#34;&gt;3. 自动部署
-&lt;/h2&gt;&lt;ul&gt;
+&lt;h3 id=&#34;自动部署&#34;&gt;自动部署
+&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;（1）Github创建一个新的仓库，用于存放Hugo的主文件&lt;/li&gt;
 &lt;li&gt;（2）前往&lt;code&gt;Setttings -&amp;gt; Developer Settings -&amp;gt; Personal access tokens&lt;/code&gt;，创建一个token(classic)&lt;/li&gt;
 &lt;li&gt;主页的setting&lt;/li&gt;
@@ -205,72 +320,137 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;在hugo主文件创建一个&lt;code&gt;.github/workflows/xxxx.yaml&lt;/code&gt;文件，将以下内容复制进去，想具体了解更多，可查看【&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/zh/actions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Github Action文档&lt;/a&gt;】&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;name: deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 代码提交到main分支时触发github action&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;on:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  push:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    branches:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - main
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;jobs:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  deploy:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    runs-on: ubuntu-latest
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    steps:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - name: Checkout
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          uses: actions/checkout@v4
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          with:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              fetch-depth: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - name: Setup Hugo
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          uses: peaceiris/actions-hugo@v3
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          with:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              hugo-version: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;latest&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              extended: true
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - name: Build Web
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          run: hugo -D
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - name: Deploy Web
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          uses: peaceiris/actions-gh-pages@v4
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          with:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              PERSONAL_TOKEN: &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;{ secrets.你的token变量名 &lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              EXTERNAL_REPOSITORY: 你的github名/你的仓库名
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              PUBLISH_BRANCH: main
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              PUBLISH_DIR: ./public
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              commit_message: auto deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;name: deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 代码提交到main分支时触发github action&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;on:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  push:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    branches:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      - main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jobs:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  deploy:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    runs-on: ubuntu-latest
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    steps:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        - name: Checkout
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          uses: actions/checkout@v4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          with:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              fetch-depth: &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        - name: Setup Hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          uses: peaceiris/actions-hugo@v3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          with:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              hugo-version: &lt;span class=&#34;s2&#34;&gt;&amp;#34;latest&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              extended: &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        - name: Build Web
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          run: hugo -D
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        - name: Deploy Web
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          uses: peaceiris/actions-gh-pages@v4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          with:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PERSONAL_TOKEN: &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{ secrets.你的token变量名 &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              EXTERNAL_REPOSITORY: 你的github名/你的仓库名
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PUBLISH_BRANCH: main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              PUBLISH_DIR: ./public
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              commit_message: auto deploy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;（6）在hugo主文件创建&lt;code&gt;.gitignore&lt;/code&gt;文件，来避免提交不必要的文件&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 自动生成的文件&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;public
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;resources
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.hugo_build.lock
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# hugo命令&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo.exe
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 自动生成的文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;public
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;resources
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;.hugo_build.lock
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# hugo命令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;（7）将hugo的主文件上传到仓库，上传成功后会触发Github Action，来自动部署你的静态页面&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git init
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add .
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;first commit&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git branch -M main
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add origin &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;你的github仓库地址&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push -u origin main
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;第四部分stack进阶&#34;&gt;第四部分：stack进阶
-&lt;/h1&gt;&lt;p&gt;浏览器搜索&lt;code&gt;Stack主题美化&lt;/code&gt;,查看大佬的配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;first commit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -M main
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;你的github仓库地址&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;stack进阶&#34;&gt;stack进阶
+&lt;/h2&gt;&lt;p&gt;浏览器搜索&lt;code&gt;Stack主题美化&lt;/code&gt;,查看大佬的配置&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.meimolihan.eu.org/p/51052943/#-%e5%af%bc%e8%88%aa%e7%9b%ae%e5%bd%95&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo + Stack 主题美化指南 🎨&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://ranch007.github.io/p/%e5%8d%9a%e5%ae%a2%e8%a3%85%e4%bf%ae%e6%97%a5%e8%ae%b0hugo-stack-giscus%e9%ad%94%e6%94%b9%e7%be%8e%e5%8c%96-%e7%bb%86%e8%8a%82%e6%bb%a1%e6%bb%a1/#%e5%af%bc%e5%85%a5%e4%b8%bb%e9%a2%98&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;【博客装修日记】Hugo➕ Stack ➕ Giscus魔改美化 细节满满&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;第五部分搭建图床&#34;&gt;第五部分搭建图床
-&lt;/h1&gt;&lt;h2 id=&#34;51-图床概述&#34;&gt;5.1 图床概述
-&lt;/h2&gt;&lt;p&gt;图床就是一个专门用来存放图片并提供在线访问链接的服务或工具，你可以把它理解成 “图片的网盘”。&lt;/p&gt;
+&lt;h2 id=&#34;搭建图床&#34;&gt;搭建图床
+&lt;/h2&gt;&lt;h3 id=&#34;图床概述&#34;&gt;图床概述
+&lt;/h3&gt;&lt;p&gt;图床就是一个专门用来存放图片并提供在线访问链接的服务或工具，你可以把它理解成 “图片的网盘”。&lt;/p&gt;
 &lt;p&gt;简单来说，当你在写文章或发帖子时，直接插入本地图片只能在自己的设备上看到。但用图床上传后，它会给你一个公开的图片链接，任何人在任何设备上都能通过这个链接看到图片。&lt;/p&gt;
 &lt;p&gt;对于博客场景来说，图床的选择会更看重&lt;strong&gt;稳定性、速度、长期可用性&lt;/strong&gt;和&lt;strong&gt;链接的可靠性&lt;/strong&gt;，因为你的博客内容会长期在线，图片链接一旦失效会直接影响阅读体验。&lt;/p&gt;
-&lt;h2 id=&#34;52-推荐-cloudflarer2-picgo&#34;&gt;5.2 推荐 CloudflareR2+ PicGo
-&lt;/h2&gt;&lt;p&gt;简单说就一个核心：&lt;strong&gt;免费、稳定、国内访问快，还能一键自动上传，新手零门槛&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;推荐-cloudflarer2-picgo&#34;&gt;推荐 CloudflareR2+ PicGo
+&lt;/h3&gt;&lt;p&gt;简单说就一个核心：&lt;strong&gt;免费、稳定、国内访问快，还能一键自动上传，新手零门槛&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131232717900.png&#34;
 	
 	
@@ -281,9 +461,9 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;53-具体步骤&#34;&gt;5.3 具体步骤
-&lt;/h2&gt;&lt;h3 id=&#34;注册并开通-cloudflare-r2&#34;&gt;&lt;strong&gt;注册并开通 Cloudflare R2&lt;/strong&gt;
-&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id=&#34;具体步骤&#34;&gt;具体步骤
+&lt;/h3&gt;&lt;h4 id=&#34;注册并开通-cloudflare-r2&#34;&gt;注册并开通 Cloudflare R2
+&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;前往 &lt;a class=&#34;link&#34; href=&#34;https://dash.cloudflare.com/sign-up&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Cloudflare&lt;/a&gt; 注册账号，并绑定支付方式（如信用卡或 &lt;strong&gt;PayPal&lt;/strong&gt;）。&lt;/p&gt;
@@ -312,8 +492,8 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;创建存储桶&#34;&gt;创建存储桶
-&lt;/h3&gt;&lt;ul&gt;
+&lt;h4 id=&#34;创建存储桶&#34;&gt;创建存储桶
+&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;在 R2 控制台中，创建一个存储桶： 填写存储桶名称。 选择存储区域（建议默认）。 确认后完成创建。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234008513.png&#34;
@@ -328,8 +508,8 @@
 &gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;配置自定义域名&#34;&gt;配置自定义域名
-&lt;/h3&gt;&lt;p&gt;设置访问桶的域名，有两种方法，一种是有一个私有域名（&lt;strong&gt;需托管在Cloudflare上&lt;/strong&gt;），另一个是用默认的&lt;/p&gt;
+&lt;h4 id=&#34;配置自定义域名&#34;&gt;配置自定义域名
+&lt;/h4&gt;&lt;p&gt;设置访问桶的域名，有两种方法，一种是有一个私有域名（&lt;strong&gt;需托管在Cloudflare上&lt;/strong&gt;），另一个是用默认的&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;先允许公网访问&lt;/strong&gt;，启用后，通过公共开发URL将该R2桶的内容暴露到互联网。&lt;/li&gt;
 &lt;/ul&gt;
@@ -408,8 +588,8 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;配置-picgo&#34;&gt;配置 PicGo
-&lt;/h3&gt;&lt;ol&gt;
+&lt;h4 id=&#34;配置-picgo&#34;&gt;配置 PicGo
+&lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;下载并安装 PicGo。&lt;/p&gt;
 &lt;/li&gt;
@@ -516,10 +696,24 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;自定义节点,账号ID就是上图的ID&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https:&lt;span style=&#34;color:#75715e&#34;&gt;//&amp;lt;账户ID&amp;gt;.r2.cloudflarestorage.com
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;自定义域名&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https:&lt;span style=&#34;color:#75715e&#34;&gt;//你的自定义域名
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//&amp;lt;账户ID&amp;gt;.r2.cloudflarestorage.com
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;自定义域名&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nl&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//你的自定义域名
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -559,7 +753,9 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://guokun603.github.io/%E5%8F%8B%E9%93%BE/</guid>
-        <description></description>
+        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/images/hugo-logo-wide.svg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gohugo.io/images/hugo-logo-wide.svg&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         
     </channel>
