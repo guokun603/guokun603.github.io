@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="示例文章：介绍 Page Bundle 与本地资源管理。">
-<title>[Hugo] 本地资源与 Page Bundle</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘 进程间通信与管道通信概述 进程间通信 进程间通信（Inter Process Communication，简称">
+<title>嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘</title>
 
-<link rel='canonical' href='https://guokun603.github.io/p/hugo-%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90%E4%B8%8E-page-bundle/'>
+<link rel='canonical' href='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/'>
 
-<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="[Hugo] 本地资源与 Page Bundle">
-<meta property='og:description' content="示例文章：介绍 Page Bundle 与本地资源管理。">
-<meta property='og:url' content='https://guokun603.github.io/p/hugo-%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90%E4%B8%8E-page-bundle/'>
+<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘">
+<meta property='og:description' content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘 进程间通信与管道通信概述 进程间通信 进程间通信（Inter Process Communication，简称">
+<meta property='og:url' content='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-02T22:09:24&#43;08:00'/><meta property='og:image' content='https://picsum.photos/seed/hugo4/800/450' />
-<meta name="twitter:title" content="[Hugo] 本地资源与 Page Bundle">
-<meta name="twitter:description" content="示例文章：介绍 Page Bundle 与本地资源管理。"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://picsum.photos/seed/hugo4/800/450' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-07T16:19:53&#43;08:00'/><meta property='article:modified_time' content='2026-02-10T09:31:50&#43;08:00'/><meta property='og:image' content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
+<meta name="twitter:title" content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘">
+<meta name="twitter:description" content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘 进程间通信与管道通信概述 进程间通信 进程间通信（Inter Process Communication，简称"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -234,15 +234,65 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#进程间通信与管道通信概述">进程间通信与管道通信概述</a>
+      <ol>
+        <li><a href="#进程间通信">进程间通信</a></li>
+        <li><a href="#管道通信">管道通信</a></li>
+      </ol>
+    </li>
+    <li><a href="#匿名管道pipe亲缘进程的秘密通道">匿名管道（pipe）：亲缘进程的“秘密通道”</a>
+      <ol>
+        <li><a href="#pipe函数创建匿名管道">pipe()函数创建匿名管道</a></li>
+        <li><a href="#匿名管道的核心工作机制">匿名管道的核心工作机制</a></li>
+      </ol>
+    </li>
+    <li><a href="#命名管道fifo无亲缘关系进程的公共通道">命名管道（fifo）：无亲缘关系进程的“公共通道”</a>
+      <ol>
+        <li><a href="#mkfifo函数创建命名管道">mkfifo()函数创建命名管道</a></li>
+      </ol>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
 
             <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/hugo-%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90%E4%B8%8E-page-bundle/">
+            <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/">
                 
-                    <img src="https://picsum.photos/seed/hugo4/800/450" loading="lazy" alt="Featured image of post [Hugo] 本地资源与 Page Bundle" />
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" alt="Featured image of post 嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘" />
                 
             </a>
         </div>
@@ -252,8 +302,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/hugo/" style="background-color: #2a9d8f; color: #fff;">
-                Hugo
+            <a href="/categories/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" >
+                Linux系统编程
             </a>
         
     </header>
@@ -261,7 +311,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/hugo-%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90%E4%B8%8E-page-bundle/">[Hugo] 本地资源与 Page Bundle</a>
+            <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/">嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘</a>
         </h2>
     
         
@@ -283,7 +333,7 @@
 
             <time>
                 
-                2026-02-02 22:09
+                2026-02-10 09:31
             </time>
         </div>
 
@@ -305,7 +355,153 @@
     <section class="article-content">
     
     
-    <p>示例文章：介绍 Page Bundle 与本地资源管理。</p>
+    <h1 id="嵌入式-linux-进程间通信之管道通信匿名与命名管道的奥秘">嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘
+</h1><h2 id="进程间通信与管道通信概述">进程间通信与管道通信概述
+</h2><h3 id="进程间通信">进程间通信
+</h3><p>进程间通信（Inter Process Communication，简称IPC）指的是进程之间的信息交换，进程间通信的方式有很多，比如<strong>管道通信、信号通信、共享内存、消息队列、信号量组、POSIX信号量</strong>等。</p>
+<p>进程间通信可以达到<strong>数据传输、共享资源、控制进程</strong>等目的，方便用户对进程进行控制和管理。而<strong>管道通信</strong>是其中最基础、最易上手的一种。</p>
+<h3 id="管道通信">管道通信
+</h3><p>Linux中的管道通信，核心特点是<strong>半双工通信</strong>，同一时刻只能“发送数据”或“接收数据”中的一个操作，无法双向同步同时通信。就像现实中的水管，水只能从一端流向另一端，不能双向对流。</p>
+<p>设计理念非常简单：模拟现实中的“管道”，让数据从一端写入、另一端读出，实现进程间的单向数据传递，适合简单的场景下的数据交互。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207144647316.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260207144647316"
+	
+	
+></p>
+<p>管道在Linux系统中属于“<strong>文件</strong>”的一种，但它又不是普通文件，而是一种“<strong>特殊文件</strong>”。它支持和普通文件一样的<strong>read()/write()<strong>操作，但不支持</strong>lseek()</strong>（无法指定位置读写），数据写入管道后会暂存在内核缓冲区，读取后就会从缓冲区中删除，不会持久化存储。</p>
+<p>Linux系统中的管道文件分为两种：<strong>匿名管道(pipe)、命名管道(fifo)</strong>。</p>
+<h2 id="匿名管道pipe亲缘进程的秘密通道">匿名管道（pipe）：亲缘进程的“秘密通道”
+</h2><p>匿名管道，顾名思义，<strong>没有文件名</strong>，这是它最核心的特征，也决定了它的使用局限性：</p>
+<ul>
+<li>无文件名，无法通过open()函数创建和打开，只能通过专门的系统调用创建。</li>
+<li>仅适用于<strong>有亲缘关系的进程</strong>（最常用的是父子进程），无法用于无亲缘关系的进程间通信。</li>
+<li>数据读写方式和普通文件一致，支持read()/write()操作。</li>
+<li>不保证数据的原子性，多进程同时写入时可能出现数据错乱。</li>
+</ul>
+<blockquote>
+<p>问题：匿名管道无文件名，如何创建和访问？</p>
+</blockquote>
+<p>Linux系统提供<code>pipe()</code>系统调用，专门用于创建匿名管道；创建成功后，会返回两个文件描述符，</p>
+<p>分别对应管道的“读取端”和“写入端”，进程通过这两个文件描述符就能访问管道。</p>
+<h3 id="pipe函数创建匿名管道">pipe()函数创建匿名管道
+</h3><p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207150801778.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260207150801778"
+	
+	
+></p>
+<p>pipe()函数只有一个参数 <code>int pipefd[2]</code>，这是一个长度为2的数组，专门用于存储管道的两个文件描述符：</p>
+<ul>
+<li><code>pipefd[0]</code>：对应管道的<strong>读取端</strong>，只能用于read()操作，无法写入。</li>
+<li><code>pipefd[1]</code>：对应管道的<strong>写入端</strong>，只能用于write()操作，无法读取。</li>
+</ul>
+<p>用户把对数据写入到管道之后，数据是会在内核的缓冲区中进行暂存的，直到从管道中读取该数据为止。</p>
+<h3 id="匿名管道的核心工作机制">匿名管道的核心工作机制
+</h3><ol>
+<li>
+<p>内存暂存：进程向管道写入数据后，数据不会直接传递给进程接收，而是先暂存在<strong>内核缓冲区</strong>，知道接收进程调用read()读取数据，数据才会从缓冲区移除</p>
+</li>
+<li>
+<p>缓冲区大小：Linux系统中，管道的内核缓冲区默认大小是4M，可以使用<code>ulimit -a</code>查看</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207152523433.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260207152523433"
+	
+	
+></p>
+</li>
+<li>
+<p>阻塞特性：</p>
+<ul>
+<li>写入阻塞：如果写入速度快于读取速度，内核缓冲区会被写满，此时继续调用write()写入数据，进程会被阻塞（挂起），直到缓冲区有空闲空间。</li>
+<li>读取阻塞：如果读取速度快于写入速度，管道内（缓冲区）没有数据时，继续调用read()读取数据，进程会被阻塞（挂起），直到有新的数据写入管道。</li>
+</ul>
+</li>
+<li>
+<p>阻塞的意义：阻塞状态会让当前进程挂起，释放CPU资源，让其他需要CPU的进程高效利用资源，从而提高整个系统的吞吐量，这是Linux系统资源调度的重要优化。</p>
+</li>
+</ol>
+<blockquote>
+<p>问题：匿名管道适用于什么场景？什么时候创建最合适？</p>
+</blockquote>
+<p>由于管道没有文件名，所以仅适合有亲缘关系的进程（父子、兄弟），因为这类进程可共享文件描述符，无需通过文件定位管道。</p>
+<p><strong>必须在创建子进程（fork()）之前创建匿名管道</strong>。因为fork()创建子进程时，会复制父进程的代码段、数据段、堆栈段，以及所有打开的文件描述符——如果<strong>父进程先创建管道</strong>，子进程会自动复制管道的两个文件描述符，这样父子进程就能通过这两个文件描述符访问同一个管道；如果先fork()再创建管道，子进程不会拥有管道的文件描述符，无法访问管道。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207153227479.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260207153227479"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207153132279.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260207153132279"
+	
+	
+></p>
+<blockquote>
+<p><strong>匿名管道不保证数据的原子性</strong></p>
+<p>匿名管道更适合“一对一”的亲缘进程通信，不适合多进程同时写入的场景。</p>
+</blockquote>
+<h2 id="命名管道fifo无亲缘关系进程的公共通道">命名管道（fifo）：无亲缘关系进程的“公共通道”
+</h2><p>匿名管道的局限性很明显：只能用于亲缘进程、一对一通信。为了解决这个问题，Linux系统提供了<strong>命名管道（Named Pipe）</strong>，也叫有名管道、具名管道（简称fifo），它弥补了匿名管道的不足，支持无亲缘关系的进程间通信。</p>
+<p>命名管道和匿名管道的核心区别，就是<strong>有自己的文件名</strong>，这个特点也决定了它的优势：</p>
+<ul>
+<li>有文件名，属于Linux系统中的“管道文件”（可通过ls -l查看，文件类型标识为p）。</li>
+<li>支持open()函数打开，读写方式和普通文件一致（read()/write()），但不支持lseek()（无法指定位置读写）。</li>
+<li>适用场景：<strong>无亲缘关系的进程间通信</strong>（比如两个完全独立的程序），也支持有亲缘关系的进程。</li>
+<li>支持多路同时写入：多个进程可以同时向同一个命名管道写入数据，且能保证数据的原子性（写入数据量不超过PIPE_BUF时）。</li>
+</ul>
+<blockquote>
+<p>问题：怎么保证数据原子性</p>
+</blockquote>
+<p>从原理上来说，内核为命名管道维护了一个缓冲区。当进程进行写入操作时，内核会先将数据暂存到这个缓冲区中。如果写入的数据量小于等于 PIPE_BUF，内核会保证这整个写入操作是原子性的。这是因为在这种情况下，内核可以将该写入操作作为一个整体来处理，在这个操作完成之前，不会被其他进程的写入操作打断。</p>
+<p>如果写入的数据量超过了 PIPE_BUF，内核就无法保证原子性了。因为此时数据量较大，内核可能会将其拆分成多个部分来处理，这样就可能出现其他进程在这个大写入操作中间插入自己的写入，导致数据混乱。</p>
+<h3 id="mkfifo函数创建命名管道">mkfifo()函数创建命名管道
+</h3><p>访问命名管道的前提是：命名管道已经存在。Linux系统提供了<strong>mkfifo()函数</strong>，专门用于创建命名管道。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207160948204.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260207160948204"
+	
+	
+></p>
+<ul>
+<li><code>const char *pathname</code>：命名管道的<strong>文件路径和名称</strong>（如<code>&quot;/tmp/myfifo&quot;</code>）。</li>
+<li>重点注意：创建命名管道时，路径必须位于Linux系统内部（比如虚拟机中的Linux目录），<strong>不能创建在Windows共享文件夹中</strong>—— 因为共享文件夹属于Windows系统路径，Linux的管道机制无法在Windows路径下生效，会导致创建失败。</li>
+<li><code>mode_t mode</code>：命名管道的<strong>访问权限</strong>，和open()函数的mode参数一致，采用八进制表示，分为三类权限（所有者、所属组、其他用户）。</li>
+<li>常用权限：0644（所有者可读可写，其他用户只读）、0666（所有用户可读可写）—— 管道无需执行权限，因此权限的最后一位（执行权限）设为0即可。</li>
+</ul>
+<h2 id="总结">总结
+</h2><ol>
+<li>管道通信的核心是“半双工”，数据单向流动，暂存在内核缓冲区（默认4M），无持久化</li>
+<li>匿名管道：无文件名，依赖亲缘进程，fork()前创建，适合简单的父子进程通信</li>
+<li>命名管道：有命管道，支持无亲缘进程通信，需用mkfifo()创建，支持多进程安全写入</li>
+<li>重点函数：pipe()/pipe2()（匿名管道）、mkfifo()（命名管道），以及read()/write()的使用。</li>
+</ol>
 
 </section>
 
@@ -323,7 +519,7 @@
 
 
         <span>
-            最后更新于 2026-02-02 22:09
+            最后更新于 2026-02-10 09:31
         </span>
     </section></footer>
 
@@ -342,18 +538,18 @@
             
                 
 <article class="has-image">
-    <a href="/p/hugo-%E9%83%A8%E7%BD%B2%E5%88%B0-github-pages/">
+    <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BB%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%A5%A5%E7%A7%98/">
         
         
             <div class="article-image">
                 
-                    <img src="https://picsum.photos/seed/hugo6/800/450" loading="lazy" data-key="" data-hash="https://picsum.photos/seed/hugo6/800/450"/>
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">[Hugo] 部署到 GitHub Pages</h2>
+            <h2 class="article-title">嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘</h2>
         </div>
     </a>
 </article>
@@ -361,18 +557,18 @@
             
                 
 <article class="has-image">
-    <a href="/p/hugo-%E9%85%8D%E7%BD%AE%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%AB%99%E7%82%B9/">
+    <a href="/p/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E4%B9%8B%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/">
         
         
             <div class="article-image">
                 
-                    <img src="https://picsum.photos/seed/hugo5/800/450" loading="lazy" data-key="" data-hash="https://picsum.photos/seed/hugo5/800/450"/>
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">[Hugo] 配置多语言站点</h2>
+            <h2 class="article-title">深入解析嵌入式 Linux 之消息队列：进程间通信的桥梁</h2>
         </div>
     </a>
 </article>
@@ -380,56 +576,18 @@
             
                 
 <article class="has-image">
-    <a href="/p/hugo-build-blog/">
+    <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/">
         
         
             <div class="article-image">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/Hugo&#43;Github.png" loading="lazy" data-key="hugo-build-blog" data-hash="https://gxpdev.dpdns.org/PicGo/Hugo&#43;Github.png"/>
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Hugo搭建博客</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/hugo-%E5%8A%A8%E7%94%BB%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://picsum.photos/seed/hugo3/800/450" loading="lazy" data-key="" data-hash="https://picsum.photos/seed/hugo3/800/450"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[Hugo] 动画与短代码</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/hugo-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://picsum.photos/seed/hugo2/800/450" loading="lazy" data-key="" data-hash="https://picsum.photos/seed/hugo2/800/450"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[Hugo] 常见问题汇总</h2>
+            <h2 class="article-title">嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析</h2>
         </div>
     </a>
 </article>
@@ -440,62 +598,6 @@
 </aside>
 
      
-    
-        
-    <script
-    src="https://giscus.app/client.js"
-    data-repo=""
-    data-repo-id=""
-    data-category=""
-    data-category-id=""
-    data-mapping="title"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="light"
-    data-lang="en"
-    crossorigin="anonymous"
-    async
-></script>
-<script>
-    function setGiscusTheme(theme) {
-        let giscus = document.querySelector("iframe.giscus-frame");
-        if (giscus) {
-            giscus.contentWindow.postMessage(
-                {
-                    giscus: {
-                        setConfig: {
-                            theme: theme,
-                        },
-                    },
-                },
-                "https://giscus.app"
-            );
-        }
-    }
-
-    (function () {
-        addEventListener("message", (e) => {
-            if (event.origin !== "https://giscus.app") return;
-            handler();
-        });
-        window.addEventListener("onColorSchemeChange", handler);
-
-        function handler() {
-            if (document.documentElement.dataset.scheme === "light") {
-                setGiscusTheme('light');
-            } else {
-                setGiscusTheme('dark_dimmed');
-            }
-        }
-    })();
-</script>
-
-
-    ...
-    <div class="comment"></div>
-
     
 
     <footer class="site-footer">

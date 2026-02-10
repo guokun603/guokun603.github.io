@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="程序的概念与发展 程序的定义 一般的讲，程序是一系列有序指令的集合，目的是告诉计算机如何完成某些指定的操作或者如何解决某个问题。 编程语言的发展历">
+<title>嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘</title>
+
+<link rel='canonical' href='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BB%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%A5%A5%E7%A7%98/'>
+
+<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘">
+<meta property='og:description' content="程序的概念与发展 程序的定义 一般的讲，程序是一系列有序指令的集合，目的是告诉计算机如何完成某些指定的操作或者如何解决某个问题。 编程语言的发展历">
+<meta property='og:url' content='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BB%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%A5%A5%E7%A7%98/'>
+<meta property='og:site_name' content='郭小胖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-07T20:42:15&#43;08:00'/><meta property='article:modified_time' content='2026-02-10T09:31:50&#43;08:00'/><meta property='og:image' content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
+<meta name="twitter:title" content="嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘">
+<meta name="twitter:description" content="程序的概念与发展 程序的定义 一般的讲，程序是一系列有序指令的集合，目的是告诉计算机如何完成某些指定的操作或者如何解决某个问题。 编程语言的发展历"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hue6550b27d333e6d3ea4ba819e5c99674_47742_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">郭小胖</a></h1>
+            <h2 class="site-description">欢迎来到我的小窝</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com/'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/guokun603-cel'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-files"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 3v4a1 1 0 0 0 1 1h4" /><path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /><path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></svg>
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#程序的概念与发展">程序的概念与发展</a>
+      <ol>
+        <li><a href="#程序的定义">程序的定义</a></li>
+        <li><a href="#编程语言的发展历程">编程语言的发展历程</a></li>
+        <li><a href="#编程领域重要人物及贡献">编程领域重要人物及贡献</a></li>
+        <li><a href="#程序的文件格式">程序的文件格式</a></li>
+        <li><a href="#程序的运行原理">程序的运行原理</a></li>
+        <li><a href="#计算机组成与程序执行流程">计算机组成与程序执行流程</a></li>
+        <li><a href="#程序运行的内存模型32-位系统">程序运行的内存模型（32 位系统）</a></li>
+      </ol>
+    </li>
+    <li><a href="#程序的编译过程">程序的编译过程</a>
+      <ol>
+        <li><a href="#编译的必要性">编译的必要性</a></li>
+        <li><a href="#gcc-编译器简介">GCC 编译器简介</a></li>
+        <li><a href="#c-语言程序编译四步骤">C 语言程序编译四步骤</a></li>
+      </ol>
+    </li>
+    <li><a href="#程序的格式与目标文件">程序的格式与目标文件</a>
+      <ol>
+        <li><a href="#目标文件与可执行文件">目标文件与可执行文件</a></li>
+        <li><a href="#目标文件的内容与结构">目标文件的内容与结构</a></li>
+      </ol>
+    </li>
+    <li><a href="#进程的概念与特征">进程的概念与特征</a>
+      <ol>
+        <li><a href="#进程的定义">进程的定义</a></li>
+        <li><a href="#进程与程序的区别">进程与程序的区别</a></li>
+        <li><a href="#进程的四大特征">进程的四大特征</a></li>
+      </ol>
+    </li>
+    <li><a href="#进程的组成与管理">进程的组成与管理</a>
+      <ol>
+        <li><a href="#进程的组成">进程的组成</a></li>
+        <li><a href="#pcb-的核心内容">PCB 的核心内容</a></li>
+      </ol>
+    </li>
+    <li><a href="#进程的控制操作">进程的控制操作</a>
+      <ol>
+        <li><a href="#进程的创建">进程的创建</a>
+          <ol>
+            <li><a href="#进程关系">进程关系</a></li>
+            <li><a href="#查看进程树">查看进程树</a></li>
+            <li><a href="#创建接口">创建接口</a></li>
+            <li><a href="#练习">练习</a></li>
+          </ol>
+        </li>
+        <li><a href="#进程的撤销">进程的撤销</a></li>
+        <li><a href="#进程的执行">进程的执行</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BB%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%A5%A5%E7%A7%98/">
+                
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" alt="Featured image of post 嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" >
+                Linux系统编程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BB%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%A5%A5%E7%A7%98/">嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+       <div class="article-lastmod">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+            <time>
+                
+                2026-02-10 09:31
+            </time>
+        </div>
+
+        
+        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--reading">
+                
+                <span id="busuanzi_value_page_pv">loading...</span> 次
+            </time>
+        </div>
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="程序的概念与发展">程序的概念与发展
+</h2><h3 id="程序的定义">程序的定义
+</h3><p>一般的讲，<strong>程序是一系列有序指令的集合</strong>，目的是告诉计算机如何完成某些指定的操作或者如何解决某个问题。</p>
+<h3 id="编程语言的发展历程">编程语言的发展历程
+</h3><p>早期：采用机器语言设计程序，开发效率极低。</p>
+<p>中期：出现汇编语言，但不同平台的汇编指令集不兼容，增加了开发难度。</p>
+<p>后期：为提升开发效率、降低难度，诞生高级语言。其中，C 语言属于面向过程编程，C++ 属于面向对象编程，此外还有 Python、Java 等多种编程语言。</p>
+<h3 id="编程领域重要人物及贡献">编程领域重要人物及贡献
+</h3><p><img src="https://gxpdev.dpdns.org/PicGo/wps1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h3 id="程序的文件格式">程序的文件格式
+</h3><p>程序的格式和类型由所使用的编程语言决定，不同编程语言对应不同的源文件后缀名，例如：</p>
+<ul>
+<li>C 语言：<code>.c</code> 后缀</li>
+<li>Python 语言：<code>.py</code> 后缀</li>
+</ul>
+<h3 id="程序的运行原理">程序的运行原理
+</h3><p>程序无法直接运行，需经编译器等工具处理转换为可执行文件（内部包含对应平台可识别的指令和数据集合）。运行可执行文件的本质，是计算机中央处理器（CPU）对其中的指令进行处理、对数据进行运算的过程。</p>
+<h3 id="计算机组成与程序执行流程">计算机组成与程序执行流程
+</h3><ol>
+<li>计算机组成：遵循冯・诺依曼结构，由<strong>控制器、运算器、存储器、输入设备、输出设备</strong>五部分组成。</li>
+<li>程序执行依赖：需掌握计算机组成原理和汇编语言，才能理解程序中指令和数据的具体执行流程。</li>
+</ol>
+<p><img src="https://gxpdev.dpdns.org/PicGo/wps2.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h3 id="程序运行的内存模型32-位系统">程序运行的内存模型（32 位系统）
+</h3><p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183445720-1769683385291-13.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183445720"
+	
+	
+></p>
+<h2 id="程序的编译过程">程序的编译过程
+</h2><h3 id="编译的必要性">编译的必要性
+</h3><p>编写完成的程序无法直接运行，需通过编译器编译生成可执行文件，嵌入式学习中常在 Linux 系统下使用 GCC 编译器。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/wps4-1769683385284-11.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h3 id="gcc-编译器简介">GCC 编译器简介
+</h3><p>GCC编译器是Linux系统默认的C/C++编译器，大部分Linux发行版本中都是默认安装的。GCC编译器主要以Linux命令的形式在shell终端中使用，所以需要大家掌握关于GCC编译器的相关参数。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/wps5-1769683385284-12.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183501265-1769683385292-14.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183501265"
+	
+	
+></p>
+<h3 id="c-语言程序编译四步骤">C 语言程序编译四步骤
+</h3><p>C语言程序编译过程：<strong>源程序  &mdash;-  预处理  &mdash; 编译 &mdash; 汇编 &mdash;  链接 &mdash;  可执行文件</strong></p>
+<p><strong>预处理</strong>：</p>
+<p>对源码进行简单的加工，GCC编译器会调用预处理器cpp对程序进行预处理，其实就是解释源程序中所有的预处理指令，如#include（文件包含）、#define（宏定义）、#if（条件编译）等以#号开头的预处理语句。</p>
+<p>这些预处理指令将会在预处理阶段被解释掉，如会把被包含的文件拷贝进来，覆盖掉原来的#include语句，把所有的宏定义展开，所有的条件编译语句被执行，GCC还会把所有的注释删掉，添加必要的调试信息。</p>
+<blockquote>
+<p>预处理指令： gcc  <strong>-E</strong>  xxx.c  -o  xxx.i   会生成<strong>预处理文件</strong>  <strong>xxx.i</strong></p>
+</blockquote>
+<p><strong>编译</strong>：</p>
+<p>就是对经过预处理之后的.i文件进行进一步翻译，也就是对语法、词法的分析，最终生成对应硬件平台的汇编文件，具体生成什么平台的汇编文件取决于编译器，比如X86平台使用gcc编译器，而ARM平台使用交叉编译工具arm-linux-gcc。</p>
+<blockquote>
+<p>编译指令：gcc  <strong>-S</strong>  xxx.i  -o  xxx.s   会生成<strong>对应汇编文件</strong>  <strong>xxx.s</strong></p>
+</blockquote>
+<p><strong>汇编</strong>：</p>
+<p>GCC编译器会调用汇编器as将汇编文件翻译成可重定位文件，其实就是把.s文件的汇编代码翻译为相应的指令。</p>
+<blockquote>
+<p>编译指令：gcc  <strong>-c</strong>  xxx.s  -o  xxx.o   会生成<strong>汇编后的文件</strong>  <strong>xxx.o</strong></p>
+</blockquote>
+<p><strong>链接</strong>：</p>
+<p>经过汇编步骤后生成的.o文件其实是ELF格式的可重定位文件，虽然已经生成了指令流，但是需要重定位函数地址等，所以需要链接系统提供的标准C库和其他的gcc基本库文件等，并且还要把其他的.o文件一起进行链接。默认链接 -lc（libc 标准库） -lgcc  是默认的，可以省略</p>
+<blockquote>
+<p>编译指令：gcc  hello.o  -o  hello  <strong>-lc  -lgcc</strong>  会得到可执行文件  xxx   // l是lib的缩写</p>
+</blockquote>
+<h2 id="程序的格式与目标文件">程序的格式与目标文件
+</h2><h3 id="目标文件与可执行文件">目标文件与可执行文件
+</h3><p><strong>目标文件</strong>（.o 文件）：又称可重定位文件，是未完成链接的中间文件，可制作成 Linux 系统下的静态库（libxxx.a）或动态库（libxxx.so）。</p>
+<p><strong>可执行文件</strong>：完成链接后的文件，与目标文件同属 <strong>ELF</strong>（Executable Linkable Format，可执行可链接格式）。</p>
+<p>查看文件格式：Linux 系统中使用<code>file</code>指令，例如<code>file demo.o</code>可查看目标文件属性，<code>file demo</code>可查看可执行文件属性。</p>
+<p>注意：可以在linux系统中利用查看文件格式的指令: file 查阅目标文件和可执行文件的区别：</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183628676-1769683385292-15.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183628676"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183619323-1769683385292-16.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183619323"
+	
+	
+></p>
+<h3 id="目标文件的内容与结构">目标文件的内容与结构
+</h3><p>还未完成链接的目标文件中存储了哪些内容，以及如何查看目标文件中的内容信息???</p>
+<p>目标文件中的内容至少有编译后的机器<strong>指令代码、数据</strong>。除了这些内容以外，目标文件中还包括了<strong>链接时所需要的一些信息</strong>，比如符号表、调试信息、字符串等。一般目标文件将这些信息按不同的属性，以“节”(Section)的形式存储，有时候也叫“段”(Segment),一般情况下，它们都表示一个一定长度的区域，基本上不加以区别。</p>
+<p>程序源代码编译后的<strong>机器指令</strong>经常被放在<strong>代码段(<strong>Code Section)里，代码段常见的名字有“.code”或“.text”。<strong>全局变量和局部静态变量数据</strong>经常放在</strong>数据段</strong>(Data Section)，数据段一般名字都叫“.data”。</p>
+<p>注意：linux系统的GCC编译套件有一款工具叫做<strong>objdump</strong>，可以<strong>查看目标文件内部的数据</strong>！</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183603887-1769683385292-17.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183603887"
+	
+	
+></p>
+<p>数据段中有一个叫做**.bss段**， bss以前其实是汇编伪指令，作用是为某些数据预留一块空间，bss其实是Block Started by Symbol，也就是用于存储未被初始化的全局变量和静态局部变量，但是在<strong>程序编译阶段是没有分配空间的，在程序运行时会得到空间</strong>。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183530506-1769683385292-18.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183530506"
+	
+	
+></p>
+<p>得到了运行空间</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th><em><strong>*常用的段名*</strong></em></th>
+<th><em><strong>*说*</strong></em> <em><strong>*明*</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.rodatal</td>
+<td>这种段里存放的是只读数据，比如字符串常量、全局const变量。跟&quot;.rodata&quot;一样</td>
+</tr>
+<tr>
+<td>.comment</td>
+<td>存放的是编译器版本信息，比如字符串：“GCC:(GNU)4.2.0”</td>
+</tr>
+<tr>
+<td>.debug</td>
+<td>调试信息</td>
+</tr>
+<tr>
+<td>.dynamic</td>
+<td>动态链接信息</td>
+</tr>
+<tr>
+<td>.hash</td>
+<td>符号哈希表</td>
+</tr>
+<tr>
+<td>.line</td>
+<td>调试时的行号表，即源代码行号与编译后指令的对应表</td>
+</tr>
+<tr>
+<td>.note</td>
+<td>额外的编译器信息。比如程序的公司名、发布版本号等</td>
+</tr>
+<tr>
+<td>.strtab</td>
+<td>String Table.字符串表，用于存储ELF文件中用到的各种字符串</td>
+</tr>
+<tr>
+<td>.symtab</td>
+<td>Symbol Table.符号表</td>
+</tr>
+<tr>
+<td>.shstrtab</td>
+<td>Section String Table.段名表</td>
+</tr>
+<tr>
+<td>.plt</td>
+<td>动态链接的跳转表和全局入口表</td>
+</tr>
+<tr>
+<td>.init</td>
+<td>程序初始化与终结代码段。</td>
+</tr>
+</tbody>
+</table></div>
+<p>另外，objdump工具也可以实现把可执行文件进行<strong>反汇编</strong>，可以把得到的反汇编代码重定向到某个文本中进行查看  “<strong>objdump  -D  demo  &gt; &gt;  xxx.txt</strong>”</p>
+<h2 id="进程的概念与特征">进程的概念与特征
+</h2><h3 id="进程的定义">进程的定义
+</h3><p>当 ELF 可执行文件运行时，操作系统将<strong>文件中的指令和数据从外存加载到内存</strong>，为其分配内存空间、CPU 使用权等系统资源，程序从<strong>静态变为动态</strong>，这种正在执行的程序实例称为进程。<strong>进程是操作系统分配资源的基本单位！操作系统是以进程为单位来分配系统资源的，比如内存空间、CPU使用权等。  线程是操作系统调度资源的最小单位！  进程包含线程！</strong></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183650285-1769683385292-19.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183650285"
+	
+	
+></p>
+<h3 id="进程与程序的区别">进程与程序的区别
+</h3><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">特性</th>
+<th style="text-align:center">程序</th>
+<th style="text-align:center">进程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">状态</td>
+<td style="text-align:center">静态（存储于磁盘）</td>
+<td style="text-align:center">动态（运行于内存）</td>
+</tr>
+<tr>
+<td style="text-align:center">资源占用</td>
+<td style="text-align:center">不占用系统资源</td>
+<td style="text-align:center">占用内存、CPU 等系统资源</td>
+</tr>
+<tr>
+<td style="text-align:center">存在形式</td>
+<td style="text-align:center">文本文件</td>
+<td style="text-align:center">包含 PCB、代码段、数据段的运行实体</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="进程的四大特征">进程的四大特征
+</h3><p>进程具有四个基本特征，分别是<strong>动态性、并发性、独立性、异步性</strong>，具体的区别如下所示：</p>
+<ol>
+<li>动态性：进程是程序在处理器上的一次执行过程，会经历创建、暂停、继续执行、终止等状态变化。</li>
+<li>并发性：多个进程可同时存在于内存中，并发执行以提高资源利用率。</li>
+<li>独立性：进程是能独立运行的基本单位，也是系统资源分配和调度的独立单位。</li>
+<li>异步性：进程以各自独立、不可预知的速度推进，执行进度受系统资源分配、其他进程抢占等因素影响。</li>
+</ol>
+<h2 id="进程的组成与管理">进程的组成与管理
+</h2><p>操作系统中可能会有n个进程同时执行，请问操作系统如何掌握这些进程的执行情况?</p>
+<p>一般进程在创建之后，操作系统都会为进程分配一块<strong>内存</strong>来记录进程的各项参数信息，所以这块内存被称为<strong>进程控制块</strong>（Processing Control Block，缩写为PCB）。<strong>每个进程都有PCB</strong>，用于标识进程的存在以及记录进程的信息。</p>
+<h3 id="进程的组成">进程的组成
+</h3><p>进程由<strong>进程控制块（PCB）、代码段、数据段</strong>三部分组成：</p>
+<ol>
+<li>
+<p>进程控制块（PCB）：操作系统为进程分配的内存区域，用于记录进程各项参数信息，标识进程存在，Linux 系统中以<code>struct task_struct</code>结构体存储（定义于<code>sched.h</code>头文件）。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183714446-1769683385292-20.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183714446"
+	
+	
+></p>
+</li>
+<li>
+<p>代码段：可被调度程序调度到 CPU 执行的程序代码。</p>
+</li>
+<li>
+<p>数据段：包含程序原始数据和执行过程中产生的中间数据。</p>
+</li>
+</ol>
+<h3 id="pcb-的核心内容">PCB 的核心内容
+</h3><ol>
+<li><strong>进程标识符</strong></li>
+</ol>
+<p>每个进程都有一个有系统分配的唯一的<strong>PID进程标识符</strong>（process identifier），用于区分系统中的其他进程，这个PID也是Linux内核提供给<strong>用户访问进程的一个接口</strong>，用户可以通过PID控制进程。</p>
+<p>比如Windows系统可以通过任务管理器了解系统中正在执行的进程的数量以及进程的状态：</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/wps13.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>那Linux系统如何查看进程PID?</p>
+<p>Linux系统中提供了关于获取进程状态的shell命令：<strong>ps</strong> ，该命令的使用方法详见man手册，一般使用 <strong>ps -ef</strong> 或者 <strong>ps -aux</strong>来<strong>查看Linux系统中所有用户相关的进程的所有信息</strong>。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183737717-1769683385292-21.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183737717"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183753049-1769683385292-22.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183753049"
+	
+	
+></p>
+<ol start="2">
+<li><strong>进程当前状态</strong></li>
+</ol>
+<p>在进程的运行过程中由于系统中多个进程的并发运行和相互制约的结果，所以使进程的状态不断发生变化。操作系统以进程的状态来作为调度程序分配处理器的依据。</p>
+<p>通常一个运行中的进程至少可划分为5种基本状态：<strong>就绪态、运行态、阻塞态、创建态、结束态</strong>。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">状态</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">创建态</td>
+<td style="text-align:center">进程正在创建，系统分配 PCB 内存、填写管理信息、分配资源，<strong>未达到就绪态</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">就绪态</td>
+<td style="text-align:center">已获得除处理器外的所有资源，<strong>等待 CPU 调度</strong>，获得后可立即执行</td>
+</tr>
+<tr>
+<td style="text-align:center">执行态（运行态）</td>
+<td style="text-align:center"><strong>已获得所有资源</strong>（含 CPU），正在被 CPU 执行</td>
+</tr>
+<tr>
+<td style="text-align:center">阻塞态（暂停态）</td>
+<td style="text-align:center">执行过程中因某事件（如 sleep、read）<strong>无法继续，暂时停止</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">结束态</td>
+<td style="text-align:center"><strong>进程正常退出或异常中断，从系统中消失</strong>；若退出后资源未释放，进入僵尸态</td>
+</tr>
+<tr>
+<td style="text-align:center">僵尸态</td>
+<td style="text-align:center"><strong>进程终止但未释放资源</strong>，需用户处理，避免占用过多系统资源</td>
+</tr>
+</tbody>
+</table></div>
+<p>其他信息：包括进程优先级、CPU 使用情况、内存占用情况、打开文件描述符等</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183813886-1769683385292-23.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183813886"
+	
+	
+></p>
+<p>在Linux系统的终端中输入shell指令： <strong>ps  -aux</strong>，就可以看到当前系统中运行的进程状态。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/wps17.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183830743-1769683385292-24.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183830743"
+	
+	
+></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">标识</th>
+<th style="text-align:center">状态含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">不可中断睡眠（通常为 I/O 操作）</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:center">空闲内核线程</td>
+</tr>
+<tr>
+<td style="text-align:center">R</td>
+<td style="text-align:center">运行态或就绪态（在运行队列中）</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:center">可中断睡眠（等待事件完成）</td>
+</tr>
+<tr>
+<td style="text-align:center">T</td>
+<td style="text-align:center">被作业控制信号停止</td>
+</tr>
+<tr>
+<td style="text-align:center">t</td>
+<td style="text-align:center">调试过程中被调试器停止</td>
+</tr>
+<tr>
+<td style="text-align:center">W</td>
+<td style="text-align:center">分页（2.6.x 内核后无效）</td>
+</tr>
+<tr>
+<td style="text-align:center">X</td>
+<td style="text-align:center">死亡（极少出现）</td>
+</tr>
+<tr>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">僵尸态（已终止但未被父进程回收）</td>
+</tr>
+</tbody>
+</table></div>
+<p>注意：进程不是一直处于某一个状态，进程的状态会受到外界因素和执行进度的影响而发生改变，当然，进程的状态在某一个时刻是唯一的，也就是在某一时刻进程必须且只能处于一种状态。</p>
+<h2 id="进程的控制操作">进程的控制操作
+</h2><p>进程控制指的是对系统中的所有进程实施有效的管理，其功能一般包括<strong>进程的创建、进程的撤销、进程的阻塞与唤醒</strong>等。这些功能一般是由操作系统的内核来实现的。</p>
+<h3 id="进程的创建">进程的创建
+</h3><h4 id="进程关系">进程关系
+</h4><p>Linux系统中的<strong>一个进程中可以创建若干个新进程</strong>，<strong>新创建的进程中又可以创建子进程</strong>，所以一般使用****进程前趋图来描述创建的进程之间的关系****。进程前趋图也被称为进程树，是为了描述进程家族关系的树。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/wps19.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>比如在进程A中创建了一个新进程B，则进程B就是进程A的子进程，进程A就是进程B的父进程。</p>
+<p>如果在进程A中创建了2个子进程B和C，进程B中创建了2个子进程D和E，进程C中创建了1个子进程F，则进程A就是该进程家族的祖先。</p>
+<h4 id="查看进程树">查看进程树
+</h4><p>在Linux系统中运行的所有进程也可以构成一个<strong>进程树</strong>，并且该进程树也有一个祖先，用户可以通过Linux系统提供的shell命令：<strong>pstree 来打印进程关系</strong>。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183850190-1769683385292-25.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183850190"
+	
+	
+></p>
+<p>所有进程的祖先为<code>systemd</code>进程（PID=1），即<strong>系统守护进程</strong>，负责系统启动时激活资源、管理其他进程。</p>
+<p>守护进程也被翻译为精灵进程或者后台进程，是一种旨在运行于相对干净环境、不受终端影响的、常驻内存的进程，拥有不死的特性，长期稳定提供某种功能或服务。</p>
+<p>systemd其实是一个 Linux 系统基础组件的集合，它提供了一个系统和服务管理器，然后运行为 PID 1的进程，负责在系统启动或运行时激活系统资源，并且管理服务器进程和其它进程。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/wps22.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h4 id="创建接口">创建接口
+</h4><p>Linux系统中只有进程才可以在系统运行，所以一个程序想要运行，就必须为该程序创建进程。linux内核提供了一个名字叫做**fork()**的系统调用接口，该接口可以在进程中创建一个子进程。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183911304-1769683385292-26.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183911304"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129183925684-1769683385292-27.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129183925684"
+	
+	
+></p>
+<p><code>fork()</code>特性：</p>
+<ul>
+<li>子进程复制父进程的代码段、数据段、堆栈段，但拥有独立内存空间，父进程与子进程的内存操作互不影响。</li>
+<li>返回值：父进程中返回子进程 PID；子进程中返回 0；创建失败时父进程返回 - 1。</li>
+<li>执行顺序：父进程与子进程的执行顺序由操作系统调度器决定，可通过特定机制调整。</li>
+</ul>
+<p>通过fork函数的<strong>返回值来区分父进程和子进程</strong></p>
+<p>获取当前进程PID的函数接口<strong>getpid()</strong>，获取当前进程的父进程PID的函数接口是<strong>getppid()</strong></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129184000216-1769683385292-28.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184000216"
+	
+	
+></p>
+<h4 id="练习">练习
+</h4><p>编写程序，要求在程序中创建一个子进程，让父进程和子进程分别打印不同的内容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 创建一个子进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="nf">fork</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// fork()函数返回值的判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span><span class="c1">// 父进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Parent process, pid: %d,My child pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getpid</span><span class="p">(),</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="c1">// 子进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Child process, pid: %d,My parent pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getpid</span><span class="p">(),</span> <span class="nf">getppid</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">perror</span><span class="p">(</span><span class="s">&#34;fork error&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://gxpdev.dpdns.org/PicGo/wps25.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+><img src="https://gxpdev.dpdns.org/PicGo/image-20260129184040436-1769683385292-29.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184040436"
+	
+	
+></p>
+<p>为什么会出现子进程的父进程的pid为1，因为当父进程的语句执行完后return结束了，就是子进程的父亲死了，所以由守护进程来看管刚才的子进程。</p>
+<p>调用fork函数之后可以创建一个子进程，但是调用了一次fork函数为什么会有两个不同的返回值？</p>
+<p>就是调用fork的时候子进程已经拷贝了父进程的代码段、数据段、堆栈段，所以fork函数还没有执行完成，就会在两个进程空间继续执行，就会得到两个不同的返回值。</p>
+<h3 id="进程的撤销">进程的撤销
+</h3><p>一个进程在完成自身任务之后应该及时撤销，这样就可以及时的释放进程的资源，此时可以分为两种情况：一种是<strong>撤销指定进程</strong>，另一种是<strong>撤销指定进程以及该进程的所有子孙进程</strong>。不管是哪种情况，都应该及时回收进程占用的资源。</p>
+<p>Linux系统中提供了一个名称叫做**wait()**的系统调用接口，该接口用于让父进程等待子进程的状态改变并获取已经改变状态的子进程的信息。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129184102205-1769683385292-30.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184102205"
+	
+	
+></p>
+<p>僵尸态指的是<strong>进程终止但是并未释放相关资源的一种状态</strong>，此时由系统内核对处于僵尸态的进程进行维护，处于僵尸态的进程会占用创建进程的资源和数量，如果僵尸态进程数量太多，则会导致系统无法创建新进程。</p>
+<p>所以<strong>父进程</strong>应该及时的<strong>对终止的子进程进行等待</strong>，这样就可以<strong>回收子进程占用的资源</strong>，当然，如果<strong>父进程终止</strong>，则处于<strong>僵尸态的子进程会由系统内核完成资源的回收</strong>。</p>
+<blockquote>
+<p>注意：<strong>如果当前进程没有子进程，则wait函数立即返回，如果当前进程有很多个子进程则wait函数会回收第一个变为僵尸态的子进程资源</strong>。</p>
+</blockquote>
+<p>wait函数的参数是一个指针，用于记录子进程的退出状态，如果该参数为NULL，则表示当前进程放弃子进程的退出状态。对于该指针中记录的值，用户可以通过系统提供的宏定义来分析子进程的退出状态。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129184120366-1769683385292-33.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184120366"
+	
+	
+></p>
+<p>通过man手册可以发现Linux内核还提供了另一个叫做**waitpid()**的系统调用函数，该函数也可以等待子进程状态改变并回收子进程的系统资源，只不过该函数的针对性更强，<strong>可以指定回收某个子进程的系统资源</strong>。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129184136297-1769683385292-31.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184136297"
+	
+	
+></p>
+<p>练习：编程产生一个进程链，父进程派生一个子进程后，输出自己的PID，然后退出，该子进程继续派生子进程，然后打印PID，然后退出，以此类推，要求父进程比子进程先输出PID</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="k">while</span><span class="p">(</span> <span class="n">i</span><span class="o">--</span> <span class="p">){</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 创建一个子进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="nf">fork</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// fork()函数返回值的判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span><span class="c1">// 父进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nf">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span> <span class="c1">// 等待子进程结束
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Parent process, pid: %d,My child pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getpid</span><span class="p">(),</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="c1">// 子进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Child process, pid: %d,My parent pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getpid</span><span class="p">(),</span> <span class="nf">getppid</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">       <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">perror</span><span class="p">(</span><span class="s">&#34;fork error&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Child</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3296</span><span class="p">,</span><span class="n">My</span> <span class="n">parent</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3295</span>
+</span></span><span class="line"><span class="cl"><span class="n">Parent</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3295</span><span class="p">,</span><span class="n">My</span> <span class="n">child</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3296</span>
+</span></span><span class="line"><span class="cl"><span class="n">Child</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3297</span><span class="p">,</span><span class="n">My</span> <span class="n">parent</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3295</span>
+</span></span><span class="line"><span class="cl"><span class="n">Parent</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3295</span><span class="p">,</span><span class="n">My</span> <span class="n">child</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3297</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>要是子进程忘记加break，由于fork()时，会复制父进程的数据段和代码段</p>
+<p>导致子进程中也会存在循环</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/wait.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span> <span class="n">i</span><span class="o">--</span> <span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 创建一个子进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="nf">fork</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// fork()函数返回值的判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span><span class="c1">// 父进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span> <span class="c1">// 等待子进程结束
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Parent process, pid: %d,My child pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getpid</span><span class="p">(),</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="c1">// 子进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Child process, pid: %d,My parent pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getpid</span><span class="p">(),</span> <span class="nf">getppid</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">perror</span><span class="p">(</span><span class="s">&#34;fork error&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Child</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3233</span><span class="p">,</span><span class="n">My</span> <span class="n">parent</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3232</span>
+</span></span><span class="line"><span class="cl"><span class="n">Child</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3234</span><span class="p">,</span><span class="n">My</span> <span class="n">parent</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3233</span>
+</span></span><span class="line"><span class="cl"><span class="n">Parent</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3233</span><span class="p">,</span><span class="n">My</span> <span class="n">child</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3234</span>
+</span></span><span class="line"><span class="cl"><span class="n">Parent</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3232</span><span class="p">,</span><span class="n">My</span> <span class="n">child</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3233</span>
+</span></span><span class="line"><span class="cl"><span class="n">Child</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3235</span><span class="p">,</span><span class="n">My</span> <span class="n">parent</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3232</span>
+</span></span><span class="line"><span class="cl"><span class="n">Parent</span> <span class="n">process</span><span class="p">,</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3232</span><span class="p">,</span><span class="n">My</span> <span class="n">child</span> <span class="nl">pid</span><span class="p">:</span> <span class="mi">3235</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129184153832-1769683385292-32.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184153832"
+	
+	
+></p>
+<h3 id="进程的执行">进程的执行
+</h3><p>既然在一个进程中可以创建多个子进程，并且子进程和父进程的数据段和代码段是相同的，也就是一份程序会执行两次，一般情况下是没有意义和必要的，请问能否让<strong>子进程单独的加载新的程序的代码段和数据段</strong>，如果可以，应该如何实现？</p>
+<p>当然是可以的，Linux系统标准库中提供了一组函数接口来实现在进程中加载和执行指定的程序。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/wps32.jpg"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129184204869-1769683385292-34.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184204869"
+	
+	
+></p>
+<p>这组接口可以把<strong>exec作为前缀</strong>，然后以exec后面的字符进行分类，比如l指的是list的缩写，p指的是path的缩写，e指的是environment的缩写，v指的是vector的缩写。</p>
+<p>(1) l : 以列表的方式来组织指定程序的参数</p>
+<p>(2) v: 以数组的方式来组织指定程序的参数</p>
+<p>(3) e: 执行指定程序前顺便设置环境变量</p>
+<p>(4) p: 执行程序时可自动搜索环境变量PATH的路径</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260129184218341-1769683385292-35.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184218341"
+	
+	
+></p>
+<p>以 <strong>execl(const char <em>pathname, const char <em>arg, &hellip;)</em></em> 为例，参数</strong>pathname是需要加载的指定程序**，而<strong>arg则是该程序运行时的命令行参数</strong>，命令行参数包括<strong>程序名本身</strong>，并且全部是字符串，其实和带参数的main函数通过命令行传参的流程类似，但是函数的参数列表<strong>必须以NULL结束</strong>，也就是函数的最后一个参数填NULL即可。</p>
+<p>练习：编写一个程序，使之产生一个子进程，在子进程中执行系统命令ls -l去查看某个文件的信息，父进程判断子进程是否执行成功。要求父进程等待子进程结束之后再结束。提示：Linux系统中的shell命令属于可执行文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;sys/wait.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// 创建一个子进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="kt">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="nf">fork</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">   <span class="c1">// fork()函数返回值的判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>   <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span><span class="c1">//   父进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Parent process, pid: %d,My child pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getpid</span><span class="p">(),</span> <span class="n">pid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;child process end</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pid</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="c1">// 子进程
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Child process start, pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getpid</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">       <span class="c1">//execl(&#34;/bin/ls&#34;, &#34;ls&#34;, &#34;-l&#34;, NULL);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>       <span class="nf">system</span><span class="p">(</span><span class="s">&#34;ls -l&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">perror</span><span class="p">(</span><span class="s">&#34;fork error&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其实，linux系统还提供一个函数，名称叫做<strong>system()</strong>，这个函数也可以让新进程执行shell命令。 <img src="https://gxpdev.dpdns.org/PicGo/image-20260129184238581-1769683385292-36.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260129184238581"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-02-10 09:31
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E4%B9%8B%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">深入解析嵌入式 Linux 之消息队列：进程间通信的桥梁</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 郭小胖
+    </section>
+    
+    </footer>
+
+
+<div id="toast-stack"></div>
+
+<script>
+ 
+(() => {
+  const toastStack = document.getElementById('toast-stack');
+  let toastCount = 0;
+  const MAX_TOAST = 5;
+  const DURATION  = 2500;
+
+   
+  let lastText = '';
+  let lastTime = 0;
+
+  window.pushToast = function (msg = '✅ 哎嘿！复制成功 🍬') {
+    const now = Date.now();
+    if (msg === lastText && now - lastTime < 500) return; 
+    lastText = msg;
+    lastTime = now;
+
+     
+    if (toastCount >= MAX_TOAST) toastStack.firstElementChild?.closeToast();
+
+    const item = document.createElement('div');
+    item.className = 'snack-left-top';
+    item.textContent = msg;
+
+    let closeTimer = null;
+    function closeToast() {
+      if (item.isClosing) return;
+      item.isClosing = true;
+      item.classList.remove('show');
+      item.addEventListener('transitionend', () => {
+        item.remove();
+        toastCount--;
+      }, { once: true });
+      clearTimeout(closeTimer);
+    }
+    item.closeToast = closeToast;
+
+    toastStack.appendChild(item);
+    toastCount++;
+    void item.offsetWidth;
+    item.classList.add('show');
+    closeTimer = setTimeout(closeToast, DURATION);
+  };
+
+   
+  document.addEventListener('copy', e => {
+    const text = window.getSelection().toString().trim();
+    if (!text) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(text)
+      .then(() => pushToast())
+      .catch(console.warn);
+  });
+
+   
+  const container = document.querySelector('.article-content');
+  if (container) {
+    container.addEventListener('click', e => {
+      if (!e.target.matches('.copyCodeButton')) return;
+      const wrap = e.target.closest('pre, .highlight');
+      const codeTd = wrap?.querySelector('td:nth-child(2)') || wrap;
+      const txt = codeTd ? codeTd.textContent.trim() : '';
+      navigator.clipboard.writeText(txt)
+        .then(() => pushToast())
+        .catch(err => alert('复制失败：' + err));
+    });
+  }
+})();
+</script>
+
+<style>
+ 
+.copyCodeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #3d3c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.copyCodeButton:hover {
+  background: var(--hover-text-color);
+  color: #fff;
+}
+
+ 
+.snack-left-top {
+  position: fixed;
+  left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  transform: translateX(calc(-100% - 20px));
+  width: 300px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  background: var(--hover-text-color);
+  color: #fff;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .35);
+  z-index: 9999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+ 
+.snack-left-top.show {
+  transform: translateX(0);
+}
+ 
+#toast-stack {
+  position: fixed;
+  left: 0;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+ 
+#toast-stack .snack-left-top {
+  position: relative;    
+  margin-bottom: 12px;   
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+              opacity   .35s cubic-bezier(.4, 0, .2, 1);
+  opacity: 0;
+  transform: translateX(calc(-100% - 20px));
+}
+
+#toast-stack .snack-left-top.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    document.querySelectorAll(".highlight").forEach(codeBlock => {
+      
+      if (codeBlock.querySelector('.code-more-box')) return;
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) return;
+
+      const codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+
+      const codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+      });
+
+      const img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "https://guokun603.github.io/icons/codeMore.png";
+
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox);
+    });
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+<div class="js-Pjax">
+    <script>
+      (function () {
+        let comment = document.querySelector(".comment");
+        if (!comment) {
+          return
+        }
+        let script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-repo',"meimolihan/meimolihan.github.io");
+        script.setAttribute('data-repo-id',"R_kgDONpRkKg");
+        script.setAttribute('data-category',"Announcements");
+        script.setAttribute('data-category-id',"DIC_kwDONpRkKs4CmwSa");
+        script.setAttribute('data-mapping',"pathname");
+        script.setAttribute('data-strict', 0 );
+        script.setAttribute('data-reactions-enabled', 1 );
+        script.setAttribute('data-emit-metadata', 0 );
+        script.setAttribute('data-input-position',"top");
+        script.setAttribute('data-theme',"light");
+        script.setAttribute('data-lang',"zh-CN");
+        script.setAttribute('data-loading', 'lazy')
+        script.async = true;
+        document.querySelector('.site-footer').before(script)
+      })(document);
+    </script>
+    <div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<div id="particles-js"></div>
+
+<script src=https://guokun603.github.io/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', "https://guokun603.github.io/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.meimolihan.eu.org/hugo/fish/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+<style>
+  @font-face {
+    font-family: 'WenYuanSerifSCVF';
+    src: url(https://guokun603.github.io/font/WenYuanSerifSCVF.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'WenYuanSerifSCVF';
+    --code-font-family: 'WenYuanSerifSCVF';
+  }
+</style>
+
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+
+<script>
+    function showHideView() {
+        
+        let viewCounts = document.querySelectorAll("#viewCount");
+        if (viewCounts) {
+            
+            let article =  document.querySelector(".article-page");
+            if (!article) {
+                viewCounts.forEach(ele => {
+                    ele.style.display = 'none';
+                });
+            }
+        }
+    }
+    
+    showHideView();
+</script>
+
+
+    </body>
+</html>

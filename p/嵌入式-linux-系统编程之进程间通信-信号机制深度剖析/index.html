@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head>
-	<meta name="generator" content="Hugo 0.130.0"><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="演示说明">
-<title>Pager 3 - 郭小胖</title>
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析 信号机制的基础 信号的概念 信号是Unix、类Unix等系统里实现进程通信的一种方式。信号采用的">
+<title>嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析</title>
 
-<link rel='canonical' href='https://guokun603.github.io/'>
+<link rel='canonical' href='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/'>
 
-<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="郭小胖">
-<meta property='og:description' content="演示说明">
-<meta property='og:url' content='https://guokun603.github.io/'>
+<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析">
+<meta property='og:description' content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析 信号机制的基础 信号的概念 信号是Unix、类Unix等系统里实现进程通信的一种方式。信号采用的">
+<meta property='og:url' content='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-02-02T22:09:24&#43;08:00 '/>
-<meta name="twitter:title" content="郭小胖">
-<meta name="twitter:description" content="演示说明"><link rel="alternate" type="application/rss&#43;xml" href="https://guokun603.github.io/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-05T21:21:12&#43;08:00'/><meta property='article:modified_time' content='2026-02-10T09:31:50&#43;08:00'/><meta property='og:image' content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
+<meta name="twitter:title" content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析">
+<meta name="twitter:description" content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析 信号机制的基础 信号的概念 信号是Unix、类Unix等系统里实现进程通信的一种方式。信号采用的"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
 
 
     </head>
-    <body class="">
+    <body class="
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -114,7 +116,7 @@
         
         
         
-        <li  class='current' >
+        <li >
             <a href='/' >
                 
                 
@@ -235,61 +237,10 @@
     <aside class="sidebar right-sidebar sticky">
         
             
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>搜索</label>
-            <input name="keyword" required placeholder="输入关键词..." />
-        
-            <button title="搜索">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
-                <section class="widget archives">
+                
+    <section class="widget archives">
         <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">归档</h2>
-
-        
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2026">
-                        
-                            <span class="year">2026</span>
-                            <span class="count">7</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <line x1="5" y1="9" x2="19" y2="9" />
   <line x1="5" y1="15" x2="19" y2="15" />
@@ -299,17 +250,36 @@
 
 
 
-    </div>
-    <h2 class="widget-title section-title">分类</h2>
-
-    <div class="tagCloud-tags">
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
         
-            <a href="/categories/hugo/" class="font_size_7">
-                Hugo
-            </a>
-        
-    </div>
-</section>
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#信号机制的基础">信号机制的基础</a>
+      <ol>
+        <li><a href="#信号的概念">信号的概念</a></li>
+        <li><a href="#信号的类型">信号的类型</a></li>
+        <li><a href="#信号的含义">信号的含义</a></li>
+      </ol>
+    </li>
+    <li><a href="#信号的产生与处理">信号的产生与处理</a>
+      <ol>
+        <li><a href="#信号的产生">信号的产生</a></li>
+        <li><a href="#信号的处理">信号的处理</a></li>
+      </ol>
+    </li>
+    <li><a href="#信号阻塞与挂起机制">信号阻塞与挂起机制</a>
+      <ol>
+        <li><a href="#信号阻塞">信号阻塞</a></li>
+        <li><a href="#信号挂起">信号挂起</a></li>
+      </ol>
+    </li>
+    <li><a href="#补充知识">补充知识</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
 
             
         
@@ -319,28 +289,12 @@
 
 
             <main class="main full-width">
-    
-    
-    
-    
-<div class="welcome">
-  <p style="font-size: 2.2rem; text-align: center; font-weight: bold; margin: 3rem 0;">
-    <span class="shake" style="color: #ff9f43;">🎉</span> 
-    <span style="color: #f39c12;">欢迎来到我的</span>
-    <span style="color: #e67e22; font-weight: 800;">小屋</span>
-    <span style="color: #d35400;">🏠</span> 
-    <span style="color: #f39c12;">技术博客</span>
-  </p>
-</div>
-    <section class="article-list">
-        
-            
-<article class="has-image">
+    <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/hugo-%E5%BC%95%E5%85%A5-mermaid/">
+            <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/">
                 
-                    <img src="https://picsum.photos/seed/hugo1/800/450" loading="lazy" alt="Featured image of post [Hugo] 引入 mermaid" />
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" alt="Featured image of post 嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析" />
                 
             </a>
         </div>
@@ -350,8 +304,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/hugo/" style="background-color: #2a9d8f; color: #fff;">
-                Hugo
+            <a href="/categories/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" >
+                Linux系统编程
             </a>
         
     </header>
@@ -359,7 +313,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/hugo-%E5%BC%95%E5%85%A5-mermaid/">[Hugo] 引入 mermaid</a>
+            <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/">嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析</a>
         </h2>
     
         
@@ -381,7 +335,7 @@
 
             <time>
                 
-                2026-02-02 22:09
+                2026-02-10 09:31
             </time>
         </div>
 
@@ -399,29 +353,408 @@
     
 </div>
 </header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="嵌入式-linux-系统编程之进程间通信--信号机制深度剖析">嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析
+</h1><h2 id="信号机制的基础">信号机制的基础
+</h2><h3 id="信号的概念">信号的概念
+</h3><p>信号是Unix、类Unix等系统里实现进程通信的一种方式。信号采用的是<strong>异步通信</strong>的机制。</p>
+<p>当一个信号发送给一个某进程，操作系统就会中断接收到信号的进程，此时进程中任何非<strong>原子性的操作</strong>都将被中断。</p>
+<blockquote>
+<p>同步通信：进程发出请求后阻塞等待响应。</p>
+<p>异步通信：指进程发出请求后不等待相应，继续执行其他任务，等待响应时再处理。</p>
+<p>比如去银行办事，异步像取号后可做别的事，叫号了再去办理；同步则是排队一直等。信号机制能提升程序执行效率。</p>
+</blockquote>
+<h3 id="信号的类型">信号的类型
+</h3><p>Linux系统中提供了shell命令: kill - l，该命令的作用是给某个进程发送信号，参数-l可以列出信号的名称</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205200622928.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205200622928"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205200632317.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205200632317"
+	
+	
+></p>
+<p>可以发现Linux系统中的信号编号为1<del>64，其中编号为1</del>31的信号为普通信号，编号为34~64的信号为实时信号。</p>
+<ol>
+<li>
+<p>普通信号</p>
+<p>Linux系统中的普通信号也称为不可靠信号，当进程接收多个信号来不及处理，会丢弃多余信号，只保留一个。Linux系统的普通信号是Unix系统继承过来的。</p>
+</li>
+<li>
+<p>实时信号</p>
+<p>Linux系统的实时信号也被称为可靠信号，当进程接收多个信号请求时但是不能及时处理，会把未处理的信号形成队列，按照排序依次处理。Linux系统中的实时信号是新增加的。</p>
+</li>
+</ol>
+<h3 id="信号的含义">信号的含义
+</h3><p>在Linux系统中可以查看man手册的第七章查找signal进行了解</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201544805.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205201544805"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201630013.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205201630013"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201633025.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205201633025"
+	
+	
+></p>
+<p>通过<code>kill -l</code>输出的信号名称都是大写的，按照编程规则而言这些信号都是宏定义，另外，可以看到信号前面有一个编号，这个编号就是指信号宏定义的替换列表的值。这些宏定义都被定义在<code>signal.h</code>头文件中</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201733253.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205201733253"
+	
+	
+></p>
+<h2 id="信号的产生与处理">信号的产生与处理
+</h2><h3 id="信号的产生">信号的产生
+</h3><ol>
+<li>**按键触发：**在终端，按<code>Ctrl + C</code>可产生<code>SIGINT</code>信号终止前台进程。这是因为按键产生硬件中断，操作系统解释为信号记录在进程 PCB，CPU 处理完中断后处理信号，使进程终止。</li>
+</ol>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201950731.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205201950731"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205202020059.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205202020059"
+	
+	
+></p>
+<p>在终端正在运行的进程叫做<code>前台进程</code>，用户使用快捷键Ctrl+C只能结束前台进程，无法结束<code>后台进程</code>，如果想把一个进程转为后台执行，则可以在运行程序的时候添加符号 <code>&amp;</code>。</p>
+<ol start="2">
+<li>
+<p>**硬件异常：**进程执行除以0或者访问非法内存地址等操作引发硬件异常，内核会发出相关信号。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205202337879.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205202337879"
+	
+	
+></p>
+</li>
+<li>
+<p><strong>调用接口：</strong><code>kill()</code>函数可以指定进程发信号，参数为目标进程的IP和信息，成功返回0，失败返回-1。<code>raise()</code>函数只能向当前进程发信号。</p>
+</li>
+</ol>
+<img src="https://gxpdev.dpdns.org/PicGo/image-20260205202710204.png" alt="image-20260205202710204"  />
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205202815494.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205202815494"
+	
+	
+></p>
+<ol start="4">
+<li>**发送指令：**终端用<code>kill</code>命令发送信号，本质调用<code>kill</code>函数，不指定信号名，默认发<code>SIGTERM</code>信号终止进程。</li>
+</ol>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205203904492.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205203904492"
+	
+	
+></p>
+<ol start="5">
+<li><strong>内核检测</strong>：内核检测到如闹钟超时（<code>alarm()</code>函数设置）产生<code>SIGALRM</code>信号，或进程向读端关闭的管道写数据产生<code>SIGPIPE</code>信号 。</li>
+</ol>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205203954748.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205203954748"
+	
+	
+></p>
+<h3 id="信号的处理">信号的处理
+</h3><p>当进程接收到信号之后，可以分为三种情况来对信号进行处理，分别是默认、捕捉和忽略。</p>
+<ol>
+<li>
+<p>**默认处理：**Linux系统对普通信号有默认规定，如果用户没有自定义信号的执行动作，则会采用默认处理的方式对信号进行响应。比如进程接收SIGTERM信号后则会被终止。</p>
+</li>
+<li>
+<p>**捕捉信号：**进程可提前设计信号相应函数并关联信号，这样当进程接收到信号之后，就不会执行信号的默认响应动作，而是执行用户指定的响应动作。<code>signal</code>函数用于此，参数为信号编号和处理函数的地址。</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205204656991.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205204656991"
+	
+	
+></p>
+</li>
+</ol>
+<p>当捕捉到信号时，不论进程的主控制流程当前执行到哪儿，都会先跳到信号处理函数中执行，从信号处理函数返回后再继续执行主控制流程。</p>
+<p>信号处理函数是一个单独的控制流程，因为它和主控制流程是异步的，二者不存在调用和被调用的关系，并且使用不同的堆栈空间。引入了信号处理函数使得一个进程具有多个控制流程，如果这些控制流程访问相同的全局资源（全局变量、硬件资源等），就有可能出现冲突。</p>
+<p><code>SIGKILL</code>和<code>SIGSTOP</code>信号是不可自定义响应接口。</p>
+<ol start="3">
+<li><strong>忽略信号</strong>：调用<code>signal()</code>函数，将第二个参数设为<code>SIG_IGN</code>可忽略信号 。</li>
+</ol>
+<h2 id="信号阻塞与挂起机制">信号阻塞与挂起机制
+</h2><h3 id="信号阻塞">信号阻塞
+</h3><p>进程又是需要蚕食屏蔽某些信号，如程序执行时不想被<code>Ctrl + C</code>强制结束，可以阻塞该信号。</p>
+<p>Linux系统中提供了一个名称叫做<code>sigprocmask()</code>的函数接口来设置信号集的属性，使用规则如下：</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205205717136.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205205717136"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205205857007.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205205857007"
+	
+	
+></p>
+<p><code>sigprocmask()</code>函数用于设置信号集属性，实现阻塞、解除阻塞操作。需先创建信号集，添加或删除信号 。</p>
+<blockquote>
+<p>阻塞和忽略是不同的，只要信号被阻塞就不会递达，而忽略是在递达之后可选的一种处理动作。</p>
+</blockquote>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205210619244.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260205210619244"
+	
+	
+></p>
+<h3 id="信号挂起">信号挂起
+</h3><p>进程只有在运行态才能处理信号，挂起信号集存储待处理信号。其他进程发的信号先放入挂起信号集，等进程被调度运行时再处理 。</p>
+<h2 id="补充知识">补充知识
+</h2><ol>
+<li>原子操作</li>
+</ol>
+<p><strong>原子操作（Atomic Operation）</strong> 指的是<strong>不可被中断、不可被分割的最小执行单元</strong>—— 要么整个操作完整执行完毕，要么完全不执行，不会出现 “执行到一半被打断” 的中间状态。</p>
+<ol start="2">
+<li>原子上下文</li>
+</ol>
+<p><strong>原子上下文（Atomic Context）</strong> 指的是<strong>执行流处于 “不可被调度、不可被阻塞” 的执行环境</strong>，在这个上下文中，所有操作都必须是原子的，且不能执行任何可能导致阻塞或调度的操作。</p>
+<p>简单总结：<strong>原子操作是 “点” 上的原子性，原子上下文是 “段” 上的原子性</strong>—— 原子操作是原子上下文的基础，原子上下文要求所有操作都必须是原子的。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-02-10 09:31
+        </span>
+    </section></footer>
+
+
+    
 </article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BB%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%A5%A5%E7%A7%98/">
         
-    </section>
-    <nav class='pagination'>
         
+            <div class="article-image">
+                
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                
+            </div>
         
 
-        
-            
-                    <a class='page-link' href='/'>1</a>
-                
-            
-            
-                    <a class='page-link' href='/page/2/'>2</a>
-                
-            
-            
-                <span class='page-link current'>3</span>
-                
-            
-    </nav>
+        <div class="article-details">
+            <h2 class="article-title">嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘</h2>
+        </div>
+    </a>
+</article>
 
-<footer class="site-footer">
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E4%B9%8B%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">深入解析嵌入式 Linux 之消息队列：进程间通信的桥梁</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+
+    ...
+    <div class="comment"></div>
+
+    
+
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -581,6 +914,85 @@
 </style>
 
 
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
             </main>
         </div>

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="示例文章：Hugo 常见问题汇总，用于在分类页面展示。">
-<title>[Hugo] 常见问题汇总</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="无人机飞控设计 控制核心采用STM32F103C8T6，姿态运动传感器选择MPU6050。无人机通过Si24R1（NRF24L01）与遥控器进">
+<title>从零到一：我的无人机飞控 PCB 设计全过程</title>
 
-<link rel='canonical' href='https://guokun603.github.io/p/hugo-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/'>
+<link rel='canonical' href='https://guokun603.github.io/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/'>
 
-<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="[Hugo] 常见问题汇总">
-<meta property='og:description' content="示例文章：Hugo 常见问题汇总，用于在分类页面展示。">
-<meta property='og:url' content='https://guokun603.github.io/p/hugo-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/'>
+<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="从零到一：我的无人机飞控 PCB 设计全过程">
+<meta property='og:description' content="无人机飞控设计 控制核心采用STM32F103C8T6，姿态运动传感器选择MPU6050。无人机通过Si24R1（NRF24L01）与遥控器进">
+<meta property='og:url' content='https://guokun603.github.io/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-27T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-02T22:09:24&#43;08:00'/><meta property='og:image' content='https://picsum.photos/seed/hugo2/800/450' />
-<meta name="twitter:title" content="[Hugo] 常见问题汇总">
-<meta name="twitter:description" content="示例文章：Hugo 常见问题汇总，用于在分类页面展示。"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://picsum.photos/seed/hugo2/800/450' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-04T16:45:10&#43;08:00'/><meta property='article:modified_time' content='2026-02-04T17:00:17&#43;08:00'/><meta property='og:image' content='https://gxpdev.dpdns.org/PicGo/PCB背景图1.png' />
+<meta name="twitter:title" content="从零到一：我的无人机飞控 PCB 设计全过程">
+<meta name="twitter:description" content="无人机飞控设计 控制核心采用STM32F103C8T6，姿态运动传感器选择MPU6050。无人机通过Si24R1（NRF24L01）与遥控器进"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://gxpdev.dpdns.org/PicGo/PCB背景图1.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -234,15 +234,50 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#飞控原理图">飞控原理图</a></li>
+    <li><a href="#pcb">PCB</a></li>
+    <li><a href="#感受">感受</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
 
             <main class="main full-width">
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/hugo-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">
+            <a href="/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/">
                 
-                    <img src="https://picsum.photos/seed/hugo2/800/450" loading="lazy" alt="Featured image of post [Hugo] 常见问题汇总" />
+                    <img src="https://gxpdev.dpdns.org/PicGo/PCB%e8%83%8c%e6%99%af%e5%9b%be1.png" loading="lazy" alt="Featured image of post 从零到一：我的无人机飞控 PCB 设计全过程" />
                 
             </a>
         </div>
@@ -252,8 +287,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/hugo/" style="background-color: #2a9d8f; color: #fff;">
-                Hugo
+            <a href="/categories/%E6%97%A0%E4%BA%BA%E6%9C%BA/" >
+                无人机
             </a>
         
     </header>
@@ -261,7 +296,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/hugo-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/">[Hugo] 常见问题汇总</a>
+            <a href="/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/">从零到一：我的无人机飞控 PCB 设计全过程</a>
         </h2>
     
         
@@ -283,7 +318,7 @@
 
             <time>
                 
-                2026-02-02 22:09
+                2026-02-04 17:00
             </time>
         </div>
 
@@ -305,7 +340,269 @@
     <section class="article-content">
     
     
-    <p>示例文章：Hugo 常见问题汇总，用于在分类页面展示。</p>
+    <h1 id="无人机飞控设计">无人机飞控设计
+</h1><p>控制核心采用<strong>STM32F103C8T6</strong>，姿态运动传感器选择<strong>MPU6050</strong>。无人机通过<strong>Si24R1</strong>（NRF24L01）与遥控器进行2.4G无线通信，实现了即时有效地接遥控器指令，通过串级PID进行姿态控制，从而在空间中实现自由移动。</p>
+<h2 id="飞控原理图">飞控原理图
+</h2><ul>
+<li>
+<p>主控芯片</p>
+<ul>
+<li>
+<p>STM32F103C8T6</p>
+</li>
+<li>
+<p>最小电路</p>
+<ul>
+<li>3.3V供电</li>
+<li>复位按钮</li>
+<li>烧录引脚 - - - -&gt;STLIND0</li>
+<li>外接晶振</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260204162224472.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204162224472"
+	
+	
+></p>
+</li>
+<li>
+<p>陀螺仪MPU6050</p>
+<ul>
+<li>使用I2C1进行通信
+<img src="https://gxpdev.dpdns.org/PicGo/image-20260204162614339.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204162614339"
+	
+	
+></li>
+</ul>
+</li>
+<li>
+<p>2.4G无线通信</p>
+<ul>
+<li>采用Si24R1，2.4G无线通信</li>
+<li>采用SPI1连接主控芯片</li>
+<li>外界16MHZ晶振
+<img src="https://gxpdev.dpdns.org/PicGo/image-20260204162551099.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204162551099"
+	
+	
+></li>
+</ul>
+</li>
+<li>
+<p>激光测高</p>
+<ul>
+<li>采用VL53L4CD0DH测距传感器</li>
+<li>I2C2接线
+<img src="https://gxpdev.dpdns.org/PicGo/image-20260204162423197.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204162423197"
+	
+	
+></li>
+</ul>
+</li>
+<li>
+<p>锂电池充放电管理模块</p>
+<ul>
+<li>TP4336芯片  充电管理芯片</li>
+<li>AMS1117-3.3V 降压芯片</li>
+<li>锂电池插座
+<img src="https://gxpdev.dpdns.org/PicGo/image-20260204162446182.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204162446182"
+	
+	
+></li>
+</ul>
+</li>
+<li>
+<p>电机插槽</p>
+<ul>
+<li>驱动四个电机 PWM</li>
+<li>mos驱动 电压更加稳定
+<img src="https://gxpdev.dpdns.org/PicGo/image-20260204162507639.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204162507639"
+	
+	
+></li>
+</ul>
+</li>
+<li>
+<p>信号灯和监控电池电压</p>
+<ul>
+<li>开发板周围4个信号灯</li>
+<li>由于ADC的量程上限是3.3v，没有办法直接测量，所以采用分压电路</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260204162307707.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204162307707"
+	
+	
+></p>
+<h2 id="pcb">PCB
+</h2><ol>
+<li>
+<p>绘制板框</p>
+</li>
+<li>
+<p>布局元件</p>
+<ul>
+<li>
+<p>按键和接口放置在开发板边缘</p>
+</li>
+<li>
+<p>主控芯片尽量在中间位置</p>
+</li>
+<li>
+<p>MPU6050陀螺仪芯片必须在中间</p>
+</li>
+</ul>
+</li>
+<li>
+<p>布线
+布线顺序，还是比较重要的，从电源布线一步步来</p>
+<ul>
+<li>
+<p>电源布线</p>
+<ul>
+<li>
+<p>VCC主供电</p>
+</li>
+<li>
+<p>VBAT</p>
+</li>
+<li>
+<p>5V输出</p>
+</li>
+<li>
+<p>降压稳压芯片</p>
+<ul>
+<li>输入5V</li>
+<li>输出3.3V</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>主控芯片最小电路</p>
+</li>
+<li>
+<p>MPU6050陀螺仪布线</p>
+</li>
+<li>
+<p>测量电池电压</p>
+</li>
+<li>
+<p>电机插座</p>
+</li>
+<li>
+<p>红外激光测距</p>
+</li>
+<li>
+<p>2.4G通讯</p>
+</li>
+<li>
+<p>led灯和接口</p>
+</li>
+</ul>
+</li>
+<li>
+<p>天线布线</p>
+<ul>
+<li>
+<p>特定尺寸 需要直接导入封装</p>
+</li>
+<li>
+<p>尺寸严格 不能修改</p>
+</li>
+</ul>
+</li>
+<li>
+<p>GND铺铜网络</p>
+<ul>
+<li>
+<p>孤岛区域需要单独连接</p>
+</li>
+<li>
+<p>打通孔提高载流能力</p>
+</li>
+</ul>
+</li>
+<li>
+<p>美化开发板</p>
+<ul>
+<li>
+<p>调整丝印</p>
+</li>
+<li>
+<p>添加文字</p>
+</li>
+<li>
+<p>泪滴工具  =&gt;  有效提高稳定性 提高载流能力</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>成品</p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260204163748340.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204163748340"
+	
+	
+></p>
+<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260204163828599.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20260204163828599"
+	
+	
+></p>
+<h2 id="感受">感受
+</h2><p>布线还是太折磨人了，一直在打孔，调整线的位置。</p>
+<p>但是当你布好所有线时，会有很强的成就感</p>
 
 </section>
 
@@ -323,7 +620,7 @@
 
 
         <span>
-            最后更新于 2026-02-02 22:09
+            最后更新于 2026-02-04 17:00
         </span>
     </section></footer>
 
@@ -334,110 +631,6 @@
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/hugo-%E9%83%A8%E7%BD%B2%E5%88%B0-github-pages/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://picsum.photos/seed/hugo6/800/450" loading="lazy" data-key="" data-hash="https://picsum.photos/seed/hugo6/800/450"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[Hugo] 部署到 GitHub Pages</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/hugo-%E9%85%8D%E7%BD%AE%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%AB%99%E7%82%B9/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://picsum.photos/seed/hugo5/800/450" loading="lazy" data-key="" data-hash="https://picsum.photos/seed/hugo5/800/450"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[Hugo] 配置多语言站点</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/hugo-build-blog/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://gxpdev.dpdns.org/PicGo/Hugo&#43;Github.png" loading="lazy" data-key="hugo-build-blog" data-hash="https://gxpdev.dpdns.org/PicGo/Hugo&#43;Github.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Hugo搭建博客</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/hugo-%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90%E4%B8%8E-page-bundle/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://picsum.photos/seed/hugo4/800/450" loading="lazy" data-key="" data-hash="https://picsum.photos/seed/hugo4/800/450"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[Hugo] 本地资源与 Page Bundle</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/hugo-%E5%8A%A8%E7%94%BB%E4%B8%8E%E7%9F%AD%E4%BB%A3%E7%A0%81/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://picsum.photos/seed/hugo3/800/450" loading="lazy" data-key="" data-hash="https://picsum.photos/seed/hugo3/800/450"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[Hugo] 动画与短代码</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     
