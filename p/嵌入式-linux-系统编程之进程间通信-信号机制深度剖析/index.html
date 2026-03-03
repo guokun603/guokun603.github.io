@@ -6,14 +6,14 @@
 
 <link rel='canonical' href='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/'>
 
-<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析">
+<link rel="stylesheet" href="/scss/style.min.70212c217295166b616fd230cf8b2de35a01aff0fb112ecbd0d214aa24b1c23f.css"><meta property='og:title' content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析">
 <meta property='og:description' content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析 信号机制的基础 信号的概念 信号是Unix、类Unix等系统里实现进程通信的一种方式。信号采用的">
 <meta property='og:url' content='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-05T21:21:12&#43;08:00'/><meta property='article:modified_time' content='2026-02-10T09:31:50&#43;08:00'/><meta property='og:image' content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-05T21:21:12&#43;08:00'/><meta property='article:modified_time' content='2026-03-03T21:02:59&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/消息队列.png' />
 <meta name="twitter:title" content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析">
 <meta name="twitter:description" content="嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析 信号机制的基础 信号的概念 信号是Unix、类Unix等系统里实现进程通信的一种方式。信号采用的"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/消息队列.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -289,12 +289,13 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="article-page-main">
+        <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
             <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" alt="Featured image of post 嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析" />
+                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" alt="Featured image of post 嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析" />
                 
             </a>
         </div>
@@ -335,18 +336,19 @@
 
             <time>
                 
-                2026-02-10 09:31
+                2026-03-03 21:02
             </time>
         </div>
 
         
+        
         <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
             <time class="article-time--reading">
-                
-                <span id="busuanzi_value_page_pv">loading...</span> 次
+                <span id="vercount_value_page_pv">loading...</span> 次
             </time>
         </div>
+        
     </footer>
     
 
@@ -369,26 +371,30 @@
 </blockquote>
 <h3 id="信号的类型">信号的类型
 </h3><p>Linux系统中提供了shell命令: kill - l，该命令的作用是给某个进程发送信号，参数-l可以列出信号的名称</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205200622928.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205200622928"
-	
-	
-></p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205200632317.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205200632317"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205200622928.png" data-caption="image-20260205200622928">
+        <img src="https://img.guokun.net/PicGo/image-20260205200622928.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205200622928"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205200632317.png" data-caption="image-20260205200632317">
+        <img src="https://img.guokun.net/PicGo/image-20260205200632317.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205200632317"
+            
+        >
+    </a>
+</div></p>
 <p>可以发现Linux系统中的信号编号为1<del>64，其中编号为1</del>31的信号为普通信号，编号为34~64的信号为实时信号。</p>
 <ol>
 <li>
@@ -402,128 +408,148 @@
 </ol>
 <h3 id="信号的含义">信号的含义
 </h3><p>在Linux系统中可以查看man手册的第七章查找signal进行了解</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201544805.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205201544805"
-	
-	
-></p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201630013.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205201630013"
-	
-	
-></p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201633025.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205201633025"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205201544805.png" data-caption="image-20260205201544805">
+        <img src="https://img.guokun.net/PicGo/image-20260205201544805.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205201544805"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205201630013.png" data-caption="image-20260205201630013">
+        <img src="https://img.guokun.net/PicGo/image-20260205201630013.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205201630013"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205201633025.png" data-caption="image-20260205201633025">
+        <img src="https://img.guokun.net/PicGo/image-20260205201633025.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205201633025"
+            
+        >
+    </a>
+</div></p>
 <p>通过<code>kill -l</code>输出的信号名称都是大写的，按照编程规则而言这些信号都是宏定义，另外，可以看到信号前面有一个编号，这个编号就是指信号宏定义的替换列表的值。这些宏定义都被定义在<code>signal.h</code>头文件中</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201733253.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205201733253"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205201733253.png" data-caption="image-20260205201733253">
+        <img src="https://img.guokun.net/PicGo/image-20260205201733253.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205201733253"
+            
+        >
+    </a>
+</div></p>
 <h2 id="信号的产生与处理">信号的产生与处理
 </h2><h3 id="信号的产生">信号的产生
 </h3><ol>
 <li>**按键触发：**在终端，按<code>Ctrl + C</code>可产生<code>SIGINT</code>信号终止前台进程。这是因为按键产生硬件中断，操作系统解释为信号记录在进程 PCB，CPU 处理完中断后处理信号，使进程终止。</li>
 </ol>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205201950731.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205201950731"
-	
-	
-></p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205202020059.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205202020059"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205201950731.png" data-caption="image-20260205201950731">
+        <img src="https://img.guokun.net/PicGo/image-20260205201950731.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205201950731"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205202020059.png" data-caption="image-20260205202020059">
+        <img src="https://img.guokun.net/PicGo/image-20260205202020059.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205202020059"
+            
+        >
+    </a>
+</div></p>
 <p>在终端正在运行的进程叫做<code>前台进程</code>，用户使用快捷键Ctrl+C只能结束前台进程，无法结束<code>后台进程</code>，如果想把一个进程转为后台执行，则可以在运行程序的时候添加符号 <code>&amp;</code>。</p>
 <ol start="2">
 <li>
 <p>**硬件异常：**进程执行除以0或者访问非法内存地址等操作引发硬件异常，内核会发出相关信号。</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205202337879.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205202337879"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205202337879.png" data-caption="image-20260205202337879">
+        <img src="https://img.guokun.net/PicGo/image-20260205202337879.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205202337879"
+            
+        >
+    </a>
+</div></p>
 </li>
 <li>
 <p><strong>调用接口：</strong><code>kill()</code>函数可以指定进程发信号，参数为目标进程的IP和信息，成功返回0，失败返回-1。<code>raise()</code>函数只能向当前进程发信号。</p>
 </li>
 </ol>
-<img src="https://gxpdev.dpdns.org/PicGo/image-20260205202710204.png" alt="image-20260205202710204"  />
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205202815494.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205202815494"
-	
-	
-></p>
+<img src="https://img.guokun.net/PicGo/image-20260205202710204.png" alt="image-20260205202710204"  />
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205202815494.png" data-caption="image-20260205202815494">
+        <img src="https://img.guokun.net/PicGo/image-20260205202815494.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205202815494"
+            
+        >
+    </a>
+</div></p>
 <ol start="4">
 <li>**发送指令：**终端用<code>kill</code>命令发送信号，本质调用<code>kill</code>函数，不指定信号名，默认发<code>SIGTERM</code>信号终止进程。</li>
 </ol>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205203904492.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205203904492"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205203904492.png" data-caption="image-20260205203904492">
+        <img src="https://img.guokun.net/PicGo/image-20260205203904492.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205203904492"
+            
+        >
+    </a>
+</div></p>
 <ol start="5">
 <li><strong>内核检测</strong>：内核检测到如闹钟超时（<code>alarm()</code>函数设置）产生<code>SIGALRM</code>信号，或进程向读端关闭的管道写数据产生<code>SIGPIPE</code>信号 。</li>
 </ol>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205203954748.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205203954748"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205203954748.png" data-caption="image-20260205203954748">
+        <img src="https://img.guokun.net/PicGo/image-20260205203954748.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205203954748"
+            
+        >
+    </a>
+</div></p>
 <h3 id="信号的处理">信号的处理
 </h3><p>当进程接收到信号之后，可以分为三种情况来对信号进行处理，分别是默认、捕捉和忽略。</p>
 <ol>
@@ -532,16 +558,18 @@
 </li>
 <li>
 <p>**捕捉信号：**进程可提前设计信号相应函数并关联信号，这样当进程接收到信号之后，就不会执行信号的默认响应动作，而是执行用户指定的响应动作。<code>signal</code>函数用于此，参数为信号编号和处理函数的地址。</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205204656991.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205204656991"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205204656991.png" data-caption="image-20260205204656991">
+        <img src="https://img.guokun.net/PicGo/image-20260205204656991.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205204656991"
+            
+        >
+    </a>
+</div></p>
 </li>
 </ol>
 <p>当捕捉到信号时，不论进程的主控制流程当前执行到哪儿，都会先跳到信号处理函数中执行，从信号处理函数返回后再继续执行主控制流程。</p>
@@ -554,40 +582,46 @@
 </h2><h3 id="信号阻塞">信号阻塞
 </h3><p>进程又是需要蚕食屏蔽某些信号，如程序执行时不想被<code>Ctrl + C</code>强制结束，可以阻塞该信号。</p>
 <p>Linux系统中提供了一个名称叫做<code>sigprocmask()</code>的函数接口来设置信号集的属性，使用规则如下：</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205205717136.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205205717136"
-	
-	
-></p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205205857007.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205205857007"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205205717136.png" data-caption="image-20260205205717136">
+        <img src="https://img.guokun.net/PicGo/image-20260205205717136.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205205717136"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205205857007.png" data-caption="image-20260205205857007">
+        <img src="https://img.guokun.net/PicGo/image-20260205205857007.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205205857007"
+            
+        >
+    </a>
+</div></p>
 <p><code>sigprocmask()</code>函数用于设置信号集属性，实现阻塞、解除阻塞操作。需先创建信号集，添加或删除信号 。</p>
 <blockquote>
 <p>阻塞和忽略是不同的，只要信号被阻塞就不会递达，而忽略是在递达之后可选的一种处理动作。</p>
 </blockquote>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260205210619244.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260205210619244"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260205210619244.png" data-caption="image-20260205210619244">
+        <img src="https://img.guokun.net/PicGo/image-20260205210619244.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260205210619244"
+            
+        >
+    </a>
+</div></p>
 <h3 id="信号挂起">信号挂起
 </h3><p>进程只有在运行态才能处理信号，挂起信号集存储待处理信号。其他进程发的信号先放入挂起信号集，等进程被调度运行时再处理 。</p>
 <h2 id="补充知识">补充知识
@@ -617,7 +651,7 @@
 
 
         <span>
-            最后更新于 2026-02-10 09:31
+            最后更新于 2026-03-03 21:02
         </span>
     </section></footer>
 
@@ -625,9 +659,13 @@
     
 </article>
 
-    
+        
 
-    
+        
+
+        
+
+        
 
 <aside class="related-content--wrapper">
     <h2 class="section-title">相关文章</h2>
@@ -641,7 +679,7 @@
         
             <div class="article-image">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/消息队列.png"/>
                 
             </div>
         
@@ -660,7 +698,7 @@
         
             <div class="article-image">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/消息队列.png"/>
                 
             </div>
         
@@ -679,7 +717,7 @@
         
             <div class="article-image">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/消息队列.png"/>
                 
             </div>
         
@@ -695,9 +733,9 @@
     </div>
 </aside>
 
-     
-    
+
         
+            
     <script
     src="https://giscus.app/client.js"
     data-repo=""
@@ -752,7 +790,8 @@
     ...
     <div class="comment"></div>
 
-    
+        
+    </article>
 
     <footer class="site-footer">
     <section class="copyright">
@@ -1004,14 +1043,13 @@
 <script>
     (function () {
         const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
+        customFont.href = '/fonts/lato.css';
+        customFont.type = 'text/css';
+        customFont.rel = 'stylesheet';
         document.head.appendChild(customFont);
     }());
 </script>
+
 <style>
     #TableOfContents > ul, ol {
         ul, ol {
@@ -1162,29 +1200,25 @@
     <div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-
-<div id="particles-js"></div>
-
-<script src=https://guokun603.github.io/background/particles.min.js></script>
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
-  particlesJS.load('particles-js', "https://guokun603.github.io/background/particlesjs-config.json", function() {
-    console.log('particles.js loaded - callback');
-  });
+    (function () {
+        function initFancybox() {
+            if (!(window.jQuery && window.jQuery.fancybox)) return;
+            window.jQuery('[data-fancybox]').fancybox({
+                loop: true,
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'close']
+            });
+        }
+
+        window.addEventListener('load', initFancybox);
+        document.addEventListener('pjax:complete', initFancybox);
+    })();
 </script>
 
-<style>
-  #particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-  }
-</style>
 
 <div id="jsi-flying-fish-container"></div>
 
@@ -1257,27 +1291,38 @@ document.addEventListener('pjax:complete', initFlyingFish);
   }
 </style>
 
-
-<script defer src="https://cn.vercount.one/js"></script>
-
-
-<script>
-    function showHideView() {
-        
-        let viewCounts = document.querySelectorAll("#viewCount");
-        if (viewCounts) {
-            
-            let article =  document.querySelector(".article-page");
-            if (!article) {
-                viewCounts.forEach(ele => {
-                    ele.style.display = 'none';
-                });
+<div class="js-Pjax">
+    <script>
+        (function () {
+            function showHideView() {
+                const viewCounts = document.querySelectorAll('#viewCount');
+                if (!viewCounts.length) return;
+                const display = document.querySelector('.article-page') ? '' : 'none';
+                viewCounts.forEach(el => { el.style.display = display; });
             }
-        }
-    }
-    
-    showHideView();
-</script>
+
+            function loadVercount() {
+                if (document.getElementById('vercount-script')) return;
+                const script = document.createElement('script');
+                script.defer = true;
+                script.id = 'vercount-script';
+                script.src = 'https://cn.vercount.one/js';
+                document.body.appendChild(script);
+            }
+
+            function initVercount() {
+                showHideView();
+                loadVercount();
+            }
+
+            window.addEventListener('load', initVercount);
+            document.addEventListener('pjax:complete', initVercount);
+        })();
+    </script>
+</div>
+
+
+
 
 
     </body>

@@ -6,14 +6,14 @@
 
 <link rel='canonical' href='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/'>
 
-<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘">
+<link rel="stylesheet" href="/scss/style.min.70212c217295166b616fd230cf8b2de35a01aff0fb112ecbd0d214aa24b1c23f.css"><meta property='og:title' content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘">
 <meta property='og:description' content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘 进程间通信与管道通信概述 进程间通信 进程间通信（Inter Process Communication，简称">
 <meta property='og:url' content='https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-07T16:19:53&#43;08:00'/><meta property='article:modified_time' content='2026-02-10T09:31:50&#43;08:00'/><meta property='og:image' content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-07T16:19:53&#43;08:00'/><meta property='article:modified_time' content='2026-03-03T21:02:59&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/消息队列.png' />
 <meta name="twitter:title" content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘">
 <meta name="twitter:description" content="嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘 进程间通信与管道通信概述 进程间通信 进程间通信（Inter Process Communication，简称"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://gxpdev.dpdns.org/PicGo/消息队列.png' />
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/消息队列.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -287,12 +287,13 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="article-page-main">
+        <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
             <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" alt="Featured image of post 嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘" />
+                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" alt="Featured image of post 嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘" />
                 
             </a>
         </div>
@@ -333,18 +334,19 @@
 
             <time>
                 
-                2026-02-10 09:31
+                2026-03-03 21:02
             </time>
         </div>
 
         
+        
         <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
             <time class="article-time--reading">
-                
-                <span id="busuanzi_value_page_pv">loading...</span> 次
+                <span id="vercount_value_page_pv">loading...</span> 次
             </time>
         </div>
+        
     </footer>
     
 
@@ -363,16 +365,18 @@
 <h3 id="管道通信">管道通信
 </h3><p>Linux中的管道通信，核心特点是<strong>半双工通信</strong>，同一时刻只能“发送数据”或“接收数据”中的一个操作，无法双向同步同时通信。就像现实中的水管，水只能从一端流向另一端，不能双向对流。</p>
 <p>设计理念非常简单：模拟现实中的“管道”，让数据从一端写入、另一端读出，实现进程间的单向数据传递，适合简单的场景下的数据交互。</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207144647316.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260207144647316"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260207144647316.png" data-caption="image-20260207144647316">
+        <img src="https://img.guokun.net/PicGo/image-20260207144647316.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260207144647316"
+            
+        >
+    </a>
+</div></p>
 <p>管道在Linux系统中属于“<strong>文件</strong>”的一种，但它又不是普通文件，而是一种“<strong>特殊文件</strong>”。它支持和普通文件一样的<strong>read()/write()<strong>操作，但不支持</strong>lseek()</strong>（无法指定位置读写），数据写入管道后会暂存在内核缓冲区，读取后就会从缓冲区中删除，不会持久化存储。</p>
 <p>Linux系统中的管道文件分为两种：<strong>匿名管道(pipe)、命名管道(fifo)</strong>。</p>
 <h2 id="匿名管道pipe亲缘进程的秘密通道">匿名管道（pipe）：亲缘进程的“秘密通道”
@@ -389,16 +393,18 @@
 <p>Linux系统提供<code>pipe()</code>系统调用，专门用于创建匿名管道；创建成功后，会返回两个文件描述符，</p>
 <p>分别对应管道的“读取端”和“写入端”，进程通过这两个文件描述符就能访问管道。</p>
 <h3 id="pipe函数创建匿名管道">pipe()函数创建匿名管道
-</h3><p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207150801778.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260207150801778"
-	
-	
-></p>
+</h3><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260207150801778.png" data-caption="image-20260207150801778">
+        <img src="https://img.guokun.net/PicGo/image-20260207150801778.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260207150801778"
+            
+        >
+    </a>
+</div></p>
 <p>pipe()函数只有一个参数 <code>int pipefd[2]</code>，这是一个长度为2的数组，专门用于存储管道的两个文件描述符：</p>
 <ul>
 <li><code>pipefd[0]</code>：对应管道的<strong>读取端</strong>，只能用于read()操作，无法写入。</li>
@@ -412,16 +418,18 @@
 </li>
 <li>
 <p>缓冲区大小：Linux系统中，管道的内核缓冲区默认大小是4M，可以使用<code>ulimit -a</code>查看</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207152523433.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260207152523433"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260207152523433.png" data-caption="image-20260207152523433">
+        <img src="https://img.guokun.net/PicGo/image-20260207152523433.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260207152523433"
+            
+        >
+    </a>
+</div></p>
 </li>
 <li>
 <p>阻塞特性：</p>
@@ -439,26 +447,30 @@
 </blockquote>
 <p>由于管道没有文件名，所以仅适合有亲缘关系的进程（父子、兄弟），因为这类进程可共享文件描述符，无需通过文件定位管道。</p>
 <p><strong>必须在创建子进程（fork()）之前创建匿名管道</strong>。因为fork()创建子进程时，会复制父进程的代码段、数据段、堆栈段，以及所有打开的文件描述符——如果<strong>父进程先创建管道</strong>，子进程会自动复制管道的两个文件描述符，这样父子进程就能通过这两个文件描述符访问同一个管道；如果先fork()再创建管道，子进程不会拥有管道的文件描述符，无法访问管道。</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207153227479.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260207153227479"
-	
-	
-></p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207153132279.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260207153132279"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260207153227479.png" data-caption="image-20260207153227479">
+        <img src="https://img.guokun.net/PicGo/image-20260207153227479.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260207153227479"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260207153132279.png" data-caption="image-20260207153132279">
+        <img src="https://img.guokun.net/PicGo/image-20260207153132279.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260207153132279"
+            
+        >
+    </a>
+</div></p>
 <blockquote>
 <p><strong>匿名管道不保证数据的原子性</strong></p>
 <p>匿名管道更适合“一对一”的亲缘进程通信，不适合多进程同时写入的场景。</p>
@@ -479,16 +491,18 @@
 <p>如果写入的数据量超过了 PIPE_BUF，内核就无法保证原子性了。因为此时数据量较大，内核可能会将其拆分成多个部分来处理，这样就可能出现其他进程在这个大写入操作中间插入自己的写入，导致数据混乱。</p>
 <h3 id="mkfifo函数创建命名管道">mkfifo()函数创建命名管道
 </h3><p>访问命名管道的前提是：命名管道已经存在。Linux系统提供了<strong>mkfifo()函数</strong>，专门用于创建命名管道。</p>
-<p><img src="https://gxpdev.dpdns.org/PicGo/image-20260207160948204.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20260207160948204"
-	
-	
-></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260207160948204.png" data-caption="image-20260207160948204">
+        <img src="https://img.guokun.net/PicGo/image-20260207160948204.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260207160948204"
+            
+        >
+    </a>
+</div></p>
 <ul>
 <li><code>const char *pathname</code>：命名管道的<strong>文件路径和名称</strong>（如<code>&quot;/tmp/myfifo&quot;</code>）。</li>
 <li>重点注意：创建命名管道时，路径必须位于Linux系统内部（比如虚拟机中的Linux目录），<strong>不能创建在Windows共享文件夹中</strong>—— 因为共享文件夹属于Windows系统路径，Linux的管道机制无法在Windows路径下生效，会导致创建失败。</li>
@@ -519,7 +533,7 @@
 
 
         <span>
-            最后更新于 2026-02-10 09:31
+            最后更新于 2026-03-03 21:02
         </span>
     </section></footer>
 
@@ -527,9 +541,13 @@
     
 </article>
 
-    
+        
 
-    
+        
+
+        
+
+        
 
 <aside class="related-content--wrapper">
     <h2 class="section-title">相关文章</h2>
@@ -543,7 +561,7 @@
         
             <div class="article-image">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/消息队列.png"/>
                 
             </div>
         
@@ -562,7 +580,7 @@
         
             <div class="article-image">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/消息队列.png"/>
                 
             </div>
         
@@ -581,7 +599,7 @@
         
             <div class="article-image">
                 
-                    <img src="https://gxpdev.dpdns.org/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://gxpdev.dpdns.org/PicGo/消息队列.png"/>
+                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/消息队列.png"/>
                 
             </div>
         
@@ -597,8 +615,9 @@
     </div>
 </aside>
 
-     
-    
+
+        
+    </article>
 
     <footer class="site-footer">
     <section class="copyright">
@@ -850,14 +869,13 @@
 <script>
     (function () {
         const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
+        customFont.href = '/fonts/lato.css';
+        customFont.type = 'text/css';
+        customFont.rel = 'stylesheet';
         document.head.appendChild(customFont);
     }());
 </script>
+
 <style>
     #TableOfContents > ul, ol {
         ul, ol {
@@ -1008,29 +1026,25 @@
     <div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-
-<div id="particles-js"></div>
-
-<script src=https://guokun603.github.io/background/particles.min.js></script>
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
-  particlesJS.load('particles-js', "https://guokun603.github.io/background/particlesjs-config.json", function() {
-    console.log('particles.js loaded - callback');
-  });
+    (function () {
+        function initFancybox() {
+            if (!(window.jQuery && window.jQuery.fancybox)) return;
+            window.jQuery('[data-fancybox]').fancybox({
+                loop: true,
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'close']
+            });
+        }
+
+        window.addEventListener('load', initFancybox);
+        document.addEventListener('pjax:complete', initFancybox);
+    })();
 </script>
 
-<style>
-  #particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-  }
-</style>
 
 <div id="jsi-flying-fish-container"></div>
 
@@ -1103,27 +1117,38 @@ document.addEventListener('pjax:complete', initFlyingFish);
   }
 </style>
 
-
-<script defer src="https://cn.vercount.one/js"></script>
-
-
-<script>
-    function showHideView() {
-        
-        let viewCounts = document.querySelectorAll("#viewCount");
-        if (viewCounts) {
-            
-            let article =  document.querySelector(".article-page");
-            if (!article) {
-                viewCounts.forEach(ele => {
-                    ele.style.display = 'none';
-                });
+<div class="js-Pjax">
+    <script>
+        (function () {
+            function showHideView() {
+                const viewCounts = document.querySelectorAll('#viewCount');
+                if (!viewCounts.length) return;
+                const display = document.querySelector('.article-page') ? '' : 'none';
+                viewCounts.forEach(el => { el.style.display = display; });
             }
-        }
-    }
-    
-    showHideView();
-</script>
+
+            function loadVercount() {
+                if (document.getElementById('vercount-script')) return;
+                const script = document.createElement('script');
+                script.defer = true;
+                script.id = 'vercount-script';
+                script.src = 'https://cn.vercount.one/js';
+                document.body.appendChild(script);
+            }
+
+            function initVercount() {
+                showHideView();
+                loadVercount();
+            }
+
+            window.addEventListener('load', initVercount);
+            document.addEventListener('pjax:complete', initVercount);
+        })();
+    </script>
+</div>
+
+
+
 
 
     </body>

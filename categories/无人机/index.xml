@@ -13,7 +13,7 @@
         <pubDate>Wed, 04 Feb 2026 16:45:10 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/</guid>
-        <description>&lt;img src="https://gxpdev.dpdns.org/PicGo/PCB背景图1.png" alt="Featured image of post 从零到一：我的无人机飞控 PCB 设计全过程" /&gt;&lt;h1 id=&#34;无人机飞控设计&#34;&gt;无人机飞控设计
+        <description>&lt;img src="https://img.guokun.net/PicGo/PCB背景图1.png" alt="Featured image of post 从零到一：我的无人机飞控 PCB 设计全过程" /&gt;&lt;h1 id=&#34;无人机飞控设计&#34;&gt;无人机飞控设计
 &lt;/h1&gt;&lt;p&gt;控制核心采用&lt;strong&gt;STM32F103C8T6&lt;/strong&gt;，姿态运动传感器选择&lt;strong&gt;MPU6050&lt;/strong&gt;。无人机通过&lt;strong&gt;Si24R1&lt;/strong&gt;（NRF24L01）与遥控器进行2.4G无线通信，实现了即时有效地接遥控器指令，通过串级PID进行姿态控制，从而在空间中实现自由移动。&lt;/p&gt;
 &lt;h2 id=&#34;飞控原理图&#34;&gt;飞控原理图
 &lt;/h2&gt;&lt;ul&gt;
@@ -33,31 +33,35 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162224472.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162224472&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162224472.png&#34; data-caption=&#34;image-20260204162224472&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162224472.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162224472&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;陀螺仪MPU6050&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使用I2C1进行通信
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162614339.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162614339&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162614339.png&#34; data-caption=&#34;image-20260204162614339&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162614339.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162614339&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -66,16 +70,18 @@
 &lt;li&gt;采用Si24R1，2.4G无线通信&lt;/li&gt;
 &lt;li&gt;采用SPI1连接主控芯片&lt;/li&gt;
 &lt;li&gt;外界16MHZ晶振
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162551099.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162551099&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162551099.png&#34; data-caption=&#34;image-20260204162551099&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162551099.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162551099&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -83,16 +89,18 @@
 &lt;ul&gt;
 &lt;li&gt;采用VL53L4CD0DH测距传感器&lt;/li&gt;
 &lt;li&gt;I2C2接线
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162423197.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162423197&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162423197.png&#34; data-caption=&#34;image-20260204162423197&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162423197.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162423197&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -101,16 +109,18 @@
 &lt;li&gt;TP4336芯片  充电管理芯片&lt;/li&gt;
 &lt;li&gt;AMS1117-3.3V 降压芯片&lt;/li&gt;
 &lt;li&gt;锂电池插座
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162446182.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162446182&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162446182.png&#34; data-caption=&#34;image-20260204162446182&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162446182.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162446182&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -118,16 +128,18 @@
 &lt;ul&gt;
 &lt;li&gt;驱动四个电机 PWM&lt;/li&gt;
 &lt;li&gt;mos驱动 电压更加稳定
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162507639.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162507639&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162507639.png&#34; data-caption=&#34;image-20260204162507639&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162507639.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162507639&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -138,16 +150,18 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162307707.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162307707&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162307707.png&#34; data-caption=&#34;image-20260204162307707&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162307707.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162307707&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;pcb&#34;&gt;PCB
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -253,26 +267,30 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;成品&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204163748340.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204163748340&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204163828599.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204163828599&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204163748340.png&#34; data-caption=&#34;image-20260204163748340&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204163748340.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204163748340&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204163828599.png&#34; data-caption=&#34;image-20260204163828599&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204163828599.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204163828599&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;感受&#34;&gt;感受
 &lt;/h2&gt;&lt;p&gt;布线还是太折磨人了，一直在打孔，调整线的位置。&lt;/p&gt;
 &lt;p&gt;但是当你布好所有线时，会有很强的成就感&lt;/p&gt;

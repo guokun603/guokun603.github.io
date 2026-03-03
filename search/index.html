@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://guokun603.github.io/search/'>
 
-<link rel="stylesheet" href="/scss/style.min.2b85f06abe05ee1370a587dce53d3a1a74a9e9066d2319408d6a327c45449b4f.css"><meta property='og:title' content="搜索 ">
+<link rel="stylesheet" href="/scss/style.min.70212c217295166b616fd230cf8b2de35a01aff0fb112ecbd0d214aa24b1c23f.css"><meta property='og:title' content="搜索 ">
 <meta property='og:description' content="">
 <meta property='og:url' content='https://guokun603.github.io/search/'>
 <meta property='og:site_name' content='郭小胖'>
@@ -17,7 +17,8 @@
 
   
 
-<link rel="preload" href="/search/index.json" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="/search/index.json" as="fetch" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+
     </head>
     <body class="template-search">
     <script>
@@ -232,6 +233,7 @@
 </aside>
 
             <main class="main full-width">
+
 <form action="/search/" class="search-form"data-json="/search/index.json">
     <p>
         <label>搜索</label>
@@ -250,6 +252,184 @@
     </button>
 </form>
 
+<style>
+     
+    .heatmap-card {
+        width: 100%;
+        padding: 12px 0 6px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+    .heatmap-card__inner {
+        position: relative;
+        background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 14px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+        width: calc(100% - 24px);
+        max-width: 1100px;
+        min-width: 0;
+        margin: 0 auto;
+        padding: 12px 12px 6px;
+        overflow: hidden;
+        backdrop-filter: blur(6px);
+    }
+    .heatmap-card__inner::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 14px;
+        pointer-events: none;
+        background: radial-gradient(circle at 20% 20%, rgba(64,196,99,0.08), transparent 36%),
+                                radial-gradient(circle at 80% 10%, rgba(57,211,83,0.08), transparent 32%);
+    }
+    .heatmap-card__header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 0 4px 8px;
+        color: var(--card-text, #d6d6d6);
+        font-size: 20px;
+    }
+    .heatmap-card__title {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .heatmap-card__title::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #40c463, #30a14e);
+        box-shadow: 0 0 12px rgba(64,196,99,0.6);
+    }
+    .heatmap-card__meta {
+        opacity: 0.9;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .heatmap-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.08);
+        font-size: 12px;
+        color: var(--card-text, #d6d6d6);
+    }
+    .heatmap-pill__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #9be9a8, #30a14e);
+        box-shadow: 0 0 10px rgba(64,196,99,0.55);
+    }
+
+     
+    .site-stats-card {
+        width: min(88vw, 680px);
+        max-width: 680px;
+        margin: 8px auto 4px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        color: var(--card-text, #d6d6d6);
+    }
+    .site-stats-card__item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px 10px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.05);
+        position: relative;
+    }
+    .site-stats-card__item::before {
+        content: '';
+        position: absolute;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        top: 10px;
+        left: 10px;
+        background: linear-gradient(135deg, #40c463, #30a14e);
+        box-shadow: 0 0 10px rgba(64,196,99,0.55);
+        opacity: 0.85;
+    }
+    .site-stats-card__label {
+        font-size: 12px;
+        opacity: 0.78;
+        padding-left: 18px;
+    }
+    .site-stats-card__value {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        padding-left: 18px;
+    }
+
+    .search-clear {
+        margin-left: 10px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.16);
+        background: rgba(255,255,255,0.08);
+        color: inherit;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .search-clear:hover { background: rgba(255,255,255,0.14); transform: translateY(-1px); }
+    .search-clear:active { transform: translateY(0); }
+
+    @media (max-width: 900px) {
+        .site-stats-card { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .heatmap-card__inner { width: calc(100% - 16px); padding: 10px; }
+    }
+    @media (max-width: 560px) {
+        .site-stats-card { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .heatmap-card__inner { width: calc(100% - 12px); padding: 9px; }
+    }
+</style>
+
+<div id="search-heatmap-container" class="heatmap-card" style="overflow-x: auto; display: block;">
+        <div class="heatmap-card__inner">
+                <div class="heatmap-card__header">
+                        <span class="heatmap-card__title">博客热力图</span>
+                        <span class="heatmap-card__meta" id="heatmap-meta"></span>
+                </div>
+                <div id="search-heatmap" style="width: 100%; height: 280px;"></div>
+        </div>
+</div>
+
+    <div class="site-stats-card" id="site-stats-card">
+        <div class="site-stats-card__item">
+            <span class="site-stats-card__label">本站运行天数</span>
+            <span class="site-stats-card__value" id="stat-days">--</span>
+        </div>
+        <div class="site-stats-card__item">
+            <span class="site-stats-card__label">文章总数</span>
+            <span class="site-stats-card__value" id="stat-posts">--</span>
+        </div>
+    </div>
+
 <div class="search-result">
     <h3 class="search-result--title section-title"></h3>
     <div class="search-result--list article-list--compact"></div>
@@ -257,6 +437,268 @@
 
 <script>
     window.searchResultTitleTemplate = "#PAGES_COUNT 个结果 （用时 #TIME_SECONDS 秒）"
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const heatmapWrapper = document.getElementById('search-heatmap-container');
+        const heatmapContainer = document.getElementById('search-heatmap');
+        const searchInput = document.querySelector('input[name="keyword"]');
+        const searchResultContainer = document.querySelector('.search-result');
+        const searchForm = document.querySelector('form.search-form');
+        const statsCard = document.getElementById('site-stats-card');
+        const clearBtn = document.getElementById('search-clear');
+
+        if (!heatmapWrapper || !heatmapContainer) {
+            return;
+        }
+        if (typeof echarts === 'undefined') {
+            heatmapContainer.innerHTML = '<div style="text-align:center;padding:16px;color:#888;">热力图脚本加载失败</div>';
+            return;
+        }
+        
+        
+        const articleDates = [
+            
+            "2026-02-07",
+            
+            "2026-02-07",
+            
+            "2026-02-05",
+            
+            "2026-02-07",
+            
+            "2026-02-04",
+            
+            "2026-02-01",
+            
+        ];
+
+        
+        const dateCounts = {};
+        if (articleDates.length > 0) {
+            articleDates.forEach(date => {
+                dateCounts[date] = (dateCounts[date] || 0) + 1;
+            });
+        }
+
+        
+        const heatmapData = Object.keys(dateCounts).map(date => [date, dateCounts[date]]);
+        const totalPosts = articleDates.length;
+        
+        
+        const maxCount = heatmapData.length > 0 ? Math.max(...Object.values(dateCounts), 5) : 5;
+
+        
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+            return [year, month, day].join('-');
+        }
+        
+        const now = new Date();
+        const todayStr = formatDate(now);
+        const oneYearAgoDate = new Date();
+        oneYearAgoDate.setFullYear(now.getFullYear() - 1);
+        const oneYearAgoStr = formatDate(oneYearAgoDate);
+
+        
+        let chart = null;
+        
+        
+        let isDarkMode = document.documentElement.dataset.scheme === 'dark' || 
+                         window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        
+        const lightTheme = {
+            text: '#666',
+            empty: '#ebedf0',
+            border: '#fff',
+            green: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']
+        };
+        const darkTheme = {
+            text: '#ccc',
+            empty: '#161b22',
+            border: '#0d1117',
+            green: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
+        };
+
+        let currentTheme = isDarkMode ? darkTheme : lightTheme;
+
+        
+        function getOption(theme) {
+            return {
+                title: {
+                    show: false
+                },
+                tooltip: {
+                    position: 'top',
+                    borderWidth: 0,
+                    backgroundColor: 'rgba(0,0,0,0.72)',
+                    textStyle: { color: '#fff', fontSize: 12 },
+                    formatter: function (p) {
+                        return p.data[0] + ': ' + p.data[1] + ' 篇文章';
+                    }
+                },
+                visualMap: {
+                    min: 0,
+                    max: 10,
+                    calculable: false,
+                    orient: 'horizontal',
+                    left: 'center',
+                    bottom: 0,
+                    type: 'piecewise',
+                    pieces: [
+                        {value: 0, color: theme.empty, label: '0'},
+                        {min: 1, max: 2, color: theme.green[1], label: '1-2'},
+                        {min: 3, max: 4, color: theme.green[2], label: '3-4'},
+                        {min: 5, max: 6, color: theme.green[3], label: '5-6'},
+                        {min: 7, max: 100, color: theme.green[4], label: '7+'}
+                    ],
+                    textStyle: { color: theme.text },
+                    show: true,
+                    itemWidth: 14,
+                    itemHeight: 14,
+                    itemGap: 8
+                },
+                calendar: {
+                    top: 24,
+                    bottom: 36,
+                    left: 28, 
+                    right: 20, 
+                    cellSize: ['auto', 17],
+                    range: [oneYearAgoStr, todayStr], 
+                    itemStyle: {
+                        borderWidth: 2.5,
+                        borderColor: 'rgba(0,0,0,0)', 
+                        color: theme.empty 
+                    },
+                    yearLabel: { show: false },
+                    dayLabel: {
+                        firstDay: 1,
+                        nameMap: 'cn',
+                        color: theme.text
+                    },
+                    monthLabel: {
+                        nameMap: 'cn',
+                        color: theme.text,
+                        margin: 8
+                    },
+                    splitLine: { show: false }
+                },
+                series: {
+                    type: 'heatmap',
+                    coordinateSystem: 'calendar',
+                    data: heatmapData,
+                    itemStyle: {
+                        borderRadius: 2.5
+                    }
+                }
+            };
+        }
+
+        const meta = document.getElementById('heatmap-meta');
+        if (meta) {
+            meta.innerHTML = '';
+        }
+
+        
+        const statPosts = document.getElementById('stat-posts');
+        if (statPosts) {
+            statPosts.textContent = totalPosts;
+        }
+
+        const statDays = document.getElementById('stat-days');
+        if (statDays) {
+            
+            const sinceRaw = '2026';
+            const sinceStr = sinceRaw.length <= 4 ? `${sinceRaw}-01-01` : sinceRaw;
+            const start = new Date(sinceStr.replace(/\./g, '-'));
+            const nowDate = new Date();
+            const days = isNaN(start.getTime()) ? 0 : Math.max(0, Math.floor((nowDate - start) / (1000 * 60 * 60 * 24)));
+            statDays.textContent = days;
+        }
+
+        function initChart() {
+            if (chart || heatmapData.length === 0) {
+                if (heatmapData.length === 0) {
+                    heatmapContainer.innerHTML = '<div style="text-align:center;padding:16px;color:#888;">暂无文章数据</div>';
+                }
+                return;
+            }
+
+            chart = echarts.init(heatmapContainer, null, { renderer: 'svg' });
+            chart.setOption(getOption(currentTheme));
+
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === "attributes" && mutation.attributeName === "data-scheme") {
+                        isDarkMode = document.documentElement.dataset.scheme === 'dark';
+                        currentTheme = isDarkMode ? darkTheme : lightTheme;
+                        if (chart) chart.setOption(getOption(currentTheme));
+                    }
+                });
+            });
+            observer.observe(document.documentElement, { attributes: true });
+
+            window.addEventListener('resize', function() {
+                if (chart) chart.resize();
+            });
+        }
+
+        function initWhenVisible() {
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            initChart();
+                            io.disconnect();
+                        }
+                    });
+                }, { threshold: 0.1 });
+                io.observe(heatmapWrapper);
+            } else {
+                initChart();
+            }
+        }
+
+        initWhenVisible();
+
+        
+        function toggleHeatmap() {
+            const hasQuery = searchInput && searchInput.value.trim() !== '';
+            heatmapWrapper.style.display = hasQuery ? 'none' : 'block';
+            if (statsCard) {
+                statsCard.style.display = hasQuery ? 'none' : 'grid';
+            }
+            searchResultContainer.style.display = 'block';
+        }
+        
+        
+        searchInput.addEventListener('input', toggleHeatmap);
+        
+        searchInput.addEventListener('change', toggleHeatmap);
+        
+        if (searchForm) {
+            searchForm.addEventListener('submit', function() {
+                toggleHeatmap();
+            });
+        }
+
+        
+        const params = new URLSearchParams(window.location.search);
+        const q = params.get('keyword');
+        if (q && searchInput) {
+            searchInput.value = q;
+        }
+        toggleHeatmap();
+        
+        
+        toggleHeatmap();
+    });
 </script><script type="text/javascript" src="/ts/search.js" defer></script>
 
 <footer class="site-footer">
@@ -431,14 +873,13 @@
 <script>
     (function () {
         const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
+        customFont.href = '/fonts/lato.css';
+        customFont.type = 'text/css';
+        customFont.rel = 'stylesheet';
         document.head.appendChild(customFont);
     }());
 </script>
+
 <style>
     #TableOfContents > ul, ol {
         ul, ol {
@@ -589,29 +1030,25 @@
     <div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-
-<div id="particles-js"></div>
-
-<script src=https://guokun603.github.io/background/particles.min.js></script>
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
-  particlesJS.load('particles-js', "https://guokun603.github.io/background/particlesjs-config.json", function() {
-    console.log('particles.js loaded - callback');
-  });
+    (function () {
+        function initFancybox() {
+            if (!(window.jQuery && window.jQuery.fancybox)) return;
+            window.jQuery('[data-fancybox]').fancybox({
+                loop: true,
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'close']
+            });
+        }
+
+        window.addEventListener('load', initFancybox);
+        document.addEventListener('pjax:complete', initFancybox);
+    })();
 </script>
 
-<style>
-  #particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-  }
-</style>
 
 <div id="jsi-flying-fish-container"></div>
 
@@ -684,27 +1121,38 @@ document.addEventListener('pjax:complete', initFlyingFish);
   }
 </style>
 
-
-<script defer src="https://cn.vercount.one/js"></script>
-
-
-<script>
-    function showHideView() {
-        
-        let viewCounts = document.querySelectorAll("#viewCount");
-        if (viewCounts) {
-            
-            let article =  document.querySelector(".article-page");
-            if (!article) {
-                viewCounts.forEach(ele => {
-                    ele.style.display = 'none';
-                });
+<div class="js-Pjax">
+    <script>
+        (function () {
+            function showHideView() {
+                const viewCounts = document.querySelectorAll('#viewCount');
+                if (!viewCounts.length) return;
+                const display = document.querySelector('.article-page') ? '' : 'none';
+                viewCounts.forEach(el => { el.style.display = display; });
             }
-        }
-    }
-    
-    showHideView();
-</script>
+
+            function loadVercount() {
+                if (document.getElementById('vercount-script')) return;
+                const script = document.createElement('script');
+                script.defer = true;
+                script.id = 'vercount-script';
+                script.src = 'https://cn.vercount.one/js';
+                document.body.appendChild(script);
+            }
+
+            function initVercount() {
+                showHideView();
+                loadVercount();
+            }
+
+            window.addEventListener('load', initVercount);
+            document.addEventListener('pjax:complete', initVercount);
+        })();
+    </script>
+</div>
+
+
+
 
 
     </body>

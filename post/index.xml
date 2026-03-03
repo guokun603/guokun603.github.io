@@ -13,7 +13,7 @@
         <pubDate>Sat, 07 Feb 2026 20:42:15 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%A8%8B%E5%BA%8F%E4%B8%8E%E8%BF%9B%E7%A8%8B%E4%BB%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%88%B0%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%A5%A5%E7%A7%98/</guid>
-        <description>&lt;img src="https://gxpdev.dpdns.org/PicGo/消息队列.png" alt="Featured image of post 嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘" /&gt;&lt;h2 id=&#34;程序的概念与发展&#34;&gt;程序的概念与发展
+        <description>&lt;img src="https://img.guokun.net/PicGo/消息队列.png" alt="Featured image of post 嵌入式 Linux 程序与进程：从静态代码到动态执行的奥秘" /&gt;&lt;h2 id=&#34;程序的概念与发展&#34;&gt;程序的概念与发展
 &lt;/h2&gt;&lt;h3 id=&#34;程序的定义&#34;&gt;程序的定义
 &lt;/h3&gt;&lt;p&gt;一般的讲，&lt;strong&gt;程序是一系列有序指令的集合&lt;/strong&gt;，目的是告诉计算机如何完成某些指定的操作或者如何解决某个问题。&lt;/p&gt;
 &lt;h3 id=&#34;编程语言的发展历程&#34;&gt;编程语言的发展历程
@@ -21,16 +21,18 @@
 &lt;p&gt;中期：出现汇编语言，但不同平台的汇编指令集不兼容，增加了开发难度。&lt;/p&gt;
 &lt;p&gt;后期：为提升开发效率、降低难度，诞生高级语言。其中，C 语言属于面向过程编程，C++ 属于面向对象编程，此外还有 Python、Java 等多种编程语言。&lt;/p&gt;
 &lt;h3 id=&#34;编程领域重要人物及贡献&#34;&gt;编程领域重要人物及贡献
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps1.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps1.png&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps1.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;程序的文件格式&#34;&gt;程序的文件格式
 &lt;/h3&gt;&lt;p&gt;程序的格式和类型由所使用的编程语言决定，不同编程语言对应不同的源文件后缀名，例如：&lt;/p&gt;
 &lt;ul&gt;
@@ -44,62 +46,72 @@
 &lt;li&gt;计算机组成：遵循冯・诺依曼结构，由&lt;strong&gt;控制器、运算器、存储器、输入设备、输出设备&lt;/strong&gt;五部分组成。&lt;/li&gt;
 &lt;li&gt;程序执行依赖：需掌握计算机组成原理和汇编语言，才能理解程序中指令和数据的具体执行流程。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps2.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps2.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps2.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;程序运行的内存模型32-位系统&#34;&gt;程序运行的内存模型（32 位系统）
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183445720-1769683385291-13.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183445720&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183445720-1769683385291-13.png&#34; data-caption=&#34;image-20260129183445720&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183445720-1769683385291-13.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183445720&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;程序的编译过程&#34;&gt;程序的编译过程
 &lt;/h2&gt;&lt;h3 id=&#34;编译的必要性&#34;&gt;编译的必要性
 &lt;/h3&gt;&lt;p&gt;编写完成的程序无法直接运行，需通过编译器编译生成可执行文件，嵌入式学习中常在 Linux 系统下使用 GCC 编译器。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps4-1769683385284-11.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps4-1769683385284-11.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps4-1769683385284-11.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;gcc-编译器简介&#34;&gt;GCC 编译器简介
 &lt;/h3&gt;&lt;p&gt;GCC编译器是Linux系统默认的C/C++编译器，大部分Linux发行版本中都是默认安装的。GCC编译器主要以Linux命令的形式在shell终端中使用，所以需要大家掌握关于GCC编译器的相关参数。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps5-1769683385284-12.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183501265-1769683385292-14.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183501265&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps5-1769683385284-12.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps5-1769683385284-12.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183501265-1769683385292-14.png&#34; data-caption=&#34;image-20260129183501265&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183501265-1769683385292-14.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183501265&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;c-语言程序编译四步骤&#34;&gt;C 语言程序编译四步骤
 &lt;/h3&gt;&lt;p&gt;C语言程序编译过程：&lt;strong&gt;源程序  &amp;mdash;-  预处理  &amp;mdash; 编译 &amp;mdash; 汇编 &amp;mdash;  链接 &amp;mdash;  可执行文件&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;预处理&lt;/strong&gt;：&lt;/p&gt;
@@ -129,52 +141,60 @@
 &lt;p&gt;&lt;strong&gt;可执行文件&lt;/strong&gt;：完成链接后的文件，与目标文件同属 &lt;strong&gt;ELF&lt;/strong&gt;（Executable Linkable Format，可执行可链接格式）。&lt;/p&gt;
 &lt;p&gt;查看文件格式：Linux 系统中使用&lt;code&gt;file&lt;/code&gt;指令，例如&lt;code&gt;file demo.o&lt;/code&gt;可查看目标文件属性，&lt;code&gt;file demo&lt;/code&gt;可查看可执行文件属性。&lt;/p&gt;
 &lt;p&gt;注意：可以在linux系统中利用查看文件格式的指令: file 查阅目标文件和可执行文件的区别：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183628676-1769683385292-15.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183628676&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183619323-1769683385292-16.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183619323&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183628676-1769683385292-15.png&#34; data-caption=&#34;image-20260129183628676&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183628676-1769683385292-15.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183628676&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183619323-1769683385292-16.png&#34; data-caption=&#34;image-20260129183619323&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183619323-1769683385292-16.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183619323&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;目标文件的内容与结构&#34;&gt;目标文件的内容与结构
 &lt;/h3&gt;&lt;p&gt;还未完成链接的目标文件中存储了哪些内容，以及如何查看目标文件中的内容信息???&lt;/p&gt;
 &lt;p&gt;目标文件中的内容至少有编译后的机器&lt;strong&gt;指令代码、数据&lt;/strong&gt;。除了这些内容以外，目标文件中还包括了&lt;strong&gt;链接时所需要的一些信息&lt;/strong&gt;，比如符号表、调试信息、字符串等。一般目标文件将这些信息按不同的属性，以“节”(Section)的形式存储，有时候也叫“段”(Segment),一般情况下，它们都表示一个一定长度的区域，基本上不加以区别。&lt;/p&gt;
 &lt;p&gt;程序源代码编译后的&lt;strong&gt;机器指令&lt;/strong&gt;经常被放在&lt;strong&gt;代码段(&lt;strong&gt;Code Section)里，代码段常见的名字有“.code”或“.text”。&lt;strong&gt;全局变量和局部静态变量数据&lt;/strong&gt;经常放在&lt;/strong&gt;数据段&lt;/strong&gt;(Data Section)，数据段一般名字都叫“.data”。&lt;/p&gt;
 &lt;p&gt;注意：linux系统的GCC编译套件有一款工具叫做&lt;strong&gt;objdump&lt;/strong&gt;，可以&lt;strong&gt;查看目标文件内部的数据&lt;/strong&gt;！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183603887-1769683385292-17.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183603887&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183603887-1769683385292-17.png&#34; data-caption=&#34;image-20260129183603887&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183603887-1769683385292-17.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183603887&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;数据段中有一个叫做**.bss段**， bss以前其实是汇编伪指令，作用是为某些数据预留一块空间，bss其实是Block Started by Symbol，也就是用于存储未被初始化的全局变量和静态局部变量，但是在&lt;strong&gt;程序编译阶段是没有分配空间的，在程序运行时会得到空间&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183530506-1769683385292-18.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183530506&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183530506-1769683385292-18.png&#34; data-caption=&#34;image-20260129183530506&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183530506-1769683385292-18.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183530506&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;得到了运行空间&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -238,16 +258,18 @@
 &lt;h2 id=&#34;进程的概念与特征&#34;&gt;进程的概念与特征
 &lt;/h2&gt;&lt;h3 id=&#34;进程的定义&#34;&gt;进程的定义
 &lt;/h3&gt;&lt;p&gt;当 ELF 可执行文件运行时，操作系统将&lt;strong&gt;文件中的指令和数据从外存加载到内存&lt;/strong&gt;，为其分配内存空间、CPU 使用权等系统资源，程序从&lt;strong&gt;静态变为动态&lt;/strong&gt;，这种正在执行的程序实例称为进程。&lt;strong&gt;进程是操作系统分配资源的基本单位！操作系统是以进程为单位来分配系统资源的，比如内存空间、CPU使用权等。  线程是操作系统调度资源的最小单位！  进程包含线程！&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183650285-1769683385292-19.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183650285&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183650285-1769683385292-19.png&#34; data-caption=&#34;image-20260129183650285&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183650285-1769683385292-19.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183650285&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;进程与程序的区别&#34;&gt;进程与程序的区别
 &lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -291,16 +313,18 @@
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;进程控制块（PCB）：操作系统为进程分配的内存区域，用于记录进程各项参数信息，标识进程存在，Linux 系统中以&lt;code&gt;struct task_struct&lt;/code&gt;结构体存储（定义于&lt;code&gt;sched.h&lt;/code&gt;头文件）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183714446-1769683385292-20.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183714446&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183714446-1769683385292-20.png&#34; data-caption=&#34;image-20260129183714446&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183714446-1769683385292-20.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183714446&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;代码段：可被调度程序调度到 CPU 执行的程序代码。&lt;/p&gt;
@@ -315,38 +339,44 @@
 &lt;/ol&gt;
 &lt;p&gt;每个进程都有一个有系统分配的唯一的&lt;strong&gt;PID进程标识符&lt;/strong&gt;（process identifier），用于区分系统中的其他进程，这个PID也是Linux内核提供给&lt;strong&gt;用户访问进程的一个接口&lt;/strong&gt;，用户可以通过PID控制进程。&lt;/p&gt;
 &lt;p&gt;比如Windows系统可以通过任务管理器了解系统中正在执行的进程的数量以及进程的状态：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps13.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps13.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps13.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;那Linux系统如何查看进程PID?&lt;/p&gt;
 &lt;p&gt;Linux系统中提供了关于获取进程状态的shell命令：&lt;strong&gt;ps&lt;/strong&gt; ，该命令的使用方法详见man手册，一般使用 &lt;strong&gt;ps -ef&lt;/strong&gt; 或者 &lt;strong&gt;ps -aux&lt;/strong&gt;来&lt;strong&gt;查看Linux系统中所有用户相关的进程的所有信息&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183737717-1769683385292-21.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183737717&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183753049-1769683385292-22.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183753049&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183737717-1769683385292-21.png&#34; data-caption=&#34;image-20260129183737717&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183737717-1769683385292-21.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183737717&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183753049-1769683385292-22.png&#34; data-caption=&#34;image-20260129183753049&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183753049-1769683385292-22.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183753049&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;&lt;strong&gt;进程当前状态&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -387,37 +417,43 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;其他信息：包括进程优先级、CPU 使用情况、内存占用情况、打开文件描述符等&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183813886-1769683385292-23.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183813886&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183813886-1769683385292-23.png&#34; data-caption=&#34;image-20260129183813886&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183813886-1769683385292-23.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183813886&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;在Linux系统的终端中输入shell指令： &lt;strong&gt;ps  -aux&lt;/strong&gt;，就可以看到当前系统中运行的进程状态。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps17.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183830743-1769683385292-24.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183830743&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps17.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps17.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183830743-1769683385292-24.png&#34; data-caption=&#34;image-20260129183830743&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183830743-1769683385292-24.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183830743&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -470,65 +506,75 @@
 &lt;h3 id=&#34;进程的创建&#34;&gt;进程的创建
 &lt;/h3&gt;&lt;h4 id=&#34;进程关系&#34;&gt;进程关系
 &lt;/h4&gt;&lt;p&gt;Linux系统中的&lt;strong&gt;一个进程中可以创建若干个新进程&lt;/strong&gt;，&lt;strong&gt;新创建的进程中又可以创建子进程&lt;/strong&gt;，所以一般使用****进程前趋图来描述创建的进程之间的关系****。进程前趋图也被称为进程树，是为了描述进程家族关系的树。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps19.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps19.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps19.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;比如在进程A中创建了一个新进程B，则进程B就是进程A的子进程，进程A就是进程B的父进程。&lt;/p&gt;
 &lt;p&gt;如果在进程A中创建了2个子进程B和C，进程B中创建了2个子进程D和E，进程C中创建了1个子进程F，则进程A就是该进程家族的祖先。&lt;/p&gt;
 &lt;h4 id=&#34;查看进程树&#34;&gt;查看进程树
 &lt;/h4&gt;&lt;p&gt;在Linux系统中运行的所有进程也可以构成一个&lt;strong&gt;进程树&lt;/strong&gt;，并且该进程树也有一个祖先，用户可以通过Linux系统提供的shell命令：&lt;strong&gt;pstree 来打印进程关系&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183850190-1769683385292-25.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183850190&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183850190-1769683385292-25.png&#34; data-caption=&#34;image-20260129183850190&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183850190-1769683385292-25.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183850190&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;所有进程的祖先为&lt;code&gt;systemd&lt;/code&gt;进程（PID=1），即&lt;strong&gt;系统守护进程&lt;/strong&gt;，负责系统启动时激活资源、管理其他进程。&lt;/p&gt;
 &lt;p&gt;守护进程也被翻译为精灵进程或者后台进程，是一种旨在运行于相对干净环境、不受终端影响的、常驻内存的进程，拥有不死的特性，长期稳定提供某种功能或服务。&lt;/p&gt;
 &lt;p&gt;systemd其实是一个 Linux 系统基础组件的集合，它提供了一个系统和服务管理器，然后运行为 PID 1的进程，负责在系统启动或运行时激活系统资源，并且管理服务器进程和其它进程。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps22.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps22.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps22.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h4 id=&#34;创建接口&#34;&gt;创建接口
 &lt;/h4&gt;&lt;p&gt;Linux系统中只有进程才可以在系统运行，所以一个程序想要运行，就必须为该程序创建进程。linux内核提供了一个名字叫做**fork()**的系统调用接口，该接口可以在进程中创建一个子进程。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183911304-1769683385292-26.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183911304&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129183925684-1769683385292-27.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129183925684&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183911304-1769683385292-26.png&#34; data-caption=&#34;image-20260129183911304&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183911304-1769683385292-26.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183911304&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129183925684-1769683385292-27.png&#34; data-caption=&#34;image-20260129183925684&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129183925684-1769683385292-27.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129183925684&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;fork()&lt;/code&gt;特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;子进程复制父进程的代码段、数据段、堆栈段，但拥有独立内存空间，父进程与子进程的内存操作互不影响。&lt;/li&gt;
@@ -537,16 +583,18 @@
 &lt;/ul&gt;
 &lt;p&gt;通过fork函数的&lt;strong&gt;返回值来区分父进程和子进程&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;获取当前进程PID的函数接口&lt;strong&gt;getpid()&lt;/strong&gt;，获取当前进程的父进程PID的函数接口是&lt;strong&gt;getppid()&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184000216-1769683385292-28.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184000216&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184000216-1769683385292-28.png&#34; data-caption=&#34;image-20260129184000216&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184000216-1769683385292-28.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184000216&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h4 id=&#34;练习&#34;&gt;练习
 &lt;/h4&gt;&lt;p&gt;编写程序，要求在程序中创建一个子进程，让父进程和子进程分别打印不同的内容。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -595,68 +643,78 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps25.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184040436-1769683385292-29.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184040436&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps25.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps25.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184040436-1769683385292-29.png&#34; data-caption=&#34;image-20260129184040436&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184040436-1769683385292-29.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184040436&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;为什么会出现子进程的父进程的pid为1，因为当父进程的语句执行完后return结束了，就是子进程的父亲死了，所以由守护进程来看管刚才的子进程。&lt;/p&gt;
 &lt;p&gt;调用fork函数之后可以创建一个子进程，但是调用了一次fork函数为什么会有两个不同的返回值？&lt;/p&gt;
 &lt;p&gt;就是调用fork的时候子进程已经拷贝了父进程的代码段、数据段、堆栈段，所以fork函数还没有执行完成，就会在两个进程空间继续执行，就会得到两个不同的返回值。&lt;/p&gt;
 &lt;h3 id=&#34;进程的撤销&#34;&gt;进程的撤销
 &lt;/h3&gt;&lt;p&gt;一个进程在完成自身任务之后应该及时撤销，这样就可以及时的释放进程的资源，此时可以分为两种情况：一种是&lt;strong&gt;撤销指定进程&lt;/strong&gt;，另一种是&lt;strong&gt;撤销指定进程以及该进程的所有子孙进程&lt;/strong&gt;。不管是哪种情况，都应该及时回收进程占用的资源。&lt;/p&gt;
 &lt;p&gt;Linux系统中提供了一个名称叫做**wait()**的系统调用接口，该接口用于让父进程等待子进程的状态改变并获取已经改变状态的子进程的信息。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184102205-1769683385292-30.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184102205&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184102205-1769683385292-30.png&#34; data-caption=&#34;image-20260129184102205&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184102205-1769683385292-30.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184102205&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;僵尸态指的是&lt;strong&gt;进程终止但是并未释放相关资源的一种状态&lt;/strong&gt;，此时由系统内核对处于僵尸态的进程进行维护，处于僵尸态的进程会占用创建进程的资源和数量，如果僵尸态进程数量太多，则会导致系统无法创建新进程。&lt;/p&gt;
 &lt;p&gt;所以&lt;strong&gt;父进程&lt;/strong&gt;应该及时的&lt;strong&gt;对终止的子进程进行等待&lt;/strong&gt;，这样就可以&lt;strong&gt;回收子进程占用的资源&lt;/strong&gt;，当然，如果&lt;strong&gt;父进程终止&lt;/strong&gt;，则处于&lt;strong&gt;僵尸态的子进程会由系统内核完成资源的回收&lt;/strong&gt;。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意：&lt;strong&gt;如果当前进程没有子进程，则wait函数立即返回，如果当前进程有很多个子进程则wait函数会回收第一个变为僵尸态的子进程资源&lt;/strong&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;wait函数的参数是一个指针，用于记录子进程的退出状态，如果该参数为NULL，则表示当前进程放弃子进程的退出状态。对于该指针中记录的值，用户可以通过系统提供的宏定义来分析子进程的退出状态。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184120366-1769683385292-33.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184120366&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184120366-1769683385292-33.png&#34; data-caption=&#34;image-20260129184120366&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184120366-1769683385292-33.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184120366&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;通过man手册可以发现Linux内核还提供了另一个叫做**waitpid()**的系统调用函数，该函数也可以等待子进程状态改变并回收子进程的系统资源，只不过该函数的针对性更强，&lt;strong&gt;可以指定回收某个子进程的系统资源&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184136297-1769683385292-31.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184136297&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184136297-1769683385292-31.png&#34; data-caption=&#34;image-20260129184136297&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184136297-1769683385292-31.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184136297&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;练习：编程产生一个进程链，父进程派生一个子进程后，输出自己的PID，然后退出，该子进程继续派生子进程，然后打印PID，然后退出，以此类推，要求父进程比子进程先输出PID&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -792,54 +850,62 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Parent&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;process&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nl&#34;&gt;pid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3232&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;My&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;child&lt;/span&gt; &lt;span class=&#34;nl&#34;&gt;pid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3235&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184153832-1769683385292-32.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184153832&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184153832-1769683385292-32.png&#34; data-caption=&#34;image-20260129184153832&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184153832-1769683385292-32.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184153832&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;进程的执行&#34;&gt;进程的执行
 &lt;/h3&gt;&lt;p&gt;既然在一个进程中可以创建多个子进程，并且子进程和父进程的数据段和代码段是相同的，也就是一份程序会执行两次，一般情况下是没有意义和必要的，请问能否让&lt;strong&gt;子进程单独的加载新的程序的代码段和数据段&lt;/strong&gt;，如果可以，应该如何实现？&lt;/p&gt;
 &lt;p&gt;当然是可以的，Linux系统标准库中提供了一组函数接口来实现在进程中加载和执行指定的程序。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/wps32.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184204869-1769683385292-34.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184204869&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/wps32.jpg&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/wps32.jpg&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184204869-1769683385292-34.png&#34; data-caption=&#34;image-20260129184204869&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184204869-1769683385292-34.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184204869&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;这组接口可以把&lt;strong&gt;exec作为前缀&lt;/strong&gt;，然后以exec后面的字符进行分类，比如l指的是list的缩写，p指的是path的缩写，e指的是environment的缩写，v指的是vector的缩写。&lt;/p&gt;
 &lt;p&gt;(1) l : 以列表的方式来组织指定程序的参数&lt;/p&gt;
 &lt;p&gt;(2) v: 以数组的方式来组织指定程序的参数&lt;/p&gt;
 &lt;p&gt;(3) e: 执行指定程序前顺便设置环境变量&lt;/p&gt;
 &lt;p&gt;(4) p: 执行程序时可自动搜索环境变量PATH的路径&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184218341-1769683385292-35.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184218341&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184218341-1769683385292-35.png&#34; data-caption=&#34;image-20260129184218341&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184218341-1769683385292-35.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184218341&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;以 &lt;strong&gt;execl(const char &lt;em&gt;pathname, const char &lt;em&gt;arg, &amp;hellip;)&lt;/em&gt;&lt;/em&gt; 为例，参数&lt;/strong&gt;pathname是需要加载的指定程序**，而&lt;strong&gt;arg则是该程序运行时的命令行参数&lt;/strong&gt;，命令行参数包括&lt;strong&gt;程序名本身&lt;/strong&gt;，并且全部是字符串，其实和带参数的main函数通过命令行传参的流程类似，但是函数的参数列表&lt;strong&gt;必须以NULL结束&lt;/strong&gt;，也就是函数的最后一个参数填NULL即可。&lt;/p&gt;
 &lt;p&gt;练习：编写一个程序，使之产生一个子进程，在子进程中执行系统命令ls -l去查看某个文件的信息，父进程判断子进程是否执行成功。要求父进程等待子进程结束之后再结束。提示：Linux系统中的shell命令属于可执行文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -900,16 +966,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;其实，linux系统还提供一个函数，名称叫做&lt;strong&gt;system()&lt;/strong&gt;，这个函数也可以让新进程执行shell命令。 &lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260129184238581-1769683385292-36.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260129184238581&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;其实，linux系统还提供一个函数，名称叫做&lt;strong&gt;system()&lt;/strong&gt;，这个函数也可以让新进程执行shell命令。 &lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260129184238581-1769683385292-36.png&#34; data-caption=&#34;image-20260129184238581&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260129184238581-1769683385292-36.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260129184238581&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -918,7 +986,7 @@
         <pubDate>Sat, 07 Feb 2026 16:19:53 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E4%B9%8B%E7%AE%A1%E9%81%93%E9%80%9A%E4%BF%A1%E5%8C%BF%E5%90%8D%E4%B8%8E%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93%E7%9A%84%E5%A5%A5%E7%A7%98/</guid>
-        <description>&lt;img src="https://gxpdev.dpdns.org/PicGo/消息队列.png" alt="Featured image of post 嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘" /&gt;&lt;h1 id=&#34;嵌入式-linux-进程间通信之管道通信匿名与命名管道的奥秘&#34;&gt;嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘
+        <description>&lt;img src="https://img.guokun.net/PicGo/消息队列.png" alt="Featured image of post 嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘" /&gt;&lt;h1 id=&#34;嵌入式-linux-进程间通信之管道通信匿名与命名管道的奥秘&#34;&gt;嵌入式 Linux 进程间通信之管道通信：匿名与命名管道的奥秘
 &lt;/h1&gt;&lt;h2 id=&#34;进程间通信与管道通信概述&#34;&gt;进程间通信与管道通信概述
 &lt;/h2&gt;&lt;h3 id=&#34;进程间通信&#34;&gt;进程间通信
 &lt;/h3&gt;&lt;p&gt;进程间通信（Inter Process Communication，简称IPC）指的是进程之间的信息交换，进程间通信的方式有很多，比如&lt;strong&gt;管道通信、信号通信、共享内存、消息队列、信号量组、POSIX信号量&lt;/strong&gt;等。&lt;/p&gt;
@@ -926,16 +994,18 @@
 &lt;h3 id=&#34;管道通信&#34;&gt;管道通信
 &lt;/h3&gt;&lt;p&gt;Linux中的管道通信，核心特点是&lt;strong&gt;半双工通信&lt;/strong&gt;，同一时刻只能“发送数据”或“接收数据”中的一个操作，无法双向同步同时通信。就像现实中的水管，水只能从一端流向另一端，不能双向对流。&lt;/p&gt;
 &lt;p&gt;设计理念非常简单：模拟现实中的“管道”，让数据从一端写入、另一端读出，实现进程间的单向数据传递，适合简单的场景下的数据交互。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207144647316.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207144647316&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207144647316.png&#34; data-caption=&#34;image-20260207144647316&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207144647316.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207144647316&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;管道在Linux系统中属于“&lt;strong&gt;文件&lt;/strong&gt;”的一种，但它又不是普通文件，而是一种“&lt;strong&gt;特殊文件&lt;/strong&gt;”。它支持和普通文件一样的&lt;strong&gt;read()/write()&lt;strong&gt;操作，但不支持&lt;/strong&gt;lseek()&lt;/strong&gt;（无法指定位置读写），数据写入管道后会暂存在内核缓冲区，读取后就会从缓冲区中删除，不会持久化存储。&lt;/p&gt;
 &lt;p&gt;Linux系统中的管道文件分为两种：&lt;strong&gt;匿名管道(pipe)、命名管道(fifo)&lt;/strong&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;匿名管道pipe亲缘进程的秘密通道&#34;&gt;匿名管道（pipe）：亲缘进程的“秘密通道”
@@ -952,16 +1022,18 @@
 &lt;p&gt;Linux系统提供&lt;code&gt;pipe()&lt;/code&gt;系统调用，专门用于创建匿名管道；创建成功后，会返回两个文件描述符，&lt;/p&gt;
 &lt;p&gt;分别对应管道的“读取端”和“写入端”，进程通过这两个文件描述符就能访问管道。&lt;/p&gt;
 &lt;h3 id=&#34;pipe函数创建匿名管道&#34;&gt;pipe()函数创建匿名管道
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207150801778.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207150801778&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207150801778.png&#34; data-caption=&#34;image-20260207150801778&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207150801778.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207150801778&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;pipe()函数只有一个参数 &lt;code&gt;int pipefd[2]&lt;/code&gt;，这是一个长度为2的数组，专门用于存储管道的两个文件描述符：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;pipefd[0]&lt;/code&gt;：对应管道的&lt;strong&gt;读取端&lt;/strong&gt;，只能用于read()操作，无法写入。&lt;/li&gt;
@@ -975,16 +1047,18 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;缓冲区大小：Linux系统中，管道的内核缓冲区默认大小是4M，可以使用&lt;code&gt;ulimit -a&lt;/code&gt;查看&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207152523433.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207152523433&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207152523433.png&#34; data-caption=&#34;image-20260207152523433&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207152523433.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207152523433&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;阻塞特性：&lt;/p&gt;
@@ -1002,26 +1076,30 @@
 &lt;/blockquote&gt;
 &lt;p&gt;由于管道没有文件名，所以仅适合有亲缘关系的进程（父子、兄弟），因为这类进程可共享文件描述符，无需通过文件定位管道。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;必须在创建子进程（fork()）之前创建匿名管道&lt;/strong&gt;。因为fork()创建子进程时，会复制父进程的代码段、数据段、堆栈段，以及所有打开的文件描述符——如果&lt;strong&gt;父进程先创建管道&lt;/strong&gt;，子进程会自动复制管道的两个文件描述符，这样父子进程就能通过这两个文件描述符访问同一个管道；如果先fork()再创建管道，子进程不会拥有管道的文件描述符，无法访问管道。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207153227479.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207153227479&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207153132279.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207153132279&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207153227479.png&#34; data-caption=&#34;image-20260207153227479&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207153227479.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207153227479&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207153132279.png&#34; data-caption=&#34;image-20260207153132279&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207153132279.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207153132279&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;匿名管道不保证数据的原子性&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;匿名管道更适合“一对一”的亲缘进程通信，不适合多进程同时写入的场景。&lt;/p&gt;
@@ -1042,16 +1120,18 @@
 &lt;p&gt;如果写入的数据量超过了 PIPE_BUF，内核就无法保证原子性了。因为此时数据量较大，内核可能会将其拆分成多个部分来处理，这样就可能出现其他进程在这个大写入操作中间插入自己的写入，导致数据混乱。&lt;/p&gt;
 &lt;h3 id=&#34;mkfifo函数创建命名管道&#34;&gt;mkfifo()函数创建命名管道
 &lt;/h3&gt;&lt;p&gt;访问命名管道的前提是：命名管道已经存在。Linux系统提供了&lt;strong&gt;mkfifo()函数&lt;/strong&gt;，专门用于创建命名管道。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207160948204.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207160948204&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207160948204.png&#34; data-caption=&#34;image-20260207160948204&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207160948204.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207160948204&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;const char *pathname&lt;/code&gt;：命名管道的&lt;strong&gt;文件路径和名称&lt;/strong&gt;（如&lt;code&gt;&amp;quot;/tmp/myfifo&amp;quot;&lt;/code&gt;）。&lt;/li&gt;
 &lt;li&gt;重点注意：创建命名管道时，路径必须位于Linux系统内部（比如虚拟机中的Linux目录），&lt;strong&gt;不能创建在Windows共享文件夹中&lt;/strong&gt;—— 因为共享文件夹属于Windows系统路径，Linux的管道机制无法在Windows路径下生效，会导致创建失败。&lt;/li&gt;
@@ -1073,7 +1153,7 @@
         <pubDate>Thu, 05 Feb 2026 21:21:12 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/</guid>
-        <description>&lt;img src="https://gxpdev.dpdns.org/PicGo/消息队列.png" alt="Featured image of post 嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析" /&gt;&lt;h1 id=&#34;嵌入式-linux-系统编程之进程间通信--信号机制深度剖析&#34;&gt;嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析
+        <description>&lt;img src="https://img.guokun.net/PicGo/消息队列.png" alt="Featured image of post 嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析" /&gt;&lt;h1 id=&#34;嵌入式-linux-系统编程之进程间通信--信号机制深度剖析&#34;&gt;嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析
 &lt;/h1&gt;&lt;h2 id=&#34;信号机制的基础&#34;&gt;信号机制的基础
 &lt;/h2&gt;&lt;h3 id=&#34;信号的概念&#34;&gt;信号的概念
 &lt;/h3&gt;&lt;p&gt;信号是Unix、类Unix等系统里实现进程通信的一种方式。信号采用的是&lt;strong&gt;异步通信&lt;/strong&gt;的机制。&lt;/p&gt;
@@ -1085,26 +1165,30 @@
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;信号的类型&#34;&gt;信号的类型
 &lt;/h3&gt;&lt;p&gt;Linux系统中提供了shell命令: kill - l，该命令的作用是给某个进程发送信号，参数-l可以列出信号的名称&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205200622928.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205200622928&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205200632317.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205200632317&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205200622928.png&#34; data-caption=&#34;image-20260205200622928&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205200622928.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205200622928&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205200632317.png&#34; data-caption=&#34;image-20260205200632317&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205200632317.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205200632317&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;可以发现Linux系统中的信号编号为1&lt;del&gt;64，其中编号为1&lt;/del&gt;31的信号为普通信号，编号为34~64的信号为实时信号。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -1118,128 +1202,148 @@
 &lt;/ol&gt;
 &lt;h3 id=&#34;信号的含义&#34;&gt;信号的含义
 &lt;/h3&gt;&lt;p&gt;在Linux系统中可以查看man手册的第七章查找signal进行了解&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205201544805.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205201544805&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205201630013.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205201630013&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205201633025.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205201633025&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205201544805.png&#34; data-caption=&#34;image-20260205201544805&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205201544805.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205201544805&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205201630013.png&#34; data-caption=&#34;image-20260205201630013&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205201630013.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205201630013&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205201633025.png&#34; data-caption=&#34;image-20260205201633025&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205201633025.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205201633025&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;通过&lt;code&gt;kill -l&lt;/code&gt;输出的信号名称都是大写的，按照编程规则而言这些信号都是宏定义，另外，可以看到信号前面有一个编号，这个编号就是指信号宏定义的替换列表的值。这些宏定义都被定义在&lt;code&gt;signal.h&lt;/code&gt;头文件中&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205201733253.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205201733253&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205201733253.png&#34; data-caption=&#34;image-20260205201733253&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205201733253.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205201733253&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;信号的产生与处理&#34;&gt;信号的产生与处理
 &lt;/h2&gt;&lt;h3 id=&#34;信号的产生&#34;&gt;信号的产生
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;**按键触发：**在终端，按&lt;code&gt;Ctrl + C&lt;/code&gt;可产生&lt;code&gt;SIGINT&lt;/code&gt;信号终止前台进程。这是因为按键产生硬件中断，操作系统解释为信号记录在进程 PCB，CPU 处理完中断后处理信号，使进程终止。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205201950731.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205201950731&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205202020059.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205202020059&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205201950731.png&#34; data-caption=&#34;image-20260205201950731&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205201950731.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205201950731&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205202020059.png&#34; data-caption=&#34;image-20260205202020059&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205202020059.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205202020059&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;在终端正在运行的进程叫做&lt;code&gt;前台进程&lt;/code&gt;，用户使用快捷键Ctrl+C只能结束前台进程，无法结束&lt;code&gt;后台进程&lt;/code&gt;，如果想把一个进程转为后台执行，则可以在运行程序的时候添加符号 &lt;code&gt;&amp;amp;&lt;/code&gt;。&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;**硬件异常：**进程执行除以0或者访问非法内存地址等操作引发硬件异常，内核会发出相关信号。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205202337879.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205202337879&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205202337879.png&#34; data-caption=&#34;image-20260205202337879&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205202337879.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205202337879&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;调用接口：&lt;/strong&gt;&lt;code&gt;kill()&lt;/code&gt;函数可以指定进程发信号，参数为目标进程的IP和信息，成功返回0，失败返回-1。&lt;code&gt;raise()&lt;/code&gt;函数只能向当前进程发信号。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205202710204.png&#34; alt=&#34;image-20260205202710204&#34;  /&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205202815494.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205202815494&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205202710204.png&#34; alt=&#34;image-20260205202710204&#34;  /&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205202815494.png&#34; data-caption=&#34;image-20260205202815494&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205202815494.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205202815494&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;**发送指令：**终端用&lt;code&gt;kill&lt;/code&gt;命令发送信号，本质调用&lt;code&gt;kill&lt;/code&gt;函数，不指定信号名，默认发&lt;code&gt;SIGTERM&lt;/code&gt;信号终止进程。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205203904492.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205203904492&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205203904492.png&#34; data-caption=&#34;image-20260205203904492&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205203904492.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205203904492&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ol start=&#34;5&#34;&gt;
 &lt;li&gt;&lt;strong&gt;内核检测&lt;/strong&gt;：内核检测到如闹钟超时（&lt;code&gt;alarm()&lt;/code&gt;函数设置）产生&lt;code&gt;SIGALRM&lt;/code&gt;信号，或进程向读端关闭的管道写数据产生&lt;code&gt;SIGPIPE&lt;/code&gt;信号 。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205203954748.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205203954748&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205203954748.png&#34; data-caption=&#34;image-20260205203954748&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205203954748.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205203954748&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;信号的处理&#34;&gt;信号的处理
 &lt;/h3&gt;&lt;p&gt;当进程接收到信号之后，可以分为三种情况来对信号进行处理，分别是默认、捕捉和忽略。&lt;/p&gt;
 &lt;ol&gt;
@@ -1248,16 +1352,18 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;**捕捉信号：**进程可提前设计信号相应函数并关联信号，这样当进程接收到信号之后，就不会执行信号的默认响应动作，而是执行用户指定的响应动作。&lt;code&gt;signal&lt;/code&gt;函数用于此，参数为信号编号和处理函数的地址。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205204656991.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205204656991&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205204656991.png&#34; data-caption=&#34;image-20260205204656991&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205204656991.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205204656991&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;当捕捉到信号时，不论进程的主控制流程当前执行到哪儿，都会先跳到信号处理函数中执行，从信号处理函数返回后再继续执行主控制流程。&lt;/p&gt;
@@ -1270,40 +1376,46 @@
 &lt;/h2&gt;&lt;h3 id=&#34;信号阻塞&#34;&gt;信号阻塞
 &lt;/h3&gt;&lt;p&gt;进程又是需要蚕食屏蔽某些信号，如程序执行时不想被&lt;code&gt;Ctrl + C&lt;/code&gt;强制结束，可以阻塞该信号。&lt;/p&gt;
 &lt;p&gt;Linux系统中提供了一个名称叫做&lt;code&gt;sigprocmask()&lt;/code&gt;的函数接口来设置信号集的属性，使用规则如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205205717136.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205205717136&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205205857007.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205205857007&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205205717136.png&#34; data-caption=&#34;image-20260205205717136&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205205717136.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205205717136&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205205857007.png&#34; data-caption=&#34;image-20260205205857007&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205205857007.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205205857007&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sigprocmask()&lt;/code&gt;函数用于设置信号集属性，实现阻塞、解除阻塞操作。需先创建信号集，添加或删除信号 。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;阻塞和忽略是不同的，只要信号被阻塞就不会递达，而忽略是在递达之后可选的一种处理动作。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260205210619244.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260205210619244&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260205210619244.png&#34; data-caption=&#34;image-20260205210619244&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260205210619244.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260205210619244&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;信号挂起&#34;&gt;信号挂起
 &lt;/h3&gt;&lt;p&gt;进程只有在运行态才能处理信号，挂起信号集存储待处理信号。其他进程发的信号先放入挂起信号集，等进程被调度运行时再处理 。&lt;/p&gt;
 &lt;h2 id=&#34;补充知识&#34;&gt;补充知识
@@ -1324,7 +1436,7 @@
         <pubDate>Sat, 07 Feb 2026 11:26:49 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E4%B9%8B%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E7%9A%84%E6%A1%A5%E6%A2%81/</guid>
-        <description>&lt;img src="https://gxpdev.dpdns.org/PicGo/消息队列.png" alt="Featured image of post 深入解析嵌入式 Linux 之消息队列：进程间通信的桥梁" /&gt;&lt;h1 id=&#34;深入解析嵌入式-linux-之消息队列进程间通信的桥梁&#34;&gt;深入解析嵌入式 Linux 之消息队列：进程间通信的桥梁
+        <description>&lt;img src="https://img.guokun.net/PicGo/消息队列.png" alt="Featured image of post 深入解析嵌入式 Linux 之消息队列：进程间通信的桥梁" /&gt;&lt;h1 id=&#34;深入解析嵌入式-linux-之消息队列进程间通信的桥梁&#34;&gt;深入解析嵌入式 Linux 之消息队列：进程间通信的桥梁
 &lt;/h1&gt;&lt;h2 id=&#34;消息队列的概念&#34;&gt;消息队列的概念
 &lt;/h2&gt;&lt;p&gt;Linux系统中进程间通信的一种方式，能传输&lt;strong&gt;用户自定义类型的数据，相同类型数据按到达顺序排队&lt;/strong&gt;，不同数据类型数据存于不同队列。&lt;/p&gt;
 &lt;p&gt;这里有个关键细节：不同类型的数据不能放在同一个消息队列中。也就是说，系统中可以同时存在多个消息队列，每个队列只存储一种类型的数据；因此，进程读取消息时，必须指定数据类型，才能从对应队列中获取有效数据。&lt;/p&gt;
@@ -1332,26 +1444,30 @@
 &lt;p&gt;问题：系统如何管理多个消息队列？进程如何选择队列？&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;每个消息队列都有一个唯一的键值(key)&lt;/strong&gt;,这个key就相当于消息队列的“身份证”，进程通过指定key值，就能精准定位到目标消息队列，实现消息的收发。&lt;/p&gt;
-&lt;p&gt;在Linux中，使用命令&lt;code&gt;ipcs -a&lt;/code&gt;可以查看系统中所有的IPC对象（包含消息队列、共享内存、信号量组）的详细信息。&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206210514865.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206210514865&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206210315117.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206210315117&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;在Linux中，使用命令&lt;code&gt;ipcs -a&lt;/code&gt;可以查看系统中所有的IPC对象（包含消息队列、共享内存、信号量组）的详细信息。&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206210514865.png&#34; data-caption=&#34;image-20260206210514865&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206210514865.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206210514865&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206210315117.png&#34; data-caption=&#34;image-20260206210315117&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206210315117.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206210315117&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;创建消息队列从命令到函数&#34;&gt;创建消息队列：从命令到函数
 &lt;/h2&gt;&lt;p&gt;当系统中不存在目标消息队列时，我们需要先创建它，Linux提供了两种方式：&lt;strong&gt;ipcmk命令（快速创建）&lt;/strong&gt; 和 &lt;strong&gt;msgget()函数（编程创建）&lt;/strong&gt;，后者也是实际开发中最常用的方式。&lt;/p&gt;
 &lt;h3 id=&#34;ipcmk命令&#34;&gt;ipcmk命令
@@ -1366,38 +1482,44 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipcmk -Q -m &lt;span class=&#34;m&#34;&gt;0666&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 可指定权限（八进制），消息队列无需执行权限&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206211005604.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206211005604&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206211118318.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206211118318&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206211005604.png&#34; data-caption=&#34;image-20260206211005604&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206211005604.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206211005604&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206211118318.png&#34; data-caption=&#34;image-20260206211118318&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206211118318.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206211118318&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;msgget函数&#34;&gt;msgget()函数
 &lt;/h3&gt;&lt;p&gt;msgget()函数的作用是：&lt;strong&gt;创建一个新的消息队列，或打开一个已存在的消息队列&lt;/strong&gt;，是编程中操作消息队列的“入口”函数。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206214245402.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206214245402&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206214245402.png&#34; data-caption=&#34;image-20260206214245402&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206214245402.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206214245402&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;第一个参数需要传入一个&lt;code&gt;key_t&lt;/code&gt;类型的值，该值指的是要创建的&lt;strong&gt;消息队列的key键值&lt;/strong&gt;，key也可以称为密钥。 键值类型key_t其实在内核源码中指的是&lt;strong&gt;int类型&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;第二个参数指的是创建消息队列的标志，其中&lt;strong&gt;IPC_CREAT&lt;/strong&gt;指的是如果消息队列不存在则创建，&lt;strong&gt;IPC_EXCL&lt;/strong&gt;指的是如果消息队列存在则表示函数调用失败。&lt;/p&gt;
 &lt;p&gt;另外，也可以指定消息队列的权限，权限的结构和open函数的mode类型，采用八进制表示，只不过消息队列不需要设置执行权限，所以权限设置为****0644****即可。&lt;/p&gt;
@@ -1408,16 +1530,18 @@
 &lt;p&gt;正确做法：由系统生成唯一的key值，Linux提供了&lt;strong&gt;ftok()函数&lt;/strong&gt;，专门用于生成System-V IPC对象的唯一key值。&lt;/p&gt;
 &lt;h3 id=&#34;ftok函数生成唯一的键值&#34;&gt;ftok()函数：生成唯一的键值
 &lt;/h3&gt;&lt;p&gt;ftok()函数的核心逻辑：将一个&lt;strong&gt;已存在的文件路径&lt;/strong&gt;和一个&lt;strong&gt;用户指定的项目ID&lt;/strong&gt;，转换为唯一的key值&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206220517365.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206220517365&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206220517365.png&#34; data-caption=&#34;image-20260206220517365&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206220517365.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206220517365&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;第一个参数指的是系统中已经存在并且&lt;strong&gt;可以访问的一个文件的路径&lt;/strong&gt;，用户可以指定一个文件，但是该&lt;strong&gt;文件必须存在且可以被访问&lt;/strong&gt;，其实就是&lt;strong&gt;为了得到文件的属性信息中的inode编号和设备编号&lt;/strong&gt;，因为Linux系统中一个文件的inode编号是唯一的。&lt;/p&gt;
 &lt;p&gt;第二个参数指的是项目ID，这个可以由用户进行指定，虽然参数&lt;strong&gt;proj_id的类型是整型int&lt;/strong&gt;，但是只会用到最低8it，所以这个&lt;strong&gt;参数的范围其实是1~255&lt;/strong&gt;，因为这个参数的值必须是非0值。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1425,38 +1549,44 @@
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;stat函数获取文件信息&#34;&gt;stat()函数：获取文件信息
 &lt;/h3&gt;&lt;p&gt;stat()函数用于获取文件的详细属性信息。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206221403994.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206221403994&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206221948544.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206221948544&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206221403994.png&#34; data-caption=&#34;image-20260206221403994&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206221403994.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206221403994&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206221948544.png&#34; data-caption=&#34;image-20260206221948544&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206221948544.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206221948544&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;访问消息队列收发消息msgsnd--msgrcv&#34;&gt;访问消息队列：收发消息（msgsnd() &amp;amp; msgrcv()）
 &lt;/h2&gt;&lt;p&gt;创建消息队列后，进程之间就可以通过它收发消息了。Linux提供了两个核心函数：&lt;strong&gt;msgsnd()（发送消息）&lt;/strong&gt; 和 &lt;strong&gt;msgrcv()（接收消息）&lt;/strong&gt;，两者配合使用，实现按类型收发数据。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206224118388.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206224118388&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206224118388.png&#34; data-caption=&#34;image-20260206224118388&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206224118388.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206224118388&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;msgsnd发送消息&#34;&gt;msgsnd()发送消息
 &lt;/h3&gt;&lt;p&gt;msgsnd()函数的作用：将指定类型的消息，发送到指定的消息队列中&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1473,16 +1603,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;msgsnd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msgid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msgp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;size_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msgsz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msgflg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 成功返回0，失败返回-1
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206225655757.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206225655757&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206225655757.png&#34; data-caption=&#34;image-20260206225655757&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206225655757.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206225655757&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;int msgid&lt;/strong&gt;：消息队列的标识符，由msgget()函数返回。&lt;/p&gt;
@@ -1533,16 +1665,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;ssize_t&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;msgrcv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msgid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msgp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;size_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msgsz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;long&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msgtyp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;msgflg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 成功返回接收的字节数，失败返回-1
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260206230735132.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260206230735132&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260206230735132.png&#34; data-caption=&#34;image-20260206230735132&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260206230735132.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260206230735132&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;int msgid&lt;/strong&gt;：消息队列的标识符（同msgsnd()）。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;void *msgp&lt;/strong&gt;：存放接收消息的缓存区，类型为自定义的msgbuf结构体指针（与发送时的结构体一致）。&lt;/li&gt;
@@ -2008,45 +2142,53 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipcrm -Q key    &lt;span class=&#34;c1&#34;&gt;# 通过key值删除&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207104123349.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207104123349&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207104123349.png&#34; data-caption=&#34;image-20260207104123349&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207104123349.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207104123349&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;函数控制编程核心&#34;&gt;函数控制（编程核心）
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207105726254.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207105726254&#34;
-	
-	
-&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207111614726.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207111614726&#34;
-	
-	
-&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260207111835294.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260207111835294&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207105726254.png&#34; data-caption=&#34;image-20260207105726254&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207105726254.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207105726254&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207111614726.png&#34; data-caption=&#34;image-20260207111614726&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207111614726.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207111614726&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260207111835294.png&#34; data-caption=&#34;image-20260207111835294&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260207111835294.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260207111835294&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;msgctl()函数语法如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2105,7 +2247,7 @@
         <pubDate>Wed, 04 Feb 2026 16:45:10 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/</guid>
-        <description>&lt;img src="https://gxpdev.dpdns.org/PicGo/PCB背景图1.png" alt="Featured image of post 从零到一：我的无人机飞控 PCB 设计全过程" /&gt;&lt;h1 id=&#34;无人机飞控设计&#34;&gt;无人机飞控设计
+        <description>&lt;img src="https://img.guokun.net/PicGo/PCB背景图1.png" alt="Featured image of post 从零到一：我的无人机飞控 PCB 设计全过程" /&gt;&lt;h1 id=&#34;无人机飞控设计&#34;&gt;无人机飞控设计
 &lt;/h1&gt;&lt;p&gt;控制核心采用&lt;strong&gt;STM32F103C8T6&lt;/strong&gt;，姿态运动传感器选择&lt;strong&gt;MPU6050&lt;/strong&gt;。无人机通过&lt;strong&gt;Si24R1&lt;/strong&gt;（NRF24L01）与遥控器进行2.4G无线通信，实现了即时有效地接遥控器指令，通过串级PID进行姿态控制，从而在空间中实现自由移动。&lt;/p&gt;
 &lt;h2 id=&#34;飞控原理图&#34;&gt;飞控原理图
 &lt;/h2&gt;&lt;ul&gt;
@@ -2125,31 +2267,35 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162224472.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162224472&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162224472.png&#34; data-caption=&#34;image-20260204162224472&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162224472.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162224472&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;陀螺仪MPU6050&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使用I2C1进行通信
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162614339.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162614339&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162614339.png&#34; data-caption=&#34;image-20260204162614339&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162614339.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162614339&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2158,16 +2304,18 @@
 &lt;li&gt;采用Si24R1，2.4G无线通信&lt;/li&gt;
 &lt;li&gt;采用SPI1连接主控芯片&lt;/li&gt;
 &lt;li&gt;外界16MHZ晶振
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162551099.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162551099&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162551099.png&#34; data-caption=&#34;image-20260204162551099&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162551099.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162551099&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2175,16 +2323,18 @@
 &lt;ul&gt;
 &lt;li&gt;采用VL53L4CD0DH测距传感器&lt;/li&gt;
 &lt;li&gt;I2C2接线
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162423197.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162423197&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162423197.png&#34; data-caption=&#34;image-20260204162423197&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162423197.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162423197&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2193,16 +2343,18 @@
 &lt;li&gt;TP4336芯片  充电管理芯片&lt;/li&gt;
 &lt;li&gt;AMS1117-3.3V 降压芯片&lt;/li&gt;
 &lt;li&gt;锂电池插座
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162446182.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162446182&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162446182.png&#34; data-caption=&#34;image-20260204162446182&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162446182.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162446182&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2210,16 +2362,18 @@
 &lt;ul&gt;
 &lt;li&gt;驱动四个电机 PWM&lt;/li&gt;
 &lt;li&gt;mos驱动 电压更加稳定
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162507639.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162507639&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162507639.png&#34; data-caption=&#34;image-20260204162507639&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162507639.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162507639&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2230,16 +2384,18 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204162307707.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204162307707&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204162307707.png&#34; data-caption=&#34;image-20260204162307707&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204162307707.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204162307707&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;pcb&#34;&gt;PCB
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -2345,26 +2501,30 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;成品&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204163748340.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204163748340&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260204163828599.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260204163828599&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204163748340.png&#34; data-caption=&#34;image-20260204163748340&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204163748340.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204163748340&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260204163828599.png&#34; data-caption=&#34;image-20260204163828599&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260204163828599.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260204163828599&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;感受&#34;&gt;感受
 &lt;/h2&gt;&lt;p&gt;布线还是太折磨人了，一直在打孔，调整线的位置。&lt;/p&gt;
 &lt;p&gt;但是当你布好所有线时，会有很强的成就感&lt;/p&gt;
@@ -2376,7 +2536,7 @@
         <pubDate>Sun, 01 Feb 2026 00:34:38 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/hugo-build-blog/</guid>
-        <description>&lt;img src="https://gxpdev.dpdns.org/PicGo/Hugo&#43;Github.png" alt="Featured image of post Hugo搭建博客" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+        <description>&lt;img src="https://img.guokun.net/PicGo/Hugo&#43;Github.png" alt="Featured image of post Hugo搭建博客" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;本教程将介绍如何使用 Hugo 和 GitHub Pages 搭建一个静态博客。Hugo 是一款功能强大的静态站点生成器，可以帮助您轻松创建美观、响应式的博客页面。GitHub Pages 则是 GitHub 提供的免费托管服务，可用于托管您的 Hugo 博客。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;环境搭建&#34;&gt;环境搭建
@@ -2428,16 +2588,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这将创建必要的配置文件和文件夹，并提示接下来如何创建一个博客。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131091447380-1769834111686-3.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131091447380&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131091447380-1769834111686-3.png&#34; data-caption=&#34;image-20260131091447380&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131091447380-1769834111686-3.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131091447380&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;进入新创建的站点目录，并运行以下命令进行初始化：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2523,28 +2685,32 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131104232402-1769834111686-4.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131104232402&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131104232402-1769834111686-4.png&#34; data-caption=&#34;image-20260131104232402&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131104232402-1769834111686-4.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131104232402&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;成功是上面那样，这将在您的浏览器中打开一个本地服务器，您可以访问 http://localhost:1313 来查看您的博客页面。&lt;/p&gt;
 &lt;p&gt;效果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131104441721-1769834111686-5.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131104441721&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131104441721-1769834111686-5.png&#34; data-caption=&#34;image-20260131104441721&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131104441721-1769834111686-5.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131104441721&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;这样的话一切内容就需要自己配置，非常麻烦。&lt;/p&gt;
 &lt;h3 id=&#34;选择主题git配置&#34;&gt;选择主题（Git配置）
 &lt;/h3&gt;&lt;h4 id=&#34;下载合适的安装包&#34;&gt;下载合适的安装包
@@ -2575,16 +2741,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;可以访问 http://localhost:1313 来查看您的博客页面。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131112409477-1769834111686-8.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131112409477&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131112409477-1769834111686-8.png&#34; data-caption=&#34;image-20260131112409477&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131112409477-1769834111686-8.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131112409477&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h4 id=&#34;设置配置文件&#34;&gt;设置配置文件
 &lt;/h4&gt;&lt;p&gt;Hugo 的配置文件&lt;code&gt;hugo.yaml&lt;/code&gt;用于配置站点信息、主题、菜单等。&lt;/p&gt;
 &lt;p&gt;修改里面的内容，就可以将这个页面换为自己的内容&lt;/p&gt;
@@ -2641,16 +2809,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;前往&lt;code&gt;Setting -&amp;gt; Pages -&amp;gt; Branch&lt;/code&gt;选择main分支，然后保存，会自动开启 &lt;strong&gt;https://{github用户名}.github.io&lt;/strong&gt; 的地址，这地址也是以后访问博客的地址&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131121547206-1769834111686-6.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131121547206&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131121547206-1769834111686-6.png&#34; data-caption=&#34;image-20260131121547206&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131121547206-1769834111686-6.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131121547206&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;上传成功后访问 &lt;strong&gt;https://{github用户名}.github.io&lt;/strong&gt;，成功搭建属于自己的Hugo博客&lt;/p&gt;
 &lt;h3 id=&#34;自动部署&#34;&gt;自动部署
 &lt;/h3&gt;&lt;ul&gt;
@@ -2658,30 +2828,34 @@
 &lt;li&gt;（2）前往&lt;code&gt;Setttings -&amp;gt; Developer Settings -&amp;gt; Personal access tokens&lt;/code&gt;，创建一个token(classic)&lt;/li&gt;
 &lt;li&gt;主页的setting&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131122332449-1769834111686-7.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131122332449&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131122332449-1769834111686-7.png&#34; data-caption=&#34;image-20260131122332449&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131122332449-1769834111686-7.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131122332449&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;（3）token选择永不过期，并勾选 &lt;strong&gt;repo&lt;/strong&gt; 和 &lt;strong&gt;workflow&lt;/strong&gt; 选项，记得复制一下&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;为保证安全，将生成的token，保存的仓库的变量中，前往&lt;code&gt;Settings -&amp;gt; Secrets and variables -&amp;gt; Actions&lt;/code&gt;中设置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131123417464-1769834111686-9.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131123417464&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131123417464-1769834111686-9.png&#34; data-caption=&#34;image-20260131123417464&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131123417464-1769834111686-9.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131123417464&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;在hugo主文件创建一个&lt;code&gt;.github/workflows/xxxx.yaml&lt;/code&gt;文件，将以下内容复制进去，想具体了解更多，可查看【&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/zh/actions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Github Action文档&lt;/a&gt;】&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -2815,16 +2989,18 @@
 &lt;p&gt;对于博客场景来说，图床的选择会更看重&lt;strong&gt;稳定性、速度、长期可用性&lt;/strong&gt;和&lt;strong&gt;链接的可靠性&lt;/strong&gt;，因为你的博客内容会长期在线，图片链接一旦失效会直接影响阅读体验。&lt;/p&gt;
 &lt;h3 id=&#34;推荐-cloudflarer2-picgo&#34;&gt;推荐 CloudflareR2+ PicGo
 &lt;/h3&gt;&lt;p&gt;简单说就一个核心：&lt;strong&gt;免费、稳定、国内访问快，还能一键自动上传，新手零门槛&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131232717900.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131232717900&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131232717900.png&#34; data-caption=&#34;image-20260131232717900&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131232717900.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131232717900&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;具体步骤&#34;&gt;具体步骤
 &lt;/h3&gt;&lt;h4 id=&#34;注册并开通-cloudflare-r2&#34;&gt;注册并开通 Cloudflare R2
 &lt;/h4&gt;&lt;ul&gt;
@@ -2834,42 +3010,48 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;登录后，进入 &lt;strong&gt;R2 对象存储&lt;/strong&gt;，点击开通服务。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131233644994.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131233644994&#34;
-	
-	
-&gt;
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/1657193-20241231200124438-1093258941.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131233644994.png&#34; data-caption=&#34;image-20260131233644994&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131233644994.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131233644994&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/1657193-20241231200124438-1093258941.webp&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/1657193-20241231200124438-1093258941.webp&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;创建存储桶&#34;&gt;创建存储桶
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;在 R2 控制台中，创建一个存储桶： 填写存储桶名称。 选择存储区域（建议默认）。 确认后完成创建。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234008513.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131234008513&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131234008513.png&#34; data-caption=&#34;image-20260131234008513&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131234008513.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131234008513&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;配置自定义域名&#34;&gt;配置自定义域名
@@ -2877,81 +3059,93 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;先允许公网访问&lt;/strong&gt;，启用后，通过公共开发URL将该R2桶的内容暴露到互联网。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234158049.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131234158049&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234410850.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131234410850&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131234158049.png&#34; data-caption=&#34;image-20260131234158049&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131234158049.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131234158049&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131234410850.png&#34; data-caption=&#34;image-20260131234410850&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131234410850.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131234410850&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这样配置后，就搭建好图床，使用的默认域名。&lt;/p&gt;
 &lt;p&gt;可以上传图片&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234736253.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131234736253&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131234736253.png&#34; data-caption=&#34;image-20260131234736253&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131234736253.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131234736253&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;上传图片后，点击链接，就可以看图片的详情&lt;/p&gt;
 &lt;p&gt;可以得到，图片的公网地址&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;​     &lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131235049101.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131235049101&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;​     &lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131235049101.png&#34; data-caption=&#34;image-20260131235049101&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131235049101.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131235049101&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;自定义域名&lt;/strong&gt;，得有自己的域名&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131235752499.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131235752499&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131235752499.png&#34; data-caption=&#34;image-20260131235752499&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131235752499.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131235752499&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131235844128.png&#34; alt=&#34;image-20260131235844128&#34; style=&#34;zoom: 50%;&#34; /&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131235844128.png&#34; alt=&#34;image-20260131235844128&#34; style=&#34;zoom: 50%;&#34; /&gt;
 &lt;p&gt;就实现了，自己的域名访问&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201000152873.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201000152873&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201000152873.png&#34; data-caption=&#34;image-20260201000152873&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201000152873.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201000152873&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h4 id=&#34;配置-picgo&#34;&gt;配置 PicGo
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -2961,104 +3155,122 @@
 &lt;p&gt;在 PicGo 中安装 &lt;strong&gt;Amazon S3 插件&lt;/strong&gt;：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;打开插件设置，选择 S3 -IIS 1.0.2。
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201000353064.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201000353064&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201000353064.png&#34; data-caption=&#34;image-20260201000353064&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201000353064.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201000353064&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;点击图床设置，找到&lt;strong&gt;Amazon S3&lt;/strong&gt; ，填写相应的信息
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201000538812.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201000538812&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201000538812.png&#34; data-caption=&#34;image-20260201000538812&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201000538812.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201000538812&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201000826777.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201000826777&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201000826777.png&#34; data-caption=&#34;image-20260201000826777&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201000826777.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201000826777&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;应用密钥ID、应用密钥&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001101219.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001101219&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001129196.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001129196&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001234207.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001234207&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001300852.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001300852&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001101219.png&#34; data-caption=&#34;image-20260201001101219&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001101219.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001101219&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001129196.png&#34; data-caption=&#34;image-20260201001129196&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001129196.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001129196&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001234207.png&#34; data-caption=&#34;image-20260201001234207&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001234207.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001234207&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001300852.png&#34; data-caption=&#34;image-20260201001300852&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001300852.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001300852&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;自定义节点、域名&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001503882.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001503882&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001613468.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001613468&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001503882.png&#34; data-caption=&#34;image-20260201001503882&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001503882.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001503882&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001613468.png&#34; data-caption=&#34;image-20260201001613468&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001613468.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001613468&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;自定义节点,账号ID就是上图的ID&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;

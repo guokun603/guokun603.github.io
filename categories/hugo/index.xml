@@ -12,7 +12,7 @@
         <pubDate>Sun, 01 Feb 2026 00:34:38 +0800</pubDate>
         
         <guid>https://guokun603.github.io/p/hugo-build-blog/</guid>
-        <description>&lt;img src="https://gxpdev.dpdns.org/PicGo/Hugo&#43;Github.png" alt="Featured image of post Hugo搭建博客" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
+        <description>&lt;img src="https://img.guokun.net/PicGo/Hugo&#43;Github.png" alt="Featured image of post Hugo搭建博客" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;本教程将介绍如何使用 Hugo 和 GitHub Pages 搭建一个静态博客。Hugo 是一款功能强大的静态站点生成器，可以帮助您轻松创建美观、响应式的博客页面。GitHub Pages 则是 GitHub 提供的免费托管服务，可用于托管您的 Hugo 博客。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;环境搭建&#34;&gt;环境搭建
@@ -64,16 +64,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这将创建必要的配置文件和文件夹，并提示接下来如何创建一个博客。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131091447380-1769834111686-3.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131091447380&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131091447380-1769834111686-3.png&#34; data-caption=&#34;image-20260131091447380&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131091447380-1769834111686-3.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131091447380&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;进入新创建的站点目录，并运行以下命令进行初始化：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -159,28 +161,32 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server -D
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131104232402-1769834111686-4.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131104232402&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131104232402-1769834111686-4.png&#34; data-caption=&#34;image-20260131104232402&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131104232402-1769834111686-4.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131104232402&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;成功是上面那样，这将在您的浏览器中打开一个本地服务器，您可以访问 http://localhost:1313 来查看您的博客页面。&lt;/p&gt;
 &lt;p&gt;效果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131104441721-1769834111686-5.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131104441721&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131104441721-1769834111686-5.png&#34; data-caption=&#34;image-20260131104441721&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131104441721-1769834111686-5.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131104441721&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;这样的话一切内容就需要自己配置，非常麻烦。&lt;/p&gt;
 &lt;h3 id=&#34;选择主题git配置&#34;&gt;选择主题（Git配置）
 &lt;/h3&gt;&lt;h4 id=&#34;下载合适的安装包&#34;&gt;下载合适的安装包
@@ -211,16 +217,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;可以访问 http://localhost:1313 来查看您的博客页面。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131112409477-1769834111686-8.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131112409477&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131112409477-1769834111686-8.png&#34; data-caption=&#34;image-20260131112409477&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131112409477-1769834111686-8.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131112409477&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h4 id=&#34;设置配置文件&#34;&gt;设置配置文件
 &lt;/h4&gt;&lt;p&gt;Hugo 的配置文件&lt;code&gt;hugo.yaml&lt;/code&gt;用于配置站点信息、主题、菜单等。&lt;/p&gt;
 &lt;p&gt;修改里面的内容，就可以将这个页面换为自己的内容&lt;/p&gt;
@@ -277,16 +285,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;前往&lt;code&gt;Setting -&amp;gt; Pages -&amp;gt; Branch&lt;/code&gt;选择main分支，然后保存，会自动开启 &lt;strong&gt;https://{github用户名}.github.io&lt;/strong&gt; 的地址，这地址也是以后访问博客的地址&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131121547206-1769834111686-6.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131121547206&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131121547206-1769834111686-6.png&#34; data-caption=&#34;image-20260131121547206&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131121547206-1769834111686-6.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131121547206&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;上传成功后访问 &lt;strong&gt;https://{github用户名}.github.io&lt;/strong&gt;，成功搭建属于自己的Hugo博客&lt;/p&gt;
 &lt;h3 id=&#34;自动部署&#34;&gt;自动部署
 &lt;/h3&gt;&lt;ul&gt;
@@ -294,30 +304,34 @@
 &lt;li&gt;（2）前往&lt;code&gt;Setttings -&amp;gt; Developer Settings -&amp;gt; Personal access tokens&lt;/code&gt;，创建一个token(classic)&lt;/li&gt;
 &lt;li&gt;主页的setting&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131122332449-1769834111686-7.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131122332449&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131122332449-1769834111686-7.png&#34; data-caption=&#34;image-20260131122332449&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131122332449-1769834111686-7.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131122332449&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;（3）token选择永不过期，并勾选 &lt;strong&gt;repo&lt;/strong&gt; 和 &lt;strong&gt;workflow&lt;/strong&gt; 选项，记得复制一下&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;为保证安全，将生成的token，保存的仓库的变量中，前往&lt;code&gt;Settings -&amp;gt; Secrets and variables -&amp;gt; Actions&lt;/code&gt;中设置&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131123417464-1769834111686-9.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131123417464&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131123417464-1769834111686-9.png&#34; data-caption=&#34;image-20260131123417464&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131123417464-1769834111686-9.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131123417464&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;在hugo主文件创建一个&lt;code&gt;.github/workflows/xxxx.yaml&lt;/code&gt;文件，将以下内容复制进去，想具体了解更多，可查看【&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/zh/actions&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Github Action文档&lt;/a&gt;】&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -451,16 +465,18 @@
 &lt;p&gt;对于博客场景来说，图床的选择会更看重&lt;strong&gt;稳定性、速度、长期可用性&lt;/strong&gt;和&lt;strong&gt;链接的可靠性&lt;/strong&gt;，因为你的博客内容会长期在线，图片链接一旦失效会直接影响阅读体验。&lt;/p&gt;
 &lt;h3 id=&#34;推荐-cloudflarer2-picgo&#34;&gt;推荐 CloudflareR2+ PicGo
 &lt;/h3&gt;&lt;p&gt;简单说就一个核心：&lt;strong&gt;免费、稳定、国内访问快，还能一键自动上传，新手零门槛&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131232717900.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131232717900&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131232717900.png&#34; data-caption=&#34;image-20260131232717900&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131232717900.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131232717900&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h3 id=&#34;具体步骤&#34;&gt;具体步骤
 &lt;/h3&gt;&lt;h4 id=&#34;注册并开通-cloudflare-r2&#34;&gt;注册并开通 Cloudflare R2
 &lt;/h4&gt;&lt;ul&gt;
@@ -470,42 +486,48 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;登录后，进入 &lt;strong&gt;R2 对象存储&lt;/strong&gt;，点击开通服务。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131233644994.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131233644994&#34;
-	
-	
-&gt;
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/1657193-20241231200124438-1093258941.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131233644994.png&#34; data-caption=&#34;image-20260131233644994&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131233644994.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131233644994&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/1657193-20241231200124438-1093258941.webp&#34; data-caption=&#34;img&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/1657193-20241231200124438-1093258941.webp&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;img&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;创建存储桶&#34;&gt;创建存储桶
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;在 R2 控制台中，创建一个存储桶： 填写存储桶名称。 选择存储区域（建议默认）。 确认后完成创建。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234008513.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131234008513&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131234008513.png&#34; data-caption=&#34;image-20260131234008513&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131234008513.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131234008513&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;配置自定义域名&#34;&gt;配置自定义域名
@@ -513,81 +535,93 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;先允许公网访问&lt;/strong&gt;，启用后，通过公共开发URL将该R2桶的内容暴露到互联网。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234158049.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131234158049&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234410850.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131234410850&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131234158049.png&#34; data-caption=&#34;image-20260131234158049&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131234158049.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131234158049&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131234410850.png&#34; data-caption=&#34;image-20260131234410850&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131234410850.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131234410850&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这样配置后，就搭建好图床，使用的默认域名。&lt;/p&gt;
 &lt;p&gt;可以上传图片&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131234736253.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131234736253&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131234736253.png&#34; data-caption=&#34;image-20260131234736253&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131234736253.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131234736253&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;上传图片后，点击链接，就可以看图片的详情&lt;/p&gt;
 &lt;p&gt;可以得到，图片的公网地址&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;​     &lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131235049101.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131235049101&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;​     &lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131235049101.png&#34; data-caption=&#34;image-20260131235049101&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131235049101.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131235049101&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;自定义域名&lt;/strong&gt;，得有自己的域名&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131235752499.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260131235752499&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260131235752499.png&#34; data-caption=&#34;image-20260131235752499&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131235752499.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260131235752499&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260131235844128.png&#34; alt=&#34;image-20260131235844128&#34; style=&#34;zoom: 50%;&#34; /&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260131235844128.png&#34; alt=&#34;image-20260131235844128&#34; style=&#34;zoom: 50%;&#34; /&gt;
 &lt;p&gt;就实现了，自己的域名访问&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201000152873.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201000152873&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201000152873.png&#34; data-caption=&#34;image-20260201000152873&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201000152873.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201000152873&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h4 id=&#34;配置-picgo&#34;&gt;配置 PicGo
 &lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -597,104 +631,122 @@
 &lt;p&gt;在 PicGo 中安装 &lt;strong&gt;Amazon S3 插件&lt;/strong&gt;：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;打开插件设置，选择 S3 -IIS 1.0.2。
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201000353064.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201000353064&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201000353064.png&#34; data-caption=&#34;image-20260201000353064&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201000353064.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201000353064&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;点击图床设置，找到&lt;strong&gt;Amazon S3&lt;/strong&gt; ，填写相应的信息
-&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201000538812.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201000538812&#34;
-	
-	
-&gt;&lt;/li&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201000538812.png&#34; data-caption=&#34;image-20260201000538812&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201000538812.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201000538812&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201000826777.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201000826777&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201000826777.png&#34; data-caption=&#34;image-20260201000826777&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201000826777.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201000826777&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;应用密钥ID、应用密钥&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001101219.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001101219&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001129196.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001129196&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001234207.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001234207&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001300852.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001300852&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001101219.png&#34; data-caption=&#34;image-20260201001101219&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001101219.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001101219&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001129196.png&#34; data-caption=&#34;image-20260201001129196&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001129196.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001129196&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001234207.png&#34; data-caption=&#34;image-20260201001234207&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001234207.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001234207&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001300852.png&#34; data-caption=&#34;image-20260201001300852&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001300852.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001300852&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;自定义节点、域名&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001503882.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001503882&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://gxpdev.dpdns.org/PicGo/image-20260201001613468.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20260201001613468&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001503882.png&#34; data-caption=&#34;image-20260201001503882&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001503882.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001503882&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260201001613468.png&#34; data-caption=&#34;image-20260201001613468&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260201001613468.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260201001613468&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;自定义节点,账号ID就是上图的ID&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
