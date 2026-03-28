@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="LVGL LVGL 中文：欢迎阅读LVGL中文开发手册！ — LVGL 文档 移植流程 1 2 3 4 5 6 7 8 9 10 1. 下载源码包 github lvgl_v8.3.0源码包 + lvgl提供的案例源">
-<title>LVGL基础</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="JSN-SR04T超声波测距 JSN-SR04T-V3.3 Datasheet - Original.pdf 数据手册(模式0) 参数 功能 模式 jsn-sr04t.c 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36">
+<title>JSN SR04T超声波测距</title>
 
-<link rel='canonical' href='https://guokun603.github.io/p/lvgl%E5%9F%BA%E7%A1%80/'>
+<link rel='canonical' href='https://guokun603.github.io/p/jsn-sr04t%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%B5%8B%E8%B7%9D/'>
 
-<link rel="stylesheet" href="/scss/style.min.70212c217295166b616fd230cf8b2de35a01aff0fb112ecbd0d214aa24b1c23f.css"><meta property='og:title' content="LVGL基础">
-<meta property='og:description' content="LVGL LVGL 中文：欢迎阅读LVGL中文开发手册！ — LVGL 文档 移植流程 1 2 3 4 5 6 7 8 9 10 1. 下载源码包 github lvgl_v8.3.0源码包 + lvgl提供的案例源">
-<meta property='og:url' content='https://guokun603.github.io/p/lvgl%E5%9F%BA%E7%A1%80/'>
+<link rel="stylesheet" href="/scss/style.min.70212c217295166b616fd230cf8b2de35a01aff0fb112ecbd0d214aa24b1c23f.css"><meta property='og:title' content="JSN SR04T超声波测距">
+<meta property='og:description' content="JSN-SR04T超声波测距 JSN-SR04T-V3.3 Datasheet - Original.pdf 数据手册(模式0) 参数 功能 模式 jsn-sr04t.c 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36">
+<meta property='og:url' content='https://guokun603.github.io/p/jsn-sr04t%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%B5%8B%E8%B7%9D/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-20T22:32:20&#43;08:00'/><meta property='article:modified_time' content='2026-03-26T23:00:48&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/OIP-C.webp' />
-<meta name="twitter:title" content="LVGL基础">
-<meta name="twitter:description" content="LVGL LVGL 中文：欢迎阅读LVGL中文开发手册！ — LVGL 文档 移植流程 1 2 3 4 5 6 7 8 9 10 1. 下载源码包 github lvgl_v8.3.0源码包 + lvgl提供的案例源"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://img.guokun.net/PicGo/OIP-C.webp' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-27T13:23:15&#43;08:00'/><meta property='article:modified_time' content='2026-03-28T13:56:45&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/JSN SR04T超声波测距.jpg' />
+<meta name="twitter:title" content="JSN SR04T超声波测距">
+<meta name="twitter:description" content="JSN-SR04T超声波测距 JSN-SR04T-V3.3 Datasheet - Original.pdf 数据手册(模式0) 参数 功能 模式 jsn-sr04t.c 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/JSN SR04T超声波测距.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -234,16 +234,54 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#数据手册模式0">数据手册(模式0)</a>
+      <ol>
+        <li><a href="#jsn-sr04tc">jsn-sr04t.c</a></li>
+        <li><a href="#jsn-sr04th">jsn-sr04t.h</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
 
             <main class="main full-width">
     <article class="article-page-main">
         <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/lvgl%E5%9F%BA%E7%A1%80/">
+            <a href="/p/jsn-sr04t%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%B5%8B%E8%B7%9D/">
                 
-                    <img src="https://img.guokun.net/PicGo/OIP-C.webp" loading="lazy" alt="Featured image of post LVGL基础" />
+                    <img src="https://img.guokun.net/PicGo/JSN%20SR04T%e8%b6%85%e5%a3%b0%e6%b3%a2%e6%b5%8b%e8%b7%9d.jpg" loading="lazy" alt="Featured image of post JSN SR04T超声波测距" />
                 
             </a>
         </div>
@@ -253,8 +291,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/lvgl/" >
-                LVGL
+            <a href="/categories/%E5%85%83%E5%99%A8%E4%BB%B6/" >
+                元器件
             </a>
         
     </header>
@@ -262,7 +300,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/lvgl%E5%9F%BA%E7%A1%80/">LVGL基础</a>
+            <a href="/p/jsn-sr04t%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%B5%8B%E8%B7%9D/">JSN SR04T超声波测距</a>
         </h2>
     
         
@@ -284,7 +322,7 @@
 
             <time>
                 
-                2026-03-26 23:00
+                2026-03-28 13:56
             </time>
         </div>
 
@@ -307,11 +345,57 @@
     <section class="article-content">
     
     
-    <h1 id="lvgl">LVGL
-</h1><p>LVGL 中文：<a class="link" href="https://lvgl.100ask.net/master/index.html"  target="_blank" rel="noopener"
-    >欢迎阅读LVGL中文开发手册！ — LVGL 文档</a></p>
-<p>移植流程</p>
-<div class="highlight"><div class="chroma">
+    <h1 id="jsn-sr04t超声波测距">JSN-SR04T超声波测距
+</h1><p><a class="link" href="https://make.net.za/wp-content/datasheets/JSN-SR04T-V3.3_Datasheet_-_Original.pdf"  target="_blank" rel="noopener"
+    >JSN-SR04T-V3.3 Datasheet - Original.pdf</a></p>
+<h2 id="数据手册模式0">数据手册(模式0)
+</h2><ul>
+<li>参数</li>
+</ul>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260328010000613.png" data-caption="image-20260328010000613">
+        <img src="https://img.guokun.net/PicGo/image-20260328010000613.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260328010000613"
+            
+        >
+    </a>
+</div></p>
+<ul>
+<li>功能</li>
+</ul>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260328010118704.png" data-caption="image-20260328010118704">
+        <img src="https://img.guokun.net/PicGo/image-20260328010118704.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260328010118704"
+            
+        >
+    </a>
+</div></p>
+<ul>
+<li>模式</li>
+</ul>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260328020412880.png" data-caption="image-20260328020412880">
+        <img src="https://img.guokun.net/PicGo/image-20260328020412880.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260328020412880"
+            
+        >
+    </a>
+</div></p>
+<h3 id="jsn-sr04tc">jsn-sr04t.c
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -323,201 +407,256 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span><span class="lnt">98
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">下载源码包</span>  <span class="n">github</span>  <span class="n">lvgl_v8</span><span class="mf">.3.0</span><span class="err">源码包</span>  <span class="o">+</span>  <span class="nf">lvgl提供的案例源码</span><span class="p">(</span><span class="err">主源码包</span> <span class="o">+</span> <span class="err">分支</span> <span class="n">lvgl</span> <span class="o">&amp;&amp;</span> <span class="n">lvgl_driver</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">合并源码包</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">修改配置文件</span> <span class="n">lv_conf</span><span class="p">.</span><span class="nf">h</span> <span class="p">(</span><span class="err">包含</span><span class="n">LVGL图形库的功能的启用</span> <span class="err">每个功能都由宏定义决定是否使用</span> <span class="err">宏定义作为条件编译的选项</span> <span class="err">#</span><span class="k">if</span> <span class="o">/</span> <span class="err">#</span><span class="n">endif</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">修改配置文件</span> <span class="n">lv_drv_conf</span><span class="p">.</span><span class="nf">h</span> <span class="p">(</span><span class="err">包含</span><span class="n">LVGL图形库的和硬件相关的驱动的启用</span> <span class="err">由宏定义决定是否使用</span> <span class="err">宏定义作为条件编译的选项</span> <span class="err">#</span><span class="k">if</span> <span class="o">/</span> <span class="err">#</span><span class="n">endif</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mf">4.</span> <span class="err">修改</span><span class="n">Makefile</span>
-</span></span><span class="line"><span class="cl"><span class="mf">5.</span> <span class="err">根据实际需求编写</span><span class="n">main</span><span class="p">.</span><span class="n">c</span>
-</span></span><span class="line"><span class="cl"><span class="mf">6.</span> <span class="err">编译程序</span>  <span class="n">make</span>
-</span></span><span class="line"><span class="cl"><span class="mf">7.</span> <span class="err">检查平台</span>  <span class="n">file</span>  <span class="n">xxx</span>
-</span></span><span class="line"><span class="cl"><span class="mf">8.</span> <span class="err">传输文件</span>
-</span></span><span class="line"><span class="cl"><span class="mf">9.</span> <span class="err">运行程序并观察结果</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>使用流程</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="mf">1.</span> <span class="err">调用</span><span class="n">lv_init</span><span class="p">()</span><span class="err">对</span><span class="n">LVGL图形库进行初始化</span> <span class="err">必须首先调用</span>
-</span></span><span class="line"><span class="cl"><span class="mf">2.</span> <span class="err">初始化硬件设备驱动，比如</span><span class="n">fbdev_init</span><span class="p">()</span> <span class="err">、</span><span class="nf">evdev_init</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3.</span> <span class="err">注册显示设备驱动和输入设备驱动</span><span class="p">(</span><span class="err">定义结构体变量</span> <span class="o">+</span> <span class="err">初始化结构体</span> <span class="o">+</span> <span class="err">设置结构体中成员</span> <span class="o">+</span> <span class="err">注册</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">4.</span><span class="err">周期性的调用</span> <span class="nf">lv_tick_inc</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">5.</span><span class="err">周期性的调用</span> <span class="nf">lv_timer_handler</span><span class="p">();</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;jsn-sr04t.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ==============================================
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 函数功能：超声波初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ==============================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">JSN_SR04T_Init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GPIO_InitTypeDef</span> <span class="n">GPIO_InitStructure</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TIM_TimeBaseInitTypeDef</span> <span class="n">TIM_TimeBaseStructure</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使能 GPIO 和定时器时钟
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">RCC_APB2PeriphClockCmd</span><span class="p">(</span><span class="n">TRIG_RCC</span> <span class="o">|</span> <span class="n">ECHO_RCC</span><span class="p">,</span> <span class="n">ENABLE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">RCC_APB1PeriphClockCmd</span><span class="p">(</span><span class="n">TIM_RCC</span><span class="p">,</span> <span class="n">ENABLE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// TRIG 引脚：推挽输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">GPIO_InitStructure</span><span class="p">.</span><span class="n">GPIO_Pin</span> <span class="o">=</span> <span class="n">TRIG_PIN</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GPIO_InitStructure</span><span class="p">.</span><span class="n">GPIO_Mode</span> <span class="o">=</span> <span class="n">GPIO_Mode_Out_PP</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GPIO_InitStructure</span><span class="p">.</span><span class="n">GPIO_Speed</span> <span class="o">=</span> <span class="n">GPIO_Speed_50MHz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">GPIO_Init</span><span class="p">(</span><span class="n">TRIG_PORT</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">GPIO_InitStructure</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">GPIO_ResetBits</span><span class="p">(</span><span class="n">TRIG_PORT</span><span class="p">,</span> <span class="n">TRIG_PIN</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// ECHO 引脚：浮空输入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">GPIO_InitStructure</span><span class="p">.</span><span class="n">GPIO_Pin</span> <span class="o">=</span> <span class="n">ECHO_PIN</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">GPIO_InitStructure</span><span class="p">.</span><span class="n">GPIO_Mode</span> <span class="o">=</span> <span class="n">GPIO_Mode_IN_FLOATING</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">GPIO_Init</span><span class="p">(</span><span class="n">ECHO_PORT</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">GPIO_InitStructure</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// TIM2 配置：1us 计数一次
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">TIM_TimeBaseStructure</span><span class="p">.</span><span class="n">TIM_Period</span> <span class="o">=</span> <span class="mi">65535</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TIM_TimeBaseStructure</span><span class="p">.</span><span class="n">TIM_Prescaler</span> <span class="o">=</span> <span class="mi">72</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TIM_TimeBaseStructure</span><span class="p">.</span><span class="n">TIM_ClockDivision</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TIM_TimeBaseStructure</span><span class="p">.</span><span class="n">TIM_CounterMode</span> <span class="o">=</span> <span class="n">TIM_CounterMode_Up</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">TIM_TimeBaseInit</span><span class="p">(</span><span class="n">TIM2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">TIM_TimeBaseStructure</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ==============================================
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 函数功能：获取距离
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 计算公式：cm = 时间(us) / 57.5
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 返回值：距离（单位：cm）
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ==============================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">float</span> <span class="nf">JSN_SR04T_GetDistance</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint32_t</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// 超时计数器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">float</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 发送 12us 触发信号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">GPIO_SetBits</span><span class="p">(</span><span class="n">TRIG_PORT</span><span class="p">,</span> <span class="n">TRIG_PIN</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Delay_us</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">GPIO_ResetBits</span><span class="p">(</span><span class="n">TRIG_PORT</span><span class="p">,</span> <span class="n">TRIG_PIN</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">	<span class="c1">//等待ECH0为高电平，如果从发送高电平后，40ms后就出错退出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	  <span class="n">timeout</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="nf">GPIO_ReadInputDataBit</span><span class="p">(</span><span class="n">ECHO_PORT</span><span class="p">,</span> <span class="n">ECHO_PIN</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">timeout</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">Delay_us</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">timeout</span> <span class="o">&gt;</span> <span class="mi">40000</span><span class="p">)</span>  <span class="c1">// 40ms 超时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">//开始计时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nf">TIM_SetCounter</span><span class="p">(</span><span class="n">TIM2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">TIM_Cmd</span><span class="p">(</span><span class="n">TIM2</span><span class="p">,</span> <span class="n">ENABLE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">//等待ECHO低电平，超时40ms
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="n">timeout</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="nf">GPIO_ReadInputDataBit</span><span class="p">(</span><span class="n">ECHO_PORT</span><span class="p">,</span> <span class="n">ECHO_PIN</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">timeout</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">Delay_us</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">timeout</span> <span class="o">&gt;</span> <span class="mi">40000</span><span class="p">)</span>  <span class="c1">// 40ms 超时
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">time</span> <span class="o">=</span> <span class="nf">TIM_GetCounter</span><span class="p">(</span><span class="n">TIM2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">TIM_Cmd</span><span class="p">(</span><span class="n">TIM2</span><span class="p">,</span> <span class="n">DISABLE</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 距离换算：cm = 时间(us) / 57.5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">distance</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">time</span> <span class="o">/</span> <span class="mf">57.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 有效范围判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">distance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ==============================================
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 函数功能：获取实际水深
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 计算公式：水深 = 安装总高度 - 测得距离
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 返回值：距离（单位：cm）
+</span></span></span><span class="line"><span class="cl"><span class="c1">// ==============================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">float</span> <span class="nf">Get_Water_Depth</span><span class="p">(</span><span class="kt">float</span> <span class="n">date</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">FIXED_DISTANCE</span> <span class="o">-</span> <span class="n">date</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>注意：</p>
-<blockquote>
-<p>绘制缓冲区的变量必须是静态的 or 全局的 or 动态分配的，不可以是局部变量！</p>
-<p>LVGL支持使用两块绘制缓冲区，如果用户只使用一块缓冲区，则LVGL需要等待显示设备对缓冲区内容绘制完成后才可以继续使用缓冲区。</p>
-<p>如果用户使用两块绘制缓冲区，则显示设备绘制第一块缓冲区时，LVGL可以操作第二块缓冲区，相当于效率更高。</p>
-<p>为了提高效率，最优缓冲区大小可以设置为屏幕分辨率的 1/10</p>
-<p><code>缓冲区大小 = 屏幕宽 × 屏幕高 / 10</code>（像素个数）</p>
-</blockquote>
-<p>为什么不使用局部变量？</p>
-<p>普通局部变量存储在栈区，函数退出后内存会被释放，导致LVGL读取到乱码，屏幕花屏、死机、内存非法访问。</p>
-<p>static/全局变量放在数据段，程序运行期间永久有效</p>
-<p>回调函数</p>
-<p>一般是作为函数参数使用的，也就是需要把一个函数的地址作为另一个函数的参数，回调函数不一定会被执行，当用户调用了把回调函数作为参数的那个函数时，回调函数才会执行。</p>
-<p>简述回调函数的意义？</p>
-<p><strong>解耦</strong>：将调用方与具体实现分离，底层只负责触发，不关心具体逻辑。</p>
-<p><strong>异步与事件驱动</strong>：适用于等待事件发生后再执行的场景，无需阻塞等待。</p>
-<p><strong>灵活扩展</strong>：通过注册不同回调实现不同功能，不修改底层代码。</p>
-<p>对象使用指针作为句柄	 <code>lv_obj_t</code></p>
-<p>基础对象</p>
-<div class="highlight"><div class="chroma">
+</div><h3 id="jsn-sr04th">jsn-sr04t.h
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">Position</span>	<span class="err">位置</span>
-</span></span><span class="line"><span class="cl"><span class="n">Size</span>		<span class="err">大小</span>
-</span></span><span class="line"><span class="cl"><span class="n">Parent</span>		<span class="err">父母</span>
-</span></span><span class="line"><span class="cl"><span class="n">Styles</span>		<span class="err">风格</span>
-</span></span><span class="line"><span class="cl"><span class="n">Event</span> <span class="n">handlers</span>	<span class="err">事件回调函数</span>		
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#ifndef __JSN-SR04T_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define __JSN-SR04T_H
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;stm32f10x.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;delay.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 宏定义固定距离
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define FIXED_DISTANCE    200.0f
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 引脚配置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define TRIG_PIN    GPIO_Pin_3
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define TRIG_PORT   GPIOA
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ECHO_PIN    GPIO_Pin_2
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ECHO_PORT   GPIOA
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 时钟使能
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define TRIG_RCC    RCC_APB2Periph_GPIOA
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ECHO_RCC    RCC_APB2Periph_GPIOA
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define TIM_RCC     RCC_APB1Periph_TIM2
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 函数声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">JSN_SR04T_Init</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">JSN_SR04T_GetDistance</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">Get_Water_Depth</span><span class="p">(</span><span class="kt">float</span> <span class="n">date</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>可以通过<code>set/get</code>设置对象，函数调用：<code>lv_obj_set_...</code>	<code>lv_obj_get_...</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/*Set basic object attributes*/</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lv_obj_set_size</span><span class="p">(</span><span class="n">btn1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>	  <span class="cm">/*Set a button&#39;s size*/</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lv_obj_set_pos</span><span class="p">(</span><span class="n">btn1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>      <span class="cm">/*Set a button&#39;s position*/</span>
-</span></span></code></pre></td></tr></table>
 </div>
-</div><p>特殊对象</p>
-<p>对象类型也有特殊属性。例如，slider</p>
-<ul>
-<li>Minimum and maximum values</li>
-<li>Current value</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/*Set slider specific attributes*/</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lv_slider_set_range</span><span class="p">(</span><span class="n">slider1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>	   				<span class="cm">/*Set the min. and max. values*/</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lv_slider_set_value</span><span class="p">(</span><span class="n">slider1</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">LV_ANIM_ON</span><span class="p">);</span>		<span class="cm">/*Set the current value (position)*/</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建和删除对象</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">lv_obj_t</span> <span class="o">*</span> <span class="n">lv_</span><span class="o">&lt;</span><span class="n">widget</span><span class="o">&gt;</span><span class="nf">_create</span><span class="p">(</span><span class="kt">lv_obj_t</span> <span class="o">*</span> <span class="n">parent</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">other</span> <span class="n">parameters</span> <span class="k">if</span> <span class="n">any</span><span class="o">&gt;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">lv_obj_del</span><span class="p">(</span><span class="kt">lv_obj_t</span> <span class="o">*</span> <span class="n">obj</span><span class="p">);</span>	<span class="err">立即删除该对象</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lv_obj_clean</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>					<span class="err">删除对象的所有子节点，不移除对象本身</span>
-</span></span><span class="line"><span class="cl"><span class="nf">lv_obj_del_delayed</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>		<span class="err">一段时间后删除一个对象</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建屏幕		<code>lv_obj_create(NULL)</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">lv_obj_t</span> <span class="o">*</span> <span class="n">scr1</span> <span class="o">=</span> <span class="nf">lv_obj_create</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>屏幕是没有父对象的特殊对象</p>
-<p>获取活动屏幕	<code>lv_scr_act()</code></p>
-<p>加载屏幕		<code>lv_scr_load(scr1)</code></p>
-<p>图层</p>
-<p>top layer			顶层（top 层）		   可以添加弹窗、悬浮窗</p>
-<p>system layer		 系统层（sys 层）		可以添鼠标光标、最高级提示加</p>
-<p>系统层 (system) &gt; 顶层 (top) &gt; 所有普通控件</p>
-<p>常见状态</p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th>状态宏定义</th>
-<th>中文释义</th>
-<th>说明 / 使用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>LV_STATE_DEFAULT</strong></td>
-<td>默认状态 / 正常释放</td>
-<td>控件常态，未被操作、未禁用、未选中</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_CHECKED</strong></td>
-<td>选中 / 勾选</td>
-<td>开关打开、复选框勾选、按钮切换选中</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_FOCUSED</strong></td>
-<td>已聚焦</td>
-<td>通过按键 / 编码器 / 触摸 / 鼠标 让控件获得焦点</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_FOCUS_KEY</strong></td>
-<td>按键聚焦</td>
-<td><strong>仅</strong>通过键盘 / 编码器聚焦（非触摸 / 鼠标）</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_EDITED</strong></td>
-<td>编辑中</td>
-<td>编码器正在编辑控件（如调节数值）</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_HOVERED</strong></td>
-<td>鼠标悬停</td>
-<td>鼠标悬浮在控件上（<strong>当前 LVGL 暂不支持</strong>）</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_PRESSED</strong></td>
-<td>按下中</td>
-<td>手指 / 鼠标正在按压控件</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_SCROLLED</strong></td>
-<td>滚动中</td>
-<td>控件正在被滚动（列表 / 滚动容器）</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_DISABLED</strong></td>
-<td>禁用状态</td>
-<td>控件不可点击、不可交互、变灰失效</td>
-</tr>
-<tr>
-<td><strong>LV_STATE_USER_1~4</strong></td>
-<td>自定义状态</td>
-<td>留给用户自己定义的 4 个扩展状态</td>
-</tr>
-</tbody>
-</table></div>
-
 </section>
 
 
@@ -534,7 +673,7 @@
 
 
         <span>
-            最后更新于 2026-03-26 23:00
+            最后更新于 2026-03-28 13:56
         </span>
     </section></footer>
 
@@ -557,37 +696,18 @@
             
                 
 <article class="has-image">
-    <a href="/p/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
+    <a href="/p/%E7%BF%BB%E6%96%97%E5%BC%8F%E9%9B%A8%E9%87%8F%E8%AE%A1/">
         
         
             <div class="article-image">
                 
-                    <img src="https://img.guokun.net/PicGo/libqrencode.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/libqrencode.png"/>
+                    <img src="https://img.guokun.net/PicGo/%e7%bf%bb%e6%96%97%e5%bc%8f%e9%9b%a8%e9%87%8f%e8%ae%a1.jpg" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/翻斗式雨量计.jpg"/>
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">二维码</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/lvgl-base-object/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.guokun.net/PicGo/OIP-C.webp" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/OIP-C.webp"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">LVGL Base object</h2>
+            <h2 class="article-title">翻斗式雨量计</h2>
         </div>
     </a>
 </article>

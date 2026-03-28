@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Shell Shell脚本实现命令自动化执行 基本规范 文件名：.sh后缀，创建touch test.sh 首行必备：#!bin/bash指定解释器 注释：# 输入：read">
+<title>Shell</title>
+
+<link rel='canonical' href='https://guokun603.github.io/p/shell/'>
+
+<link rel="stylesheet" href="/scss/style.min.70212c217295166b616fd230cf8b2de35a01aff0fb112ecbd0d214aa24b1c23f.css"><meta property='og:title' content="Shell">
+<meta property='og:description' content="Shell Shell脚本实现命令自动化执行 基本规范 文件名：.sh后缀，创建touch test.sh 首行必备：#!bin/bash指定解释器 注释：# 输入：read">
+<meta property='og:url' content='https://guokun603.github.io/p/shell/'>
+<meta property='og:site_name' content='郭小胖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-11T23:09:51&#43;08:00'/><meta property='article:modified_time' content='2026-03-28T13:56:45&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/shell.png' />
+<meta name="twitter:title" content="Shell">
+<meta name="twitter:description" content="Shell Shell脚本实现命令自动化执行 基本规范 文件名：.sh后缀，创建touch test.sh 首行必备：#!bin/bash指定解释器 注释：# 输入：read"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/shell.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hue6550b27d333e6d3ea4ba819e5c99674_47742_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">郭小胖</a></h1>
+            <h2 class="site-description">欢迎来到我的小窝</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com/'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/guokun603-cel'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-files"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 3v4a1 1 0 0 0 1 1h4" /><path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /><path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></svg>
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#基本规范">基本规范</a></li>
+        <li><a href="#通配符">通配符</a></li>
+        <li><a href="#管道">管道</a></li>
+        <li><a href="#重定向">重定向</a></li>
+        <li><a href="#反引号">反引号</a></li>
+        <li><a href="#数值运算">数值运算</a></li>
+        <li><a href="#脚本控制语句">脚本控制语句</a></li>
+        <li><a href="#循环语句">循环语句</a></li>
+        <li><a href="#shell脚本外部传参">shell脚本外部传参</a></li>
+        <li><a href="#shell正则表达式">shell正则表达式</a>
+          <ol>
+            <li><a href="#grep">grep</a></li>
+            <li><a href="#awk">awk</a></li>
+            <li><a href="#sed">sed</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
+
+            <main class="main full-width">
+    <article class="article-page-main">
+        <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/shell/">
+                
+                    <img src="https://img.guokun.net/PicGo/shell.png" loading="lazy" alt="Featured image of post Shell" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/shell/" >
+                Shell
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/shell/">Shell</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+       <div class="article-lastmod">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+            <time>
+                
+                2026-03-28 13:56
+            </time>
+        </div>
+
+        
+        
+        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--reading">
+                <span id="vercount_value_page_pv">loading...</span> 次
+            </time>
+        </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="shell">Shell
+</h1><p>Shell脚本实现命令自动化执行</p>
+<hr>
+<h3 id="基本规范">基本规范
+</h3><p>文件名：.sh后缀，创建touch test.sh</p>
+<p>首行必备：<code>#!bin/bash</code>指定解释器</p>
+<p>注释：#</p>
+<p>输入：read</p>
+<p>输出：echo</p>
+<p>赋值时，等号两边无空格</p>
+<p><code>buf=&quot;hello world&quot;</code></p>
+<p>运行：source命令</p>
+<h3 id="通配符">通配符
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">*	任意长度任意字符
+</span></span><span class="line"><span class="cl">？	任意一个字符
+</span></span><span class="line"><span class="cl"><span class="o">[]</span>	匹配一个指定范围内的字符
+</span></span><span class="line"><span class="cl"><span class="o">[</span>^<span class="o">]</span>	匹配一个指定范围外的字符
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="管道">管道
+</h3><p>有两种不同的执行模式</p>
+<p><code>cmd1 | cmd2</code></p>
+<p>指将cmd1的输出作为cmd2的输入，比如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">find  ~/ -name	hello.c	 <span class="p">|</span> grep <span class="s2">&#34;world&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>cmd1 	|xargs	cmd2</code></p>
+<p>将cmd1的输出作为cmd2的参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">find  ~/  -name  hello.c  <span class="p">|</span>xargs  grep “world”
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="重定向">重定向
+</h3><p><code>&gt;</code>	输出重定向	覆盖</p>
+<p><code>&lt;</code>	输入重定向</p>
+<p><code>&gt;&gt;</code>	追加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0	标准输入
+</span></span><span class="line"><span class="cl">1	标准输出
+</span></span><span class="line"><span class="cl">2	标准出错
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260311122456632.png" data-caption="image-20260311122456632">
+        <img src="https://img.guokun.net/PicGo/image-20260311122456632.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260311122456632"
+            
+        >
+    </a>
+</div></p>
+<hr>
+<h3 id="反引号">反引号
+</h3><p>在shell脚本中，经常使用的一个特殊符号，<strong>反引号 ` ,放在反引号的命令会被解释器执行</strong>，反引号可以在双引号&quot;&ldquo;中进行嵌套</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260311122749815.png" data-caption="image-20260311122749815">
+        <img src="https://img.guokun.net/PicGo/image-20260311122749815.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260311122749815"
+            
+        >
+    </a>
+</div></p>
+<hr>
+<h3 id="数值运算">数值运算
+</h3><p>脚本的变量类型默认都是字符串，对变量进行数值运算时，可以使用双括号实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">data</span><span class="o">=</span><span class="m">200</span>   
+</span></span><span class="line"><span class="cl"><span class="nv">data</span><span class="o">=</span><span class="k">$(</span> <span class="o">(</span><span class="nv">$data</span>+20<span class="k">)</span> <span class="o">)</span>   
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$data</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="脚本控制语句">脚本控制语句
+</h3><p>if语句：单分支、双分支、多分支</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> 条件表达式 <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">	...
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>表达式写在[ ]中，并且[ ]中的表达式两边必须有空格</p>
+<p>判断语句结束是以if的逆序书写fi作为结束标志</p>
+<p>对于[ ] 而言，其实是shell脚本中的test命令的另一种形式，在man手册中有相关描述</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> 条件表达式 <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 条件为真时执行的代码</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 条件为假时执行的代码</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> 条件表达式1 <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 条件1为真时执行</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="o">[</span> 条件表达式2 <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 条件2为真时执行</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 所有条件都为假时执行</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>[ ]中的表达式也可以使用逻辑运算符进行逻辑运算，shell支持逻辑与&amp;&amp;、逻辑或||、逻辑非！，规则和C语言一致。注意：逻辑运算符和表达式中间要有空格</p>
+</blockquote>
+<p>case语句：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">case</span> 待匹配的变量 in
+</span></span><span class="line"><span class="cl">    匹配模式1<span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 匹配成功时执行的代码块</span>
+</span></span><span class="line"><span class="cl">        <span class="p">;;</span>  <span class="c1"># 终止当前分支（必须写，否则会继续执行下一分支）</span>
+</span></span><span class="line"><span class="cl">    匹配模式2<span class="p">|</span>匹配模式3<span class="o">)</span>  <span class="c1"># | 表示“或”，多个模式匹配同一代码块</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 匹配模式2或3时执行的代码</span>
+</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    *<span class="o">)</span>  <span class="c1"># 通配符，匹配所有未命中的情况（可选，类似else）</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 默认执行的代码</span>
+</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>  <span class="c1"># case语句结束标记（case倒写）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="循环语句">循环语句
+</h3><p>while:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">while</span> 表达式
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">#代码块</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">true</span>		<span class="c1">#也可以写成[ 1 ]</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">#代码块</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>for:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">for</span> 变量 in 枚举列表
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">......
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>until:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">until</span> 表达式
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">......
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>until 循环的规则是如果条件成立，则立即退出循环。否则一直进行循环。</p>
+</blockquote>
+<p>break跳出循环，或者使用continue结束一次循环</p>
+<hr>
+<h3 id="shell脚本外部传参">shell脚本外部传参
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$1</span>  //指的是外部传入的第一个参数   			  注意：<span class="nv">$0</span>指的是脚本文件的名称
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260311125125276.png" data-caption="image-20260311125125276">
+        <img src="https://img.guokun.net/PicGo/image-20260311125125276.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260311125125276"
+            
+        >
+    </a>
+</div></p>
+<hr>
+<h3 id="shell正则表达式">shell正则表达式
+</h3><p>正则表达式（Regular Expression，通常简称RE）指的是使用一些具有特定含义的字符，去组合成具有某种特定规律的字串。然后利用这些特定的字串，去对文本、选项、参数等进行比对、抽取等动作，可以提高开发效率。</p>
+<img src="https://img.guokun.net/PicGo/image-20260311125209689.png" alt="image-20260311125209689" style="zoom:150%;" />
+<p>常用的过滤器有grep、awk、sed</p>
+<h4 id="grep">grep
+</h4><p>用于指定文件或目录中查找某些字符串</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260311125515505.png" data-caption="image-20260311125515505">
+        <img src="https://img.guokun.net/PicGo/image-20260311125515505.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260311125515505"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260311125524693.png" data-caption="image-20260311125524693">
+        <img src="https://img.guokun.net/PicGo/image-20260311125524693.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260311125524693"
+            
+        >
+    </a>
+</div></p>
+<h4 id="awk">awk
+</h4><p>一种用于处理文本的编程语言工具，它以行为单位，每次读取文件中的一行，查找与命令行中所给定内容相匹配的模式，如果发现匹配内容，则进行下一个过滤步骤。如果找不到匹配内容，则继续处理下一行。</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260311125558743.png" data-caption="image-20260311125558743">
+        <img src="https://img.guokun.net/PicGo/image-20260311125558743.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260311125558743"
+            
+        >
+    </a>
+</div></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk  <span class="s1">&#39; 条件1 {动作1}  条件2 {动作2} …… &#39;</span>  file
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1.从指定的文件file中读取一行内容
+</span></span><span class="line"><span class="cl">2.针对这一行内容来判断条件1是否成立，如果成立则执行动作1，否则不执行
+</span></span><span class="line"><span class="cl">3.然后判断条件2是否成立，如果成立则执行动作2，否则不执行
+</span></span><span class="line"><span class="cl">4.如果这一行内容被处理完，则重复以上1-3步，直到将文件读完为止
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260311125633144.png" data-caption="image-20260311125633144">
+        <img src="https://img.guokun.net/PicGo/image-20260311125633144.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260311125633144"
+            
+        >
+    </a>
+</div></p>
+<p>例子：当前一个名称叫做grade.txt的文本中处理使用awk进行查找和分析，使用规则如下：</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260311125752963.png" data-caption="image-20260311125752963">
+        <img src="https://img.guokun.net/PicGo/image-20260311125752963.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260311125752963"
+            
+        >
+    </a>
+</div></p>
+<ol>
+<li>
+<p>显示指定列</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> awk  <span class="s1">&#39;{ print $1, $5 }&#39;</span>  grade.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>$1表示第1列，2表示第2列，n表示第n列，而$0表示整一行（也就是所有列）。</p>
+</li>
+<li>
+<p>格式化输出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk  <span class="s1">&#39;$5==11 &amp;&amp; $6&gt;=90 { print $0 }&#39;</span>  grade.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>过滤</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk  <span class="s1">&#39;$5==11 &amp;&amp; $6&gt;=90 { print $0 }&#39;</span>  grade.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>读取grade.txt的一行信息，判断第五列（即$5）是否等于11而且第6列（即$6）是否大于等于90，如果是，则显示整一行（即print $0）。然后读取下一行。</p>
+</li>
+<li>
+<p>显示表头</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk  <span class="s1">&#39;NR==1 || $6&gt;=90 { print }&#39;</span>  grade.txt  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>NR表示已经读出的记录数（即行号），另外print后面什么都没跟，所以等价于print $0</p>
+</li>
+</ol>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/wps4.jpg" data-caption="img">
+        <img src="https://img.guokun.net/PicGo/wps4.jpg"
+            
+            
+            
+            loading="lazy"
+            alt="img"
+            
+        >
+    </a>
+</div></p>
+<p>​	AWK语言提供了一些内建变量，这些内建变量在程序执行前就已经提前建好并被初始化好。</p>
+<ol start="5">
+<li>
+<p>指定分隔符</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk  <span class="s1">&#39;BEGIN { FS=&#34;:&#34; } { print $1 }&#39;</span>  /etc/passwd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面这句话的意思是：把/etc/passwd文件中冒号:之前的那一列进行输出，BEGIN意味着紧跟在它后面的动作 {FS=&rdquo;:&quot;} 会在 awk 读取第一行之前处理。</p>
+</li>
+</ol>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/wps5.jpg" data-caption="img">
+        <img src="https://img.guokun.net/PicGo/wps5.jpg"
+            
+            
+            
+            loading="lazy"
+            alt="img"
+            
+        >
+    </a>
+</div></p>
+<ol start="6">
+<li>
+<p>匹配字符串</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">awk  <span class="s1">&#39; $0~/Brown/ {print} &#39;</span>  grade.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面这句话的意思是：将文档中所有匹配Brown的行显示出来。其中$0~/Brown/ 是一个条件，表示所指定的域（这里是$0）要匹配的规则（这里是Brown），也就是grade.txt中的一行只要包含有单词Brown，就会被选出来然后显示出来。</p>
+</li>
+<li>
+<p>信息重定向</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> awk  <span class="s1">&#39; {print &gt; $5} &#39;</span>  grade.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面这句话的意思是：每一行都将被重定向到以第5个域（年龄）命名的文件中去。也可以将指定的域重定位到相应的文件。</p>
+</li>
+</ol>
+<h4 id="sed">sed
+</h4><p>sed指的是stream editor流<strong>编辑器</strong>，sed 的工作就是<strong>把文件或字符串里面的文字经过一系列编辑命令转换为另一种格式输出</strong>。跟 awk 过滤器类似，sed也是一次读取文件的一行信息加以处理，然后再读取下一行，以此类推。</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/wps6.jpg" data-caption="img">
+        <img src="https://img.guokun.net/PicGo/wps6.jpg"
+            
+            
+            
+            loading="lazy"
+            alt="img"
+            
+        >
+    </a>
+</div></p>
+<ol>
+<li>
+<p>进行替换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sed  <span class="s2">&#34;s/-year/ years/&#34;</span>  people.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>意思是从people.txt中读取一行，然后使用正则表达式-year来试图匹配某单词，如果匹配成功，则将之替换成” years”。</p>
+</li>
+<li>
+<p>指定替换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sed  <span class="s2">&#34;2s/-year/years/&#34;</span>  people.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>意思是将第2行的&quot;-year&quot;改成&quot; years&quot;。 如果想修改其中几行，则可以写成”2,5s/year/years”</p>
+</li>
+<li>
+<p>修改原文</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sed  -i  <span class="s2">&#34;2s/-year/years/&#34;</span>  people.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>需要注意：默认情况下sed不会修改原文，默认状态下sed只是对原文的复制品进行了加工。</p>
+</li>
+<li>
+<p>插入信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sed <span class="s1">&#39;3i x&#39;</span>  people.txt   在第3行的前面插入x
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sed <span class="s1">&#39;2a x&#39;</span>  people.txt   在第2行的后面插入x
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sed <span class="s1">&#39;1,4a x&#39;</span>  people.txt   分别在第1至4行后插入x
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sed <span class="s1">&#39;/US/a x&#39;</span> people.txt   在匹配US的行后插入x
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>指定删除</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> sed <span class="s1">&#39;2d&#39;</span>   people.txt 将第2行给删掉
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> sed <span class="s1">&#39;/US/d&#39;</span>   people.txt 将匹配/US/的所有行删掉
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>匹配显示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gec@ubuntu:~$ sed <span class="s1">&#39;/Chen/p&#39;</span>   people.txt -n 显示匹配Chen的行
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gec@ubuntu:~$ sed <span class="s1">&#39;/Chen/, /Lau/p&#39;</span>  people.txt -n 显示匹配Chen或者Lau的行
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gec@ubuntu:~$ sed <span class="s1">&#39;3,/UK/p&#39;</span>   people.txt -n 从第3行开始显示直到匹配UK为止
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gec@ubuntu:~$ sed <span class="s1">&#39;/UK/,6p&#39;</span>   people.txt -n 从匹配UK的行开始显示直到第6行为止
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-03-28 13:56
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+        
+
+        
+
+        
+
+        
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/makefile/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/amk.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/amk.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Makefile</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        
+    </article>
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 郭小胖
+    </section>
+    
+    </footer>
+
+
+<div id="toast-stack"></div>
+
+<script>
+ 
+(() => {
+  const toastStack = document.getElementById('toast-stack');
+  let toastCount = 0;
+  const MAX_TOAST = 5;
+  const DURATION  = 2500;
+
+   
+  let lastText = '';
+  let lastTime = 0;
+
+  window.pushToast = function (msg = '✅ 哎嘿！复制成功 🍬') {
+    const now = Date.now();
+    if (msg === lastText && now - lastTime < 500) return; 
+    lastText = msg;
+    lastTime = now;
+
+     
+    if (toastCount >= MAX_TOAST) toastStack.firstElementChild?.closeToast();
+
+    const item = document.createElement('div');
+    item.className = 'snack-left-top';
+    item.textContent = msg;
+
+    let closeTimer = null;
+    function closeToast() {
+      if (item.isClosing) return;
+      item.isClosing = true;
+      item.classList.remove('show');
+      item.addEventListener('transitionend', () => {
+        item.remove();
+        toastCount--;
+      }, { once: true });
+      clearTimeout(closeTimer);
+    }
+    item.closeToast = closeToast;
+
+    toastStack.appendChild(item);
+    toastCount++;
+    void item.offsetWidth;
+    item.classList.add('show');
+    closeTimer = setTimeout(closeToast, DURATION);
+  };
+
+   
+  document.addEventListener('copy', e => {
+    const text = window.getSelection().toString().trim();
+    if (!text) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(text)
+      .then(() => pushToast())
+      .catch(console.warn);
+  });
+
+   
+  const container = document.querySelector('.article-content');
+  if (container) {
+    container.addEventListener('click', e => {
+      if (!e.target.matches('.copyCodeButton')) return;
+      const wrap = e.target.closest('pre, .highlight');
+      const codeTd = wrap?.querySelector('td:nth-child(2)') || wrap;
+      const txt = codeTd ? codeTd.textContent.trim() : '';
+      navigator.clipboard.writeText(txt)
+        .then(() => pushToast())
+        .catch(err => alert('复制失败：' + err));
+    });
+  }
+})();
+</script>
+
+<style>
+ 
+.copyCodeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #3d3c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.copyCodeButton:hover {
+  background: var(--hover-text-color);
+  color: #fff;
+}
+
+ 
+.snack-left-top {
+  position: fixed;
+  left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  transform: translateX(calc(-100% - 20px));
+  width: 300px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  background: var(--hover-text-color);
+  color: #fff;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .35);
+  z-index: 9999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+ 
+.snack-left-top.show {
+  transform: translateX(0);
+}
+ 
+#toast-stack {
+  position: fixed;
+  left: 0;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+ 
+#toast-stack .snack-left-top {
+  position: relative;    
+  margin-bottom: 12px;   
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+              opacity   .35s cubic-bezier(.4, 0, .2, 1);
+  opacity: 0;
+  transform: translateX(calc(-100% - 20px));
+}
+
+#toast-stack .snack-left-top.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = '/fonts/lato.css';
+        customFont.type = 'text/css';
+        customFont.rel = 'stylesheet';
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    document.querySelectorAll(".highlight").forEach(codeBlock => {
+      
+      if (codeBlock.querySelector('.code-more-box')) return;
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) return;
+
+      const codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+
+      const codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+      });
+
+      const img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "https://guokun603.github.io/icons/codeMore.png";
+
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox);
+    });
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+<div class="js-Pjax">
+    <script>
+      (function () {
+        let comment = document.querySelector(".comment");
+        if (!comment) {
+          return
+        }
+        let script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-repo',"meimolihan/meimolihan.github.io");
+        script.setAttribute('data-repo-id',"R_kgDONpRkKg");
+        script.setAttribute('data-category',"Announcements");
+        script.setAttribute('data-category-id',"DIC_kwDONpRkKs4CmwSa");
+        script.setAttribute('data-mapping',"pathname");
+        script.setAttribute('data-strict', 0 );
+        script.setAttribute('data-reactions-enabled', 1 );
+        script.setAttribute('data-emit-metadata', 0 );
+        script.setAttribute('data-input-position',"top");
+        script.setAttribute('data-theme',"light");
+        script.setAttribute('data-lang',"zh-CN");
+        script.setAttribute('data-loading', 'lazy')
+        script.async = true;
+        document.querySelector('.site-footer').before(script)
+      })(document);
+    </script>
+    <div>
+
+
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+    (function () {
+        function initFancybox() {
+            if (!(window.jQuery && window.jQuery.fancybox)) return;
+            window.jQuery('[data-fancybox]').fancybox({
+                loop: true,
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'close']
+            });
+        }
+
+        window.addEventListener('load', initFancybox);
+        document.addEventListener('pjax:complete', initFancybox);
+    })();
+</script>
+
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.meimolihan.eu.org/hugo/fish/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+<style>
+  @font-face {
+    font-family: 'WenYuanSerifSCVF';
+    src: url(https://guokun603.github.io/font/WenYuanSerifSCVF.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'WenYuanSerifSCVF';
+    --code-font-family: 'WenYuanSerifSCVF';
+  }
+</style>
+
+<div class="js-Pjax">
+    <script>
+        (function () {
+            function showHideView() {
+                const viewCounts = document.querySelectorAll('#viewCount');
+                if (!viewCounts.length) return;
+                const display = document.querySelector('.article-page') ? '' : 'none';
+                viewCounts.forEach(el => { el.style.display = display; });
+            }
+
+            function loadVercount() {
+                if (document.getElementById('vercount-script')) return;
+                const script = document.createElement('script');
+                script.defer = true;
+                script.id = 'vercount-script';
+                script.src = 'https://cn.vercount.one/js';
+                document.body.appendChild(script);
+            }
+
+            function initVercount() {
+                showHideView();
+                loadVercount();
+            }
+
+            window.addEventListener('load', initVercount);
+            document.addEventListener('pjax:complete', initVercount);
+        })();
+    </script>
+</div>
+
+
+
+
+
+    </body>
+</html>

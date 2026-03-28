@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>通信 on 郭小胖</title>
+        <link>https://guokun603.github.io/categories/%E9%80%9A%E4%BF%A1/</link>
+        <description>Recent content in 通信 on 郭小胖</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>郭小胖</copyright>
+        <lastBuildDate>Wed, 25 Mar 2026 13:44:15 +0800</lastBuildDate><atom:link href="https://guokun603.github.io/categories/%E9%80%9A%E4%BF%A1/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>RS485</title>
+        <link>https://guokun603.github.io/p/rs485/</link>
+        <pubDate>Wed, 25 Mar 2026 13:44:15 +0800</pubDate>
+        
+        <guid>https://guokun603.github.io/p/rs485/</guid>
+        <description>&lt;img src="https://img.guokun.net/PicGo/RS485.png" alt="Featured image of post RS485" /&gt;&lt;h1 id=&#34;rs485通信&#34;&gt;RS485通信
+&lt;/h1&gt;&lt;h2 id=&#34;串口通信&#34;&gt;串口通信
+&lt;/h2&gt;&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322143629009.png&#34; alt=&#34;image-20260322143629009&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;串口通信是全双工通信&lt;/p&gt;
+&lt;p&gt;需要定义好&lt;strong&gt;帧格式和波特率&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一帧串口数据：&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322142904961.png&#34; alt=&#34;image-20260322142904961&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;低电平作为起始位，高电平作为停止位，这是常见的帧格式&lt;/p&gt;
+&lt;p&gt;波特率常见的为：9600、19200、115200&lt;/p&gt;
+&lt;p&gt;9600：代表一秒内串口输出9600个高低电平&lt;/p&gt;
+&lt;p&gt;采用TTL逻辑（Transistor-transistor logic  晶体管-晶体管 逻辑）&lt;/p&gt;
+&lt;p&gt;输出高电平最小2.4V，输出低电平最大0.4V&lt;/p&gt;
+&lt;p&gt;一般认为串口通信的高电平为5V，低电平为0V&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322144134518.png&#34; alt=&#34;image-20260322144134518&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;抗干扰能力弱&lt;/p&gt;
+&lt;p&gt;常用于：开发板的两个芯片之间，芯片和电脑的通讯，距离不超过1m&lt;/p&gt;
+&lt;h2 id=&#34;rs232&#34;&gt;RS232
+&lt;/h2&gt;&lt;p&gt;Recommended Standard&lt;/p&gt;
+&lt;p&gt;还是全双工通信&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322144439965.png&#34; alt=&#34;image-20260322144439965&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;一般常用的就只有三个接口&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322144529528.png&#34; alt=&#34;image-20260322144529528&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;单片机进行RS232通信：通过添加一个&lt;strong&gt;电平转换芯片&lt;/strong&gt;MAX232&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322145218498.png&#34; alt=&#34;image-20260322145218498&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;将TTL电平转换为232电平，&lt;strong&gt;5V转换为12V，0V转换为-12V&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322145407529.png&#34; alt=&#34;image-20260322145407529&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322145622397.png&#34; alt=&#34;image-20260322145622397&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;转换后的&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322145818932.png&#34; alt=&#34;image-20260322145818932&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;增强了抗干扰能力，通信距离可达到15m，速率为20K（19200波特率）&lt;/p&gt;
+&lt;h2 id=&#34;rs485&#34;&gt;RS485
+&lt;/h2&gt;&lt;p&gt;就是在串口通信的基础上添加一个&lt;strong&gt;485转换芯片&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;485转换芯片：将收到的串口信号转换为差分信号&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322150508263.png&#34; alt=&#34;image-20260322150508263&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;采用的半双工通信，同一时间只能接收数据或者发送数据&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322150601629.png&#34; alt=&#34;image-20260322150601629&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;差分信号只需要两跟线，不需要地线&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322150645469.png&#34; alt=&#34;image-20260322150645469&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;当信号A小于信号B时，代表逻辑0&lt;/p&gt;
+&lt;p&gt;当信号A大于信号B时，代表逻辑1&lt;/p&gt;
+&lt;p&gt;最大特点：抗干扰能力强&lt;/p&gt;
+&lt;p&gt;RS485通信使用的时两根信号线的插值来表示逻辑0和逻辑1&lt;/p&gt;
+&lt;p&gt;两根信号线采用双绞线的方式连接在一起，这样即使受到干扰，也是两根线同时受到干扰&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322151112789.png&#34; alt=&#34;image-20260322151112789&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;传输距离最远可达1200米，频率可达50M&lt;/p&gt;
+&lt;h2 id=&#34;对比&#34;&gt;对比
+&lt;/h2&gt;&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260322151235601.png&#34; data-caption=&#34;image-20260322151235601&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260322151235601.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260322151235601&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 id=&#34;modbus协议&#34;&gt;Modbus协议
+&lt;/h2&gt;&lt;p&gt;主机请求报文&lt;/p&gt;
+&lt;p&gt;地址码	功能码	寄存器起始地址	寄存器个数	CRC校验&lt;/p&gt;
+&lt;p&gt;8bit		8bit		16bit			16bit		 16bit&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;p&gt;主机发送Tx：01	03	00 00	00 02	C4 0B&lt;/p&gt;
+&lt;p&gt;从机应答报文&lt;/p&gt;
+&lt;p&gt;地址码	功能码	字节数	   数据1	数据2	CRC校验&lt;/p&gt;
+&lt;p&gt;8bit		8bit	 寄存器*2	16bit	16bit	  16bit&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;p&gt;从机应答RX：01	03	04	00 14	00 28	 BA 29&lt;/p&gt;
+&lt;p&gt;功能码&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;功能码&lt;/th&gt;
+&lt;th&gt;核心功能&lt;/th&gt;
+&lt;th&gt;常用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;01&lt;/td&gt;
+&lt;td&gt;读线圈状态（开关量）&lt;/td&gt;
+&lt;td&gt;读继电器、开关状态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;02&lt;/td&gt;
+&lt;td&gt;读离散输入状态&lt;/td&gt;
+&lt;td&gt;读按钮、传感器输入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;03&lt;/td&gt;
+&lt;td&gt;读保持寄存器（数值）&lt;/td&gt;
+&lt;td&gt;读电压、温度等数值（你示例用的）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;04&lt;/td&gt;
+&lt;td&gt;读输入寄存器&lt;/td&gt;
+&lt;td&gt;读外部设备采集的数值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;05&lt;/td&gt;
+&lt;td&gt;写单个线圈&lt;/td&gt;
+&lt;td&gt;控制单个继电器通断&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;06&lt;/td&gt;
+&lt;td&gt;写单个保持寄存器&lt;/td&gt;
+&lt;td&gt;设定单个参数（如阈值）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;写多个线圈&lt;/td&gt;
+&lt;td&gt;批量控制继电器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;写多个保持寄存器&lt;/td&gt;
+&lt;td&gt;批量设定参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;CRC&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;modbus_crc16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint8_t&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;crc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0xFFFF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;crc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;^=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint16_t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 异或当前字节
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint8_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 处理每个位
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;crc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;crc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;crc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;^=&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0xA001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Modbus CRC多项式
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;n&#34;&gt;crc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;crc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;把数据当成二进制数，用约定的多项式做 “模 2 除法”，得到的余数就是校验码&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;crc = 0xFFFF;	设置的初始都为1&lt;/p&gt;
+&lt;p&gt;crc ^= (uint16_t)data[i]; 	异或数据，相同为0，不同为1&lt;/p&gt;
+&lt;p&gt;为什么用&lt;strong&gt;异或&lt;/strong&gt;呢？	因为能清楚的知道哪个数据发生错误	只要数据错 1 位，我必须能发现！&lt;/p&gt;
+&lt;p&gt;if (crc &amp;amp; 1) {							最后一位是1？够不够除？
+crc &amp;raquo;= 1;					  先移位（挪一位）
+crc ^= 0xA001; 				够除！减去“除数”（异或多项式）
+} else {
+crc &amp;raquo;= 1;					   不够除！只移位，不减
+}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;为什么不用加法（+）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	不同数据可能算出&lt;strong&gt;相同结果&lt;/strong&gt;，错误会被掩盖，还会进位溢出。&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;例子：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	原始：1+2+3 = &lt;strong&gt;6&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	出错：1+4+1 = &lt;strong&gt;6&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	结果一样，但数据已经错了，&lt;strong&gt;校验失效&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;为什么不用减法（-）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	会出现&lt;strong&gt;负数&lt;/strong&gt;，不符合数据校验逻辑，也不稳定。&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;例子：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	2-3-5 = &lt;strong&gt;-6&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	负数不适合作为校验值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;为什么不用乘法（×）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	数值会急剧变大，很容易&lt;strong&gt;溢出&lt;/strong&gt;，程序直接出错。&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;例子：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	2×3×100×200 = 120000&lt;/p&gt;
+&lt;p&gt;​	远超单片机 16 位范围，结果失真。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;为什么不用除法（/）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	运算慢，会产生&lt;strong&gt;余数&lt;/strong&gt;，无法固定校验格式。&lt;/p&gt;
+&lt;p&gt;​	&lt;strong&gt;例子：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	7÷2=3 余 1&lt;/p&gt;
+&lt;p&gt;​	余数不好处理，不适合通信校验。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;为什么用异或（^）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一位出错，结果&lt;strong&gt;完全不同&lt;/strong&gt;，检错强&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;不进位、不溢出&lt;/strong&gt;，运算快&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;是 CRC 校验的标准运算&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;我们做除法 &lt;code&gt;123 ÷ 5&lt;/code&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;先看第一位 1&lt;/p&gt;
+&lt;p&gt;1 比 5 小 → 不够除&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;再看前两位 12&lt;/p&gt;
+&lt;p&gt;12 比 5 大 → 够除&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对应到 CRC 代码里：&lt;/p&gt;
+&lt;p&gt;​	最后一位 = 0 → &lt;strong&gt;太小了&lt;/strong&gt; → &lt;strong&gt;不够除&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	最后一位 = 1→ &lt;strong&gt;够大了&lt;/strong&gt; → &lt;strong&gt;够除&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

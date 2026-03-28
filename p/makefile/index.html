@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head>
-	<meta name="generator" content="Hugo 0.130.0"><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="演示说明">
-<title>Pager 3 - 郭小胖</title>
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Makefile Makefile实现项目自动化构建 核心概念 为了提高项目的开发效率，所以GNU组织就在Linux系统中集成了Make工具，而Makefile">
+<title>Makefile</title>
 
-<link rel='canonical' href='https://guokun603.github.io/'>
+<link rel='canonical' href='https://guokun603.github.io/p/makefile/'>
 
-<link rel="stylesheet" href="/scss/style.min.70212c217295166b616fd230cf8b2de35a01aff0fb112ecbd0d214aa24b1c23f.css"><meta property='og:title' content="郭小胖">
-<meta property='og:description' content="演示说明">
-<meta property='og:url' content='https://guokun603.github.io/'>
+<link rel="stylesheet" href="/scss/style.min.70212c217295166b616fd230cf8b2de35a01aff0fb112ecbd0d214aa24b1c23f.css"><meta property='og:title' content="Makefile">
+<meta property='og:description' content="Makefile Makefile实现项目自动化构建 核心概念 为了提高项目的开发效率，所以GNU组织就在Linux系统中集成了Make工具，而Makefile">
+<meta property='og:url' content='https://guokun603.github.io/p/makefile/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-03-28T13:56:45&#43;08:00 '/>
-<meta name="twitter:title" content="郭小胖">
-<meta name="twitter:description" content="演示说明"><link rel="alternate" type="application/rss&#43;xml" href="https://guokun603.github.io/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-11T23:09:42&#43;08:00'/><meta property='article:modified_time' content='2026-03-28T13:56:45&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/amk.png' />
+<meta name="twitter:title" content="Makefile">
+<meta name="twitter:description" content="Makefile Makefile实现项目自动化构建 核心概念 为了提高项目的开发效率，所以GNU组织就在Linux系统中集成了Make工具，而Makefile"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/amk.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
 
 
     </head>
-    <body class="">
+    <body class="
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -114,7 +116,7 @@
         
         
         
-        <li  class='current' >
+        <li >
             <a href='/' >
                 
                 
@@ -235,61 +237,10 @@
     <aside class="sidebar right-sidebar sticky">
         
             
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>搜索</label>
-            <input name="keyword" required placeholder="输入关键词..." />
-        
-            <button title="搜索">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
-                <section class="widget archives">
+                
+    <section class="widget archives">
         <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">归档</h2>
-
-        
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2026">
-                        
-                            <span class="year">2026</span>
-                            <span class="count">14</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <line x1="5" y1="9" x2="19" y2="9" />
   <line x1="5" y1="15" x2="19" y2="15" />
@@ -299,41 +250,31 @@
 
 
 
-    </div>
-    <h2 class="widget-title section-title">分类</h2>
-
-    <div class="tagCloud-tags">
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
         
-            <a href="/categories/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" class="font_size_4">
-                Linux系统编程
-            </a>
-        
-            <a href="/categories/lvgl/" class="font_size_3">
-                LVGL
-            </a>
-        
-            <a href="/categories/shell/" class="font_size_2">
-                Shell
-            </a>
-        
-            <a href="/categories/%E5%85%83%E5%99%A8%E4%BB%B6/" class="font_size_2">
-                元器件
-            </a>
-        
-            <a href="/categories/hugo/" class="font_size_1">
-                Hugo
-            </a>
-        
-            <a href="/categories/%E6%97%A0%E4%BA%BA%E6%9C%BA/" class="font_size_1">
-                无人机
-            </a>
-        
-            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="font_size_1">
-                通信
-            </a>
-        
-    </div>
-</section>
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#核心概念">核心概念</a></li>
+        <li><a href="#执行方式">执行方式</a></li>
+        <li><a href="#基本规则">基本规则</a></li>
+        <li><a href="#伪目标">伪目标</a></li>
+        <li><a href="#make的流程">make的流程</a></li>
+        <li><a href="#variable变量">variable变量</a></li>
+        <li><a href="#系统内置变量">系统内置变量</a></li>
+        <li><a href="#自动化变量">自动化变量</a></li>
+        <li><a href="#变种变量">变种变量</a></li>
+        <li><a href="#静态规则">静态规则</a></li>
+        <li><a href="#积累">积累</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
 
             
         
@@ -343,91 +284,8 @@
 
 
             <main class="main full-width">
-    
-    
-    
-    
-<div class="welcome">
-  <p style="font-size: 2.2rem; text-align: center; font-weight: bold; margin: 3rem 0;">
-    <span class="shake" style="color: #ff9f43;">🎉</span> 
-    <span style="color: #f39c12;">欢迎来到我的</span>
-    <span style="color: #e67e22; font-weight: 800;">小屋</span>
-    <span style="color: #d35400;">🏠</span> 
-    <span style="color: #f39c12;">技术博客</span>
-  </p>
-</div>
-    <section class="article-list">
-        
-            
-<article class="has-image">
-    <header class="article-header">
-        <div class="article-image">
-            <a href="/p/shell/">
-                
-                    <img src="https://img.guokun.net/PicGo/shell.png" loading="lazy" alt="Featured image of post Shell" />
-                
-            </a>
-        </div>
-    
-
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/shell/" >
-                Shell
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/shell/">Shell</a>
-        </h2>
-    
-        
-    </div>
-
-    
-    
-    
-    
-    <footer class="article-time">
-       <div class="article-lastmod">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-            <time>
-                
-                2026-03-28 13:56
-            </time>
-        </div>
-
-        
-        
-        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
-            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
-            <time class="article-time--reading">
-                <span id="vercount_value_page_pv">loading...</span> 次
-            </time>
-        </div>
-        
-    </footer>
-    
-
-    
-</div>
-</header>
-</article>
-        
-            
-<article class="has-image">
+    <article class="article-page-main">
+        <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
             <a href="/p/makefile/">
@@ -492,46 +350,284 @@
     
 </div>
 </header>
-</article>
-        
+
+    <section class="article-content">
+    
+    
+    <h1 id="makefile">Makefile
+</h1><p>Makefile实现项目自动化构建</p>
+<hr>
+<h3 id="核心概念">核心概念
+</h3><p>为了提高项目的开发效率，所以GNU组织就在Linux系统中集成了Make工具，而Makefile就属于Make工具的一部分。</p>
+<p>Makefile是自动化构建脚本，配合make指令使用，解决多文件编译繁琐问题，核心功能：编译源码、链接可执行文件、清理中间文件。</p>
+<h3 id="执行方式">执行方式
+</h3><p>安装：<code>sudo apt install make</code></p>
+<p>执行：输入<code>make</code>指令时，会执行当前目录下的Makefile</p>
+<p>make是一个shell命令，执行时依次查找<code>GNUmakefile</code> <code>makefile</code> <code>Makefile</code></p>
+<h3 id="基本规则">基本规则
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="err">目标</span> <span class="err">：先决条件（依赖）</span>
+</span></span><span class="line"><span class="cl">	<span class="err">命令</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>目标是需要生成的程序的名称，可能一开始不存在</p>
+<p>先决条件也是文件，用于生成目标用的</p>
+<p>一个目标可能依赖多个文件，则每个文件中间使用空格</p>
+<p>只有需要执行的命令前可以存在Tab制表符，而且必须使用</p>
+</blockquote>
+<h3 id="伪目标">伪目标
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="err">目标</span> <span class="err">：</span>
+</span></span><span class="line"><span class="cl">	<span class="err">命令</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.PHONY</span><span class="o">:</span>目标
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>伪目标，没有先决条件</p>
+<p>一个Makefile文件中，不可以只有伪目标</p>
+</blockquote>
+<h3 id="make的流程">make的流程
+</h3><p>先发现最终目标</p>
+<p>准备执行动作时发现目标依赖文件不存在，则会在makefile文件寻找生成该依赖文件的规则。</p>
+<p>如果找到则继续执行，如果未找到，则报错，所以可以理解为make会递归在Makefile文件中进行规则执行</p>
+<hr>
+<h3 id="variable变量">variable变量
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nv">变量名</span> <span class="o">=</span> 变量值
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>调用时<code>$(变量名)</code></p>
+<p>进行赋值时，等号两边有空格</p>
+<h3 id="系统内置变量">系统内置变量
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="err">AR</span>	<span class="err">函数库打包程序，可创建静态库.a文档，默认是“ar”</span>
+</span></span><span class="line"><span class="cl"><span class="err">AS</span>	<span class="err">汇编程序，默认是“as”</span>
+</span></span><span class="line"><span class="cl"><span class="err">CC</span>	<span class="err">C编译器，默认是“cc”</span>
+</span></span><span class="line"><span class="cl"><span class="err">CXX</span>	<span class="err">C++编译器，默认是“g++”</span>
+</span></span><span class="line"><span class="cl"><span class="err">CPP</span>	<span class="err">C程序的预处理器，默认为是“</span><span class="k">$(</span><span class="nv">CC</span><span class="k">)</span> <span class="err">-E”</span>
+</span></span><span class="line"><span class="cl"><span class="err">RM</span>	<span class="err">删除命令，默认是“rm</span> <span class="err">-f”</span>
+</span></span><span class="line"><span class="cl"><span class="err">ARFLAGS</span>	<span class="err">执行AR命令的命令行参数。默认值是“rv”</span>
+</span></span><span class="line"><span class="cl"><span class="err">ASFLAGS</span>	<span class="err">汇编器AS的命令行参数（明确指定“.s”或“.S”文件时）</span>
+</span></span><span class="line"><span class="cl"><span class="err">CFLAGS</span>	<span class="err">执行CC编译器的命令行参数（编译.c源文件的选项）</span>
+</span></span><span class="line"><span class="cl"><span class="err">CXXFLAGS</span>	<span class="err">执行g++编译器的命令行参数（编译.cc源文件的选项）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="自动化变量">自动化变量
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="err">@</span>	<span class="err">规则的目标的名字</span>
+</span></span><span class="line"><span class="cl"><span class="err">%</span>	<span class="err">代表所在规则的静态库的一个成员名</span>
+</span></span><span class="line"><span class="cl"><span class="err">&lt;</span>	<span class="err">第一个先决条件的名字</span>
+</span></span><span class="line"><span class="cl"><span class="err">？</span>	<span class="err">所有时间戳比目标文件新的依赖文件列表，用于增量编译</span>
+</span></span><span class="line"><span class="cl"><span class="err">+</span>	<span class="err">代表其所在规则的依赖列表</span>
+</span></span><span class="line"><span class="cl"><span class="err">*</span>	<span class="err">在模式规则和静态模式规则中，代表茎</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="变种变量">变种变量
+</h3><p>在自动化变量后加入“D”或者“F”字符</p>
+<p>D：路径</p>
+<p>F：文件</p>
+<p>用于快速获取文件目录/文件名</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>含义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@D</td>
+<td>代表目标文件的目录部分（去掉目录部分的最后一个斜杠）</td>
+<td>如果“$@”是“dir/foo.o”，那么“$(@D)”的值为“dir”。如果“$@”不存在斜杠，其值就是“.”（当前目录）。注意它和函数“dir”的区别</td>
+</tr>
+<tr>
+<td>@F</td>
+<td>目标文件的完整文件名中除目录以外的部分（实际文件名）</td>
+<td>如果“$@”为“dir/foo.o”，那么“$(@F)”只就是“foo.o”。“$(@F)”等价于函数“$(notdir $@)”</td>
+</tr>
+<tr>
+<td>*D</td>
+<td>代表目标茎中的目录部分</td>
+<td></td>
+</tr>
+<tr>
+<td>*F</td>
+<td>代表目标茎中的文件名部分</td>
+<td></td>
+</tr>
+<tr>
+<td>%D</td>
+<td>当以如“archive(member)”形式静态库为目标时，表示库文件成员“member”名中的目录部分</td>
+<td>仅对“archive(member)”形式的规则目标有效</td>
+</tr>
+<tr>
+<td>%F</td>
+<td>当以如“archive(member)”形式静态库为目标时，表示库文件成员“member”名中的文件名部分</td>
+<td>仅对“archive(member)”形式的规则目标有效</td>
+</tr>
+<tr>
+<td>&lt;D</td>
+<td>代表规则中第一个依赖文件的目录部分</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;F</td>
+<td>代表规则中第一个依赖文件的文件名部分</td>
+<td></td>
+</tr>
+<tr>
+<td>^D</td>
+<td>代表所有依赖文件的目录部分</td>
+<td>同一文件不可重复</td>
+</tr>
+<tr>
+<td>^F</td>
+<td>代表所有依赖文件的文件名部分</td>
+<td>同一文件不可重复</td>
+</tr>
+<tr>
+<td>+D</td>
+<td>代表所有依赖文件的目录部分</td>
+<td>同一文件可重复</td>
+</tr>
+<tr>
+<td>+F</td>
+<td>代表所有依赖文件的文件名部分</td>
+<td>同一文件可重复</td>
+</tr>
+<tr>
+<td>?D</td>
+<td>代表被更新的依赖文件的目录部分。</td>
+<td></td>
+</tr>
+<tr>
+<td>?F</td>
+<td>代表被更新的依赖文件的文件名部分。</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3 id="静态规则">静态规则
+</h3><p>工作原理是：$(OBJ)被称为原始列表，即（a.o b.o x.o y.o），紧跟在其后的%.o被称为匹配模式，含义是在原始列表中按照这种指定的模式挑选出能匹配得上的单词（在本例中要找出原始列表里所有以.o为后缀的文件）作为规则的目标。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nv">OBJ</span> <span class="o">=</span> a.o b.o c.o	
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">image</span><span class="o">:</span><span class="k">$(</span><span class="nv">OBJ</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>OBJ<span class="k">)</span> -o image
+</span></span><span class="line"><span class="cl"><span class="nf">$(OBJ)</span><span class="o">:</span>%.<span class="n">o</span>:%.<span class="n">c</span>
+</span></span><span class="line"><span class="cl">	<span class="k">$(</span>CC<span class="k">)</span> <span class="k">$(</span>^<span class="k">)</span> -o <span class="k">$(</span>@<span class="k">)</span> l -c -Wal
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"><span class="nf">clean</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">$(</span>RM<span class="k">)</span> <span class="k">$(</span>OBJ<span class="k">)</span> image
+</span></span><span class="line"><span class="cl"><span class="nf">.PHONY</span><span class="o">:</span> <span class="n">clean</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/wps1.png" data-caption="img">
+        <img src="https://img.guokun.net/PicGo/wps1.png"
             
-<article class="has-image">
-    <header class="article-header">
-        <div class="article-image">
-            <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/">
-                
-                    <img src="https://img.guokun.net/PicGo/%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97.png" loading="lazy" alt="Featured image of post 嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析" />
-                
-            </a>
-        </div>
+            
+            
+            loading="lazy"
+            alt="img"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/wps2.png" data-caption="img">
+        <img src="https://img.guokun.net/PicGo/wps2.png"
+            
+            
+            
+            loading="lazy"
+            alt="img"
+            
+        >
+    </a>
+</div></p>
+<p>本例中%.o:%.c的意思就是：每一个匹配出来的目标所对应的依赖文件是同名的.c文件</p>
+<p>%可以理解为通配符</p>
+<hr>
+<h3 id="积累">积累
+</h3><p><code>ifdef</code>用于判断一个变量是否被定义</p>
+<p><code>+=</code>追加赋值，向已有变量的末尾追加内容，追加时会自动在原有内容和新内容之间加空格</p>
+<p><code>:=</code>简单展开赋值(立即展开)，赋值时立即展开右侧内容，将结果存入变量</p>
+<p><code>?=</code>条件赋值，仅当变量未被定义/为空时，才执行赋值。若变量已有值，则赋值语句无效</p>
+<p><code>LDFLAGS</code>给链接器传递参数的环境/自定义变量，先搜索自定义的路径，再搜索默认路径</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nv">OBJECTS</span> <span class="o">:=</span> <span class="k">$(</span>patsubst %.c,%.o,<span class="k">$(</span>wildcard *.c<span class="k">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>$(wildcard *.c)</code>获取工作目录下所有的.c文件</p>
+<p>使用wildcard函数可以使通配符生效</p>
+<p><code>patsubst %.c,%.o</code>将所有的.c文件替换为.o</p>
+
+</section>
+
+
+    <footer class="article-footer">
     
 
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/" >
-                Linux系统编程
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/%E5%B5%8C%E5%85%A5%E5%BC%8F-linux-%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E4%B9%8B%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-%E4%BF%A1%E5%8F%B7%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/">嵌入式 Linux 系统编程之进程间通信 —— 信号机制深度剖析</a>
-        </h2>
-    
-        
-    </div>
-
-    
-    
-    
-    
-    <footer class="article-time">
-       <div class="article-lastmod">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -539,58 +635,112 @@
 
 
 
-            <time>
-                
-                2026-03-26 23:00
-            </time>
-        </div>
+        <span>
+            最后更新于 2026-03-28 13:56
+        </span>
+    </section></footer>
 
-        
-        
-        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
-            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
-            <time class="article-time--reading">
-                <span id="vercount_value_page_pv">loading...</span> 次
-            </time>
-        </div>
-        
-    </footer>
-    
 
     
-</div>
-</header>
 </article>
-        
-    </section>
-    <nav class='pagination'>
-        
+
         
 
         
-            
-                    <a class='page-link' href='/'>1</a>
-                
-            
-            
-                    <a class='page-link' href='/page/2/'>2</a>
-                
-            
-            
-                <span class='page-link current'>3</span>
-                
-            
-            
-                    <a class='page-link' href='/page/4/'>4</a>
-                
-            
-            
-                    <a class='page-link' href='/page/5/'>5</a>
-                
-            
-    </nav>
 
-<footer class="site-footer">
+        
+
+        
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/shell/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/shell.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/shell.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Shell</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        
+            
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+
+    ...
+    <div class="comment"></div>
+
+        
+    </article>
+
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -750,6 +900,85 @@
 </style>
 
 
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
             </main>
         </div>
