@@ -7,7 +7,101 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>郭小胖</copyright>
-        <lastBuildDate>Fri, 27 Mar 2026 13:23:15 +0800</lastBuildDate><atom:link href="https://guokun603.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 29 Mar 2026 01:57:39 +0800</lastBuildDate><atom:link href="https://guokun603.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>WH LTE 7S1</title>
+        <link>https://guokun603.github.io/p/wh-lte-7s1/</link>
+        <pubDate>Sun, 29 Mar 2026 01:57:39 +0800</pubDate>
+        
+        <guid>https://guokun603.github.io/p/wh-lte-7s1/</guid>
+        <description>&lt;img src="https://img.guokun.net/PicGo/WH-LTE-7S1.png" alt="Featured image of post WH LTE 7S1" /&gt;&lt;h1 id=&#34;wh-lte-7s1模块&#34;&gt;WH-LTE-7S1模块
+&lt;/h1&gt;&lt;p&gt;使用这个4G模块实现数据上传至ONENET平台&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;链接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://bbs.huaweicloud.com/blogs/381273#H11&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;基于OneNet平台设计的物联网温度采集系统-4G模块+STM32上云&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;[%e4%ba%a7%e5%93%81%e6%89%8b%e5%86%8c]%28https://www.usr.cn/wiki/puba/bPSCDrZBW%29&#34; &gt;插针式Cat-1模块(WH-LTE-7S1) 4G模块使用介绍&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;手册&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;找到手册MQTT通信&lt;/p&gt;
+&lt;p&gt;查看其中的AT指令设置&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;目前Cat.1模组常规出货版本默认为透传模式，需要修改工作模式来支持MQTT的连接操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260329150642200.png&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260329150642200.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;等待模块重启后，设置G771联网。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260329151033189.png&#34; data-caption=&#34;image-20260329151033189&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260329151033189.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260329151033189&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;设置G771连接onenet平台&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260329151158711.png&#34; data-caption=&#34;image-20260329151158711&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260329151158711.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260329151158711&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;设置MQTT.fx连接onenet平台&lt;/li&gt;
+&lt;/ol&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260329151426044.png&#34; alt=&#34;image-20260329151426044&#34; style=&#34;zoom: 67%;&#34; /&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;推送数据给topic主题&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;AT+MQTTPUB=&amp;quot;topic&amp;quot;,&amp;quot;123456&amp;quot;,1,0,0&lt;/code&gt;&lt;/p&gt;
+&lt;img src=&#34;https://img.guokun.net/PicGo/image-20260329151541388.png&#34; alt=&#34;image-20260329151541388&#34; style=&#34;zoom:67%;&#34; /&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;G771订阅主题&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;AT+MQTTSUBUNSUB=&amp;quot;test&amp;quot;,1,1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;post-img-view&#34;&gt;
+    &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://img.guokun.net/PicGo/image-20260329151722923.png&#34; data-caption=&#34;image-20260329151722923&#34;&gt;
+        &lt;img src=&#34;https://img.guokun.net/PicGo/image-20260329151722923.png&#34;
+            
+            
+            
+            loading=&#34;lazy&#34;
+            alt=&#34;image-20260329151722923&#34;
+            
+        &gt;
+    &lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;通过串口发送AT指令来进行连接云平台，通过中断接收数据&lt;/p&gt;
+&lt;p&gt;数据采用CJSON库进行解析&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>JSN SR04T超声波测距</title>
         <link>https://guokun603.github.io/p/jsn-sr04t%E8%B6%85%E5%A3%B0%E6%B3%A2%E6%B5%8B%E8%B7%9D/</link>
         <pubDate>Fri, 27 Mar 2026 13:23:15 +0800</pubDate>
