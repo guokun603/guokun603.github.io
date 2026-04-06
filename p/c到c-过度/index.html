@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="引用 引用：给一个已有对象取一个别名 就是复制变量的源地址 1 2 3 4 int a = 100; int &amp;ra = a; a = 200; ra = 200; //a与ra等价 注意点： 引用必须在定义的同时赋值，">
+<title>C到C&#43;&#43;过度</title>
+
+<link rel='canonical' href='https://guokun603.github.io/p/c%E5%88%B0c-%E8%BF%87%E5%BA%A6/'>
+
+<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="C到C++过度">
+<meta property='og:description' content="引用 引用：给一个已有对象取一个别名 就是复制变量的源地址 1 2 3 4 int a = 100; int &amp;ra = a; a = 200; ra = 200; //a与ra等价 注意点： 引用必须在定义的同时赋值，">
+<meta property='og:url' content='https://guokun603.github.io/p/c%E5%88%B0c-%E8%BF%87%E5%BA%A6/'>
+<meta property='og:site_name' content='郭小胖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-05T10:22:10&#43;08:00'/><meta property='article:modified_time' content='2026-04-06T10:39:43&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/cpp_logo.png' />
+<meta name="twitter:title" content="C到C++过度">
+<meta name="twitter:description" content="引用 引用：给一个已有对象取一个别名 就是复制变量的源地址 1 2 3 4 int a = 100; int &amp;ra = a; a = 200; ra = 200; //a与ra等价 注意点： 引用必须在定义的同时赋值，"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/cpp_logo.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hue6550b27d333e6d3ea4ba819e5c99674_47742_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">郭小胖</a></h1>
+            <h2 class="site-description">欢迎来到我的小窝</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com/'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/guokun603-cel'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-files"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 3v4a1 1 0 0 0 1 1h4" /><path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /><path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></svg>
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引用">引用</a>
+      <ol>
+        <li><a href="#类型转换">类型转换</a></li>
+        <li><a href="#新式转换const_cast">新式转换const_cast</a></li>
+        <li><a href="#新式转换-static_cast">新式转换 static_cast</a></li>
+      </ol>
+    </li>
+    <li><a href="#关键字auto">关键字auto</a></li>
+    <li><a href="#函数默认参数">函数默认参数</a></li>
+    <li><a href="#函数重载">函数重载</a>
+      <ol>
+        <li><a href="#可以重载的情形">可以重载的情形</a></li>
+        <li><a href="#不可以重载的情形">不可以重载的情形</a></li>
+        <li><a href="#引用形参">引用形参</a></li>
+      </ol>
+    </li>
+    <li><a href="#堆内存管理">堆内存管理</a></li>
+    <li><a href="#枚举循环">枚举循环</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
+
+            <main class="main full-width">
+    <article class="article-page-main">
+        <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/c%E5%88%B0c-%E8%BF%87%E5%BA%A6/">
+                
+                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" alt="Featured image of post C到C&#43;&#43;过度" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/c&#43;&#43;/" >
+                C&#43;&#43;
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/c%E5%88%B0c-%E8%BF%87%E5%BA%A6/">C到C&#43;&#43;过度</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+       <div class="article-lastmod">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+            <time>
+                
+                2026-04-06 10:39
+            </time>
+        </div>
+
+        
+        
+        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--reading">
+                <span id="vercount_value_page_pv">loading...</span> 次
+            </time>
+        </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="引用">引用
+</h2><p>引用：给一个已有对象取一个别名</p>
+<p>就是复制变量的源地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="o">&amp;</span><span class="n">ra</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ra</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>	<span class="c1">//a与ra等价
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>注意点：</strong></p>
+<ul>
+<li>引用必须在定义的同时赋值，不可单独定义引用，例如 <code>int &amp;r;</code> 是错误的。</li>
+<li>引用一方面提高了数据传输的效率，另一方面简化了数据表达的样式（跟指针相比）</li>
+</ul>
+<h3 id="类型转换">类型转换
+</h3><p>旧式类型转换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">a</span><span class="p">;</span> <span class="c1">// C语言风格类型转换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="c1">// C++风格类型转换
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>新式类型转换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">const_cast</span><span class="o">&lt;</span><span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">static_cast</span><span class="o">&lt;</span><span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">dynamic_cast</span><span class="o">&lt;</span><span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>const_cast : 专用于去除指针或引用的 const 属性</li>
+<li>static_cast : 与旧式转换相近，但提供了更易于查找的语法，并能有效识别不兼容类型。</li>
+<li>dynamic_cast : 专用于类类型的上下代际间的转换</li>
+</ul>
+<h3 id="新式转换const_cast">新式转换const_cast
+</h3><ul>
+<li>const_cast 旨在去除标识符的cv限定属性（即 <strong>const 与 volatile</strong>）</li>
+<li>const_cast 只能作用于指针或引用类型</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">ri</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>		<span class="c1">//const 引用，数据不可修改
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="c1">//错误示范
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ri</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//正确的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span> <span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">ri</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>处理常目标指针</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>	<span class="c1">//常量指针，不可修改目标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="c1">//错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span>	<span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//正确,去除const特性后，可以修改
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="p">(</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">))</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 错误，试图扩大权限
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="o">*</span><span class="n">k</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">	<span class="c1">// 正确，去除 const 特性后，可赋值给普通指针 k
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="o">*</span><span class="n">k</span> <span class="o">=</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>虽然 const_cast 可以将常目标指针的 const 属性剔除掉，但它<strong>不能剔除普通变量和常指针本身的const 属性</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="o">*</span><span class="k">const</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>	<span class="c1">//指针常量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//错误,const_cast不能去除常量指针的const属性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">int</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="新式转换-static_cast">新式转换 static_cast
+</h3><p>static 意味着<strong>静态转换</strong>，静态的含义是操作的过程只发生在编译阶段，而不是运行阶段，静态转换不涉及类型推理。</p>
+<p>用法:</p>
+<p>增加可读性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span>	<span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">314</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//旧式
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//新式，等价于旧式转换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//新式静态强转具有可读性，容易查找
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>提高安全性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="c1">// 普通整型数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">float</span> <span class="o">*</span><span class="n">pf</span><span class="p">;</span> <span class="c1">// 普通浮点指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 旧式转换不进行任何合理性检查
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 下面的代码，可以将类型问题瞒天过海
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 编译器让其畅行无阻，开发者肉眼也难以察觉
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">pf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span> <span class="c1">// float * 与 int * 不兼容，照样通过编译
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用 static_cast 遇到非兼容性类型转换，会提出警告甚至错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">pf</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span> <span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span> <span class="c1">// float * 与 int * 不兼容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意，虽然 static_cast 可以将<strong>不兼容的普通数据类型转换明确指出来（报错）</strong>，但对于代际类类型的上下层转换无能为力，对于类类型的代际上行转换或下行转换，需要借助 dynamic_cast 去保证运行的安全性。</p>
+<h2 id="关键字auto">关键字auto
+</h2><p>在C语言中，auto 用来声明一个存储在栈的变量，因此它只能用来修饰临时变量，不能用来修饰全 局变量、静态变量，与此同时临时变量本身默认就是存储在栈中，因此在C语言中，auto 基本上是作废的。 在C++中，auto 代表<strong>自动获得数据的类型</strong>，比如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// 等价于： int a = 100;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用auto 关键字可以对具体的类型进行模糊（泛化），如果某一个功能的操作流程式固定，唯一 的不同在于数据的类型，这时候就可以简单地使用auto关键字对类型进行模糊的操作:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">  
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 通过auto简单粗暴地模糊数据的类型
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 让该函数可以接收任意类型的参数传递
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="nf">Add</span><span class="p">(</span><span class="k">auto</span> <span class="n">a</span><span class="p">,</span> <span class="k">auto</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">Num</span> <span class="o">=</span> <span class="n">Add</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="mi">567</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Num</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">Num2</span> <span class="o">=</span> <span class="n">Add</span><span class="p">(</span><span class="mf">123.333</span><span class="p">,</span> <span class="mf">567.222</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Num2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&#34;World&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">str</span> <span class="o">=</span> <span class="n">Add</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 这里修复：en → endl
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="函数默认参数">函数默认参数
+</h2><p>C++允许一个函数的参数有默认值，例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 函数的声明
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 右侧的参数 b 如果没有传递，则默认值为3.14
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">float</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;, b = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 显式给 b 传递参数1.23
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">f</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用 b 的默认值3.14
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">f</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>为了防止出现<strong>二义性</strong>，具备默认值的参数只能位于参数列表的<strong>最右边</strong></li>
+<li>如果函数定义与函数声明不在同一文件，一般只为声明指定默认参数，定义处不写默认参数。</li>
+</ul>
+<h2 id="函数重载">函数重载
+</h2><p>就是相同的函数名，有不同的参数。</p>
+<p>在C语言中，<strong>相同作用域内的重名函数会引起冲突</strong>，哪怕它们拥有不同的参数列表也不行，而在 C++中，重名函数只要满足一定的要求，可以同时存在，这大大拓展了函数设计的灵活性。这种<strong>重名且可并存</strong>的语法机制，被称为<strong>函数重载</strong>。</p>
+<p>C++中大量存在重载的函数，这些同名函数实际上就是一个函数的不同版本。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">string</span> <span class="p">(</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">str</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="p">(</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">pos</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="n">npos</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">n</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">s</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="p">(</span> <span class="n">size_t</span> <span class="n">n</span><span class="p">,</span> <span class="kt">char</span> <span class="n">c</span> <span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这些名称相同的函数，都存在于<strong>同一名空间中（作用域）</strong>，怎样才能形成合理合法的重载而不会冲突呢？这个问题的答案比较复杂，总体的基本原则是，<strong>只要让系统在使用它们的时候，可以有效地区分各个不同的版本，那它们就可以形成合法的重载版本。</strong></p>
+<h3 id="可以重载的情形">可以重载的情形
+</h3><ul>
+<li>参数<strong>个数</strong>不同（注意默认参数）</li>
+<li>参数<strong>类型</strong>不同</li>
+<li>参数列表的<strong>顺序</strong>不同</li>
+<li>类方法（即类内部的函数）的 <strong>const 属性</strong>可以构成重载</li>
+<li>普通指针与<strong>常目标指针</strong>可以构成重载</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 参数个数不同，可以形成重载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 参数类型不同，可以形成重载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">f2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f2</span><span class="p">(</span><span class="kt">float</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">A</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 类方法的const属性，可以形成重载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">f3</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">f3</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 普通指针与常目标指针，可以形成重载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">f4</span><span class="p">(</span>      <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f4</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="不可以重载的情形">不可以重载的情形
+</h3><ul>
+<li>函数名、<strong>函数参数列表完全一致</strong>。</li>
+<li>函数的<strong>返回值类型</strong>差异。</li>
+<li>静态函数声明（static）。</li>
+<li>const 型变量（包括<strong>常指针</strong>）。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 函数名、参数列表完全一致，仅靠返回值类型的差异，将无法形成重载，这两个函数将会冲突
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">float</span> <span class="nf">f1</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// static不能形成重载，以下两个函数将会冲突
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">f2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="nf">f2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// const型变量（包括常指针），不能形成重载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">f3</span><span class="p">(</span>      <span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f3</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f4</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f4</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="k">const</span> <span class="n">p</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="引用形参">引用形参
+</h3><p><strong>引用类型的参数</strong>是否可以形成重载，要根据实参的具体情况来定：</p>
+<ul>
+<li>如果<strong>实参为常量</strong>，那么可以重载。</li>
+<li>如果实参为变量，那么不可以重载。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span>  <span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// ×：会引起二义性，两个版本都能跟参数完全匹配
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">f</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// √：可以顺利调用，因为普通引用类型无法指向常量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">f</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>引用类型的<strong>参数会很容易引起冲突</strong>，因此一般而言不要把引用作为重载的条件。</p>
+<h2 id="堆内存管理">堆内存管理
+</h2><p>在 C 语言中，使用 <code>malloc()</code> 和 <code>free()</code> 来分配和释放堆内存，这两个函数在 C++ 中也一样可用，但 C++ 有更好的 API 来实现这一功能：</p>
+<ul>
+<li>分配堆内存：<code>new</code></li>
+<li>释放堆内存：<code>delete</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 申请一块int型数据大小的堆内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="o">*</span><span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="o">*</span><span class="n">pp1</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 申请一块可以存储100个int型数据大小的堆内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="o">*</span><span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="o">*</span> <span class="n">pp2</span> <span class="o">=</span> <span class="n">calloc</span><span class="p">(</span><span class="mi">100</span> <span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 申请一块35个字节大小的堆内存
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="o">*</span><span class="n">p3</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">35</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span> <span class="n">pp2</span> <span class="o">=</span> <span class="n">calloc</span><span class="p">(</span><span class="mi">35</span> <span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 释放所有的堆内存资源
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">delete</span> <span class="n">p1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="p">[]</span> <span class="n">p2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="p">[]</span> <span class="n">p3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">pp1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">pp2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">free</span><span class="p">(</span><span class="n">pp3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从以上代码可以看出，new 和 delete 的语法是很简单的，唯一需要注意的是，当分配和释放多个 连续内存块(数组类型的)，需要加上方括号 [ ]</p>
+<p>与 C 语言的 <code>malloc()</code> 和 <code>free()</code> 一样，<code>new</code> 和 <code>delete</code> 只能用来管理堆内存，不能用来操作栈内存、静态内存等其他内存空间，且在<strong>释放内存的时候只能一次性释放完毕</strong>（而且释放的目标参数必须是<strong>首地址</strong>），不允许释放一部分。</p>
+<p>可以看到，在操作基本数据类型的时候，这两组堆内存操作<strong>函数是没有区别的</strong>，它们真正的区别在给类对象分配内存的时候，具体而言指的是：</p>
+<ul>
+<li>申请类类型的内存时，<strong><code>new</code> 会自动调用类的构造函数</strong>，而 <code>malloc() / calloc()</code> 不会。</li>
+<li>释放类类型的内存时，<strong><code>delete</code> 会自动调用类的析构函数</strong>，而 <code>free()</code> 不会。</li>
+</ul>
+<h2 id="枚举循环">枚举循环
+</h2><p>从C++11开始，C++对for语句引入了枚举循环的概念，<strong>专用于具有确定元素个数的数组、容器或集合</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 枚举数组a中的各个元素，并输出它们
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>循环的过程就是让变量 i 逐个取得数组 a 中的各个元素</p>
+<p>循环次数不再由程序代码指定， 而是由待枚举的数据的元素个数决定</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-04-06 10:39
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+        
+
+        
+
+        
+
+        
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/string/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/cpp_logo.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">String</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/c-%E5%88%9D%E8%AF%86/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/cpp_logo.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C&#43;&#43;初识</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        
+    </article>
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 郭小胖
+    </section>
+    
+    </footer>
+
+
+<div id="toast-stack"></div>
+
+<script>
+ 
+(() => {
+  const toastStack = document.getElementById('toast-stack');
+  let toastCount = 0;
+  const MAX_TOAST = 5;
+  const DURATION  = 2500;
+
+   
+  let lastText = '';
+  let lastTime = 0;
+
+  window.pushToast = function (msg = '✅ 哎嘿！复制成功 🍬') {
+    const now = Date.now();
+    if (msg === lastText && now - lastTime < 500) return; 
+    lastText = msg;
+    lastTime = now;
+
+     
+    if (toastCount >= MAX_TOAST) toastStack.firstElementChild?.closeToast();
+
+    const item = document.createElement('div');
+    item.className = 'snack-left-top';
+    item.textContent = msg;
+
+    let closeTimer = null;
+    function closeToast() {
+      if (item.isClosing) return;
+      item.isClosing = true;
+      item.classList.remove('show');
+      item.addEventListener('transitionend', () => {
+        item.remove();
+        toastCount--;
+      }, { once: true });
+      clearTimeout(closeTimer);
+    }
+    item.closeToast = closeToast;
+
+    toastStack.appendChild(item);
+    toastCount++;
+    void item.offsetWidth;
+    item.classList.add('show');
+    closeTimer = setTimeout(closeToast, DURATION);
+  };
+
+   
+  document.addEventListener('copy', e => {
+    const text = window.getSelection().toString().trim();
+    if (!text) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(text)
+      .then(() => pushToast())
+      .catch(console.warn);
+  });
+
+   
+  const container = document.querySelector('.article-content');
+  if (container) {
+    container.addEventListener('click', e => {
+      if (!e.target.matches('.copyCodeButton')) return;
+      const wrap = e.target.closest('pre, .highlight');
+      const codeTd = wrap?.querySelector('td:nth-child(2)') || wrap;
+      const txt = codeTd ? codeTd.textContent.trim() : '';
+      navigator.clipboard.writeText(txt)
+        .then(() => pushToast())
+        .catch(err => alert('复制失败：' + err));
+    });
+  }
+})();
+</script>
+
+<style>
+ 
+.copyCodeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #3d3c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.copyCodeButton:hover {
+  background: var(--hover-text-color);
+  color: #fff;
+}
+
+ 
+.snack-left-top {
+  position: fixed;
+  left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  transform: translateX(calc(-100% - 20px));
+  width: 300px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  background: var(--hover-text-color);
+  color: #fff;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .35);
+  z-index: 9999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+ 
+.snack-left-top.show {
+  transform: translateX(0);
+}
+ 
+#toast-stack {
+  position: fixed;
+  left: 0;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+ 
+#toast-stack .snack-left-top {
+  position: relative;    
+  margin-bottom: 12px;   
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+              opacity   .35s cubic-bezier(.4, 0, .2, 1);
+  opacity: 0;
+  transform: translateX(calc(-100% - 20px));
+}
+
+#toast-stack .snack-left-top.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script><script type="text/javascript" src="/ts/custom.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = '/fonts/lato.css';
+        customFont.type = 'text/css';
+        customFont.rel = 'stylesheet';
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    document.querySelectorAll(".highlight").forEach(codeBlock => {
+      
+      if (codeBlock.querySelector('.code-more-box')) return;
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) return;
+
+      const codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+
+      const codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+      });
+
+      const img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "https://guokun603.github.io/icons/codeMore.png";
+
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox);
+    });
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+<div class="js-Pjax">
+    <script>
+      (function () {
+        let comment = document.querySelector(".comment");
+        if (!comment) {
+          return
+        }
+        let script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-repo',"meimolihan/meimolihan.github.io");
+        script.setAttribute('data-repo-id',"R_kgDONpRkKg");
+        script.setAttribute('data-category',"Announcements");
+        script.setAttribute('data-category-id',"DIC_kwDONpRkKs4CmwSa");
+        script.setAttribute('data-mapping',"pathname");
+        script.setAttribute('data-strict', 0 );
+        script.setAttribute('data-reactions-enabled', 1 );
+        script.setAttribute('data-emit-metadata', 0 );
+        script.setAttribute('data-input-position',"top");
+        script.setAttribute('data-theme',"light");
+        script.setAttribute('data-lang',"zh-CN");
+        script.setAttribute('data-loading', 'lazy')
+        script.async = true;
+        document.querySelector('.site-footer').before(script)
+      })(document);
+    </script>
+    <div>
+
+
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+    (function () {
+        function initFancybox() {
+            if (!(window.jQuery && window.jQuery.fancybox)) return;
+            window.jQuery('[data-fancybox]').fancybox({
+                loop: true,
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'close']
+            });
+        }
+
+        window.addEventListener('load', initFancybox);
+        document.addEventListener('pjax:complete', initFancybox);
+    })();
+</script>
+
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.meimolihan.eu.org/hugo/fish/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+<style>
+  @font-face {
+    font-family: 'WenYuanSerifSCVF';
+    src: url(https://guokun603.github.io/font/WenYuanSerifSCVF.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'WenYuanSerifSCVF';
+    --code-font-family: 'WenYuanSerifSCVF';
+  }
+</style>
+
+<div class="js-Pjax">
+    <script>
+        (function () {
+            function showHideView() {
+                const viewCounts = document.querySelectorAll('#viewCount');
+                if (!viewCounts.length) return;
+                const display = document.querySelector('.article-page') ? '' : 'none';
+                viewCounts.forEach(el => { el.style.display = display; });
+            }
+
+            function loadVercount() {
+                if (document.getElementById('vercount-script')) return;
+                const script = document.createElement('script');
+                script.defer = true;
+                script.id = 'vercount-script';
+                script.src = 'https://cn.vercount.one/js';
+                document.body.appendChild(script);
+            }
+
+            function initVercount() {
+                showHideView();
+                loadVercount();
+            }
+
+            window.addEventListener('load', initVercount);
+            document.addEventListener('pjax:complete', initVercount);
+        })();
+    </script>
+</div>
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="String 字符串 C语言从本质上来说，是没有字符串这种类型的，在C语言中如果要表达字符串，只能间接地借助于字符指针或者字符数组来表达，很明显这是由于C">
+<title>String</title>
+
+<link rel='canonical' href='https://guokun603.github.io/p/string/'>
+
+<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="String">
+<meta property='og:description' content="String 字符串 C语言从本质上来说，是没有字符串这种类型的，在C语言中如果要表达字符串，只能间接地借助于字符指针或者字符数组来表达，很明显这是由于C">
+<meta property='og:url' content='https://guokun603.github.io/p/string/'>
+<meta property='og:site_name' content='郭小胖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-06T10:22:23&#43;08:00'/><meta property='article:modified_time' content='2026-04-06T10:39:43&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/cpp_logo.png' />
+<meta name="twitter:title" content="String">
+<meta name="twitter:description" content="String 字符串 C语言从本质上来说，是没有字符串这种类型的，在C语言中如果要表达字符串，只能间接地借助于字符指针或者字符数组来表达，很明显这是由于C"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/cpp_logo.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hue6550b27d333e6d3ea4ba819e5c99674_47742_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">郭小胖</a></h1>
+            <h2 class="site-description">欢迎来到我的小窝</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com/'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/guokun603-cel'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-files"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 3v4a1 1 0 0 0 1 1h4" /><path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /><path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></svg>
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#字符串">字符串</a></li>
+    <li><a href="#常用的接口">常用的接口</a>
+      <ol>
+        <li><a href="#构造函数constructors">构造函数(Constructors)</a></li>
+        <li><a href="#操作符operators">操作符(Operators)</a></li>
+        <li><a href="#添加文本append">添加文本(append)</a></li>
+        <li><a href="#赋值assign">赋值(assign)</a></li>
+        <li><a href="#引用at-">引用(at )</a></li>
+        <li><a href="#开始迭代器begin">开始迭代器(begin)</a></li>
+        <li><a href="#结束迭代器end">结束迭代器(end)</a></li>
+        <li><a href="#转换为c语言风格字符串c_str">转换为C语言风格字符串(c_str)</a></li>
+        <li><a href="#容量capacity">容量(capacity)</a></li>
+        <li><a href="#比较compare">比较(compare)</a></li>
+        <li><a href="#拷贝copy">拷贝(copy)</a></li>
+        <li><a href="#data">data</a></li>
+        <li><a href="#空字符串empty">空字符串(empty)</a></li>
+        <li><a href="#删除erase">删除(erase)</a></li>
+        <li><a href="#查找find">查找(find)</a></li>
+        <li><a href="#插入insert">插入(insert)</a></li>
+        <li><a href="#长度length">长度(length)</a></li>
+        <li><a href="#逆向迭代器">逆向迭代器</a></li>
+        <li><a href="#保留空间reserve">保留空间(reserve)</a></li>
+        <li><a href="#重新设置大小resize">重新设置大小(resize)</a></li>
+        <li><a href="#交换swap">交换(swap)</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
+
+            <main class="main full-width">
+    <article class="article-page-main">
+        <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/string/">
+                
+                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" alt="Featured image of post String" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/c&#43;&#43;/" >
+                C&#43;&#43;
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/string/">String</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+       <div class="article-lastmod">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+            <time>
+                
+                2026-04-06 10:39
+            </time>
+        </div>
+
+        
+        
+        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--reading">
+                <span id="vercount_value_page_pv">loading...</span> 次
+            </time>
+        </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="string">String
+</h1><h2 id="字符串">字符串
+</h2><p>C语言从本质上来说，是没有字符串这种类型的，在C语言中如果要表达字符串，只能间接地借助于<code>字符指针</code>或者<code>字符数组</code>来表达，很明显这是由于C语言的诞生年代过于久远而导致的一种设计缺陷。</p>
+<p>在C++中，字符串就跟整型、浮点型数据一样，是系统原生支持的一种基本数据类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>有了字符串string这种类型之后，很多对字符串的操作就变得非常简单而直观了，C++对string类型 的支持包括：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">string</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&#34;abdc&#34;</span><span class="p">;</span>        
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义字符串 s1，内容是 abdc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="n">s2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">;</span>                  
+</span></span><span class="line"><span class="cl"><span class="c1">// 把 s1 复制给 s2，s2 也变成 abdc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="n">s3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">s3</span> <span class="o">=</span> <span class="s">&#34;xyz&#34;</span> <span class="o">+</span> <span class="n">s1</span><span class="p">;</span>          
+</span></span><span class="line"><span class="cl"><span class="c1">// s3 = xyz + abdc → xyzabdc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">s3</span> <span class="o">+=</span> <span class="s">&#34;123&#34;</span><span class="p">;</span>              
+</span></span><span class="line"><span class="cl"><span class="c1">// s3 后面追加 123 → xyzabdc123
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="s">&#34;abcd&#34;</span><span class="p">)</span> <span class="err">…</span>        
+</span></span><span class="line"><span class="cl"><span class="c1">// 直接比较字符串是否相等、大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">s1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;B&#39;</span><span class="p">;</span>              
+</span></span><span class="line"><span class="cl"><span class="c1">// 把字符串第 2 个字符改成 B，变成 aBdc
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="常用的接口">常用的接口
+</h2><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260405092418796.png" data-caption="image-20260405092418796">
+        <img src="https://img.guokun.net/PicGo/image-20260405092418796.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260405092418796"
+            
+        >
+    </a>
+</div></p>
+<h3 id="构造函数constructors">构造函数(Constructors)
+</h3><p>构造函数，用于字符串初始化</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">string</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">length</span><span class="p">,</span><span class="n">char</span> <span class="n">ch</span><span class="p">);</span>	<span class="o">//</span><span class="err">拷贝</span><span class="n">length个的ch</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span><span class="p">(</span> <span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">str</span> <span class="p">);</span>			<span class="o">//</span><span class="err">填一任意的字符串</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span><span class="p">(</span> <span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">length</span> <span class="p">);</span>	<span class="o">//</span><span class="err">字符串</span><span class="nb">str</span> <span class="err">中，取前</span><span class="n">length个字符创建字符串</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span><span class="p">(</span> <span class="n">string</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">length</span> <span class="p">);</span>	<span class="o">//</span><span class="err">从字符串中的第</span><span class="n">index的索引处开始</span><span class="err">，取</span><span class="n">length长度的字符创建字符串</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span><span class="p">(</span> <span class="n">input_iterator</span> <span class="n">start</span><span class="p">,</span> <span class="n">input_iterator</span> <span class="n">end</span> <span class="p">);</span>			<span class="o">//</span><span class="err">以迭代器区间</span><span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span> <span class="err">为源，创建字符串</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>案例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">string</span> <span class="nf">str1</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="sc">&#39;c&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="nf">str2</span><span class="p">(</span> <span class="s">&#34;Now is the time...&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="nf">str3</span><span class="p">(</span> <span class="n">str2</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str3</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">显示</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">ccccc</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Now</span> <span class="n">is</span> <span class="n">the</span> <span class="n">time</span><span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span>
+</span></span><span class="line"><span class="cl">   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="操作符operators">操作符(Operators)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">  <span class="o">==</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&gt;=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">!=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">+</span>
+</span></span><span class="line"><span class="cl">  <span class="o">+=</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以用 ==, &gt;, &lt;, &gt;=, &lt;=, and !=比较字符串. 可以用 + 或者 += 操作符连接两个字符串,  并且可以用[]获取特定的字符.</p>
+<h3 id="添加文本append">添加文本(append)
+</h3><p>就是追加，在字符串后面添加想要的数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">append</span><span class="p">(</span> <span class="k">const</span> <span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">str</span> <span class="p">);</span><span class="c1">// 追加字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">append</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">);</span> <span class="c1">// 追加 char*
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">append</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">num</span><span class="p">,</span> <span class="kt">char</span> <span class="n">ch</span> <span class="p">);</span><span class="c1">// 追加 n 个字符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">append</span><span class="p">(</span> <span class="k">const</span> <span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">len</span> <span class="p">);</span>  <span class="c1">// 截取子串追加
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>案例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">string</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&#34;Hello World&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">str</span><span class="p">.</span><span class="n">append</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="sc">&#39;!&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">显示</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">Hello</span> <span class="n">World</span><span class="o">!!!!!!!!!!</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="赋值assign">赋值(assign)
+</h3><p>就是重新赋值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">assign</span><span class="p">(</span> <span class="k">const</span> <span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">str</span> <span class="p">);</span> <span class="c1">//	用str为字符串赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">assign</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">);</span>  <span class="c1">// 用str为字符串赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">assign</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">num</span> <span class="p">);</span>  <span class="c1">//使用str中开始num个字符串进行赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">assign</span><span class="p">(</span> <span class="k">const</span> <span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">len</span> <span class="p">);</span>  <span class="c1">//使用str中第index处开始，截取len长度的字符串进行赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">assign</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">num</span><span class="p">,</span> <span class="kt">char</span> <span class="n">ch</span> <span class="p">);</span>  <span class="c1">//用num个ch的字符串进行赋值
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>案例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// 1. 赋值整个字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span><span class="p">.</span><span class="nf">assign</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 2. 赋值 C 风格字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span><span class="p">.</span><span class="nf">assign</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 3. 赋值 n 个相同字符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span><span class="p">.</span><span class="nf">assign</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">);</span>   <span class="c1">// → &#34;aaaaa&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 4. 截取子串赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">s</span><span class="p">.</span><span class="nf">assign</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="引用at-">引用(at )
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">reference</span> <span class="nf">at</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">index</span> <span class="p">);</span>  <span class="c1">//引用字符串第index出的字符
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果index不在字符串中，会报错&quot;out of range&quot;错误</p>
+<p>案例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&#34;ABCDEF&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">at</span><span class="p">(</span> <span class="mi">2</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">显示字符</span> <span class="sc">&#39;C&#39;</span><span class="p">.</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="开始迭代器begin">开始迭代器(begin)
+</h3><p>迭代器：就是指向某个字符的指针</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">iterator</span> <span class="nf">begin</span><span class="p">();</span>	<span class="c1">//begin()函数返回一个迭代器,指向字符串的第一个元素
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="结束迭代器end">结束迭代器(end)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">iterator</span> <span class="nf">end</span><span class="p">();</span> 	<span class="c1">//end()函数返回一个迭代器，指向字符串的末尾(最后一个字符的下一个位置)
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="转换为c语言风格字符串c_str">转换为C语言风格字符串(c_str)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">c_str</span><span class="p">();</span>	<span class="c1">//返回一个指向正规C字符串的指针
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="容量capacity">容量(capacity)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">size_type</span> <span class="nf">capacity</span><span class="p">();</span>	<span class="c1">//获取当前字符串所能容纳字符串的容量
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="比较compare">比较(compare)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">str</span><span class="p">);</span>	 <span class="c1">// 整个字符串比较
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">);</span>	<span class="c1">// 比较 C 字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">size_t</span> <span class="n">index</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">length</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">str</span><span class="p">);</span>	<span class="c1">// 截取子串比较
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="拷贝copy">拷贝(copy)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">size_type</span> <span class="nf">copy</span><span class="p">(</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">num</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index</span> <span class="p">);</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>拷贝自己的num个字符到str中（从索引index开始）。返回值是拷贝的字符数</p>
+<h3 id="data">data
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">data</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>反回指向自己的第一个字符的指针.</p>
+<h3 id="空字符串empty">空字符串(empty)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"> <span class="kt">bool</span> <span class="nf">empty</span><span class="p">();</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果字符串为空则empty()返回真(true)，否则返回假(false).</p>
+<h3 id="删除erase">删除(erase)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span> <span class="n">iterator</span> <span class="n">pos</span> <span class="p">);</span>	<span class="c1">//删除pos指向的字符，返回下一个字符的迭代器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">iterator</span> <span class="nf">erase</span><span class="p">(</span> <span class="n">iterator</span> <span class="n">start</span><span class="p">,</span> <span class="n">iterator</span> <span class="n">end</span> <span class="p">);</span>	<span class="c1">//删除从start开始到end结束的所有字符，返回一个迭代器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">erase</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">num</span> <span class="o">=</span> <span class="n">npos</span> <span class="p">);</span>	<span class="c1">//删除从index索引开始的num个字符
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="查找find">查找(find)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">size_type</span> <span class="n">find</span><span class="p">(</span> <span class="k">const</span> <span class="n">basic_string</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index</span> <span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="n">size_type</span> <span class="n">find</span><span class="p">(</span> <span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index</span> <span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="n">size_type</span> <span class="n">find</span><span class="p">(</span> <span class="k">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">length</span> <span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="n">size_type</span> <span class="n">find</span><span class="p">(</span> <span class="n">char</span> <span class="n">ch</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index</span> <span class="p">);</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>如果没找到则返回<strong>string::npos</strong>,</li>
+</ul>
+<h3 id="插入insert">插入(insert)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">insert</span><span class="p">(</span><span class="n">size_type</span> <span class="n">index</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">str</span><span class="p">);</span>	<span class="c1">//在下标index 处插入 字符串str
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">insert</span><span class="p">(</span><span class="n">size_type</span> <span class="n">index</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">);</span> <span class="c1">//在下标index处插入 C字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">insert</span><span class="p">(</span><span class="n">size_type</span> <span class="n">index</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">num</span><span class="p">,</span> <span class="kt">char</span> <span class="n">ch</span><span class="p">);</span> <span class="c1">//在下标index 处插入 num 个字符 ch
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">insert</span><span class="p">(</span><span class="n">size_type</span> <span class="n">index1</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span> <span class="o">&amp;</span><span class="n">str</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">index2</span><span class="p">,</span> <span class="n">size_type</span> <span class="n">num</span><span class="p">);</span> <span class="c1">// 在下标index1 处插入 str 的子串（从 index2 开始，取 num 个）
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="长度length">长度(length)
+</h3><p>返回字符串的长度. 这个数字应该和<a class="link" href="#size" >size()</a>返回的数字相同</p>
+<h3 id="逆向迭代器">逆向迭代器
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">reverse_iterator</span> <span class="nf">rbegin</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>返回一个<strong>逆向迭代器</strong>，指向字符串的最后一个字符。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">reverse_iterator</span> <span class="nf">rend</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>返回一个<strong>逆向迭代器</strong>，指向字符串的开头（第一个字符的前一个位置）。</p>
+<h3 id="保留空间reserve">保留空间(reserve)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">reserve</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">num</span> <span class="p">);</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>设置本字符串的<strong>capacity</strong> 以保留num个字符空间。</p>
+<h3 id="重新设置大小resize">重新设置大小(resize)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">num</span> <span class="p">);</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">resize</span><span class="p">(</span> <span class="n">size_type</span> <span class="n">num</span><span class="p">,</span> <span class="kt">char</span> <span class="n">ch</span> <span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>改变本字符串的大小到<em>num</em>, 新空间的内容不确定。也可以指定用ch填充。</p>
+<h3 id="交换swap">交换(swap)
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span> <span class="n">basic_string</span> <span class="o">&amp;</span><span class="n">str</span> <span class="p">);</span>		<span class="c1">//把str和本字符串进行交换
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>案例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl">    <span class="n">string</span> <span class="nf">first</span><span class="p">(</span> <span class="s">&#34;This comes first&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="nf">second</span><span class="p">(</span> <span class="s">&#34;And this is second&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">first</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span> <span class="n">second</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">first</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">second</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">显示：</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">And</span> <span class="k">this</span> <span class="n">is</span> <span class="n">second</span>
+</span></span><span class="line"><span class="cl">    <span class="n">This</span> <span class="n">comes</span> <span class="n">first</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-04-06 10:39
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+        
+
+        
+
+        
+
+        
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/c%E5%88%B0c-%E8%BF%87%E5%BA%A6/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/cpp_logo.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C到C&#43;&#43;过度</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/c-%E5%88%9D%E8%AF%86/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/cpp_logo.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C&#43;&#43;初识</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        
+            
+    <script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('light');
+            } else {
+                setGiscusTheme('dark_dimmed');
+            }
+        }
+    })();
+</script>
+
+
+    ...
+    <div class="comment"></div>
+
+        
+    </article>
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 郭小胖
+    </section>
+    
+    </footer>
+
+
+<div id="toast-stack"></div>
+
+<script>
+ 
+(() => {
+  const toastStack = document.getElementById('toast-stack');
+  let toastCount = 0;
+  const MAX_TOAST = 5;
+  const DURATION  = 2500;
+
+   
+  let lastText = '';
+  let lastTime = 0;
+
+  window.pushToast = function (msg = '✅ 哎嘿！复制成功 🍬') {
+    const now = Date.now();
+    if (msg === lastText && now - lastTime < 500) return; 
+    lastText = msg;
+    lastTime = now;
+
+     
+    if (toastCount >= MAX_TOAST) toastStack.firstElementChild?.closeToast();
+
+    const item = document.createElement('div');
+    item.className = 'snack-left-top';
+    item.textContent = msg;
+
+    let closeTimer = null;
+    function closeToast() {
+      if (item.isClosing) return;
+      item.isClosing = true;
+      item.classList.remove('show');
+      item.addEventListener('transitionend', () => {
+        item.remove();
+        toastCount--;
+      }, { once: true });
+      clearTimeout(closeTimer);
+    }
+    item.closeToast = closeToast;
+
+    toastStack.appendChild(item);
+    toastCount++;
+    void item.offsetWidth;
+    item.classList.add('show');
+    closeTimer = setTimeout(closeToast, DURATION);
+  };
+
+   
+  document.addEventListener('copy', e => {
+    const text = window.getSelection().toString().trim();
+    if (!text) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(text)
+      .then(() => pushToast())
+      .catch(console.warn);
+  });
+
+   
+  const container = document.querySelector('.article-content');
+  if (container) {
+    container.addEventListener('click', e => {
+      if (!e.target.matches('.copyCodeButton')) return;
+      const wrap = e.target.closest('pre, .highlight');
+      const codeTd = wrap?.querySelector('td:nth-child(2)') || wrap;
+      const txt = codeTd ? codeTd.textContent.trim() : '';
+      navigator.clipboard.writeText(txt)
+        .then(() => pushToast())
+        .catch(err => alert('复制失败：' + err));
+    });
+  }
+})();
+</script>
+
+<style>
+ 
+.copyCodeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #3d3c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.copyCodeButton:hover {
+  background: var(--hover-text-color);
+  color: #fff;
+}
+
+ 
+.snack-left-top {
+  position: fixed;
+  left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  transform: translateX(calc(-100% - 20px));
+  width: 300px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  background: var(--hover-text-color);
+  color: #fff;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .35);
+  z-index: 9999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+ 
+.snack-left-top.show {
+  transform: translateX(0);
+}
+ 
+#toast-stack {
+  position: fixed;
+  left: 0;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+ 
+#toast-stack .snack-left-top {
+  position: relative;    
+  margin-bottom: 12px;   
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+              opacity   .35s cubic-bezier(.4, 0, .2, 1);
+  opacity: 0;
+  transform: translateX(calc(-100% - 20px));
+}
+
+#toast-stack .snack-left-top.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script><script type="text/javascript" src="/ts/custom.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = '/fonts/lato.css';
+        customFont.type = 'text/css';
+        customFont.rel = 'stylesheet';
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    document.querySelectorAll(".highlight").forEach(codeBlock => {
+      
+      if (codeBlock.querySelector('.code-more-box')) return;
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) return;
+
+      const codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+
+      const codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+      });
+
+      const img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "https://guokun603.github.io/icons/codeMore.png";
+
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox);
+    });
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+<div class="js-Pjax">
+    <script>
+      (function () {
+        let comment = document.querySelector(".comment");
+        if (!comment) {
+          return
+        }
+        let script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-repo',"meimolihan/meimolihan.github.io");
+        script.setAttribute('data-repo-id',"R_kgDONpRkKg");
+        script.setAttribute('data-category',"Announcements");
+        script.setAttribute('data-category-id',"DIC_kwDONpRkKs4CmwSa");
+        script.setAttribute('data-mapping',"pathname");
+        script.setAttribute('data-strict', 0 );
+        script.setAttribute('data-reactions-enabled', 1 );
+        script.setAttribute('data-emit-metadata', 0 );
+        script.setAttribute('data-input-position',"top");
+        script.setAttribute('data-theme',"light");
+        script.setAttribute('data-lang',"zh-CN");
+        script.setAttribute('data-loading', 'lazy')
+        script.async = true;
+        document.querySelector('.site-footer').before(script)
+      })(document);
+    </script>
+    <div>
+
+
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+    (function () {
+        function initFancybox() {
+            if (!(window.jQuery && window.jQuery.fancybox)) return;
+            window.jQuery('[data-fancybox]').fancybox({
+                loop: true,
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'close']
+            });
+        }
+
+        window.addEventListener('load', initFancybox);
+        document.addEventListener('pjax:complete', initFancybox);
+    })();
+</script>
+
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.meimolihan.eu.org/hugo/fish/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+<style>
+  @font-face {
+    font-family: 'WenYuanSerifSCVF';
+    src: url(https://guokun603.github.io/font/WenYuanSerifSCVF.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'WenYuanSerifSCVF';
+    --code-font-family: 'WenYuanSerifSCVF';
+  }
+</style>
+
+<div class="js-Pjax">
+    <script>
+        (function () {
+            function showHideView() {
+                const viewCounts = document.querySelectorAll('#viewCount');
+                if (!viewCounts.length) return;
+                const display = document.querySelector('.article-page') ? '' : 'none';
+                viewCounts.forEach(el => { el.style.display = display; });
+            }
+
+            function loadVercount() {
+                if (document.getElementById('vercount-script')) return;
+                const script = document.createElement('script');
+                script.defer = true;
+                script.id = 'vercount-script';
+                script.src = 'https://cn.vercount.one/js';
+                document.body.appendChild(script);
+            }
+
+            function initVercount() {
+                showHideView();
+                loadVercount();
+            }
+
+            window.addEventListener('load', initVercount);
+            document.addEventListener('pjax:complete', initVercount);
+        })();
+    </script>
+</div>
+
+
+
+
+
+    </body>
+</html>
