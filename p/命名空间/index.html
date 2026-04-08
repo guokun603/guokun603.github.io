@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="初识C++ 文档 离线浏览文档 - cppreference.cn - C++参考手册 如果打开后查看不了里面的内容，可以通过以下的方式解决： 找到这个 CHM 文件（比如 cppreference.chm 或 C_C++参考文">
-<title>C&#43;&#43;初识</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="命名空间 概念 本质：是一个自定义作用域 为什么要用命名空间？ 为了解决引入大量库时，导致全局符号的冲突问题。 最基本作用：给不同的库和模块拥有自己独">
+<title>命名空间</title>
 
-<link rel='canonical' href='https://guokun603.github.io/p/c-%E5%88%9D%E8%AF%86/'>
+<link rel='canonical' href='https://guokun603.github.io/p/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/'>
 
-<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="C++初识">
-<meta property='og:description' content="初识C++ 文档 离线浏览文档 - cppreference.cn - C++参考手册 如果打开后查看不了里面的内容，可以通过以下的方式解决： 找到这个 CHM 文件（比如 cppreference.chm 或 C_C++参考文">
-<meta property='og:url' content='https://guokun603.github.io/p/c-%E5%88%9D%E8%AF%86/'>
+<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="命名空间">
+<meta property='og:description' content="命名空间 概念 本质：是一个自定义作用域 为什么要用命名空间？ 为了解决引入大量库时，导致全局符号的冲突问题。 最基本作用：给不同的库和模块拥有自己独">
+<meta property='og:url' content='https://guokun603.github.io/p/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-04T10:21:56&#43;08:00'/><meta property='article:modified_time' content='2026-04-06T10:39:43&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/cpp_logo.png' />
-<meta name="twitter:title" content="C++初识">
-<meta name="twitter:description" content="初识C++ 文档 离线浏览文档 - cppreference.cn - C++参考手册 如果打开后查看不了里面的内容，可以通过以下的方式解决： 找到这个 CHM 文件（比如 cppreference.chm 或 C_C++参考文"><meta name="twitter:card" content="summary_large_image">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-08T21:48:05&#43;08:00'/><meta property='article:modified_time' content='2026-04-08T22:52:52&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/cpp_logo.png' />
+<meta name="twitter:title" content="命名空间">
+<meta name="twitter:description" content="命名空间 概念 本质：是一个自定义作用域 为什么要用命名空间？ 为了解决引入大量库时，导致全局符号的冲突问题。 最基本作用：给不同的库和模块拥有自己独"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://img.guokun.net/PicGo/cpp_logo.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -256,17 +256,10 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#文档">文档</a></li>
-    <li><a href="#头文件">头文件</a></li>
-    <li><a href="#名字空间">名字空间</a></li>
-    <li><a href="#标准流对象">标准流对象</a>
-      <ol>
-        <li><a href="#标准输入">标准输入</a></li>
-        <li><a href="#标准输出">标准输出</a></li>
-        <li><a href="#标准出错">标准出错</a></li>
-      </ol>
-    </li>
-    <li><a href="#c编译">C++编译</a></li>
+    <li><a href="#概念">概念</a></li>
+    <li><a href="#定义与使用">定义与使用</a></li>
+    <li><a href="#using语句">using语句</a></li>
+    <li><a href="#进阶">进阶</a></li>
   </ol>
 </nav>
         </div>
@@ -284,9 +277,9 @@
         <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/c-%E5%88%9D%E8%AF%86/">
+            <a href="/p/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
                 
-                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" alt="Featured image of post C&#43;&#43;初识" />
+                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" alt="Featured image of post 命名空间" />
                 
             </a>
         </div>
@@ -305,7 +298,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/c-%E5%88%9D%E8%AF%86/">C&#43;&#43;初识</a>
+            <a href="/p/%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">命名空间</a>
         </h2>
     
         
@@ -327,7 +320,7 @@
 
             <time>
                 
-                2026-04-06 10:39
+                2026-04-08 22:52
             </time>
         </div>
 
@@ -350,185 +343,327 @@
     <section class="article-content">
     
     
-    <h1 id="初识c">初识C++
-</h1><h2 id="文档">文档
-</h2><p><a class="link" href="https://cppreference.cn/w/Cppreference:Archives"  target="_blank" rel="noopener"
-    >离线浏览文档 - cppreference.cn - C++参考手册</a></p>
-<p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260404204754007.png" data-caption="image-20260404204754007">
-        <img src="https://img.guokun.net/PicGo/image-20260404204754007.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260404204754007"
-            
-        >
-    </a>
-</div></p>
-<p>如果打开后查看不了里面的内容，可以通过以下的方式解决：</p>
-<blockquote>
-<p><strong>找到这个 CHM 文件</strong>（比如 <code>cppreference.chm</code> 或 <code>C_C++参考文档.chm</code>）</p>
-<p><strong>右键文件 → 属性</strong></p>
-<p>在「常规」选项卡最下方，找到<strong>安全提示</strong>：「此文件来自其他计算机，可能被阻止以帮助保护该计算机」</p>
-<p>勾选 <strong>「解除锁定」</strong>（如果没有这个选项，直接跳过这步）</p>
-<p>点击「应用」→「确定」，再重新双击打开文件</p>
-</blockquote>
-<p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260404204923226.png" data-caption="image-20260404204923226">
-        <img src="https://img.guokun.net/PicGo/image-20260404204923226.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260404204923226"
-            
-        >
-    </a>
-</div></p>
-<h2 id="头文件">头文件
-</h2><div class="highlight"><div class="chroma">
+    <h1 id="命名空间">命名空间
+</h1><h2 id="概念">概念
+</h2><p>本质：是一个自定义作用域</p>
+<p>为什么要用命名空间？</p>
+<p>为了解决引入大量库时，导致全局符号的冲突问题。</p>
+<p>最基本作用：给不同的库和模块拥有自己独特的作用域</p>
+<h2 id="定义与使用">定义与使用
+</h2><p>定义一个名字空间，实际上就是定义一个作用域，在名字空间中可以定义变量、函数等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">ns</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//在ns中定义变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//在ns中定义函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">printf</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;命名空间ns中的变量a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在ns中定义的a，与函数printf的实际名字为 ns::a和ns::printf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 方式1：使用 作用域解析符:: 访问命名空间中的成员
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;直接访问：ns::a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ns</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 调用命名空间中的函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ns</span><span class="o">::</span><span class="nf">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 方式2：使用using声明，简化访问（无需重复写ns::）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">using</span> <span class="n">namespace</span> <span class="n">ns</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;using后直接访问：a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>操作符<code>::</code>用法</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="err">名字空间</span><span class="o">::</span><span class="err">某符号</span>
+</span></span><span class="line"><span class="cl"><span class="err">类</span><span class="o">::</span><span class="err">某符号</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>::</code>双冒号操作符，称为<code>作用域引用符</code>,双冒号前面必须是一个作用域</p>
+<p>重要的作用：</p>
+<ol>
+<li>
+<p>解决命名冲突，明确指定使用哪个空间的变量</p>
+</li>
+<li>
+<p>解决全局变量和局部变量重名的问题，直接写<strong>变量名</strong>访问局部，加**：：**访问全局。</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">666</span><span class="p">;</span> 		<span class="c1">//全局变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">888</span><span class="p">;</span> 	<span class="c1">//局部变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 不加 :: 优先访问局部变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 输出 888
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="c1">// 加 :: 强制访问全局变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 输出 666
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="using语句">using语句
+</h2><p>可以使用<code>using</code>语句实现导入名字空间</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;ns.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">ns</span><span class="p">;</span> 	  <span class="c1">// 导入整个ns命名空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>    <span class="c1">// 直接使用ns::a
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 直接使用ns::f()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//一：导入整个名字空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">ns</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//二：导入名字空间中指定的符号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="n">ns</span><span class="o">::</span><span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">ns</span><span class="o">::</span><span class="n">f</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果使用某个命名空间时，仅使用到少量符号的话，如果导入整个名字空间，会导致大量未被使用的符号，会造成冲突，会造成<strong>名字空间污染</strong>。</p>
+<h2 id="进阶">进阶
+</h2><p>C++ 支持<strong>嵌套定义命名空间</strong>，也就是在一个命名空间内部再定义另一个命名空间。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;ns.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">ns</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 外层变量定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">namespace</span> <span class="n">nested_ns</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 内层变量定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// 内层变量定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#ifndef NS_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define NS_H
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">namespace</span> <span class="n">ns</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">extern</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// 外层变量声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">namespace</span> <span class="n">nested_ns</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">extern</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// 内层变量声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">extern</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// 内层变量声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>扩展性</strong></p>
+<p>当程序在多处定义了相同的名字空间时，它们将会融合成一个统一的作用域</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>C++ 的头文件的功能、预处理原理都与 C 语言无异，下面罗列它们不同与联系：</p>
-<ol>
-<li><strong>C++ 的标准头文件无需后缀。</strong></li>
-<li><strong>C++ 可以接受 C 语言风格后缀的头文件（如<code>#include &lt;math.h&gt;</code>），但如有可能，要优先使用 C++ 版本的头文件（如<code>#include &lt;cmath&gt;</code>），两者的内容基本是一样的，但后者中的标识符在标准名字空间 <code>std</code> 中均有声明（除了宏之外）。</strong></li>
-<li><strong>C++ 也接受新风格后缀（如<code>\*.hpp</code>）。</strong></li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"> 	</span><span class="c1">// c++标准头文件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"> 		</span><span class="c1">// 在标准名字空间做了声明的改进版math.h
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"> 	</span><span class="c1">// 无cunistd版头文件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;head.hpp&gt;</span><span class="cp"> 	</span><span class="c1">// *.hpp后缀头文件
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="名字空间">名字空间
-</h2><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;ns.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 扩展命名空间ns，新增变量b
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">namespace</span> <span class="n">ns</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">666</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">ns</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 输出1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// 输出666
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>上述语句是 C 语言没有的，其含义是<strong>使用名字空间 std 中的所有标识符</strong>。这里的名字空间是 C++ 引入的一个新概念。名字空间本质上是<strong>自定义的作用域</strong>，<strong>目的是尽可能防止符号命名冲突</strong>。</p>
-<p>比如，在名字空间 <code>std</code> 中，有如下符号：</p>
-<ul>
-<li><code>cout</code></li>
-<li><code>cin</code></li>
-<li><code>cerr</code></li>
-<li><code>string</code></li>
-</ul>
-<p>由于这些符号（变量、函数、对象）<strong>是名字空间 std 中被声明的</strong>，因此它们的<strong>实际名称</strong>应该是：</p>
-<ul>
-<li><code>std::cout</code></li>
-<li><code>std::cin</code></li>
-<li><code>std::cerr</code></li>
-<li><code>std::string</code></li>
-</ul>
-<p>在写程序时，使用什么就引入使用的标识符，未使用的标识符不用引用，为了降低标识符的冲突问题。</p>
-<h2 id="标准流对象">标准流对象
-</h2><p>标准流对象，指的是<strong>cout、cin和cerr</strong>。</p>
-<p>所谓对象，本质上就是C语言语境中的变量，只不过在面向对象（一般包括两个方面一个<strong>属性和行为</strong>）的语境中，这些变量都是自带函数（行为）的，它们是名副其实的超级变量，因此为了与C语言的 普通变量加以区分，在面向对象的编程语言中，通常将它们称为对象。</p>
-<h3 id="标准输入">标准输入
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">f</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>	<span class="c1">// 从键盘接收一个整型数据放入变量a中
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">f</span><span class="p">;</span>	<span class="c1">// 从键盘接收一个浮点型数据放入变量f中
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>使用流对象的优势在于，不需要关心操作数据的类型，流对象会<strong>自动识别不同的数据类型</strong>，也可以一次性快速处理，也可以写为</p>
+</div><p><strong>全局作用域</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">f</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 全局变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">global</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 局部同名变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">global</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 1. 直接访问：优先局部，输出200
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">global</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 2. 加::访问：强制全局，输出100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">global</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>一次写入多种类型的数据</p>
-<h3 id="标准输出">标准输出
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mf">3.14</span><span class="p">;</span>	<span class="c1">//输出浮点型数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;abc&#34;</span><span class="p">;</span>	<span class="c1">//输出字符串数据
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>这么写的数据不会立刻刷新，与C语言的输出一样，先经过缓冲区，需要满足输出的条件才可以。</p>
-<blockquote>
-<ol>
-<li>一行写满或者遇到&rsquo;\n&rsquo;换行符。</li>
-<li>缓冲区满</li>
-<li>程序结束</li>
-<li>手动刷新</li>
-</ol>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello world </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hello world&#34;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>在C++可以通过使用<strong>std中的endl</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hellow word&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="标准出错">标准出错
-</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;hellow&#34;</span> <span class="p">;</span>		<span class="c1">//可以直接输出
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>cerr的用法与cout是一样的，区别是cerr输出的时候不经过缓冲区直接输出，而cout需要经过行缓冲区。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">fprintf</span><span class="p">(</span> <span class="n">stdout</span> <span class="p">,</span> <span class="p">....</span> <span class="p">);</span> <span class="c1">// 经过标准输出的缓冲区
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">fprintf</span><span class="p">(</span> <span class="n">stderr</span> <span class="p">,</span> <span class="p">....</span> <span class="p">);</span> <span class="c1">// 标准出错没有设置用户缓冲区
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="c编译">C++编译
-</h2><p>使用对应的g++编译器</p>
+</div><p>全局作用域的名字空间是匿名的，引用全局作用域符号只需加 <strong>::</strong> 即可。</p>
 
 </section>
 
@@ -546,7 +681,7 @@
 
 
         <span>
-            最后更新于 2026-04-06 10:39
+            最后更新于 2026-04-08 22:52
         </span>
     </section></footer>
 
@@ -562,128 +697,6 @@
 
         
 
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/p/lambda/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/cpp_logo.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Lambda</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/string/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/cpp_logo.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">String</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/c%E5%88%B0c-%E8%BF%87%E5%BA%A6/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.guokun.net/PicGo/cpp_logo.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/cpp_logo.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">C到C&#43;&#43;过度</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
-
-
-        
-            
-    <script
-    src="https://giscus.app/client.js"
-    data-repo=""
-    data-repo-id=""
-    data-category=""
-    data-category-id=""
-    data-mapping="title"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="light"
-    data-lang="en"
-    crossorigin="anonymous"
-    async
-></script>
-<script>
-    function setGiscusTheme(theme) {
-        let giscus = document.querySelector("iframe.giscus-frame");
-        if (giscus) {
-            giscus.contentWindow.postMessage(
-                {
-                    giscus: {
-                        setConfig: {
-                            theme: theme,
-                        },
-                    },
-                },
-                "https://giscus.app"
-            );
-        }
-    }
-
-    (function () {
-        addEventListener("message", (e) => {
-            if (event.origin !== "https://giscus.app") return;
-            handler();
-        });
-        window.addEventListener("onColorSchemeChange", handler);
-
-        function handler() {
-            if (document.documentElement.dataset.scheme === "light") {
-                setGiscusTheme('light');
-            } else {
-                setGiscusTheme('dark_dimmed');
-            }
-        }
-    })();
-</script>
-
-
-    ...
-    <div class="comment"></div>
 
         
     </article>
