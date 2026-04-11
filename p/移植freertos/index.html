@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="无人机飞控设计 控制核心采用STM32F103C8T6，姿态运动传感器选择MPU6050。无人机通过Si24R1（NRF24L01）与遥控器进">
-<title>从零到一：我的无人机飞控 PCB 设计全过程</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="移植FreeRTOS 下载源码包 去官网下载库文件 FreeRTOS™ - FreeRTOS™ 复制需要使用的源代码文件 复制所有.c文件 复制includ">
+<title>移植FreeRTOS</title>
 
-<link rel='canonical' href='https://guokun603.github.io/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/'>
+<link rel='canonical' href='https://guokun603.github.io/p/%E7%A7%BB%E6%A4%8Dfreertos/'>
 
-<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="从零到一：我的无人机飞控 PCB 设计全过程">
-<meta property='og:description' content="无人机飞控设计 控制核心采用STM32F103C8T6，姿态运动传感器选择MPU6050。无人机通过Si24R1（NRF24L01）与遥控器进">
-<meta property='og:url' content='https://guokun603.github.io/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/'>
+<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="移植FreeRTOS">
+<meta property='og:description' content="移植FreeRTOS 下载源码包 去官网下载库文件 FreeRTOS™ - FreeRTOS™ 复制需要使用的源代码文件 复制所有.c文件 复制includ">
+<meta property='og:url' content='https://guokun603.github.io/p/%E7%A7%BB%E6%A4%8Dfreertos/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-04T16:45:10&#43;08:00'/><meta property='article:modified_time' content='2026-03-03T21:02:59&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/PCB背景图1.png' />
-<meta name="twitter:title" content="从零到一：我的无人机飞控 PCB 设计全过程">
-<meta name="twitter:description" content="无人机飞控设计 控制核心采用STM32F103C8T6，姿态运动传感器选择MPU6050。无人机通过Si24R1（NRF24L01）与遥控器进"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://img.guokun.net/PicGo/PCB背景图1.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-11T22:49:16&#43;08:00'/><meta property='article:modified_time' content='2026-04-11T23:53:10&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/无人机.png' />
+<meta name="twitter:title" content="移植FreeRTOS">
+<meta name="twitter:description" content="移植FreeRTOS 下载源码包 去官网下载库文件 FreeRTOS™ - FreeRTOS™ 复制需要使用的源代码文件 复制所有.c文件 复制includ"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/无人机.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -256,9 +256,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#飞控原理图">飞控原理图</a></li>
-    <li><a href="#pcb">PCB</a></li>
-    <li><a href="#感受">感受</a></li>
+    <li><a href="#下载源码包">下载源码包</a></li>
+    <li><a href="#复制需要使用的源代码文件">复制需要使用的源代码文件</a></li>
+    <li><a href="#复制一个芯片的操作系统的裁剪文件">复制一个芯片的操作系统的裁剪文件</a></li>
+    <li><a href="#freertos运行原理">freeRTOS运行原理</a></li>
+    <li><a href="#问题">问题</a></li>
+    <li><a href="#使用">使用</a></li>
   </ol>
 </nav>
         </div>
@@ -276,9 +279,9 @@
         <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/">
+            <a href="/p/%E7%A7%BB%E6%A4%8Dfreertos/">
                 
-                    <img src="https://img.guokun.net/PicGo/PCB%e8%83%8c%e6%99%af%e5%9b%be1.png" loading="lazy" alt="Featured image of post 从零到一：我的无人机飞控 PCB 设计全过程" />
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" alt="Featured image of post 移植FreeRTOS" />
                 
             </a>
         </div>
@@ -297,7 +300,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/">从零到一：我的无人机飞控 PCB 设计全过程</a>
+            <a href="/p/%E7%A7%BB%E6%A4%8Dfreertos/">移植FreeRTOS</a>
         </h2>
     
         
@@ -319,7 +322,7 @@
 
             <time>
                 
-                2026-03-03 21:02
+                2026-04-11 23:53
             </time>
         </div>
 
@@ -342,288 +345,344 @@
     <section class="article-content">
     
     
-    <h1 id="无人机飞控设计">无人机飞控设计
-</h1><p>控制核心采用<strong>STM32F103C8T6</strong>，姿态运动传感器选择<strong>MPU6050</strong>。无人机通过<strong>Si24R1</strong>（NRF24L01）与遥控器进行2.4G无线通信，实现了即时有效地接遥控器指令，通过串级PID进行姿态控制，从而在空间中实现自由移动。</p>
-<h2 id="飞控原理图">飞控原理图
-</h2><ul>
-<li>
-<p>主控芯片</p>
-<ul>
-<li>
-<p>STM32F103C8T6</p>
-</li>
-<li>
-<p>最小电路</p>
-<ul>
-<li>3.3V供电</li>
-<li>复位按钮</li>
-<li>烧录引脚 - - - -&gt;STLIND0</li>
-<li>外接晶振</li>
-</ul>
-</li>
-</ul>
-<p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204162224472.png" data-caption="image-20260204162224472">
-        <img src="https://img.guokun.net/PicGo/image-20260204162224472.png"
+    <h1 id="移植freertos">移植FreeRTOS
+</h1><h2 id="下载源码包">下载源码包
+</h2><p>去官网下载库文件</p>
+<p><a class="link" href="https://www.freertos.org/zh-cn-cmn-s"  target="_blank" rel="noopener"
+    >FreeRTOS™ - FreeRTOS™</a></p>
+<h2 id="复制需要使用的源代码文件">复制需要使用的源代码文件
+</h2><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260411211637604.png" data-caption="image-20260411211637604">
+        <img src="https://img.guokun.net/PicGo/image-20260411211637604.png"
             
             
             
             loading="lazy"
-            alt="image-20260204162224472"
+            alt="image-20260411211637604"
             
         >
     </a>
 </div></p>
-</li>
-<li>
-<p>陀螺仪MPU6050</p>
-<ul>
-<li>使用I2C1进行通信
-<div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204162614339.png" data-caption="image-20260204162614339">
-        <img src="https://img.guokun.net/PicGo/image-20260204162614339.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260204162614339"
-            
-        >
-    </a>
-</div></li>
-</ul>
-</li>
-<li>
-<p>2.4G无线通信</p>
-<ul>
-<li>采用Si24R1，2.4G无线通信</li>
-<li>采用SPI1连接主控芯片</li>
-<li>外界16MHZ晶振
-<div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204162551099.png" data-caption="image-20260204162551099">
-        <img src="https://img.guokun.net/PicGo/image-20260204162551099.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260204162551099"
-            
-        >
-    </a>
-</div></li>
-</ul>
-</li>
-<li>
-<p>激光测高</p>
-<ul>
-<li>采用VL53L4CD0DH测距传感器</li>
-<li>I2C2接线
-<div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204162423197.png" data-caption="image-20260204162423197">
-        <img src="https://img.guokun.net/PicGo/image-20260204162423197.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260204162423197"
-            
-        >
-    </a>
-</div></li>
-</ul>
-</li>
-<li>
-<p>锂电池充放电管理模块</p>
-<ul>
-<li>TP4336芯片  充电管理芯片</li>
-<li>AMS1117-3.3V 降压芯片</li>
-<li>锂电池插座
-<div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204162446182.png" data-caption="image-20260204162446182">
-        <img src="https://img.guokun.net/PicGo/image-20260204162446182.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260204162446182"
-            
-        >
-    </a>
-</div></li>
-</ul>
-</li>
-<li>
-<p>电机插槽</p>
-<ul>
-<li>驱动四个电机 PWM</li>
-<li>mos驱动 电压更加稳定
-<div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204162507639.png" data-caption="image-20260204162507639">
-        <img src="https://img.guokun.net/PicGo/image-20260204162507639.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260204162507639"
-            
-        >
-    </a>
-</div></li>
-</ul>
-</li>
-<li>
-<p>信号灯和监控电池电压</p>
-<ul>
-<li>开发板周围4个信号灯</li>
-<li>由于ADC的量程上限是3.3v，没有办法直接测量，所以采用分压电路</li>
-</ul>
-</li>
-</ul>
 <p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204162307707.png" data-caption="image-20260204162307707">
-        <img src="https://img.guokun.net/PicGo/image-20260204162307707.png"
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260411211710267.png" data-caption="image-20260411211710267">
+        <img src="https://img.guokun.net/PicGo/image-20260411211710267.png"
             
             
             
             loading="lazy"
-            alt="image-20260204162307707"
+            alt="image-20260411211710267"
             
         >
     </a>
 </div></p>
-<h2 id="pcb">PCB
-</h2><ol>
+<ol>
 <li>
-<p>绘制板框</p>
+<p>复制所有.c文件</p>
 </li>
 <li>
-<p>布局元件</p>
-<ul>
-<li>
-<p>按键和接口放置在开发板边缘</p>
+<p>复制include中所有.h文件</p>
 </li>
 <li>
-<p>主控芯片尽量在中间位置</p>
-</li>
-<li>
-<p>MPU6050陀螺仪芯片必须在中间</p>
-</li>
-</ul>
-</li>
-<li>
-<p>布线
-布线顺序，还是比较重要的，从电源布线一步步来</p>
-<ul>
-<li>
-<p>电源布线</p>
-<ul>
-<li>
-<p>VCC主供电</p>
-</li>
-<li>
-<p>VBAT</p>
-</li>
-<li>
-<p>5V输出</p>
-</li>
-<li>
-<p>降压稳压芯片</p>
-<ul>
-<li>输入5V</li>
-<li>输出3.3V</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>主控芯片最小电路</p>
-</li>
-<li>
-<p>MPU6050陀螺仪布线</p>
-</li>
-<li>
-<p>测量电池电压</p>
-</li>
-<li>
-<p>电机插座</p>
-</li>
-<li>
-<p>红外激光测距</p>
-</li>
-<li>
-<p>2.4G通讯</p>
-</li>
-<li>
-<p>led灯和接口</p>
-</li>
-</ul>
-</li>
-<li>
-<p>天线布线</p>
-<ul>
-<li>
-<p>特定尺寸 需要直接导入封装</p>
-</li>
-<li>
-<p>尺寸严格 不能修改</p>
-</li>
-</ul>
-</li>
-<li>
-<p>GND铺铜网络</p>
-<ul>
-<li>
-<p>孤岛区域需要单独连接</p>
-</li>
-<li>
-<p>打通孔提高载流能力</p>
-</li>
-</ul>
-</li>
-<li>
-<p>美化开发板</p>
-<ul>
-<li>
-<p>调整丝印</p>
-</li>
-<li>
-<p>添加文字</p>
-</li>
-<li>
-<p>泪滴工具  =&gt;  有效提高稳定性 提高载流能力</p>
-</li>
-</ul>
+<p>protable中的兼容文件</p>
 </li>
 </ol>
-<p>成品</p>
+<p>这里使用的是KEIL开发的</p>
 <p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204163748340.png" data-caption="image-20260204163748340">
-        <img src="https://img.guokun.net/PicGo/image-20260204163748340.png"
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260411212054400.png" data-caption="image-20260411212054400">
+        <img src="https://img.guokun.net/PicGo/image-20260411212054400.png"
             
             
             
             loading="lazy"
-            alt="image-20260204163748340"
+            alt="image-20260411212054400"
+            
+        >
+    </a>
+</div></p>
+<p>这里的打开Keil是一个文本，指向的RVDS中文件</p>
+<p>MemMang选择的heap4版本</p>
+<h2 id="复制一个芯片的操作系统的裁剪文件">复制一个芯片的操作系统的裁剪文件
+</h2><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260411212322248.png" data-caption="image-20260411212322248">
+        <img src="https://img.guokun.net/PicGo/image-20260411212322248.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260411212322248"
             
         >
     </a>
 </div></p>
 <p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260204163828599.png" data-caption="image-20260204163828599">
-        <img src="https://img.guokun.net/PicGo/image-20260204163828599.png"
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260411212357783.png" data-caption="image-20260411212357783">
+        <img src="https://img.guokun.net/PicGo/image-20260411212357783.png"
             
             
             
             loading="lazy"
-            alt="image-20260204163828599"
+            alt="image-20260411212357783"
             
         >
     </a>
 </div></p>
-<h2 id="感受">感受
-</h2><p>布线还是太折磨人了，一直在打孔，调整线的位置。</p>
-<p>但是当你布好所有线时，会有很强的成就感</p>
-
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260411212426102.png" data-caption="image-20260411212426102">
+        <img src="https://img.guokun.net/PicGo/image-20260411212426102.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260411212426102"
+            
+        >
+    </a>
+</div></p>
+<p>复制FreeRTOSConfig.h文件</p>
+<h2 id="freertos运行原理">freeRTOS运行原理
+</h2><p><strong>运用中断</strong></p>
+<ol>
+<li><strong>SysTick（系统定时器中断）</strong></li>
+</ol>
+<ul>
+<li>作用：<strong>产生系统时钟节拍（Tick）</strong>，是 FreeRTOS 的 “心跳”</li>
+<li>频率：默认 1ms 一次（可配置）</li>
+<li>工作：每次中断触发<strong>时间片轮询、超时检查、延时到期</strong></li>
+<li>触发点：定时到 → 进入 <code>SysTick_Handler()</code></li>
+</ul>
+<ol start="2">
+<li><strong>SVC（系统调用中断）</strong></li>
+</ol>
+<ul>
+<li>指令：<code>SVC #0</code></li>
+<li>作用：<strong>启动第一个任务</strong>（从无调度 → 进入第一个任务）</li>
+<li>特点：<strong>只在系统启动时调用 1 次</strong></li>
+<li>触发点：<code>vTaskStartScheduler()</code> 里会触发 SVC</li>
+</ul>
+<ol start="3">
+<li><strong>PendSV（可挂起系统调用中断）</strong></li>
+</ol>
+<ul>
+<li>作用：<strong>任务上下文切换（任务切换的真正执行者）</strong></li>
+<li>特点：<strong>最低优先级中断</strong>，确保所有硬件中断处理完才切换任务</li>
+<li>触发点：需要切换任务时，软件置位 PendSV 请求 → 进入 <code>PendSV_Handler()</code></li>
+</ul>
+<p>通过使用freeRTOS中定义的函数，实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="err">启动</span> <span class="err">→</span> <span class="n">vTaskStartScheduler</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl">  <span class="err">初始化硬件、空闲任务</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl">  <span class="err">触发</span> <span class="n">SVC</span> <span class="err">中断</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl"><span class="n">SVC_Handler</span> <span class="err">启动第一个任务</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl"><span class="err">系统正常运行</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl"><span class="n">SysTick</span> <span class="err">定时触发（</span><span class="mi">1</span><span class="n">ms</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl"><span class="err">检查是否需要切换任务</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl"><span class="err">需要切换</span> <span class="err">→</span> <span class="err">挂起</span> <span class="n">PendSV</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl"><span class="n">PendSV_Handler</span> <span class="err">执行上下文切换</span>
+</span></span><span class="line"><span class="cl">       <span class="err">↓</span>
+</span></span><span class="line"><span class="cl"><span class="err">运行下一个任务</span>
+</span></span><span class="line"><span class="cl">      <span class="err">循环</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">SVC_Handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN SVCall_IRQn 0 */</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">vPortSVCHandler</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END SVCall_IRQn 0 */</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN SVCall_IRQn 1 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END SVCall_IRQn 1 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">PendSV_Handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN PendSV_IRQn 0 */</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">xPortPendSVHandler</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END PendSV_IRQn 0 */</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN PendSV_IRQn 1 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END PendSV_IRQn 1 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">SysTick_Handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN SysTick_IRQn 0 */</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//手动调用系统滴答处理函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span><span class="p">(</span><span class="nf">xTaskGetSchedulerState</span><span class="p">()</span> <span class="o">!=</span> <span class="n">taskSCHEDULER_NOT_STARTED</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//判断调度器是否已经启动，只有在调度器启动后才调用系统滴答处理函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">xPortSysTickHandler</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END SysTick_IRQn 0 */</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">HAL_IncTick</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN SysTick_IRQn 1 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END SysTick_IRQn 1 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="问题">问题
+</h2><ol>
+<li><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260411221519983.png" data-caption="image-20260411221519983">
+        <img src="https://img.guokun.net/PicGo/image-20260411221519983.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260411221519983"
+            
+        >
+    </a>
+</div></li>
+</ol>
+<p>configTICK_TYPE_WIDTH_IN_BITS 设置为不支持的时钟节拍类型位宽。</p>
+<p>Cortex‑M3 推荐 32 位</p>
+<p>去FreeRTOSConfig.h中找</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define configTICK_TYPE_WIDTH_IN_BITS              TICK_TYPE_WIDTH_32_BITS   </span><span class="c1">//改为32
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260411221826163.png" data-caption="image-20260411221826163">
+        <img src="https://img.guokun.net/PicGo/image-20260411221826163.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260411221826163"
+            
+        >
+    </a>
+</div></li>
+</ol>
+<p>ucHeap (在 heap_4.o 中被引用)</p>
+<p>搜索ucHeap</p>
+<p>再去FreeRTOSConfig.h找</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/* 启用动态内存分配（必须为1，heap_4依赖此宏） */</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define configSUPPORT_DYNAMIC_ALLOCATION    1
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="使用">使用
+</h2><p>创建任务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">    <span class="n">BaseType_t</span> <span class="nf">xTaskCreate</span><span class="p">(</span> <span class="n">TaskFunction_t</span> <span class="n">pxTaskCode</span><span class="p">,</span>		<span class="c1">//任务入口函数指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                            <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="k">const</span> <span class="n">pcName</span><span class="p">,</span>		<span class="c1">//自己定义个名字  任务名字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                            <span class="k">const</span> <span class="n">configSTACK_DEPTH_TYPE</span> <span class="n">uxStackDepth</span><span class="p">,</span>		<span class="c1">//任务堆栈深度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                            <span class="kt">void</span> <span class="o">*</span> <span class="k">const</span> <span class="n">pvParameters</span><span class="p">,</span>		<span class="c1">//任务函数参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                            <span class="n">UBaseType_t</span> <span class="n">uxPriority</span><span class="p">,</span>			<span class="c1">//任务优先级
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                            <span class="n">TaskHandle_t</span> <span class="o">*</span> <span class="k">const</span> <span class="n">pxCreatedTask</span> <span class="p">)</span>	<span class="c1">//任务句柄 用来操控任务
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">typedef</span> <span class="nf">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">TaskFunction_t</span><span class="p">)(</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">arg</span> <span class="p">);</span>				<span class="c1">//定义任务入口函数指针类型
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>启用任务调度器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">vTaskStartScheduler</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -640,7 +699,7 @@
 
 
         <span>
-            最后更新于 2026-03-03 21:02
+            最后更新于 2026-04-11 23:53
         </span>
     </section></footer>
 
@@ -663,25 +722,6 @@
             
                 
 <article class="has-image">
-    <a href="/p/%E7%A7%BB%E6%A4%8Dfreertos/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">移植FreeRTOS</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
     <a href="/p/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">
         
         
@@ -694,6 +734,25 @@
 
         <div class="article-details">
             <h2 class="article-title">项目构建</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E6%88%91%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%A3%9E%E6%8E%A7-pcb-%E8%AE%BE%E8%AE%A1%E5%85%A8%E8%BF%87%E7%A8%8B/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/PCB%e8%83%8c%e6%99%af%e5%9b%be1.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/PCB背景图1.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">从零到一：我的无人机飞控 PCB 设计全过程</h2>
         </div>
     </a>
 </article>
