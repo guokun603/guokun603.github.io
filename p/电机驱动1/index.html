@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="项目构建 搭建框架 这个项目使用的STM32CubeMX + HAL 库进行搭建的 首先STM32CubeMX搭建最小系统，选型单片机的类型 其次设置烧录方式">
-<title>项目构建</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="电机 电源就是插上后，直接供电，启动，所以没有写相关的代码 分析原理图 1 2 3 4 PWM1 =&gt; PA0 PWM2 =&gt; PA1 PWM3 =&gt; PA2 PWM4 =&gt; PA3 STM32F103C8T6的引脚对应 PWM">
+<title>电机驱动1</title>
 
-<link rel='canonical' href='https://guokun603.github.io/p/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/'>
+<link rel='canonical' href='https://guokun603.github.io/p/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A81/'>
 
-<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="项目构建">
-<meta property='og:description' content="项目构建 搭建框架 这个项目使用的STM32CubeMX + HAL 库进行搭建的 首先STM32CubeMX搭建最小系统，选型单片机的类型 其次设置烧录方式">
-<meta property='og:url' content='https://guokun603.github.io/p/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/'>
+<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="电机驱动1">
+<meta property='og:description' content="电机 电源就是插上后，直接供电，启动，所以没有写相关的代码 分析原理图 1 2 3 4 PWM1 =&gt; PA0 PWM2 =&gt; PA1 PWM3 =&gt; PA2 PWM4 =&gt; PA3 STM32F103C8T6的引脚对应 PWM">
+<meta property='og:url' content='https://guokun603.github.io/p/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A81/'>
 <meta property='og:site_name' content='郭小胖'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-10T22:48:51&#43;08:00'/><meta property='article:modified_time' content='2026-04-11T23:53:10&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/无人机.png' />
-<meta name="twitter:title" content="项目构建">
-<meta name="twitter:description" content="项目构建 搭建框架 这个项目使用的STM32CubeMX + HAL 库进行搭建的 首先STM32CubeMX搭建最小系统，选型单片机的类型 其次设置烧录方式"><meta name="twitter:card" content="summary_large_image">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-18T01:27:32&#43;08:00'/><meta property='article:modified_time' content='2026-04-18T01:45:39&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/无人机.png' />
+<meta name="twitter:title" content="电机驱动1">
+<meta name="twitter:description" content="电机 电源就是插上后，直接供电，启动，所以没有写相关的代码 分析原理图 1 2 3 4 PWM1 =&gt; PA0 PWM2 =&gt; PA1 PWM3 =&gt; PA2 PWM4 =&gt; PA3 STM32F103C8T6的引脚对应 PWM"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://img.guokun.net/PicGo/无人机.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -256,8 +256,9 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#搭建框架">搭建框架</a></li>
-    <li><a href="#日志打印">日志打印</a></li>
+    <li><a href="#分析原理图">分析原理图</a></li>
+    <li><a href="#硬件">硬件</a></li>
+    <li><a href="#程序">程序</a></li>
   </ol>
 </nav>
         </div>
@@ -275,9 +276,9 @@
         <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">
+            <a href="/p/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A81/">
                 
-                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" alt="Featured image of post 项目构建" />
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" alt="Featured image of post 电机驱动1" />
                 
             </a>
         </div>
@@ -296,7 +297,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">项目构建</a>
+            <a href="/p/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A81/">电机驱动1</a>
         </h2>
     
         
@@ -318,7 +319,7 @@
 
             <time>
                 
-                2026-04-11 23:53
+                2026-04-18 01:45
             </time>
         </div>
 
@@ -341,159 +342,137 @@
     <section class="article-content">
     
     
-    <h1 id="项目构建">项目构建
-</h1><h2 id="搭建框架">搭建框架
-</h2><p>这个项目使用的STM32CubeMX + HAL 库进行搭建的</p>
-<ul>
-<li>首先STM32CubeMX搭建最小系统，选型单片机的类型</li>
-<li>其次设置烧录方式 + 时钟</li>
-</ul>
-<p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260409233138996.png" data-caption="image-20260409233138996">
-        <img src="https://img.guokun.net/PicGo/image-20260409233138996.png"
+    <h1 id="电机">电机
+</h1><p>电源就是插上后，直接供电，启动，所以没有写相关的代码</p>
+<h2 id="分析原理图">分析原理图
+</h2><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260416234928590.png" data-caption="image-20260416234928590">
+        <img src="https://img.guokun.net/PicGo/image-20260416234928590.png"
             
             
             
             loading="lazy"
-            alt="image-20260409233138996"
+            alt="image-20260416234928590"
             
         >
     </a>
 </div></p>
 <p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260409233158548.png" data-caption="image-20260409233158548">
-        <img src="https://img.guokun.net/PicGo/image-20260409233158548.png"
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260416235019250.png" data-caption="image-20260416235019250">
+        <img src="https://img.guokun.net/PicGo/image-20260416235019250.png"
             
             
             
             loading="lazy"
-            alt="image-20260409233158548"
+            alt="image-20260416235019250"
             
         >
     </a>
 </div></p>
-<p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260409233211956.png" data-caption="image-20260409233211956">
-        <img src="https://img.guokun.net/PicGo/image-20260409233211956.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260409233211956"
-            
-        >
-    </a>
-</div></p>
-<h2 id="日志打印">日志打印
-</h2><p>通过串口实现日志打印</p>
-<p>这里使用的STM32的串口3，<strong>UART3_TX PB10和UART3_RX PB11</strong></p>
-<p>配置UART3</p>
-<p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260409233622115.png" data-caption="image-20260409233622115">
-        <img src="https://img.guokun.net/PicGo/image-20260409233622115.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260409233622115"
-            
-        >
-    </a>
-</div></p>
-<p>其他的模式选项</p>
-<p><div class="post-img-view">
-    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260409233858220.png" data-caption="image-20260409233858220">
-        <img src="https://img.guokun.net/PicGo/image-20260409233858220.png"
-            
-            
-            
-            loading="lazy"
-            alt="image-20260409233858220"
-            
-        >
-    </a>
-</div></p>
-<div class="table-wrapper"><table>
-<thead>
-<tr>
-<th style="text-align:center">模式</th>
-<th style="text-align:center">核心特点</th>
-<th style="text-align:center">接线</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Disable</td>
-<td style="text-align:center">关闭外设</td>
-<td style="text-align:center">无</td>
-</tr>
-<tr>
-<td style="text-align:center">Asynchronous</td>
-<td style="text-align:center">异步 UART，全双工</td>
-<td style="text-align:center">TX/RX 2 根线</td>
-</tr>
-<tr>
-<td style="text-align:center">Synchronous</td>
-<td style="text-align:center">同步 USART，高速</td>
-<td style="text-align:center">TX/RX/CK 3 根线</td>
-</tr>
-<tr>
-<td style="text-align:center">Single Wire (Half-Duplex)</td>
-<td style="text-align:center">单线半双工，省 IO</td>
-<td style="text-align:center">1 根线</td>
-</tr>
-<tr>
-<td style="text-align:center">Multiprocessor Communication</td>
-<td style="text-align:center">多机主从通信</td>
-<td style="text-align:center">1/2 根线</td>
-</tr>
-<tr>
-<td style="text-align:center">IrDA</td>
-<td style="text-align:center">红外无线通信</td>
-<td style="text-align:center">红外模块</td>
-</tr>
-<tr>
-<td style="text-align:center">LIN</td>
-<td style="text-align:center">汽车 LIN 总线</td>
-<td style="text-align:center">1 根线</td>
-</tr>
-<tr>
-<td style="text-align:center">SmartCard</td>
-<td style="text-align:center">智能卡通信</td>
-<td style="text-align:center">多线</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li>创建一个common的文件夹存放自己写的程序</li>
-<li>新建C0m_debug.c、C0m_debug.h文件</li>
-</ul>
-<p>C0m_debug.c</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;Com_debug.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="c1">//重定向fputc函数到串口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">fputc</span><span class="p">(</span><span class="kt">int</span> <span class="n">ch</span><span class="p">,</span> <span class="n">FILE</span> <span class="o">*</span><span class="n">f</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//将字符发送到串口
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">HAL_UART_Transmit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">huart3</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">ch</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ch</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">PWM1</span>   <span class="o">=&gt;</span>		<span class="n">PA0</span>
+</span></span><span class="line"><span class="cl"><span class="n">PWM2</span>   <span class="o">=&gt;</span>		<span class="n">PA1</span>
+</span></span><span class="line"><span class="cl"><span class="n">PWM3</span>   <span class="o">=&gt;</span>		<span class="n">PA2</span>
+</span></span><span class="line"><span class="cl"><span class="n">PWM4</span>   <span class="o">=&gt;</span>		<span class="n">PA3</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>C0m_debug.h</p>
+</div><p>STM32F103C8T6的引脚对应</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260416235242561.png" data-caption="image-20260416235242561">
+        <img src="https://img.guokun.net/PicGo/image-20260416235242561.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260416235242561"
+            
+        >
+    </a>
+</div></p>
+<p>PWM是使用TIM2定时器的四个通道</p>
+<p>HAL库配置TIM2</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417001047394.png" data-caption="image-20260417001047394">
+        <img src="https://img.guokun.net/PicGo/image-20260417001047394.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417001047394"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417001150000.png" data-caption="image-20260417001150000">
+        <img src="https://img.guokun.net/PicGo/image-20260417001150000.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417001150000"
+            
+        >
+    </a>
+</div></p>
+<p>设置定时器</p>
+<ul>
+<li>
+<p>预分频系数</p>
+<p>主控芯片 72Mhz 计数一次的周期为 1/72M =&gt; 1/72us  计数时间太短</p>
+<ul>
+<li>定时器计数的频率等于 72/预分频</li>
+<li>选择预分频系数为4</li>
+<li>由于预分频系数从0开始，0也就是1分频，所以4分频写4-1</li>
+</ul>
+</li>
+</ul>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417002400478.png" data-caption="image-20260417002400478">
+        <img src="https://img.guokun.net/PicGo/image-20260417002400478.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417002400478"
+            
+        >
+    </a>
+</div></p>
+<ul>
+<li>重装载系数
+<ul>
+<li>重装载的值代表定时器计数多少次为1轮</li>
+<li>选择了一个好算的1000次为1轮</li>
+<li>周期 = 1000 * 1/18M = 55.55us     55us一个周期</li>
+</ul>
+</li>
+</ul>
+<p>同理由于重装载值也是从0开始计数，所以写1000 -1</p>
+<ul>
+<li>占空比
+<ul>
+<li>通道比较值 / 重装载值</li>
+<li>通道比较值不用减一，自己设定 这里设置为200</li>
+<li>200/1000 也就是20%,一个周期的20%的时间是有效电平</li>
+</ul>
+</li>
+</ul>
+<h2 id="硬件">硬件
+</h2><p>使用的是8520的空心杯电机</p>
+<p><strong>85</strong> → <strong>直径 8.5 mm</strong></p>
+<p><strong>20</strong> → <strong>长度 20 mm</strong></p>
+<h2 id="程序">程序
+</h2><p>程序部分，就是启动定时器，设置占空比</p>
+<p>都有对应的函数</p>
+<p>Int_motor.h</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -516,32 +495,187 @@
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#ifndef COM_DEBUG_H
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define COM_DEBUG_H
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#ifndef INT_MOTOR_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define INT_MOTOR_H
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;usart.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;stdio.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;stdarg.h&#34;</span><span class="cp">
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;tim.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Com_debug.h&#34;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="c1">//设置一个日志输出打印开关
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define DEBUG_LOG_ENABLE 1
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#ifdef DEBUG_LOG_ENABLE
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">//使用宏定义，只打印文件名和行号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define debug_printf(format,...)  printf(&#34;[%s:%d]  &#34; format, __FILE__, __LINE__,##__VA_ARGS__)
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#else
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">//如果不开启日志输出，则定义为空    
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define debug_printf(format,...)
-</span></span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">//ifdef
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TIM_HandleTypeDef</span> <span class="o">*</span><span class="n">tim</span><span class="p">;</span> <span class="c1">// 定时器句柄
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint16_t</span> <span class="n">channel</span><span class="p">;</span>       <span class="c1">// 定时器通道
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint16_t</span> <span class="n">speed</span><span class="p">;</span>         <span class="c1">// 电机速度值    
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="n">Motor_Struct_T</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @brief  传入的参数其实是电机速度值 最大为1000 默认200
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @param motor 电机结构体指针
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_motor_set_speed</span><span class="p">(</span><span class="n">Motor_Struct_T</span> <span class="o">*</span><span class="n">motor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @brief  启动电机
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @param motor 电机结构体指针
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_motor_start</span><span class="p">(</span><span class="n">Motor_Struct_T</span> <span class="o">*</span><span class="n">motor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// INT_MOTOR_H
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>为什么要设置开关，因为日志输出打印在CPU运行上非常占用资源</p>
-<p>通过比特率计算 打印10字节大概需要1ms，影响飞机的飞行，所以飞行时，关闭打印</p>
+</div><p>Int_motor.c</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Int_motor.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @brief  传入的参数其实是电机速度值 最大为1000 默认200
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @param speed 电机速度值
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_motor_set_speed</span><span class="p">(</span><span class="n">Motor_Struct_T</span> <span class="o">*</span><span class="n">motor</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">motor</span><span class="o">-&gt;</span><span class="n">speed</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="nf">debug_printf</span><span class="p">(</span><span class="s">&#34;motor speed out of range, setting to 1000&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">       <span class="k">return</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    <span class="c1">// 设置定时器的占空比
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">__HAL_TIM_SET_COMPARE</span><span class="p">(</span><span class="n">motor</span><span class="o">-&gt;</span><span class="n">tim</span><span class="p">,</span> <span class="n">motor</span><span class="o">-&gt;</span><span class="n">channel</span><span class="p">,</span> <span class="n">motor</span><span class="o">-&gt;</span><span class="n">speed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @brief  启动电机
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @param motor 电机结构体指针
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_motor_start</span><span class="p">(</span><span class="n">Motor_Struct_T</span> <span class="o">*</span><span class="n">motor</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 启动定时器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">HAL_TIM_PWM_Start</span><span class="p">(</span><span class="n">motor</span><span class="o">-&gt;</span><span class="n">tim</span><span class="p">,</span> <span class="n">motor</span><span class="o">-&gt;</span><span class="n">channel</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>motor_task</p>
+<p>任务就是简单调用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">//电机结构体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Motor_Struct_T</span> <span class="n">left_top_motor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">tim</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">htim2</span><span class="p">,</span>              <span class="c1">// 定时器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">TIM_CHANNEL_1</span><span class="p">,</span>   <span class="c1">// 定时器通道1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">200</span>                <span class="c1">// 默认速度值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">Motor_Struct_T</span> <span class="n">right_top_motor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">tim</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">htim2</span><span class="p">,</span>              <span class="c1">// 定时器2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">TIM_CHANNEL_2</span><span class="p">,</span>   <span class="c1">// 定时器通道2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">200</span>                <span class="c1">// 默认速度值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">Motor_Struct_T</span> <span class="n">left_bottom_motor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">tim</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">htim2</span><span class="p">,</span>              <span class="c1">// 定时器2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">TIM_CHANNEL_3</span><span class="p">,</span>   <span class="c1">// 定时器通道3
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">200</span>                <span class="c1">// 默认速度值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">Motor_Struct_T</span> <span class="n">right_bottom_motor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">tim</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">htim2</span><span class="p">,</span>              <span class="c1">// 定时器2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="n">channel</span> <span class="o">=</span> <span class="n">TIM_CHANNEL_4</span><span class="p">,</span>   <span class="c1">// 定时器通道4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">200</span>                <span class="c1">// 默认速度值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">flight_task</span><span class="p">(</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">arg</span> <span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//获取基准时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">TickType_t</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="nf">xTaskGetTickCount</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//1.设置电机转速
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">left_top_motor</span><span class="p">.</span><span class="n">speed</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//2.启动电机
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">Int_motor_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">left_top_motor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">Int_motor_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">right_top_motor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">Int_motor_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">left_bottom_motor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">Int_motor_start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">right_bottom_motor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span><span class="n">FLIGHT_TASK_PERIOD</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>到后面设置摇杆后，通过摇杆的上下推，来设置油门</p>
+<p>从0-1000</p>
 
 </section>
 
@@ -559,7 +693,7 @@
 
 
         <span>
-            最后更新于 2026-04-11 23:53
+            最后更新于 2026-04-18 01:45
         </span>
     </section></footer>
 
@@ -594,25 +728,6 @@
 
         <div class="article-details">
             <h2 class="article-title">按键和摇杆</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A81/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">电机驱动1</h2>
         </div>
     </a>
 </article>
@@ -675,66 +790,29 @@
 </article>
 
             
+                
+<article class="has-image">
+    <a href="/p/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">项目构建</h2>
+        </div>
+    </a>
+</article>
+
+            
         </div>
     </div>
 </aside>
 
-
-        
-            
-    <script
-    src="https://giscus.app/client.js"
-    data-repo=""
-    data-repo-id=""
-    data-category=""
-    data-category-id=""
-    data-mapping="title"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="light"
-    data-lang="en"
-    crossorigin="anonymous"
-    async
-></script>
-<script>
-    function setGiscusTheme(theme) {
-        let giscus = document.querySelector("iframe.giscus-frame");
-        if (giscus) {
-            giscus.contentWindow.postMessage(
-                {
-                    giscus: {
-                        setConfig: {
-                            theme: theme,
-                        },
-                    },
-                },
-                "https://giscus.app"
-            );
-        }
-    }
-
-    (function () {
-        addEventListener("message", (e) => {
-            if (event.origin !== "https://giscus.app") return;
-            handler();
-        });
-        window.addEventListener("onColorSchemeChange", handler);
-
-        function handler() {
-            if (document.documentElement.dataset.scheme === "light") {
-                setGiscusTheme('light');
-            } else {
-                setGiscusTheme('dark_dimmed');
-            }
-        }
-    })();
-</script>
-
-
-    ...
-    <div class="comment"></div>
 
         
     </article>

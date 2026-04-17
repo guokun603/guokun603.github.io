@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="按键和摇杆 按键 1 2 3 4 5 6 7 目前这几个按键对应的功能是 KEY1 ----------------- 定高 KEY2 ----------------- 基准校验 KEY5 ----------------- UP PITCH 俯仰 + 5 KEY6 ----------------- DOWN PITCH 俯仰 - 5 KEY7 ----------------- LEFT ROLL 横滚 - 5 KEY8 ----------------- RIGHT ROLL 横滚 + Int_key.c 1">
+<title>按键和摇杆</title>
+
+<link rel='canonical' href='https://guokun603.github.io/p/%E6%8C%89%E9%94%AE%E5%92%8C%E6%91%87%E6%9D%86/'>
+
+<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="按键和摇杆">
+<meta property='og:description' content="按键和摇杆 按键 1 2 3 4 5 6 7 目前这几个按键对应的功能是 KEY1 ----------------- 定高 KEY2 ----------------- 基准校验 KEY5 ----------------- UP PITCH 俯仰 + 5 KEY6 ----------------- DOWN PITCH 俯仰 - 5 KEY7 ----------------- LEFT ROLL 横滚 - 5 KEY8 ----------------- RIGHT ROLL 横滚 + Int_key.c 1">
+<meta property='og:url' content='https://guokun603.github.io/p/%E6%8C%89%E9%94%AE%E5%92%8C%E6%91%87%E6%9D%86/'>
+<meta property='og:site_name' content='郭小胖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-18T01:27:58&#43;08:00'/><meta property='article:modified_time' content='2026-04-18T01:45:39&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/无人机.png' />
+<meta name="twitter:title" content="按键和摇杆">
+<meta name="twitter:description" content="按键和摇杆 按键 1 2 3 4 5 6 7 目前这几个按键对应的功能是 KEY1 ----------------- 定高 KEY2 ----------------- 基准校验 KEY5 ----------------- UP PITCH 俯仰 + 5 KEY6 ----------------- DOWN PITCH 俯仰 - 5 KEY7 ----------------- LEFT ROLL 横滚 - 5 KEY8 ----------------- RIGHT ROLL 横滚 + Int_key.c 1"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/无人机.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hue6550b27d333e6d3ea4ba819e5c99674_47742_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">郭小胖</a></h1>
+            <h2 class="site-description">欢迎来到我的小窝</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com/'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/guokun603-cel'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-files"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 3v4a1 1 0 0 0 1 1h4" /><path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /><path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></svg>
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#按键">按键</a></li>
+    <li><a href="#摇杆">摇杆</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
+
+            <main class="main full-width">
+    <article class="article-page-main">
+        <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E6%8C%89%E9%94%AE%E5%92%8C%E6%91%87%E6%9D%86/">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" alt="Featured image of post 按键和摇杆" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%97%A0%E4%BA%BA%E6%9C%BA/" >
+                无人机
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%8C%89%E9%94%AE%E5%92%8C%E6%91%87%E6%9D%86/">按键和摇杆</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+       <div class="article-lastmod">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+            <time>
+                
+                2026-04-18 01:45
+            </time>
+        </div>
+
+        
+        
+        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--reading">
+                <span id="vercount_value_page_pv">loading...</span> 次
+            </time>
+        </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="按键和摇杆">按键和摇杆
+</h1><h2 id="按键">按键
+</h2><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417161355778.png" data-caption="image-20260417161355778">
+        <img src="https://img.guokun.net/PicGo/image-20260417161355778.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417161355778"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417161420945.png" data-caption="image-20260417161420945">
+        <img src="https://img.guokun.net/PicGo/image-20260417161420945.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417161420945"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417161607474.png" data-caption="image-20260417161607474">
+        <img src="https://img.guokun.net/PicGo/image-20260417161607474.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417161607474"
+            
+        >
+    </a>
+</div></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="err">目前这几个按键对应的功能是</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY1</span>   <span class="o">-----------------</span>  <span class="err">定高</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY2</span>   <span class="o">-----------------</span>  <span class="err">基准校验</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY5</span>   <span class="o">-----------------</span>  <span class="n">UP</span>			<span class="n">PITCH</span> <span class="err">俯仰</span> <span class="o">+</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY6</span>   <span class="o">-----------------</span>  <span class="n">DOWN</span>			<span class="n">PITCH</span> <span class="err">俯仰</span> <span class="o">-</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY7</span>   <span class="o">-----------------</span>  <span class="n">LEFT</span>			<span class="n">ROLL</span> <span class="err">横滚</span> <span class="o">-</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY8</span>   <span class="o">-----------------</span>  <span class="n">RIGHT</span>			<span class="n">ROLL</span> <span class="err">横滚</span> <span class="o">+</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Int_key.c</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Int_key.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">static</span> <span class="n">Key_type</span> <span class="nf">Int_key_scan</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Key_type</span> <span class="nf">Int_key_get</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nf">Int_key_scan</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @brief 扫描按键(无阻塞实现)
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @return 按键类型
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @note 在FreeRTOS中使用状态机实现,避免阻塞
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">Key_type</span> <span class="nf">Int_key_scan</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 方向键检测
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_UP_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_UP_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 消抖
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_UP_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_UP_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_UP_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_UP_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">KEY_UP</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_DOWN_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_DOWN_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 消抖
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_DOWN_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_DOWN_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_DOWN_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_DOWN_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">KEY_DOWN</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_LEFT_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_LEFT_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 消抖
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_LEFT_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_LEFT_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_LEFT_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_LEFT_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">KEY_LEFT</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_RIGHT_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_RIGHT_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 消抖
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_RIGHT_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_RIGHT_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY_RIGHT_GPIO_Port</span><span class="p">,</span> <span class="n">KEY_RIGHT_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">KEY_RIGHT</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 左上按键 KEY1 - 长按检测
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY1_GPIO_Port</span><span class="p">,</span> <span class="n">KEY1_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">TickType_t</span> <span class="n">count1</span><span class="o">=</span> <span class="nf">xTaskGetTickCount</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 消抖
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY1_GPIO_Port</span><span class="p">,</span> <span class="n">KEY1_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">while</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY1_GPIO_Port</span><span class="p">,</span> <span class="n">KEY1_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">TickType_t</span> <span class="n">count2</span> <span class="o">=</span> <span class="nf">xTaskGetTickCount</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">count2</span> <span class="o">-</span> <span class="n">count1</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">KEY1_LONG</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>   
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 右上按键 KEY2 - 长按检测
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY2_GPIO_Port</span><span class="p">,</span> <span class="n">KEY2_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TickType_t</span> <span class="n">count1</span><span class="o">=</span> <span class="nf">xTaskGetTickCount</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 消抖
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY2_GPIO_Port</span><span class="p">,</span> <span class="n">KEY2_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">           
+</span></span><span class="line"><span class="cl">                <span class="k">while</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY2_GPIO_Port</span><span class="p">,</span> <span class="n">KEY2_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">TickType_t</span> <span class="n">count2</span> <span class="o">=</span> <span class="nf">xTaskGetTickCount</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">count2</span> <span class="o">-</span> <span class="n">count1</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="n">KEY2_LONG</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">KEY2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY3_GPIO_Port</span><span class="p">,</span> <span class="n">KEY3_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 消抖
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY3_GPIO_Port</span><span class="p">,</span> <span class="n">KEY3_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY3_GPIO_Port</span><span class="p">,</span> <span class="n">KEY3_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">KEY3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY4_GPIO_Port</span><span class="p">,</span> <span class="n">KEY4_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 消抖
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY4_GPIO_Port</span><span class="p">,</span> <span class="n">KEY4_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="nf">HAL_GPIO_ReadPin</span><span class="p">(</span><span class="n">KEY4_GPIO_Port</span><span class="p">,</span> <span class="n">KEY4_Pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">GPIO_PIN_RESET</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">KEY4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">KEY_NONE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>由于使用FreeRTOS调度的任务，所以使用系统的HAL库延时函数，HAL库的延时函数具有阻塞的特点</p>
+<p>应该使用FreeRTOS中的延时函数，这个在延时的时候，会释放CPU，不会阻塞</p>
+<p>程序就是</p>
+<ul>
+<li>检测是否按下，延时消抖</li>
+<li>再判断是否按下，这个按下是说明真的按下，而不是按键抖动</li>
+<li>等待松手</li>
+</ul>
+<p>长短按就是通过定时器计数，数值超过一定值算长按，否则短按等</p>
+<ul>
+<li>检测是否按下，通过调用FreeRTOS的函数获取当前的时间，再消抖</li>
+<li>再判断是否按下，这个按下是说明真的按下，而不是按键抖动</li>
+<li>检测到松手后，马上再次获取当前时间</li>
+<li>两个时间之差，第二次 - 第一次 如果大于X( 自己设定)说明长按，否则短按</li>
+</ul>
+<p>Int_key.h</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#ifndef __INT_KEY_H__
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define __INT_KEY_H__
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span>  <span class="cpf">&#34;main.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;FreeRTOS.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;task.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">enum</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY_NONE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY1</span><span class="p">,</span>           <span class="c1">// 左上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">KEY1_LONG</span><span class="p">,</span>      <span class="c1">// 左上长按
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">KEY2</span><span class="p">,</span>           <span class="c1">// 右上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">KEY2_LONG</span><span class="p">,</span>      <span class="c1">// 右上长按
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">KEY3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="n">KEY4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KEY_LEFT</span><span class="p">,</span>       <span class="c1">// 左
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">KEY_RIGHT</span><span class="p">,</span>      <span class="c1">// 右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">KEY_DOWN</span><span class="p">,</span>       <span class="c1">// 下
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">KEY_UP</span><span class="p">,</span>         <span class="c1">// 上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span> <span class="n">Key_type</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Key_type</span> <span class="nf">Int_key_get</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// __INT_KEY_H__
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过程序返回的KEY的键值再设计对应的程序</p>
+<h2 id="摇杆">摇杆
+</h2><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417193727361.png" data-caption="image-20260417193727361">
+        <img src="https://img.guokun.net/PicGo/image-20260417193727361.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417193727361"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417193746895.png" data-caption="image-20260417193746895">
+        <img src="https://img.guokun.net/PicGo/image-20260417193746895.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417193746895"
+            
+        >
+    </a>
+</div></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">YAW</span>			<span class="o">-------------------</span> 		<span class="n">PA0</span>
+</span></span><span class="line"><span class="cl"><span class="n">THR</span>			<span class="o">-------------------</span> 		<span class="n">PA1</span>
+</span></span><span class="line"><span class="cl"><span class="n">ROLL</span>		<span class="o">-------------------</span> 		<span class="n">PA3</span>
+</span></span><span class="line"><span class="cl"><span class="n">PITCH</span>		<span class="o">-------------------</span> 		<span class="n">PA2</span> 
+</span></span><span class="line"><span class="cl"><span class="n">YAW</span>			<span class="err">偏航</span> <span class="o">/</span> <span class="err">航向</span>					<span class="err">控制飞机机头</span> <span class="err">左右转向</span>
+</span></span><span class="line"><span class="cl"><span class="n">THR</span>			<span class="err">油门</span>						 <span class="err">控制飞机</span> <span class="err">上升</span> <span class="o">/</span> <span class="err">下降</span>
+</span></span><span class="line"><span class="cl"><span class="n">PITCH</span>		<span class="err">俯仰</span>						 <span class="err">控制飞机</span> <span class="err">抬头</span> <span class="o">/</span> <span class="err">低头</span>
+</span></span><span class="line"><span class="cl"><span class="n">ROLL</span>		<span class="err">横滚</span> 						 <span class="err">控制飞机</span> <span class="err">左右倾斜</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417195310152.png" data-caption="image-20260417195310152">
+        <img src="https://img.guokun.net/PicGo/image-20260417195310152.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417195310152"
+            
+        >
+    </a>
+</div></p>
+<p>使用的是单片机的ADC1的四个通道</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417195743771.png" data-caption="image-20260417195743771">
+        <img src="https://img.guokun.net/PicGo/image-20260417195743771.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417195743771"
+            
+        >
+    </a>
+</div></p>
+<p>打开DMA，直接传输数据，不经过CPU计算</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417195846694.png" data-caption="image-20260417195846694">
+        <img src="https://img.guokun.net/PicGo/image-20260417195846694.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417195846694"
+            
+        >
+    </a>
+</div></p>
+<p><strong><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417200137875.png" data-caption="image-20260417200137875">
+        <img src="https://img.guokun.net/PicGo/image-20260417200137875.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417200137875"
+            
+        >
+    </a>
+</div></strong></p>
+<p>ADC的分频要求不能超过12</p>
+<p>Int_joystick.c</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Int_joystick.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint16_t</span> <span class="n">adc_buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="c1">//ADC数据缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cm">/**!SECTION
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   初始化ADC遥控   打开ADC
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_joystick_init</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//打开ADC
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//16位数据地址  其实是32位的数据 32位数据的地址为32位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//32单片机 使用的ADC转换为12位精度 0-4095
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">HAL_ADC_Start_DMA</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hadc1</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="o">*</span><span class="p">)</span><span class="n">adc_buffer</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**!SECTION
+</span></span></span><span class="line"><span class="cl"><span class="cm">*    读取ADC遥控数据  保存到结构体地址
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_joystick_get</span><span class="p">(</span><span class="n">Joystick_Struct</span> <span class="o">*</span><span class="n">joystick</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//DMA不依赖CPU计算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//实时保存到ADC数据缓冲区 对应通道顺序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">joystick</span><span class="o">-&gt;</span><span class="n">thr</span> <span class="o">=</span> <span class="n">adc_buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="o">-&gt;</span><span class="n">yaw</span> <span class="o">=</span> <span class="n">adc_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="o">-&gt;</span><span class="n">pit</span> <span class="o">=</span> <span class="n">adc_buffer</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="o">-&gt;</span><span class="n">rol</span> <span class="o">=</span> <span class="n">adc_buffer</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Int_joystick.h</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#ifndef __INT_JOYSTICK_H__
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define __INT_JOYSTICK_H__
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;adc.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;dma.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span>  <span class="k">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint16_t</span> <span class="n">thr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint16_t</span> <span class="n">yaw</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint16_t</span> <span class="n">pit</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint16_t</span> <span class="n">rol</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="n">Joystick_Struct</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**!SECTION
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   初始化ADC遥控   打开ADC
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_joystick_init</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**!SECTION
+</span></span></span><span class="line"><span class="cl"><span class="cm">*    读取ADC遥控数据  保存到结构体地址
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_joystick_get</span><span class="p">(</span><span class="n">Joystick_Struct</span> <span class="o">*</span><span class="n">joystick</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// !
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>App_process_data.c</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;App_process_data.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*******************************************************************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="n">Joystick_Struct</span> <span class="n">joystick</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//全局变量 存储遥控数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Remote_Data</span> <span class="n">remote_data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/*******************************************************************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//区分摇杆的控制值和按键的微调值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int16_t</span> <span class="n">key_pit_offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int16_t</span> <span class="n">key_roll_offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//零偏校准值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int16_t</span> <span class="n">thr_zero_offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int16_t</span> <span class="n">yaw_zero_offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int16_t</span> <span class="n">pit_zero_offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int16_t</span> <span class="n">rol_zero_offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*******************************************************************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">App_calibrate_joystick</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//零偏校准的逻辑就是减去零偏的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="c1">//首先清空按键的为微调值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">key_pit_offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">key_roll_offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//多次读取取平均值 作为零偏值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int16_t</span> <span class="n">thr_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int16_t</span> <span class="n">yaw_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int16_t</span> <span class="n">pit_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int16_t</span> <span class="n">rol_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">App_process_joystick_data</span><span class="p">();</span> 	<span class="c1">// 获取当前的遥控数据 此时在中间位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">thr_sum</span> <span class="o">+=</span> <span class="n">joystick</span><span class="p">.</span><span class="n">thr</span> <span class="o">-</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// 油门的零偏值为0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">yaw_sum</span> <span class="o">+=</span> <span class="n">joystick</span><span class="p">.</span><span class="n">yaw</span> <span class="o">-</span> <span class="mi">500</span><span class="p">;</span>  <span class="c1">// 航向的零偏值为500
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">pit_sum</span> <span class="o">+=</span> <span class="n">joystick</span><span class="p">.</span><span class="n">pit</span> <span class="o">-</span> <span class="mi">500</span><span class="p">;</span>  <span class="c1">// 俯仰的零偏值为500
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">rol_sum</span> <span class="o">+=</span> <span class="n">joystick</span><span class="p">.</span><span class="n">rol</span> <span class="o">-</span> <span class="mi">500</span><span class="p">;</span>  <span class="c1">// 横滚的零偏值为500
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">// 延时10ms
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//零偏校准的偏移值没有累加的效果 会造成两次校准退回的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//第二次退回 是因为第一次校准时已经准了 第二次时没有误差校准值为0 所以退回
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">thr_zero_offset</span> <span class="o">+=</span> <span class="n">thr_sum</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">yaw_zero_offset</span> <span class="o">+=</span> <span class="n">yaw_sum</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pit_zero_offset</span> <span class="o">+=</span> <span class="n">pit_sum</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">rol_zero_offset</span> <span class="o">+=</span> <span class="n">rol_sum</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*******************************************************************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/**!SECTION
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 处理按键数据      =&gt; 如果有按键按下 需要进行对应的记录
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">App_process_key_data</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Key_type</span> <span class="n">key</span> <span class="o">=</span> <span class="nf">Int_key_get</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//如果进行摇杆的校准 将按键的值调整为0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">KEY_UP</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//向前飞微调 俯仰角+
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">key_pit_offset</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">KEY_DOWN</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//向后飞微调 俯仰角-
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">key_pit_offset</span> <span class="o">-=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">KEY_LEFT</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//向左飞微调 横滚角-
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">key_roll_offset</span> <span class="o">-=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">KEY_RIGHT</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//向右飞微调 横滚角+
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">key_roll_offset</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">KEY1</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">remote_data</span><span class="p">.</span><span class="n">fix_height</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>     <span class="c1">//定高开关打开
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">KEY1_LONG</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">KEY2</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//摇杆校准
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//触发校准流程  摇杆值 THR = 0 YAW = 500  PIT = 500 ROL = 500
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**!SECTION
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 处理摇杆数据      =&gt; 修正极性相位和标准值
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">App_process_joystick_data</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//进入临界区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">taskENTER_CRITICAL</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//获取遥控数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">Int_joystick_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">joystick</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//处理范围和极性 想要范围 0 - 1000 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//adc范围 0-4095  1000/4095 = 0.244
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">joystick</span><span class="p">.</span><span class="n">thr</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">-</span> <span class="p">((</span><span class="n">joystick</span><span class="p">.</span><span class="n">thr</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4095</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">yaw</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">-</span> <span class="p">((</span><span class="n">joystick</span><span class="p">.</span><span class="n">yaw</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4095</span><span class="p">)</span> <span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">pit</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">-</span> <span class="p">((</span><span class="n">joystick</span><span class="p">.</span><span class="n">pit</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4095</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">rol</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">-</span> <span class="p">((</span><span class="n">joystick</span><span class="p">.</span><span class="n">rol</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4095</span><span class="p">)</span> <span class="p">;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//零偏校准
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">joystick</span><span class="p">.</span><span class="n">thr</span> <span class="o">-=</span> <span class="n">thr_zero_offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">yaw</span> <span class="o">-=</span> <span class="n">yaw_zero_offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">pit</span> <span class="o">-=</span> <span class="n">pit_zero_offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">rol</span> <span class="o">-=</span> <span class="n">rol_zero_offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//按键微调
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">joystick</span><span class="p">.</span><span class="n">pit</span> <span class="o">+=</span> <span class="n">key_pit_offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">rol</span> <span class="o">+=</span> <span class="n">key_roll_offset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//计算上偏移值限制范围
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">joystick</span><span class="p">.</span><span class="n">thr</span> <span class="o">=</span> <span class="nf">Com_limit</span><span class="p">(</span><span class="n">joystick</span><span class="p">.</span><span class="n">thr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">yaw</span> <span class="o">=</span> <span class="nf">Com_limit</span><span class="p">(</span><span class="n">joystick</span><span class="p">.</span><span class="n">yaw</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">pit</span> <span class="o">=</span> <span class="nf">Com_limit</span><span class="p">(</span><span class="n">joystick</span><span class="p">.</span><span class="n">pit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">joystick</span><span class="p">.</span><span class="n">rol</span> <span class="o">=</span> <span class="nf">Com_limit</span><span class="p">(</span><span class="n">joystick</span><span class="p">.</span><span class="n">rol</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//退出临界区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">taskEXIT_CRITICAL</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">debug_printf</span><span class="p">(</span><span class="s">&#34;joystick: thr=%d, yaw=%d, pit=%d, rol=%d</span><span class="se">\r\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">joystick</span><span class="p">.</span><span class="n">thr</span><span class="p">,</span> <span class="n">joystick</span><span class="p">.</span><span class="n">yaw</span><span class="p">,</span> <span class="n">joystick</span><span class="p">.</span><span class="n">pit</span><span class="p">,</span> <span class="n">joystick</span><span class="p">.</span><span class="n">rol</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>App_process_data.h</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#ifndef APP_PROCESS_DATA_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define APP_PROCESS_DATA_H
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Int_joystick.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Int_key.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Com_debug.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Com_tool.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="cm">/**********************************************************************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int16_t</span> <span class="n">thr</span><span class="p">;</span> <span class="c1">// 油门
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int16_t</span> <span class="n">yaw</span><span class="p">;</span> <span class="c1">// 航向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int16_t</span> <span class="n">pit</span><span class="p">;</span> <span class="c1">// 俯仰
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int16_t</span> <span class="n">rol</span><span class="p">;</span> <span class="c1">// 横滚
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">uint8_t</span> <span class="n">fix_height</span><span class="p">;</span>  <span class="c1">// 定高
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="n">Remote_Data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/**********************************************************************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/**!SECTION
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 处理按键数据      =&gt; 如果有按键按下 需要进行对应的记录
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">App_process_key_data</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/**!SECTION
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 处理摇杆数据      =&gt; 修正极性相位和标准值
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">App_process_joystick_data</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// APP_PROCESS_DATA_H
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>就是通过ADC获取摇杆的数据</p>
+<p>然后再对其进行划分极性和范围  油门一般 从下往上是加大油门</p>
+<p>再进行零偏校准</p>
+<ol>
+<li>摇杆的油门 按理来说从0开始</li>
+<li>摇杆的	航向   俯仰    横滚    都是处于中间的500</li>
+<li>一开始想成油门在最下面，就是摇杆往下掰，其他的也变了。实则不然，其他方向还是在中点</li>
+</ol>
+<p>零偏校准最好采用采集多次取平均值，得到偏移值</p>
+<p>最后再减去偏移值，就是最终的要的</p>
+<p>但是有的时候会超出范围，就再写一个限制范围的函数</p>
+</blockquote>
+<p>为什么使用临界区呢</p>
+<p>就是因为微调时，就是按键微调这个任务也会修改遥控数据，所以添加个临界区</p>
+<p>达到在处理App_process_joystick_data这个获取摇杆数据时，不被在设置某个值的时候，突然让按键任务打断，从而让按键修改摇杆数据值</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-04-18 01:45
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+        
+
+        
+
+        
+
+        
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A81/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">电机驱动1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/2.4g-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2.4G 无线通信</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/led/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">LED</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%A7%BB%E6%A4%8Dfreertos/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">移植FreeRTOS</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">项目构建</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        
+    </article>
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 郭小胖
+    </section>
+    
+    </footer>
+
+
+<div id="toast-stack"></div>
+
+<script>
+ 
+(() => {
+  const toastStack = document.getElementById('toast-stack');
+  let toastCount = 0;
+  const MAX_TOAST = 5;
+  const DURATION  = 2500;
+
+   
+  let lastText = '';
+  let lastTime = 0;
+
+  window.pushToast = function (msg = '✅ 哎嘿！复制成功 🍬') {
+    const now = Date.now();
+    if (msg === lastText && now - lastTime < 500) return; 
+    lastText = msg;
+    lastTime = now;
+
+     
+    if (toastCount >= MAX_TOAST) toastStack.firstElementChild?.closeToast();
+
+    const item = document.createElement('div');
+    item.className = 'snack-left-top';
+    item.textContent = msg;
+
+    let closeTimer = null;
+    function closeToast() {
+      if (item.isClosing) return;
+      item.isClosing = true;
+      item.classList.remove('show');
+      item.addEventListener('transitionend', () => {
+        item.remove();
+        toastCount--;
+      }, { once: true });
+      clearTimeout(closeTimer);
+    }
+    item.closeToast = closeToast;
+
+    toastStack.appendChild(item);
+    toastCount++;
+    void item.offsetWidth;
+    item.classList.add('show');
+    closeTimer = setTimeout(closeToast, DURATION);
+  };
+
+   
+  document.addEventListener('copy', e => {
+    const text = window.getSelection().toString().trim();
+    if (!text) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(text)
+      .then(() => pushToast())
+      .catch(console.warn);
+  });
+
+   
+  const container = document.querySelector('.article-content');
+  if (container) {
+    container.addEventListener('click', e => {
+      if (!e.target.matches('.copyCodeButton')) return;
+      const wrap = e.target.closest('pre, .highlight');
+      const codeTd = wrap?.querySelector('td:nth-child(2)') || wrap;
+      const txt = codeTd ? codeTd.textContent.trim() : '';
+      navigator.clipboard.writeText(txt)
+        .then(() => pushToast())
+        .catch(err => alert('复制失败：' + err));
+    });
+  }
+})();
+</script>
+
+<style>
+ 
+.copyCodeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #3d3c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.copyCodeButton:hover {
+  background: var(--hover-text-color);
+  color: #fff;
+}
+
+ 
+.snack-left-top {
+  position: fixed;
+  left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  transform: translateX(calc(-100% - 20px));
+  width: 300px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  background: var(--hover-text-color);
+  color: #fff;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .35);
+  z-index: 9999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+ 
+.snack-left-top.show {
+  transform: translateX(0);
+}
+ 
+#toast-stack {
+  position: fixed;
+  left: 0;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+ 
+#toast-stack .snack-left-top {
+  position: relative;    
+  margin-bottom: 12px;   
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+              opacity   .35s cubic-bezier(.4, 0, .2, 1);
+  opacity: 0;
+  transform: translateX(calc(-100% - 20px));
+}
+
+#toast-stack .snack-left-top.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script><script type="text/javascript" src="/ts/custom.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = '/fonts/lato.css';
+        customFont.type = 'text/css';
+        customFont.rel = 'stylesheet';
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    document.querySelectorAll(".highlight").forEach(codeBlock => {
+      
+      if (codeBlock.querySelector('.code-more-box')) return;
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) return;
+
+      const codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+
+      const codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+      });
+
+      const img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "https://guokun603.github.io/icons/codeMore.png";
+
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox);
+    });
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+<div class="js-Pjax">
+    <script>
+      (function () {
+        let comment = document.querySelector(".comment");
+        if (!comment) {
+          return
+        }
+        let script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-repo',"meimolihan/meimolihan.github.io");
+        script.setAttribute('data-repo-id',"R_kgDONpRkKg");
+        script.setAttribute('data-category',"Announcements");
+        script.setAttribute('data-category-id',"DIC_kwDONpRkKs4CmwSa");
+        script.setAttribute('data-mapping',"pathname");
+        script.setAttribute('data-strict', 0 );
+        script.setAttribute('data-reactions-enabled', 1 );
+        script.setAttribute('data-emit-metadata', 0 );
+        script.setAttribute('data-input-position',"top");
+        script.setAttribute('data-theme',"light");
+        script.setAttribute('data-lang',"zh-CN");
+        script.setAttribute('data-loading', 'lazy')
+        script.async = true;
+        document.querySelector('.site-footer').before(script)
+      })(document);
+    </script>
+    <div>
+
+
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+    (function () {
+        function initFancybox() {
+            if (!(window.jQuery && window.jQuery.fancybox)) return;
+            window.jQuery('[data-fancybox]').fancybox({
+                loop: true,
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'close']
+            });
+        }
+
+        window.addEventListener('load', initFancybox);
+        document.addEventListener('pjax:complete', initFancybox);
+    })();
+</script>
+
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.meimolihan.eu.org/hugo/fish/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+<style>
+  @font-face {
+    font-family: 'WenYuanSerifSCVF';
+    src: url(https://guokun603.github.io/font/WenYuanSerifSCVF.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'WenYuanSerifSCVF';
+    --code-font-family: 'WenYuanSerifSCVF';
+  }
+</style>
+
+<div class="js-Pjax">
+    <script>
+        (function () {
+            function showHideView() {
+                const viewCounts = document.querySelectorAll('#viewCount');
+                if (!viewCounts.length) return;
+                const display = document.querySelector('.article-page') ? '' : 'none';
+                viewCounts.forEach(el => { el.style.display = display; });
+            }
+
+            function loadVercount() {
+                if (document.getElementById('vercount-script')) return;
+                const script = document.createElement('script');
+                script.defer = true;
+                script.id = 'vercount-script';
+                script.src = 'https://cn.vercount.one/js';
+                document.body.appendChild(script);
+            }
+
+            function initVercount() {
+                showHideView();
+                loadVercount();
+            }
+
+            window.addEventListener('load', initVercount);
+            document.addEventListener('pjax:complete', initVercount);
+        })();
+    </script>
+</div>
+
+
+
+
+
+    </body>
+</html>

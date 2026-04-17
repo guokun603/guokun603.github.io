@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="无线通讯 做通信时，可以去**安信可**的官网，它整理的很全 模块类型 WiFi 速率高 高功耗 可以使用2.4G 5G频段 频率越高，波长越短 速度越快，穿透性差">
+<title>2.4G 无线通信</title>
+
+<link rel='canonical' href='https://guokun603.github.io/p/2.4g-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/'>
+
+<link rel="stylesheet" href="/scss/style.min.40d14a9b3b6df5629408d8684aa91f90c70d00f39515b844a8f1603225c8079c.css"><meta property='og:title' content="2.4G 无线通信">
+<meta property='og:description' content="无线通讯 做通信时，可以去**安信可**的官网，它整理的很全 模块类型 WiFi 速率高 高功耗 可以使用2.4G 5G频段 频率越高，波长越短 速度越快，穿透性差">
+<meta property='og:url' content='https://guokun603.github.io/p/2.4g-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/'>
+<meta property='og:site_name' content='郭小胖'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-18T01:24:16&#43;08:00'/><meta property='article:modified_time' content='2026-04-18T01:45:39&#43;08:00'/><meta property='og:image' content='https://img.guokun.net/PicGo/无人机.png' />
+<meta name="twitter:title" content="2.4G 无线通信">
+<meta name="twitter:description" content="无线通讯 做通信时，可以去**安信可**的官网，它整理的很全 模块类型 WiFi 速率高 高功耗 可以使用2.4G 5G频段 频率越高，波长越短 速度越快，穿透性差"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://img.guokun.net/PicGo/无人机.png' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hue6550b27d333e6d3ea4ba819e5c99674_47742_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">郭小胖</a></h1>
+            <h2 class="site-description">欢迎来到我的小窝</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://www.bilibili.com/'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/guokun603-cel'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-files"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 3v4a1 1 0 0 0 1 1h4" /><path d="M18 17h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h4l5 5v7a2 2 0 0 1 -2 2" /><path d="M16 17v2a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2" /></svg>
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 </span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#模块类型">模块类型</a></li>
+    <li><a href="#原理图">原理图</a></li>
+    <li><a href="#程序">程序</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+
+
+            <main class="main full-width">
+    <article class="article-page-main">
+        <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/2.4g-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" alt="Featured image of post 2.4G 无线通信" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%97%A0%E4%BA%BA%E6%9C%BA/" >
+                无人机
+            </a>
+        
+            <a href="/categories/%E5%85%83%E5%99%A8%E4%BB%B6/" >
+                元器件
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2.4g-%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/">2.4G 无线通信</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+       <div class="article-lastmod">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+            <time>
+                
+                2026-04-18 01:45
+            </time>
+        </div>
+
+        
+        
+        <div id="viewCount" style="display: inline-block; margin-left: 0.8rem;">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+            <time class="article-time--reading">
+                <span id="vercount_value_page_pv">loading...</span> 次
+            </time>
+        </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="无线通讯">无线通讯
+</h1><p>做通信时，可以去**<a class="link" href="https://docs.ai-thinker.com/"  target="_blank" rel="noopener"
+    >安信可</a>**的官网，它整理的很全</p>
+<hr>
+<h2 id="模块类型">模块类型
+</h2><ul>
+<li>
+<p>WiFi</p>
+<ul>
+<li>速率高 高功耗</li>
+<li>可以使用2.4G 5G频段</li>
+<li>频率越高，波长越短 速度越快，穿透性差</li>
+</ul>
+</li>
+<li>
+<p>蓝牙</p>
+<ul>
+<li>
+<p>经典蓝牙</p>
+</li>
+<li>
+<p>BLE	低功耗蓝牙</p>
+</li>
+<li>
+<p>频段2.4G</p>
+</li>
+<li>
+<p>优点：连接&mdash;-匹配流完整</p>
+</li>
+</ul>
+</li>
+<li>
+<p>LoRa</p>
+<ul>
+<li>广域</li>
+<li>常用频段 500MHz</li>
+<li>范围广 穿透强</li>
+</ul>
+</li>
+<li>
+<p>NB-LOT</p>
+<ul>
+<li>物联网模块</li>
+<li>速度慢 功耗低</li>
+</ul>
+</li>
+<li>
+<p>2.4G</p>
+<ul>
+<li>裸芯片 高性价比</li>
+</ul>
+</li>
+</ul>
+<p>选型</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417013912826.png" data-caption="image-20260417013912826">
+        <img src="https://img.guokun.net/PicGo/image-20260417013912826.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417013912826"
+            
+        >
+    </a>
+</div></p>
+<p>采用的通信方式为SPI通信，这里复习SPI的知识，看之前的博客</p>
+<p><a class="link" href="https://blog.csdn.net/weixin_45198947/article/details/150022111?spm=1001.2014.3001.5501"  target="_blank" rel="noopener"
+    >通信协议总结_sbi协议-CSDN博客</a></p>
+<h2 id="原理图">原理图
+</h2><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417014551631.png" data-caption="image-20260417014551631">
+        <img src="https://img.guokun.net/PicGo/image-20260417014551631.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417014551631"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417011252534.png" data-caption="image-20260417011252534">
+        <img src="https://img.guokun.net/PicGo/image-20260417011252534.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417011252534"
+            
+        >
+    </a>
+</div></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="n">CE</span>		<span class="o">=&gt;</span>			<span class="n">PA11</span>		<span class="n">CE也就是使能</span>
+</span></span><span class="line"><span class="cl"><span class="n">CSN</span>		<span class="o">=&gt;</span>			<span class="n">PB12</span>		<span class="n">CSN是片选</span>
+</span></span><span class="line"><span class="cl"><span class="n">SCK</span>		<span class="o">=&gt;</span>			<span class="n">PB13</span>		<span class="err">时钟</span>
+</span></span><span class="line"><span class="cl"><span class="n">MOSI</span>	<span class="o">=&gt;</span>			<span class="n">PB15</span>		<span class="err">主发从收</span>
+</span></span><span class="line"><span class="cl"><span class="n">MISO</span>	<span class="o">=&gt;</span>			<span class="n">PB14</span>		<span class="err">主收从发</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417015604318.png" data-caption="image-20260417015604318">
+        <img src="https://img.guokun.net/PicGo/image-20260417015604318.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417015604318"
+            
+        >
+    </a>
+</div></p>
+<p>这里的通信芯片实际是使用<strong>SI24R1</strong>的</p>
+<p><a class="link" href="https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/docs/_media_old/nf-01-s_2_.pdf"  target="_blank" rel="noopener"
+    >中文规格书</a></p>
+<p><a class="link" href="https://aithinker-static.oss-cn-shenzhen.aliyuncs.com/docs/_media_old/si24r1_cn.pdf"  target="_blank" rel="noopener"
+    >芯片手册</a></p>
+<p>以上是对应的数据手册</p>
+<p>双端通信的要求：</p>
+<ul>
+<li>一般是使用相同的驱动文件</li>
+<li>选择相同的频道 0-125对应 2400-2525MHz</li>
+<li>空中速率相同  有250kbps  1Mbps   2Mbps</li>
+<li>地址宽度和地址内容相同、数据宽度相同</li>
+</ul>
+<h2 id="程序">程序
+</h2><p>首先配置</p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417015722253.png" data-caption="image-20260417015722253">
+        <img src="https://img.guokun.net/PicGo/image-20260417015722253.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417015722253"
+            
+        >
+    </a>
+</div></p>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417015826196.png" data-caption="image-20260417015826196">
+        <img src="https://img.guokun.net/PicGo/image-20260417015826196.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417015826196"
+            
+        >
+    </a>
+</div></p>
+<p>通信也是可以先看官方的<strong>DEMO</strong></p>
+<p>可以根据官方的程序进行修改</p>
+<p>最重要的就是通过SPI读写一个字节的程序</p>
+<p>使用HAL库的<strong>SPI 同步收发函数</strong></p>
+<p>发一个 → 收一个</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">uint8_t</span> <span class="nf">SPI_RW</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">byte</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint8_t</span> <span class="n">rx_data</span><span class="p">;</span>    <span class="c1">// 用于存储接收数据的变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nf">HAL_SPI_TransmitReceive</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hspi2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">byte</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rx_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">rx_data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>再就是往寄存器写数据、读数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 写寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   reg: 寄存器地址   格式为 SI24R1_WRITE_REG + reg
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   value: 要写入寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：寄存器的状态
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">reg</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">uint8_t</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 选中SI24R1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">CSN_LOW</span><span class="p">;</span>                                 
+</span></span><span class="line"><span class="cl">	<span class="c1">// 发送写寄存器命令和寄存器地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">status</span> <span class="o">=</span> <span class="nf">SPI_RW</span><span class="p">(</span><span class="n">reg</span><span class="p">);</span>                    
+</span></span><span class="line"><span class="cl">	<span class="c1">// 发送要写入寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">SPI_RW</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>                           
+</span></span><span class="line"><span class="cl">	<span class="c1">// 取消选中SI24R1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">CSN_HIGH</span><span class="p">;</span>                              
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 写寄存器的值 (多字节)
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   reg: 寄存器地址   格式为 SI24R1_WRITE_REG + reg
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   pBuf: 要写入寄存器的数据缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   size: 要写入的字节数
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：寄存器的状态
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_Write_Buf</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">reg</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pBuf</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint8_t</span> <span class="n">status</span><span class="p">,</span><span class="n">byte_ctr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">CSN_LOW</span><span class="p">;</span>                                  			
+</span></span><span class="line"><span class="cl">  <span class="n">status</span> <span class="o">=</span> <span class="nf">SPI_RW</span><span class="p">(</span><span class="n">reg</span><span class="p">);</span>                          
+</span></span><span class="line"><span class="cl">  <span class="k">for</span><span class="p">(</span><span class="n">byte_ctr</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">byte_ctr</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span> <span class="n">byte_ctr</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">SPI_RW</span><span class="p">(</span><span class="o">*</span><span class="n">pBuf</span><span class="o">++</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>     
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">CSN_HIGH</span><span class="p">;</span>                                      	
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>       
+</span></span><span class="line"><span class="cl"><span class="p">}</span>							  					   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 读寄存器的值 单字节
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   reg: 寄存器地址   格式为 SI24R1_READ_REG + reg
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_Read_Reg</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">reg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 	<span class="kt">uint8_t</span> <span class="n">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">CSN_LOW</span><span class="p">;</span>    
+</span></span><span class="line"><span class="cl">	<span class="nf">SPI_RW</span><span class="p">(</span><span class="n">reg</span><span class="p">);</span>			
+</span></span><span class="line"><span class="cl">	<span class="n">value</span> <span class="o">=</span> <span class="nf">SPI_RW</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CSN_HIGH</span><span class="p">;</span>              
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 读寄存器的值 (多字节)
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   reg: 寄存器地址   格式为 SI24R1_READ_REG + reg
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   pBuf: 用于存储读取数据的缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   size: 要读取的字节数
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：寄存器的状态
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_Read_Buf</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">reg</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pBuf</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 	<span class="kt">uint8_t</span> <span class="n">status</span><span class="p">,</span><span class="n">byte_ctr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">CSN_LOW</span><span class="p">;</span>    
+</span></span><span class="line"><span class="cl">	<span class="nf">SPI_RW</span><span class="p">(</span><span class="n">reg</span><span class="p">);</span>			
+</span></span><span class="line"><span class="cl">	<span class="k">for</span><span class="p">(</span><span class="n">byte_ctr</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">byte_ctr</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span><span class="n">byte_ctr</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">pBuf</span><span class="p">[</span><span class="n">byte_ctr</span><span class="p">]</span> <span class="o">=</span> <span class="nf">SPI_RW</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CSN_HIGH</span><span class="p">;</span>              
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="p">(</span><span class="n">status</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<strong>SI24R1</strong>中重要有</p>
+<ul>
+<li>
+<p>接收模式初始化</p>
+</li>
+<li>
+<p>发送模式初始化</p>
+</li>
+<li>
+<p>发送数据</p>
+</li>
+<li>
+<p>接收数据</p>
+<p>程序比着官方的DEMO修改，还可以查看最后的案例</p>
+</li>
+</ul>
+<p><div class="post-img-view">
+    <a data-fancybox="gallery" href="https://img.guokun.net/PicGo/image-20260417021819814.png" data-caption="image-20260417021819814">
+        <img src="https://img.guokun.net/PicGo/image-20260417021819814.png"
+            
+            
+            
+            loading="lazy"
+            alt="image-20260417021819814"
+            
+        >
+    </a>
+</div></p>
+<blockquote>
+<p>有关于宏定义的内容</p>
+<p>寄存器的地址从00 - 1D</p>
+<p>其他超了</p>
+<p>的是就是SPI的指令</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="n">TX_ADDRESS</span><span class="p">[</span><span class="n">TX_ADR_WIDTH</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x0A</span><span class="p">,</span><span class="mh">0x01</span><span class="p">,</span><span class="mh">0x07</span><span class="p">,</span><span class="mh">0x0E</span><span class="p">,</span><span class="mh">0x01</span><span class="p">};</span>  <span class="c1">// 默认发射地址
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* SI24R1接收模式初始化
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：无
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：无
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_SI24R1_RX_Mode</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CE_LOW</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Int_SI24R1_Write_Buf</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">RX_ADDR_P0</span><span class="p">,</span> <span class="n">TX_ADDRESS</span><span class="p">,</span> <span class="n">TX_ADR_WIDTH</span><span class="p">);</span> 		<span class="c1">// 设置接收地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">EN_AA</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">);</span>               				<span class="c1">//使能数据管道0的自动应答	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">EN_RXADDR</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">);</span>           				<span class="c1">//使能数据管道0的接收地址		
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">RF_CH</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>                 				<span class="c1">//选择射频通道40		
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">RX_PW_P0</span><span class="p">,</span> <span class="n">TX_PLOAD_WIDTH</span><span class="p">);</span>  				<span class="c1">//接收数据管道0数据字节数		
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">RF_SETUP</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">);</span>            				<span class="c1">//数据传输速率1Mbps，发送功率4dBm		
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span> <span class="n">SI24R1_WRITE_REG</span><span class="o">+</span> <span class="n">CONFIG</span><span class="p">,</span> <span class="mh">0x0f</span><span class="p">);</span>              				<span class="c1">//CRC使能 16位CRC，接收模式，电源开启 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">STATUS</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">);</span>  							<span class="c1">//清除状态寄存器的中断标志
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">CE_HIGH</span><span class="p">;</span>                                            								
+</span></span><span class="line"><span class="cl"><span class="p">}</span>						
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* SI24R1发送模式初始化
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：无
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：无
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_SI24R1_TX_Mode</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">CE_LOW</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Int_SI24R1_Write_Buf</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">TX_ADDR</span><span class="p">,</span> <span class="n">TX_ADDRESS</span><span class="p">,</span> <span class="n">TX_ADR_WIDTH</span><span class="p">);</span>      
+</span></span><span class="line"><span class="cl">	<span class="nf">Int_SI24R1_Write_Buf</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">RX_ADDR_P0</span><span class="p">,</span> <span class="n">TX_ADDRESS</span><span class="p">,</span> <span class="n">TX_ADR_WIDTH</span><span class="p">);</span>   
+</span></span><span class="line"><span class="cl">	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">EN_AA</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">);</span>       											<span class="c1">// 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">EN_RXADDR</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">);</span>   											<span class="c1">// 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">SETUP_RETR</span><span class="p">,</span> <span class="mh">0x0a</span><span class="p">);</span>  											<span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">RF_CH</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>         											<span class="c1">// 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">RF_SETUP</span><span class="p">,</span> <span class="mh">0x06</span><span class="p">);</span>    											<span class="c1">// 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span> <span class="o">+</span> <span class="n">CONFIG</span><span class="p">,</span> <span class="mh">0x0e</span><span class="p">);</span>      											
+</span></span><span class="line"><span class="cl">	<span class="n">CE_HIGH</span><span class="p">;</span>																					
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 读取接收数据	硬件直接接收数据保存到队列中
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   rxbuf: 用于存储接收数据的缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：0:接收成功  1:接收失败
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_RxPacket</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">rxbuf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">uint8_t</span> <span class="n">state</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 读取状态寄存器的值 原封不懂写回状态寄存器	=》状态寄存器设置写1清除			
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">state</span> <span class="o">=</span> <span class="nf">Int_SI24R1_Read_Reg</span><span class="p">(</span><span class="n">STATUS</span><span class="p">);</span>  			            <span class="c1">//读取状态寄存器的值    	  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span><span class="o">+</span><span class="n">STATUS</span><span class="p">,</span><span class="n">state</span><span class="p">);</span>        <span class="c1">//清除RX_DS中断标志位	
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">state</span> <span class="o">&amp;</span> <span class="n">RX_DR</span><span class="p">)</span>	<span class="c1">//接收数据								                     
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>	
+</span></span><span class="line"><span class="cl">		<span class="nf">Int_SI24R1_Read_Buf</span><span class="p">(</span><span class="n">RD_RX_PLOAD</span><span class="p">,</span><span class="n">rxbuf</span><span class="p">,</span><span class="n">TX_PLOAD_WIDTH</span><span class="p">);</span>     <span class="c1">//读取数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">FLUSH_RX</span><span class="p">,</span><span class="mh">0xff</span><span class="p">);</span>					   <span class="c1">//清除RX FIFO缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>	   
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>                                                   <span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 发送数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   txbuf: 用于存储发送数据的缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：0:发送成功  1:发送失败
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_TxPacket</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">txbuf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">uint8_t</span> <span class="n">state</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//先进入配置模式，写入数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">CE_LOW</span><span class="p">;</span>															<span class="c1">//CE拉低 使能SI24R1										  //CEͣʹSI24R1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  	<span class="nf">Int_SI24R1_Write_Buf</span><span class="p">(</span><span class="n">WR_TX_PLOAD</span><span class="p">,</span> <span class="n">txbuf</span><span class="p">,</span> <span class="n">TX_PLOAD_WIDTH</span><span class="p">);</span>	    <span class="c1">//写数据到TX FIFO 32个字节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> 	<span class="n">CE_HIGH</span><span class="p">;</span>														<span class="c1">//CE拉高 使能发送									  //CEøߣʹܷ	   
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl">	<span class="c1">//没有使用中断判断是否发送完成 =》使用轮询读取状态标志位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//while(IRQ == 1);																				  //ȴ
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">state</span> <span class="o">=</span> <span class="nf">Int_SI24R1_Read_Reg</span><span class="p">(</span><span class="n">STATUS</span><span class="p">);</span>   												  <span class="c1">//读取状态寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">while</span><span class="p">((</span><span class="n">state</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">TX_DS</span> <span class="o">|</span> <span class="n">MAX_RT</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>												<span class="c1">//等待发送完成  发送成功或者达到最大重发次数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">state</span> <span class="o">=</span> <span class="nf">Int_SI24R1_Read_Reg</span><span class="p">(</span><span class="n">STATUS</span><span class="p">);</span>   											  <span class="c1">//读取状态寄存器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nf">vTaskDelay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">SI24R1_WRITE_REG</span><span class="o">+</span><span class="n">STATUS</span><span class="p">,</span> <span class="n">state</span><span class="p">);</span> 								<span class="c1">//清除TX_DS或MAX_RT中断标志位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">state</span> <span class="o">&amp;</span> <span class="n">MAX_RT</span><span class="p">)</span>																 	<span class="c1">//如果达到最大收发次数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="n">FLUSH_TX</span><span class="p">,</span><span class="mh">0xff</span><span class="p">);</span>										    <span class="c1">//手动清除TX FIFO缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span><span class="p">(</span><span class="n">state</span> <span class="o">&amp;</span> <span class="n">TX_DS</span><span class="p">)</span>																	<span class="c1">//发送成功
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>																			<span class="c1">//发送失败
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后的初始化</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">char si24r1_buff[10];
+</span></span><span class="line"><span class="cl">/********************************************************
+</span></span><span class="line"><span class="cl">* 检查SI24R1是否正常工作
+</span></span><span class="line"><span class="cl">* 参数说明：
+</span></span><span class="line"><span class="cl">*   无
+</span></span><span class="line"><span class="cl">* 返回值：0:发送成功  1:发送失败
+</span></span><span class="line"><span class="cl">*********************************************************/
+</span></span><span class="line"><span class="cl">uint8_t Int_SI24R1c_Check(void){
+</span></span><span class="line"><span class="cl">	//先读取一次
+</span></span><span class="line"><span class="cl">	Int_SI24R1_Read_Buf(SI24R1_READ_REG + CONFIG, si24r1_buff, TX_ADR_WIDTH);
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	//测试SPI通信能够正确读写寄存器
+</span></span><span class="line"><span class="cl">	//写入发送地址
+</span></span><span class="line"><span class="cl">	Int_SI24R1_Write_Buf(SI24R1_WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_WIDTH);
+</span></span><span class="line"><span class="cl">	//读取发送地址
+</span></span><span class="line"><span class="cl">	Int_SI24R1_Read_Buf(SI24R1_READ_REG + TX_ADDR, si24r1_buff, TX_ADR_WIDTH);	
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	for(uint8_t i = 0; i &lt; TX_ADR_WIDTH; i++){
+</span></span><span class="line"><span class="cl">		if(si24r1_buff[i] != TX_ADDRESS[i]){
+</span></span><span class="line"><span class="cl">			return 1;	//通信失败
+</span></span><span class="line"><span class="cl">		}
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">	return 0;	//通信成功
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/********************************************************
+</span></span><span class="line"><span class="cl">* SI24R1初始化
+</span></span><span class="line"><span class="cl">* 参数说明：
+</span></span><span class="line"><span class="cl">*   无
+</span></span><span class="line"><span class="cl">* 返回值：无
+</span></span><span class="line"><span class="cl">*********************************************************/
+</span></span><span class="line"><span class="cl">void Int_SI24R1_Init(void){
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	//上电后等待SI24R1稳定
+</span></span><span class="line"><span class="cl">	HAL_Delay(200);
+</span></span><span class="line"><span class="cl">	while(Int_SI24R1c_Check() == 1)	
+</span></span><span class="line"><span class="cl">	{
+</span></span><span class="line"><span class="cl">		HAL_Delay(10);
+</span></span><span class="line"><span class="cl">	}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	//设置默认的状态为接收模式 =》每次发送数据的时候 切换到发送状态
+</span></span><span class="line"><span class="cl">	Int_SI24R1_RX_Mode();
+</span></span><span class="line"><span class="cl">	debug_printf(&#34;SI24R1 Init Success!\r\n&#34;);
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为什么先读取一次，就是清空FIFO缓冲区，防止旧数据干扰</p>
+<p>Int_SI24R1.h</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="cp">#ifndef __Int_SI24R1__
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define __Int_SI24R1__
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;spi.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Com_debug.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;FreeRTOS.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;task.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//STM32CubeMX 定义引脚
+</span></span></span><span class="line"><span class="cl"><span class="c1">//拉低片选
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define CSN_LOW    HAL_GPIO_WritePin(SPI2_CSN_GPIO_Port, SPI2_CSN_Pin, GPIO_PIN_RESET);
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define CSN_HIGH   HAL_GPIO_WritePin(SPI2_CSN_GPIO_Port, SPI2_CSN_Pin, GPIO_PIN_SET);
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//拉高CE
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define CE_LOW     HAL_GPIO_WritePin(SPI2_CE_GPIO_Port, SPI2_CE_Pin, GPIO_PIN_RESET);
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define CE_HIGH    HAL_GPIO_WritePin(SPI2_CE_GPIO_Port, SPI2_CE_Pin, GPIO_PIN_SET);
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define TX_ADR_WIDTH    5    </span><span class="c1">// 发射地址宽度 (bytes)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define TX_PLOAD_WIDTH  32   </span><span class="c1">// 发射载荷宽度 (bytes)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//********************************************************************************************************************//
+</span></span></span><span class="line"><span class="cl"><span class="c1">// SPI(SI24R1) commands
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define SI24R1_READ_REG        0x00  </span><span class="c1">// Define read command to register
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define SI24R1_WRITE_REG       0x20  </span><span class="c1">// Define write command to register
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RD_RX_PLOAD     0x61  </span><span class="c1">// Define RX payload register address 从寄存器读取数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define WR_TX_PLOAD     0xA0  </span><span class="c1">// Define TX payload register address 写发送数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define FLUSH_TX        0xE1  </span><span class="c1">// Define flush TX register command
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define FLUSH_RX        0xE2  </span><span class="c1">// Define flush RX register command
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define REUSE_TX_PL     0xE3  </span><span class="c1">// Define reuse TX payload register command
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define NOP             0xFF  </span><span class="c1">// Define No Operation, might be used to read status register
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//********************************************************************************************************************//
+</span></span></span><span class="line"><span class="cl"><span class="c1">// SPI(SI24R1) registers(addresses)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define CONFIG          0x00  </span><span class="c1">// &#39;Config&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define EN_AA           0x01  </span><span class="c1">// &#39;Enable Auto Acknowledgment&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define EN_RXADDR       0x02  </span><span class="c1">// &#39;Enabled RX addresses&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define SETUP_AW        0x03  </span><span class="c1">// &#39;Setup address width&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define SETUP_RETR      0x04  </span><span class="c1">// &#39;Setup Auto. Retrans&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RF_CH           0x05  </span><span class="c1">// &#39;RF channel&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RF_SETUP        0x06  </span><span class="c1">// &#39;RF setup&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define STATUS          0x07  </span><span class="c1">// &#39;Status&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define OBSERVE_TX      0x08  </span><span class="c1">// &#39;Observe TX&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RSSI            0x09  </span><span class="c1">// &#39;Received Signal Strength Indecator&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_ADDR_P0      0x0A  </span><span class="c1">// &#39;RX address pipe0&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_ADDR_P1      0x0B  </span><span class="c1">// &#39;RX address pipe1&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_ADDR_P2      0x0C  </span><span class="c1">// &#39;RX address pipe2&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_ADDR_P3      0x0D  </span><span class="c1">// &#39;RX address pipe3&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_ADDR_P4      0x0E  </span><span class="c1">// &#39;RX address pipe4&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_ADDR_P5      0x0F  </span><span class="c1">// &#39;RX address pipe5&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define TX_ADDR         0x10  </span><span class="c1">// &#39;TX address&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_PW_P0        0x11  </span><span class="c1">// &#39;RX payload width, pipe0&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_PW_P1        0x12  </span><span class="c1">// &#39;RX payload width, pipe1&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_PW_P2        0x13  </span><span class="c1">// &#39;RX payload width, pipe2&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_PW_P3        0x14  </span><span class="c1">// &#39;RX payload width, pipe3&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_PW_P4        0x15  </span><span class="c1">// &#39;RX payload width, pipe4&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_PW_P5        0x16  </span><span class="c1">// &#39;RX payload width, pipe5&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define FIFO_STATUS     0x17  </span><span class="c1">// &#39;FIFO Status Register&#39; register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">//********************************************************************************************************************//
+</span></span></span><span class="line"><span class="cl"><span class="c1">// STATUS Register 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define RX_DR						0x40  </span><span class="cm">/**/</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define TX_DS						0x20
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define MAX_RT					    0x10
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//********************************************************************************************************************//
+</span></span></span><span class="line"><span class="cl"><span class="c1">//                                        FUNCTION&#39;s PROTOTYPES                                                       //
+</span></span></span><span class="line"><span class="cl"><span class="c1">//********************************************************************************************************************//
+</span></span></span><span class="line"><span class="cl"><span class="c1">//SI24R1 API Functions
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 写寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   reg: 寄存器地址   格式为 SI24R1_WRITE_REG + reg
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   value: 要写入寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：寄存器的状态
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_Write_Reg</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">reg</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">value</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 写寄存器的值 (多字节)
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   reg: 寄存器地址   格式为 SI24R1_WRITE_REG + reg
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   pBuf: 要写入寄存器的数据缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   bytes: 要写入的字节数
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：寄存器的状态
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_Write_Buf</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">reg</span><span class="p">,</span> <span class="k">const</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pBuf</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 读寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   reg: 寄存器地址   格式为 SI24R1_READ_REG + reg
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：寄存器的值
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_Read_Reg</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">reg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 读寄存器的值 (多字节)
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   reg: 寄存器地址   格式为 SI24R1_READ_REG + reg
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   pBuf: 用于存储读取数据的缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   size: 要读取的字节数
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：寄存器的状态
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_Read_Buf</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">reg</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">pBuf</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* SI24R1接收模式初始化
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：无
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：无
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_SI24R1_RX_Mode</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 读取接收数据	硬件直接接收数据保存到队列中
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   rxbuf: 用于存储接收数据的缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：0:接收成功  1:接收失败
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_SI24R1_TX_Mode</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 读取接收数据	硬件直接接收数据保存到队列中
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   rxbuf: 用于存储接收数据的缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：0:接收成功  1:接收失败
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_RxPacket</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">rxbuf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 发送数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   txbuf: 用于存储发送数据的缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：0:发送成功  1:发送失败
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">uint8_t</span> <span class="nf">Int_SI24R1_TxPacket</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">txbuf</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/********************************************************
+</span></span></span><span class="line"><span class="cl"><span class="cm">* SI24R1初始化
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 参数说明：
+</span></span></span><span class="line"><span class="cl"><span class="cm">*   无
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 返回值：无
+</span></span></span><span class="line"><span class="cl"><span class="cm">*********************************************************/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">Int_SI24R1_Init</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//********************************************************************************************************************//
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#endif
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2026-04-18 01:45
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+        
+
+        
+
+        
+
+        
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%8C%89%E9%94%AE%E5%92%8C%E6%91%87%E6%9D%86/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">按键和摇杆</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%94%B5%E6%9C%BA%E9%A9%B1%E5%8A%A81/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">电机驱动1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/led/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">LED</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%A7%BB%E6%A4%8Dfreertos/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">移植FreeRTOS</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://img.guokun.net/PicGo/%e6%97%a0%e4%ba%ba%e6%9c%ba.png" loading="lazy" data-key="" data-hash="https://img.guokun.net/PicGo/无人机.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">项目构建</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        
+    </article>
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 郭小胖
+    </section>
+    
+    </footer>
+
+
+<div id="toast-stack"></div>
+
+<script>
+ 
+(() => {
+  const toastStack = document.getElementById('toast-stack');
+  let toastCount = 0;
+  const MAX_TOAST = 5;
+  const DURATION  = 2500;
+
+   
+  let lastText = '';
+  let lastTime = 0;
+
+  window.pushToast = function (msg = '✅ 哎嘿！复制成功 🍬') {
+    const now = Date.now();
+    if (msg === lastText && now - lastTime < 500) return; 
+    lastText = msg;
+    lastTime = now;
+
+     
+    if (toastCount >= MAX_TOAST) toastStack.firstElementChild?.closeToast();
+
+    const item = document.createElement('div');
+    item.className = 'snack-left-top';
+    item.textContent = msg;
+
+    let closeTimer = null;
+    function closeToast() {
+      if (item.isClosing) return;
+      item.isClosing = true;
+      item.classList.remove('show');
+      item.addEventListener('transitionend', () => {
+        item.remove();
+        toastCount--;
+      }, { once: true });
+      clearTimeout(closeTimer);
+    }
+    item.closeToast = closeToast;
+
+    toastStack.appendChild(item);
+    toastCount++;
+    void item.offsetWidth;
+    item.classList.add('show');
+    closeTimer = setTimeout(closeToast, DURATION);
+  };
+
+   
+  document.addEventListener('copy', e => {
+    const text = window.getSelection().toString().trim();
+    if (!text) return;
+    e.preventDefault();
+    navigator.clipboard.writeText(text)
+      .then(() => pushToast())
+      .catch(console.warn);
+  });
+
+   
+  const container = document.querySelector('.article-content');
+  if (container) {
+    container.addEventListener('click', e => {
+      if (!e.target.matches('.copyCodeButton')) return;
+      const wrap = e.target.closest('pre, .highlight');
+      const codeTd = wrap?.querySelector('td:nth-child(2)') || wrap;
+      const txt = codeTd ? codeTd.textContent.trim() : '';
+      navigator.clipboard.writeText(txt)
+        .then(() => pushToast())
+        .catch(err => alert('复制失败：' + err));
+    });
+  }
+})();
+</script>
+
+<style>
+ 
+.copyCodeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #3d3c3c;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.copyCodeButton:hover {
+  background: var(--hover-text-color);
+  color: #fff;
+}
+
+ 
+.snack-left-top {
+  position: fixed;
+  left: 20px;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  transform: translateX(calc(-100% - 20px));
+  width: 300px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  background: var(--hover-text-color);
+  color: #fff;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .35);
+  z-index: 9999;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+ 
+.snack-left-top.show {
+  transform: translateX(0);
+}
+ 
+#toast-stack {
+  position: fixed;
+  left: 0;
+  top: calc(20px + env(safe-area-inset-top, 0px));
+  z-index: 9999;
+  pointer-events: none;
+}
+
+ 
+#toast-stack .snack-left-top {
+  position: relative;    
+  margin-bottom: 12px;   
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.4, 0, .2, 1),
+              opacity   .35s cubic-bezier(.4, 0, .2, 1);
+  opacity: 0;
+  transform: translateX(calc(-100% - 20px));
+}
+
+#toast-stack .snack-left-top.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+</style>
+
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script><script type="text/javascript" src="/ts/custom.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = '/fonts/lato.css';
+        customFont.type = 'text/css';
+        customFont.rel = 'stylesheet';
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    document.querySelectorAll(".highlight").forEach(codeBlock => {
+      
+      if (codeBlock.querySelector('.code-more-box')) return;
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) return;
+
+      const codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+
+      const codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+      });
+
+      const img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "https://guokun603.github.io/icons/codeMore.png";
+
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox);
+    });
+  }
+
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+<div class="js-Pjax">
+    <script>
+      (function () {
+        let comment = document.querySelector(".comment");
+        if (!comment) {
+          return
+        }
+        let script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-repo',"meimolihan/meimolihan.github.io");
+        script.setAttribute('data-repo-id',"R_kgDONpRkKg");
+        script.setAttribute('data-category',"Announcements");
+        script.setAttribute('data-category-id',"DIC_kwDONpRkKs4CmwSa");
+        script.setAttribute('data-mapping',"pathname");
+        script.setAttribute('data-strict', 0 );
+        script.setAttribute('data-reactions-enabled', 1 );
+        script.setAttribute('data-emit-metadata', 0 );
+        script.setAttribute('data-input-position',"top");
+        script.setAttribute('data-theme',"light");
+        script.setAttribute('data-lang',"zh-CN");
+        script.setAttribute('data-loading', 'lazy')
+        script.async = true;
+        document.querySelector('.site-footer').before(script)
+      })(document);
+    </script>
+    <div>
+
+
+
+<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+    (function () {
+        function initFancybox() {
+            if (!(window.jQuery && window.jQuery.fancybox)) return;
+            window.jQuery('[data-fancybox]').fancybox({
+                loop: true,
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'close']
+            });
+        }
+
+        window.addEventListener('load', initFancybox);
+        document.addEventListener('pjax:complete', initFancybox);
+    })();
+</script>
+
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.meimolihan.eu.org/hugo/fish/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+<style>
+  @font-face {
+    font-family: 'WenYuanSerifSCVF';
+    src: url(https://guokun603.github.io/font/WenYuanSerifSCVF.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'WenYuanSerifSCVF';
+    --code-font-family: 'WenYuanSerifSCVF';
+  }
+</style>
+
+<div class="js-Pjax">
+    <script>
+        (function () {
+            function showHideView() {
+                const viewCounts = document.querySelectorAll('#viewCount');
+                if (!viewCounts.length) return;
+                const display = document.querySelector('.article-page') ? '' : 'none';
+                viewCounts.forEach(el => { el.style.display = display; });
+            }
+
+            function loadVercount() {
+                if (document.getElementById('vercount-script')) return;
+                const script = document.createElement('script');
+                script.defer = true;
+                script.id = 'vercount-script';
+                script.src = 'https://cn.vercount.one/js';
+                document.body.appendChild(script);
+            }
+
+            function initVercount() {
+                showHideView();
+                loadVercount();
+            }
+
+            window.addEventListener('load', initVercount);
+            document.addEventListener('pjax:complete', initVercount);
+        })();
+    </script>
+</div>
+
+
+
+
+
+    </body>
+</html>
